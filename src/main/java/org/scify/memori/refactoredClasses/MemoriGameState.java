@@ -1,5 +1,6 @@
 package org.scify.memori.refactoredClasses;
 
+import org.scify.memori.MainOptions;
 import org.scify.memori.interfaces.refactored.GameEvent;
 import org.scify.memori.interfaces.refactored.GameState;
 import org.scify.memori.interfaces.refactored.Player;
@@ -58,5 +59,22 @@ public class MemoriGameState implements GameState {
         gameEventQueue = new LinkedList();
     }
 
+    /**
+     * CHecks if all tiles are in a won state
+     * @return
+     */
+    public boolean areAllTilesWon() {
+        boolean gameWon = true;
+        for(int x = 0; x < MainOptions.NUMBER_OF_ROWS; x++) {
+            for(int y = 0; y < MainOptions.NUMBER_OF_COLUMNS; y++) {
+                Card currCard = (Card)terrain.getTileState(x, y);
+                if(!currCard.getWon()) {
+                    gameWon = false;
+                    break;
+                }
+            }
+        }
+        return gameWon;
+    }
 
 }

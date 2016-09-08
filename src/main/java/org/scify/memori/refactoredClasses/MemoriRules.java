@@ -19,7 +19,8 @@ public class MemoriRules implements Rules {
         gsCurrentState.resetEventsQueue();
 
         if (uaAction.getActionType().equals("flip")) {
-            ((MemoriTerrain) (gsCurrentState.getTerrain())).toggleTile((int) uaAction.getCoords().getX(), (int) uaAction.getCoords().getY());
+            //((MemoriTerrain) (gsCurrentState.getTerrain())).toggleTile((int) uaAction.getCoords().getX(), (int) uaAction.getCoords().getY());
+            gsCurrentState.getEventQueue().add(new GameEvent("flip", uaAction.getCoords()));
             gsCurrentState.nextTurn(); // TODO: Remove
         } else if(uaAction.getActionType().equals("movement")) {
             gsCurrentState.getEventQueue().add(new GameEvent("movement", uaAction.getCoords()));
@@ -31,6 +32,6 @@ public class MemoriRules implements Rules {
 
     @Override
     public boolean isGameFinished(GameState gsCurrent) {
-        return ((MemoriGameState)gsCurrent).iCurrentTurn > 2;
+        return ((MemoriGameState)gsCurrent).areAllTilesWon();
     }
 }

@@ -71,4 +71,8 @@ public class Card implements Tile{
         button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 
+    public String getSound() {
+        return sound;
+    }
+
 }

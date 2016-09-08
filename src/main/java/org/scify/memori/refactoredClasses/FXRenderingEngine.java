@@ -29,6 +29,10 @@ import static javafx.scene.input.KeyCode.RIGHT;
 
 public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, EventHandler<KeyEvent> {
 
+    /**
+     * An Audio Engine object, able to play sounds
+     */
+    private FXAudioEngine fxAudioEngine;
     private static Stage mStage = new Stage();
     private GridPane mGridPane;
     private double mWidth = Screen.getPrimary().getBounds().getWidth();
@@ -48,6 +52,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             e.printStackTrace();
             return;
         }
+        fxAudioEngine = new FXAudioEngine();
         gameScene = new Scene(root, mWidth, mHeight);
     }
 
@@ -55,8 +60,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      * List of actions captured by the user interaction. User in the Player-derived methods.
      */
     List<UserAction> pendingUserActions = Collections.synchronizedList(new ArrayList<>());
-
-
 
     @Override
     public void drawGameState(MemoriGameState currentState) {
@@ -89,28 +92,73 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             // DEBUG LINES
 //            System.err.println("Updating components " +lLastUpdate);
             Queue<GameEvent> eventsQueue = currentState.getEventQueue();
-
-            // TODO: Iterate over all events
-            // TODO: ...and remove handled
-            Node node;
-            if(!eventsQueue.isEmpty()) {
-                if(eventsQueue.element().type.equals("movement")) {
-                    Point2D param = (Point2D) eventsQueue.element().parameters;
-                    System.out.println("point: " + param.getY() + "," + param.getX());
-                    node = getNodeByRowColumnIndex((int) param.getX(), (int) param.getY(), mGridPane);
-                    //node.requestFocus();
-                    node.getStyleClass().addAll("focusedCard");
-                    Button btn = (Button) node;
-                    System.out.println(btn.getId());
-                } else {
-                    //TODO handle other game events
+            while(!eventsQueue.isEmpty()) {
+                GameEvent currentGameEvent = eventsQueue.poll();
+                String eventType = currentGameEvent.type;
+                Point2D coords = (Point2D) currentGameEvent.parameters;
+                switch (eventType) {
+                    case "movement":
+                        focusOnTile((int) coords.getX(), (int)coords.getY());
+                        movementSound((int) coords.getX(), (int)coords.getY());
+                        break;
+                    case "flip":
+                        Card currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                        toggleTile(currCard);
+                        fxAudioEngine.playCardSound(currCard.getSound());
+                        break;
+                    case "invalidAction" :
+                        fxAudioEngine.playInvalidMovementSound();
+                        break;
                 }
-                currentState.resetEventsQueue(); // Clear all events
             }
         }
     }
 
-    private Node getNodeByRowColumnIndex(final int row,final int column,GridPane gridPane) {
+    /**
+     * flips the Node (card) located at the position (x, y)
+     * @param tile the tile to be flipped
+     */
+    public void toggleTile(Tile tile) {
+        tile.flip();
+    }
+
+
+    /**
+     * Given the coordinates, marks a Node as visited (green background) by applying a CSS class
+     * @param rowIndex the Node x position
+     * @param columnIndex the Node y position
+     */
+    private void focusOnTile(int rowIndex, int columnIndex) {
+        System.out.println("point: " + rowIndex + "," + columnIndex);
+        //get Node (in our case it's a button)
+        Node node = getNodeByRowColumnIndex(rowIndex, columnIndex, mGridPane);
+        //TODO: remove
+        //node.requestFocus();
+        //remove the focused class from every other Node
+        ObservableList<Node> nodes = mGridPane.getChildren();
+        for(Node nd: nodes) {
+            nd.getStyleClass().remove("focusedCard");
+        }
+        //apply the CSS class
+        node.getStyleClass().addAll("focusedCard");
+        Button btn = (Button) node;
+        //DEBUG print button id
+        System.out.println(btn.getId());
+    }
+
+    /**
+     * Computes the sound balance (left-right panning) and rate and plays the movement sound
+     * @param rowIndex the Node x position
+     * @param columnIndex the Node y position
+     */
+    private void movementSound(int rowIndex, int columnIndex) {
+        System.err.println("movementSound");
+        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS - 0.9, -1.0, 1.0);
+        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS - 0.9, 1.0, 1.5);
+        fxAudioEngine.playMovementSound(soundBalance, rate);
+    }
+
+    private Node getNodeByRowColumnIndex(final int row,final int column, GridPane gridPane) {
         Node result = null;
         ObservableList<Node> childrens = gridPane.getChildren();
         for(Node node : childrens) {
@@ -137,11 +185,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                 mGridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
                 card.getButton().setOnKeyPressed(this);
             });
-
             //it.remove(); // avoids a ConcurrentModificationException
         }
 
-        Platform.runLater(()-> { mGridPane.getChildren().get(0).requestFocus(); });
+        Platform.runLater(()-> { //set first card as visited
+            mGridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
     }
 
     public void setUpFXComponents() throws IOException {
@@ -248,5 +296,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                 break;
         }
         return true;
+    }
+
+    //maps a value to a new
+    private double map(double x, double in_min, double in_max, double out_min, double out_max) {
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
 }

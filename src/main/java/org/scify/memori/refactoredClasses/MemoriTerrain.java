@@ -76,10 +76,8 @@ public class MemoriTerrain implements Terrain {
         return tiles.get(new Point2D.Double(x,y));
     }
 
-    public void toggleTile(int x, int y) {
-        System.out.println(x);
-        System.out.println(y);
-        tiles.get(new Point2D.Double(x,y)).flip();
+    public Tile getTileByRowAndColumn(int rowIndex, int columnIndex) {
+        return tiles.get(new Point2D.Double(rowIndex, columnIndex));
     }
 
     @Override

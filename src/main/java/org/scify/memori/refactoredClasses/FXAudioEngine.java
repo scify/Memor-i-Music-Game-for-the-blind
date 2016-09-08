@@ -1,28 +1,28 @@
-package org.scify.memori;
+package org.scify.memori.refactoredClasses;
 
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import org.scify.memori.interfaces.refactored.AudioEngine;
 
-import java.net.URL;
 import java.util.HashMap;
 
-public class AudioEngine{
+public class FXAudioEngine implements AudioEngine{
 
-    private static AudioClip audioClip;
-    private static MediaPlayer movementSoundPlayer;
-    private static Media movementSoundMedia;
-    private static String soundBasePath = "/audios/";
-    private static String movementSound = "beep.mp3";
-    private static String successSound = "success.wav";
-    private static String invalidMovementSound = "invalid_movement.wav";
-    private static String errorSound = "error.wav";
-    private static String emptySound = "blip.wav";
+    private AudioClip audioClip;
+    private MediaPlayer movementSoundPlayer;
+    private Media movementSoundMedia;
+    private String soundBasePath = "/audios/";
+    private String movementSound = "beep.mp3";
+    private String successSound = "success.wav";
+    private String invalidMovementSound = "invalid_movement.wav";
+    private String errorSound = "error.wav";
+    private String emptySound = "blip.wav";
 
-    private static HashMap<Integer, String> rowHelpSounds = new HashMap<>();
-    private static HashMap<Integer, String> columnHelpSounds = new HashMap<>();
+    private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
+    private HashMap<Integer, String> columnHelpSounds = new HashMap<>();
 
-    public AudioEngine() {
+    public FXAudioEngine() {
         columnHelpSounds.put(0, "one.wav");
         columnHelpSounds.put(1, "two.wav");
         columnHelpSounds.put(2, "three.wav");
@@ -35,24 +35,24 @@ public class AudioEngine{
 
     }
 
-    public static void playHelperSound(int rowIndex, int columnIndex) {
+    public void playHelperSound(int rowIndex, int columnIndex) {
         System.out.println("row: " + rowHelpSounds.get(rowIndex));
         System.out.println("column: " + columnHelpSounds.get(columnIndex));
     }
 
-    private static void pauseSound() {
+    private void pauseSound() {
         if(audioClip != null)
             audioClip.stop();
         if(movementSoundPlayer != null)
             movementSoundPlayer.stop();
     }
 
-    public static void playMovementSound(double balance, double rate) {
+    public void playMovementSound(double balance, double rate) {
         //playSound(movementSound);
         pauseSound();
         if(movementSoundMedia == null) {
             System.out.println("initialise movement sound");
-            movementSoundMedia = new Media(AudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
+            movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }
         //audioClip = new AudioClip(AudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
@@ -70,30 +70,31 @@ public class AudioEngine{
 
     }
 
-    public static void playCardSound(String soundFile) {
+    public void playCardSound(String soundFile) {
         playSound(soundFile);
     }
 
-    public static void playSuccessSound() {
+    public void playSuccessSound() {
         playSound(successSound);
     }
 
-    public static void playInvalidMovementSound() {
+    public void playInvalidMovementSound() {
         playSound(invalidMovementSound);
     }
 
-    public static void playErrorSound() {
+    public void playErrorSound() {
         //System.out.println("playErrorSound");
         playSound(errorSound);
     }
 
-    public static void playEmptySound() {
+    public void playEmptySound() {
         playSound(emptySound);
     }
 
-    public static void playSound(String soundFile) {
+    @Override
+    public void playSound(String soundFile) {
         pauseSound();
-        audioClip = new AudioClip(AudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.setCycleCount(0);
         audioClip.play();
     }
