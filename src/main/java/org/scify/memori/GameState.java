@@ -88,7 +88,7 @@ public class GameState {
 
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(700);
+                Thread.sleep(1100);
                 System.out.println("RESET GAME STATE");
                 if(!wonRound)
                     AudioEngine.playErrorSound();
