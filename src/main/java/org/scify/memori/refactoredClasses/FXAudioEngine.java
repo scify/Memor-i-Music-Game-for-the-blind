@@ -51,7 +51,7 @@ public class FXAudioEngine implements AudioEngine{
         //playSound(movementSound);
         pauseSound();
         if(movementSoundMedia == null) {
-            System.out.println("initialise movement sound");
+            //System.out.println("initialise movement sound");
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }
@@ -61,7 +61,7 @@ public class FXAudioEngine implements AudioEngine{
         //audioClip.rateProperty();
         movementSoundPlayer.setOnEndOfMedia(new Runnable() {
             public void run() {
-                System.out.println("stop movement sound");
+                //System.out.println("stop movement sound");
                 movementSoundPlayer.stop();
             }
         });
@@ -93,10 +93,26 @@ public class FXAudioEngine implements AudioEngine{
 
     @Override
     public void playSound(String soundFile) {
+        playSound(soundFile, false);
+    }
+
+    public void playSound(String soundFile, boolean isBlocking) {
         pauseSound();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.setCycleCount(0);
         audioClip.play();
+
+        if (isBlocking) {
+            // Wait until completion
+            while (audioClip.isPlaying()) {
+                try {
+                    Thread.sleep(100L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
     }
 
 }

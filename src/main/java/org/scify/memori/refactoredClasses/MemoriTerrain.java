@@ -10,6 +10,7 @@ import java.util.*;
 
 public class MemoriTerrain implements Terrain {
     Map<Point2D, Tile> tiles;
+    List<Tile> openTiles;
 
     public Map<Point2D, Tile> getTiles() {
         return tiles;
@@ -17,6 +18,7 @@ public class MemoriTerrain implements Terrain {
 
     public MemoriTerrain() {
         tiles = new HashMap<>();
+        openTiles = new ArrayList<>();
         List<Card> unshuffledCards = produceDeckOfCards(MainOptions.NUMBER_OF_OPEN_CARDS);
         List<Card> shuffledCards = shuffleDeck(unshuffledCards);
 
@@ -42,7 +44,7 @@ public class MemoriTerrain implements Terrain {
         cardsMap = parser.readCardsFromJSONFile();
 
         for (Map.Entry<String, ArrayList<String>> entry : cardsMap.entrySet()) {
-            for(int cardsNum = 0; cardsNum < cardVarieties; cardsNum++) {
+            for (int cardsNum = 0; cardsNum < cardVarieties; cardsNum++) {
                 ArrayList<String> cardAttrs = entry.getValue();
                 //cardSounds is a comma separated string of sound files
                 String cardSound = cardAttrs.get(1);
@@ -55,7 +57,7 @@ public class MemoriTerrain implements Terrain {
         return unShuffledCards;
     }
 
-    public List<Card> shuffleDeck (List<Card> deckCards) {
+    public List<Card> shuffleDeck(List<Card> deckCards) {
         long seed = System.nanoTime();
         Collections.shuffle(deckCards, new Random(seed));
         return deckCards;
@@ -72,16 +74,84 @@ public class MemoriTerrain implements Terrain {
     }
 
     @Override
-    public Tile getTileState(int x, int y) {
-        return tiles.get(new Point2D.Double(x,y));
+    public Tile getTile(int x, int y) {
+        return tiles.get(new Point2D.Double(y, x));
     }
 
     public Tile getTileByRowAndColumn(int rowIndex, int columnIndex) {
         return tiles.get(new Point2D.Double(rowIndex, columnIndex));
     }
 
+    /**
+     * Check if the card of same type is already in open cards
+     *
+     * @param tile the requested tile
+     * @return card state
+     */
+    public boolean isTileInOpenTiles(Tile tile) {
+        boolean answer = false;
+        if (!openTiles.isEmpty())
+            for (Tile currTile : openTiles) {
+                if (currTile.getTileType().equals(tile.getTileType()))
+                    answer = true;
+            }
+        return answer;
+    }
+
+    /**
+     * Set the tile won
+     *
+     * @param tile the requested tile
+     */
+    public void setTileWon(Tile tile) {
+        tile.setWon();
+    }
+
+    public void setAllOpenTilesWon() {
+        openTiles.forEach(Tile::setWon);
+        //reset open tiles list
+        openTiles = new ArrayList<>();
+    }
+
     @Override
     public String toString() {
         return tiles.toString();
+    }
+
+    /**
+     * flips the Node (card) located at the position (x, y)
+     * @param tile the requested tile
+     */
+    public void toggleTile(Tile tile) {
+        //System.out.println(tile.getTileType());
+        Point2D point = (Point2D) getKeyFromValue(tiles, tile.getTileType());
+        System.out.println("toggled: " + point.getX() + "," + point.getY());
+        tile.flip();
+    }
+
+    public void addTileToOpenTiles(Tile tile) {
+        openTiles.add(tile);
+    }
+
+
+    @Override
+    public boolean areAllTilesWon() {
+        final boolean[] answer = {true};
+        tiles.forEach((point, curTile) -> {
+            if (!curTile.getWon())
+                answer[0] = false;
+        });
+        return answer[0];
+    }
+
+
+    public Object getKeyFromValue(Map hm, Object value) {
+        for (Object o : hm.keySet()) {
+            Tile tile = (Tile)hm.get(o);
+            if (tile.getTileType().equals(value)) {
+                return o;
+            }
+        }
+        return null;
     }
 }

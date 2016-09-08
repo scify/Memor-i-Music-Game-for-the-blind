@@ -21,6 +21,14 @@ public class MemoriGameState implements GameState {
         iCurrentTurn ++;
     }
 
+    public int getiCurrentTurn() {
+        return iCurrentTurn;
+    }
+
+    public void resetTurn() {
+        iCurrentTurn = 0;
+    }
+
     public MemoriGameState() {
         terrain = new MemoriTerrain();
         pCurrent = new Player() {
@@ -64,17 +72,8 @@ public class MemoriGameState implements GameState {
      * @return
      */
     public boolean areAllTilesWon() {
-        boolean gameWon = true;
-        for(int x = 0; x < MainOptions.NUMBER_OF_ROWS; x++) {
-            for(int y = 0; y < MainOptions.NUMBER_OF_COLUMNS; y++) {
-                Card currCard = (Card)terrain.getTileState(x, y);
-                if(!currCard.getWon()) {
-                    gameWon = false;
-                    break;
-                }
-            }
-        }
-        return gameWon;
+        //System.out.println("won: " + terrain.areAllTilesWon());
+        return terrain.areAllTilesWon();
     }
 
 }

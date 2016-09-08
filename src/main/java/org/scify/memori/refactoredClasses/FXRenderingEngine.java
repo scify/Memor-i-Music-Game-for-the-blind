@@ -92,6 +92,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             // DEBUG LINES
 //            System.err.println("Updating components " +lLastUpdate);
             Queue<GameEvent> eventsQueue = currentState.getEventQueue();
+            //TODO: use iterator
             while(!eventsQueue.isEmpty()) {
                 GameEvent currentGameEvent = eventsQueue.poll();
                 String eventType = currentGameEvent.type;
@@ -100,10 +101,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "movement":
                         focusOnTile((int) coords.getX(), (int)coords.getY());
                         movementSound((int) coords.getX(), (int)coords.getY());
+                        System.out.println("now at: " + rowIndex + "," + columnIndex);
                         break;
                     case "flip":
                         Card currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
-                        toggleTile(currCard);
                         fxAudioEngine.playCardSound(currCard.getSound());
                         break;
                     case "invalidAction" :
@@ -114,13 +115,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         }
     }
 
-    /**
-     * flips the Node (card) located at the position (x, y)
-     * @param tile the tile to be flipped
-     */
-    public void toggleTile(Tile tile) {
-        tile.flip();
-    }
+
 
 
     /**

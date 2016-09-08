@@ -18,8 +18,27 @@ public class GameEvent {
      */
     public Object parameters;
 
+    /**
+     * A long number indicating delay in the consumption of the event. A value of zero requires immediate consumption.
+     */
+    public long delay;
+
+    /**
+     * defines whether the event handler should wait until the event is fully processed before continuing to the next event.
+     */
+    public boolean blocking;
+
+    public GameEvent(String type, Object parameters, long delay, boolean blocking) {
+        this.type = type;
+        this.parameters = parameters;
+        this.delay = delay;
+        this.blocking = blocking;
+    }
+
     public GameEvent(String type, Object parameters) {
         this.type = type;
         this.parameters = parameters;
+        this.delay = 0;
+        this.blocking = true;
     }
 }

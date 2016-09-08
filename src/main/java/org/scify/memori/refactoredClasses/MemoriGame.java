@@ -33,6 +33,7 @@ public abstract class MemoriGame implements Game, Runnable {
 
         // For every cycle
         while(!rRules.isGameFinished(gsCurrentState)) {
+
             final GameState toHandle = gsCurrentState;
 
             // Ask to soon draw the state
@@ -59,6 +60,7 @@ public abstract class MemoriGame implements Game, Runnable {
 
             // TODO: Also allow next state getting, when no user action was provided
         }
+        System.err.println("GAME OVER");
     }
 
     @Override

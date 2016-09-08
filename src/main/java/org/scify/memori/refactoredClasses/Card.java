@@ -21,12 +21,13 @@ public class Card implements Tile{
     public Button getButton() {
         return button;
     }
-
+    @Override
     public boolean getWon() {
         return isWon;
     }
 
-    public void winCard() {
+    @Override
+    public void setWon() {
         isWon = true;
     }
 
@@ -34,6 +35,7 @@ public class Card implements Tile{
         isWon = false;
     }
 
+    @Override
     public boolean getFlipped() {
         return isFlipped;
     }
@@ -64,9 +66,9 @@ public class Card implements Tile{
     @Override
     public void flip() {
         String imgFile = "/img/" + imgName;
-//        if(isFlipped) {
-//            imgFile = "/img/questionmark.png";
-//        }
+        if(isFlipped) {
+            imgFile = "/img/questionmark.png";
+        }
         isFlipped = !isFlipped;
         button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
