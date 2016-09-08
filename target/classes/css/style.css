@@ -16,7 +16,7 @@
 }
 
 .cardButton:focused {
-    /*-fx-background-color: green;*/
+    -fx-background-color: green;
 }
 
 .rootPane {

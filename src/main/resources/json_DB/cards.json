@@ -3,10 +3,12 @@
     {"cardType" : "dog_1", "attrs": {"img": "dog_1.jpeg", "sounds": "woof.wav"}},
     {"cardType" : "horse", "attrs": {"img": "horse.png", "sounds": "horse.wav"}},
     {"cardType" : "cat", "attrs": {"img": "cat.png", "sounds": "cat.wav"}},
-    {"cardType" : "lion", "attrs": {"img": "lion.jpg", "sounds": "lion.wav"}},
-    {"cardType" : "monkey", "attrs": {"img": "monkey.jpg", "sounds": "monkey.wav"}},
+    {"cardType" : "cow", "attrs": {"img": "cow.jpg", "sounds": "cow.wav"}},
+    {"cardType" : "rooster", "attrs": {"img": "rooster.jpg", "sounds": "rooster.wav"}},
     {"cardType" : "bear", "attrs": {"img": "bear.png", "sounds": "bear.wav"}},
     {"cardType" : "pig", "attrs": {"img": "pig.png", "sounds": "pig.wav"}},
-    {"cardType" : "dog_2", "attrs": {"img": "dog_2.png", "sounds": "bark.wav"}}
+    {"cardType" : "dog_2", "attrs": {"img": "dog_2.png", "sounds": "bark.wav"}},
+    {"cardType" : "duck", "attrs": {"img": "duck.jpg", "sounds": "duck.wav"}},
+    {"cardType" : "donkey", "attrs": {"img": "donkey.jpg", "sounds": "donkey.wav"}}
   ]
 }
