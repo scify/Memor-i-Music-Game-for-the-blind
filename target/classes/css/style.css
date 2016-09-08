@@ -1,0 +1,59 @@
+.cardButton {
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.closedCard {
+    -fx-background-image: url("/img/questionmark.png");
+}
+
+.focusedCard {
+    -fx-background-color: green;
+}
+
+.cardButton:focused {
+    /*-fx-background-color: green;*/
+}
+
+.rootPane {
+    -fx-pref-height: 100%;
+}
+
+GridPane {
+    -fx-pref-height: 70% !important;
+}
+
+StackPane {
+    -fx-background-color: darkcyan;
+    -fx-pref-width: 100%;
+}
+
+.optionButton {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 100px;
+    -fx-font-family: monospace;
+    -fx-font-size: 250%;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.largeButton {
+    -fx-pref-width: 800px;
+}
+
+.optionButton:focused {
+    -fx-background-color: green;
+    -fx-highlight-fill: -fx-accent;
+    -fx-highlight-text-fill: white;
+    -fx-text-fill: brown;
+}
+
+.optionButtonContainer {
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}
