@@ -83,7 +83,7 @@ public class AudioEngine{
     }
 
     public static void playErrorSound() {
-        //System.out.println("playErrorSound");
+        //System.out.println("playFailureSound");
         playSound(errorSound);
     }
 

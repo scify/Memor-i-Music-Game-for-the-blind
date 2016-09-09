@@ -53,8 +53,8 @@ public class MemoriGameState implements GameState {
     }
 
     @Override
-    public Queue<GameEvent> getEventQueue() {
-        return gameEventQueue;
+    public LinkedList<GameEvent> getEventQueue() {
+        return (LinkedList)gameEventQueue;
     }
 
 

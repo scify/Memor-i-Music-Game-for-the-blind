@@ -91,27 +91,109 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             lLastUpdate = lNewTime;
             // DEBUG LINES
 //            System.err.println("Updating components " +lLastUpdate);
-            Queue<GameEvent> eventsQueue = currentState.getEventQueue();
-            //TODO: use iterator
-            while(!eventsQueue.isEmpty()) {
-                GameEvent currentGameEvent = eventsQueue.poll();
+            List<GameEvent> eventsList = currentState.getEventQueue();
+            ListIterator<GameEvent> listIterator = eventsList.listIterator();
+            while (listIterator.hasNext()) {
+                //System.out.println(listIterator.next());
+                GameEvent currentGameEvent = listIterator.next();
                 String eventType = currentGameEvent.type;
-                Point2D coords = (Point2D) currentGameEvent.parameters;
+                Point2D coords;
+                Card currCard;
                 switch (eventType) {
                     case "movement":
+                        coords = (Point2D) currentGameEvent.parameters;
                         focusOnTile((int) coords.getX(), (int)coords.getY());
                         movementSound((int) coords.getX(), (int)coords.getY());
                         System.out.println("now at: " + rowIndex + "," + columnIndex);
+                        listIterator.remove();
                         break;
-                    case "flip":
-                        Card currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
-                        fxAudioEngine.playCardSound(currCard.getSound());
+                    case "invalidMovement" :
+                        Platform.runLater(() -> {
+                            fxAudioEngine.playInvalidMovementSound();
+                        });
+                        listIterator.remove();
                         break;
-                    case "invalidAction" :
-                        fxAudioEngine.playInvalidMovementSound();
+                    case "empty" :
+                        Platform.runLater(() -> {
+                            fxAudioEngine.playEmptySound();
+                        });
+                        listIterator.remove();
+                        break;
+                    case "cardSound" :
+                        coords = (Point2D) currentGameEvent.parameters;
+                        currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                        Platform.runLater(() -> {
+                            fxAudioEngine.playCardSound(currCard.getSound(), currentGameEvent.blocking);
+                        });
+                        listIterator.remove();
+                        break;
+                    case "flip" :
+                        //check if the event should happen after some time
+                        if(new Date().getTime() > currentGameEvent.delay) {
+                            coords = (Point2D) currentGameEvent.parameters;
+                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                            Platform.runLater(() -> {
+                                currCard.flipUI();
+                            });
+                            listIterator.remove();
+                        }
+                        break;
+                    case "flipBack" :
+                        //check if the event should happen after some time
+                        if(new Date().getTime() > currentGameEvent.delay) {
+                            coords = (Point2D) currentGameEvent.parameters;
+                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                            Platform.runLater(() -> {
+                                        currCard.flipBackUI();
+                                    });
+                            listIterator.remove();
+                        }
+                        break;
+                    case "success" :
+                        //check if the event should happen after some time
+                        if(new Date().getTime() > currentGameEvent.delay) {
+                            Platform.runLater(() -> {
+                                fxAudioEngine.playSuccessSound();
+                            });
+                            listIterator.remove();
+                        }
+                        break;
+                    case "failure" :
+                        //check if the event should happen after some time
+                        if(new Date().getTime() > currentGameEvent.delay) {
+                            Platform.runLater(() -> {
+                                fxAudioEngine.playFailureSound();
+                            });
+                            //TODO: play appropriate sound informing about new turn
+                            listIterator.remove();
+                        }
+                        break;
+                    default:
                         break;
                 }
             }
+
+
+            //TODO: use iterator
+//            while(!eventsList.isEmpty()) {
+//                GameEvent currentGameEvent = eventsList.peek();
+//                String eventType = currentGameEvent.type;
+//                Point2D coords = (Point2D) currentGameEvent.parameters;
+//                switch (eventType) {
+//                    case "movement":
+//                        focusOnTile((int) coords.getX(), (int)coords.getY());
+//                        movementSound((int) coords.getX(), (int)coords.getY());
+//                        System.out.println("now at: " + rowIndex + "," + columnIndex);
+//                        break;
+//                    case "flip":
+//                        Card currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+//                        fxAudioEngine.playCardSound(currCard.getSound());
+//                        break;
+//                    case "invalidAction" :
+//                        fxAudioEngine.playInvalidMovementSound();
+//                        break;
+//                }
+//            }
         }
     }
 

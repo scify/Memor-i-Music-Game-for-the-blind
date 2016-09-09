@@ -10,6 +10,7 @@ import java.util.*;
 
 public class MemoriTerrain implements Terrain {
     Map<Point2D, Tile> tiles;
+    //TODO: should openTiles be member of Terrain or MemoriGameState?
     List<Tile> openTiles;
 
     public Map<Point2D, Tile> getTiles() {
@@ -153,5 +154,9 @@ public class MemoriTerrain implements Terrain {
             }
         }
         return null;
+    }
+
+    public void resetOpenTiles() {
+        openTiles = new ArrayList<>();
     }
 }

@@ -36,13 +36,6 @@ public abstract class MemoriGame implements Game, Runnable {
 
             final GameState toHandle = gsCurrentState;
 
-            // Ask to soon draw the state
-            Platform.runLater(() -> {
-                //draw game state
-                reRenderer.drawGameState(toHandle);
-            });
-
-
             // and keep on doing the loop in this thread
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
@@ -50,6 +43,11 @@ public abstract class MemoriGame implements Game, Runnable {
                 //apply it and determine the next state
                 gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);
             }
+            // Ask to soon draw the state
+            Platform.runLater(() -> {
+                //draw game state
+                reRenderer.drawGameState(toHandle);
+            });
 
 //            Thread.yield();
             try {
@@ -60,6 +58,11 @@ public abstract class MemoriGame implements Game, Runnable {
 
             // TODO: Also allow next state getting, when no user action was provided
         }
+        GameState finalGsCurrentState = gsCurrentState;
+        Platform.runLater(() -> {
+            //draw game state
+            reRenderer.drawGameState(finalGsCurrentState);
+        });
         System.err.println("GAME OVER");
     }
 

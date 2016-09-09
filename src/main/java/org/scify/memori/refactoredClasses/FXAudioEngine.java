@@ -16,7 +16,7 @@ public class FXAudioEngine implements AudioEngine{
     private String movementSound = "beep.mp3";
     private String successSound = "success.wav";
     private String invalidMovementSound = "invalid_movement.wav";
-    private String errorSound = "error.wav";
+    private String failureSound = "error.wav";
     private String emptySound = "blip.wav";
 
     private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
@@ -70,21 +70,22 @@ public class FXAudioEngine implements AudioEngine{
 
     }
 
-    public void playCardSound(String soundFile) {
-        playSound(soundFile);
+    public void playCardSound(String soundFile, boolean isBlocking) {
+        playSound(soundFile, isBlocking);
     }
 
+
     public void playSuccessSound() {
-        playSound(successSound);
+        playSound(successSound, true);
     }
 
     public void playInvalidMovementSound() {
         playSound(invalidMovementSound);
     }
 
-    public void playErrorSound() {
-        //System.out.println("playErrorSound");
-        playSound(errorSound);
+    public void playFailureSound() {
+        //System.out.println("playFailureSound");
+        playSound(failureSound);
     }
 
     public void playEmptySound() {

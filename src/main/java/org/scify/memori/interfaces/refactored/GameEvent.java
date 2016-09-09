@@ -39,6 +39,6 @@ public class GameEvent {
         this.type = type;
         this.parameters = parameters;
         this.delay = 0;
-        this.blocking = true;
+        this.blocking = false;
     }
 }

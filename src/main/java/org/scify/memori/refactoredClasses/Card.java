@@ -15,7 +15,6 @@ public class Card implements Tile{
     private String imgName;
     private boolean isFlipped;
     private boolean isWon;
-    BackgroundImage image;
     private String sound;
 
     public Button getButton() {
@@ -43,18 +42,15 @@ public class Card implements Tile{
     public Card(String id, String img, String soundFile) {
         imgName = img;
         button = new Button();
-        image = new BackgroundImage( new Image( getClass().getResource("/img/" + imgName).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //image = new BackgroundImage( new Image( getClass().getResource("/img/" + imgName).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         sound = soundFile;
         button.setId(id);
         button.setPrefHeight(MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS);
         button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS);
         button.getStyleClass().addAll("cardButton", "closedCard");
-        
         tileType = id;
         setCardNotWon();
         isFlipped = false;
-//        String imgFile = "/img/" + imgName;
-//        button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 
     @Override
@@ -65,11 +61,19 @@ public class Card implements Tile{
 
     @Override
     public void flip() {
-        String imgFile = "/img/" + imgName;
-        if(isFlipped) {
-            imgFile = "/img/questionmark.png";
-        }
         isFlipped = !isFlipped;
+    }
+
+    /**
+     * function to set the UI of the flipped card (change icons)
+     */
+    public void flipUI() {
+        String imgFile = "/img/" + imgName;
+        button.setStyle("-fx-background-image: url(" + imgFile +")");
+    }
+
+    public void flipBackUI () {
+        String imgFile = "/img/questionmark.png";
         button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 

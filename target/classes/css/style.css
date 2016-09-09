@@ -2,13 +2,14 @@
     -fx-background-size: stretch;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
-    -fx-padding: 5px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+    -fx-padding: 5%;
+    -fx-background-insets: 5%;
+    -fx-background-position: center;
 }
 
 .closedCard {
     -fx-background-image: url("/img/questionmark.png");
+    -fx-background-size: 95% 95%;
 }
 
 .focusedCard {
