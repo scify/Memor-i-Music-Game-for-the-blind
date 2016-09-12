@@ -51,6 +51,8 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
+All images are licenced under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 Copyright 2016
 
 Licensed under the Apache License, Version 2.0 (the "License");

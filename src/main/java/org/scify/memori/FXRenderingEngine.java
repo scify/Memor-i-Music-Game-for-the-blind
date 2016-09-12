@@ -231,8 +231,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     private void movementSound(int rowIndex, int columnIndex) {
         System.err.println("movementSound");
-        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS - 0.9, -1.0, 1.0);
-        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS - 0.9, 1.0, 1.5);
+        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS - 0.6, -1.0, 1.0);
+        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS - 0.6, 1.0, 1.5);
         fxAudioEngine.playMovementSound(soundBalance, rate);
     }
 
