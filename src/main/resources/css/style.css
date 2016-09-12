@@ -1,3 +1,8 @@
+.logoContainer {
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
 .cardButton {
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
