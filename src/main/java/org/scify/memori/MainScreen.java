@@ -99,11 +99,19 @@ public class MainScreen extends Application {
 
     }
 
+    /**
+     * Quits game
+     * @param evt
+     */
     @FXML
     protected void exitGame(KeyEvent evt) {
         System.exit(0);
     }
 
+    /**
+     * Depending on the button clicked, the Main options (number of columns and rows) are initialized and a new game starts
+     * @param evt
+     */
     @FXML
     protected void initializeGameOptions(KeyEvent evt) {
         if (evt.getCode() == SPACE) {

@@ -13,7 +13,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.scify.memori.interfaces.*;
-import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -29,14 +28,33 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      * An Audio Engine object, able to play sounds
      */
     private FXAudioEngine fxAudioEngine;
+
     private static Stage mStage = new Stage();
-    private GridPane mGridPane;
+    /**
+     * gridpane holds all cards
+     */
+    private GridPane gridPane;
+    /**
+     * computing the current screen height and width
+     */
     private double mWidth = Screen.getPrimary().getBounds().getWidth();
     private double mHeight = Screen.getPrimary().getBounds().getHeight();
+    /**
+     * first draw defines whether the rendering engine will initialize or update the UI components
+     */
     private boolean firstDraw = true;
+    /**
+     * current game scene
+     */
     Scene gameScene;
+    /**
+     * JavFX component to bind the scene with the .fxml and .css file
+     */
     protected Parent root;
 
+    /**
+     * indexes defining the user poistion on the GridPane
+     */
     private int columnIndex = 0;
     private int rowIndex = 0;
 
@@ -48,6 +66,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             e.printStackTrace();
             return;
         }
+        //initialize the audio engine object
         fxAudioEngine = new FXAudioEngine();
 
         gameScene = new Scene(root, mWidth, mHeight);
@@ -61,7 +80,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     @Override
     public void drawGameState(MemoriGameState currentState) {
         if (firstDraw) {
-
+            //initialize UI components
             Platform.runLater(() -> {
                 try {
                     setUpFXComponents();
@@ -73,6 +92,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             firstDraw = false;
         }
         else {
+            //update UI components
             Platform.runLater(() -> { updateFXComponents(currentState); });
         }
     }
@@ -189,11 +209,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     private void focusOnTile(int rowIndex, int columnIndex) {
         System.out.println("point: " + rowIndex + "," + columnIndex);
         //get Node (in our case it's a button)
-        Node node = getNodeByRowColumnIndex(rowIndex, columnIndex, mGridPane);
+        Node node = getNodeByRowColumnIndex(rowIndex, columnIndex, gridPane);
         //TODO: remove
         //node.requestFocus();
         //remove the focused class from every other Node
-        ObservableList<Node> nodes = mGridPane.getChildren();
+        ObservableList<Node> nodes = gridPane.getChildren();
         for(Node nd: nodes) {
             nd.getStyleClass().remove("focusedCard");
         }
@@ -240,24 +260,20 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             Point2D point = (Point2D) pair.getKey();
             Card card = (Card) pair.getValue();
             Platform.runLater(()-> {
-                mGridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
+                gridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
                 card.getButton().setOnKeyPressed(this);
             });
         }
 
         Platform.runLater(()-> { //set first card as visited
-            mGridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
+            gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
     }
 
     public void setUpFXComponents() throws IOException {
-
         System.out.println("setUpFXComponents");
-        mGridPane = ((GridPane) root);
+        gridPane = ((GridPane) root);
         mStage.setTitle("Memor-i");
         gameScene.getStylesheets().add("css/style.css");
-        // OBSOLETE
-        // mStage.setScene(gameScene);
-
     }
 
     @Override
@@ -270,6 +286,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return toReturn;
     }
 
+    /**
+     * Handles the UI events (button clicks) and populates the user actions list
+     * @param event the event emitted from Ui
+     */
     @Override
     public void handle(KeyEvent event) {
         // DEBUG LINES
@@ -293,6 +313,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         pendingUserActions.add(0, userAction);
     }
 
+    /**
+     * Dtermines whether the user action was a movement game action
+     * @param evt
+     * @return true if the evt was a movement action
+     */
     private boolean isMovementAction(KeyEvent evt) {
         return evt.getCode() == UP || evt.getCode() == DOWN || evt.getCode() == LEFT || evt.getCode() == RIGHT;
     }
@@ -322,6 +347,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         }
     }
 
+    /**
+     * Determines whether the user move was valid
+     * @param evt
+     * @return true if the user move was valid
+     */
     public boolean movementValid(KeyEvent evt) {
         switch(evt.getCode()) {
             case LEFT:
@@ -348,7 +378,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return true;
     }
 
-    //maps a value to a new
+    //maps a value to a new set
     private double map(double x, double in_min, double in_max, double out_min, double out_max) {
         return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
