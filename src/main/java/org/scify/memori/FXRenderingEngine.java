@@ -1,4 +1,4 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -12,12 +12,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.scify.memori.*;
-import org.scify.memori.interfaces.refactored.*;
-import org.scify.memori.interfaces.refactored.Player;
-import org.scify.memori.interfaces.refactored.RenderingEngine;
-import org.scify.memori.interfaces.refactored.UI;
-import org.scify.memori.interfaces.refactored.UserAction;
+import org.scify.memori.interfaces.*;
+import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;

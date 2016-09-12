@@ -1,4 +1,4 @@
-package org.scify.memori.interfaces.refactored;
+package org.scify.memori.interfaces;
 
 /**
  * Represents a game event (vs. user event), i.e. an event that was generated internally by the game and needs

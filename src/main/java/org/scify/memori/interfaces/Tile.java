@@ -1,4 +1,4 @@
-package org.scify.memori.interfaces.refactored;
+package org.scify.memori.interfaces;
 
 public interface Tile {
     void flip();

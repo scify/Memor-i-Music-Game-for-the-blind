@@ -1,7 +1,7 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
-import org.scify.memori.MainOptions;
-import org.scify.memori.interfaces.refactored.*;
+import org.scify.memori.interfaces.*;
+import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.util.*;

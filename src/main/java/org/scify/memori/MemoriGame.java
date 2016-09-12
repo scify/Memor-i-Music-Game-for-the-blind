@@ -1,9 +1,7 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
 import javafx.application.Platform;
-import org.scify.memori.HighScore;
-import org.scify.memori.TimeWatch;
-import org.scify.memori.interfaces.refactored.*;
+import org.scify.memori.interfaces.*;
 
 public abstract class MemoriGame implements Game, Runnable {
     Rules rRules;

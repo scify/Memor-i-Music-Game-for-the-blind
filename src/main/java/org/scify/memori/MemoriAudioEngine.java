@@ -1,6 +1,6 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
-import org.scify.memori.interfaces.refactored.AudioEngine;
+import org.scify.memori.interfaces.AudioEngine;
 
 import java.io.IOException;
 

@@ -1,9 +1,7 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
-import org.scify.memori.FileHandler;
-import org.scify.memori.MainOptions;
-import org.scify.memori.interfaces.refactored.Terrain;
-import org.scify.memori.interfaces.refactored.Tile;
+import org.scify.memori.interfaces.Terrain;
+import org.scify.memori.interfaces.Tile;
 
 import java.awt.geom.Point2D;
 import java.util.*;
@@ -51,7 +49,7 @@ public class MemoriTerrain implements Terrain {
                 String cardSound = cardAttrs.get(1);
                 //we need to transform it into an array and poll one sound
 
-                org.scify.memori.refactoredClasses.Card newCard = new org.scify.memori.refactoredClasses.Card(entry.getKey(), cardAttrs.get(0), cardSound);
+                Card newCard = new Card(entry.getKey(), cardAttrs.get(0), cardSound);
                 unShuffledCards.add(newCard);
             }
         }

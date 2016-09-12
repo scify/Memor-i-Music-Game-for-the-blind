@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane alignment="center" prefHeight="450.0" prefWidth="506.0" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.refactoredClasses.MainScreen">
+<StackPane alignment="center" prefHeight="450.0" prefWidth="506.0" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.MainScreen">
     <VBox alignment="center" spacing="10" styleClass="optionButtonContainer">
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Οδηγίες" fx:id="tutorial" onKeyPressed="#initializeGameOptions"/>

@@ -1,9 +1,9 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import org.scify.memori.interfaces.refactored.AudioEngine;
+import org.scify.memori.interfaces.AudioEngine;
 
 import java.util.HashMap;
 

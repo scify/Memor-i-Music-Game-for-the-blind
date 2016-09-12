@@ -1,14 +1,11 @@
-package org.scify.memori.refactoredClasses;
+package org.scify.memori;
 
-import org.scify.memori.MainOptions;
-import org.scify.memori.interfaces.refactored.GameEvent;
-import org.scify.memori.interfaces.refactored.GameState;
-import org.scify.memori.interfaces.refactored.Player;
-import org.scify.memori.interfaces.refactored.Terrain;
+import org.scify.memori.interfaces.GameEvent;
+import org.scify.memori.interfaces.GameState;
+import org.scify.memori.interfaces.Player;
+import org.scify.memori.interfaces.Terrain;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class MemoriGameState implements GameState {
