@@ -53,6 +53,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             return;
         }
         fxAudioEngine = new FXAudioEngine();
+
         gameScene = new Scene(root, mWidth, mHeight);
     }
 
@@ -86,8 +87,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
             Thread.yield(); // TODO: Use it or do nothing?
             return; // Do nothing
-        }
-        else {
+        } else {
             lLastUpdate = lNewTime;
             // DEBUG LINES
 //            System.err.println("Updating components " +lLastUpdate);
@@ -102,65 +102,65 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                 switch (eventType) {
                     case "movement":
                         coords = (Point2D) currentGameEvent.parameters;
-                        focusOnTile((int) coords.getX(), (int)coords.getY());
-                        movementSound((int) coords.getX(), (int)coords.getY());
+                        focusOnTile((int) coords.getX(), (int) coords.getY());
+                        movementSound((int) coords.getX(), (int) coords.getY());
                         System.out.println("now at: " + rowIndex + "," + columnIndex);
                         listIterator.remove();
                         break;
-                    case "invalidMovement" :
+                    case "invalidMovement":
                         Platform.runLater(() -> {
                             fxAudioEngine.playInvalidMovementSound();
                         });
                         listIterator.remove();
                         break;
-                    case "empty" :
+                    case "empty":
                         Platform.runLater(() -> {
                             fxAudioEngine.playEmptySound();
                         });
                         listIterator.remove();
                         break;
-                    case "cardSound" :
+                    case "cardSound":
                         coords = (Point2D) currentGameEvent.parameters;
-                        currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                        currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
                         Platform.runLater(() -> {
                             fxAudioEngine.playCardSound(currCard.getSound(), currentGameEvent.blocking);
                         });
                         listIterator.remove();
                         break;
-                    case "flip" :
+                    case "flip":
                         //check if the event should happen after some time
-                        if(new Date().getTime() > currentGameEvent.delay) {
+                        if (new Date().getTime() > currentGameEvent.delay) {
                             coords = (Point2D) currentGameEvent.parameters;
-                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
                             Platform.runLater(() -> {
                                 currCard.flipUI();
                             });
                             listIterator.remove();
                         }
                         break;
-                    case "flipBack" :
+                    case "flipBack":
                         //check if the event should happen after some time
-                        if(new Date().getTime() > currentGameEvent.delay) {
+                        if (new Date().getTime() > currentGameEvent.delay) {
                             coords = (Point2D) currentGameEvent.parameters;
-                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
+                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
                             Platform.runLater(() -> {
-                                        currCard.flipBackUI();
-                                    });
+                                currCard.flipBackUI();
+                            });
                             listIterator.remove();
                         }
                         break;
-                    case "success" :
+                    case "success":
                         //check if the event should happen after some time
-                        if(new Date().getTime() > currentGameEvent.delay) {
+                        if (new Date().getTime() > currentGameEvent.delay) {
                             Platform.runLater(() -> {
                                 fxAudioEngine.playSuccessSound();
                             });
                             listIterator.remove();
                         }
                         break;
-                    case "failure" :
+                    case "failure":
                         //check if the event should happen after some time
-                        if(new Date().getTime() > currentGameEvent.delay) {
+                        if (new Date().getTime() > currentGameEvent.delay) {
                             Platform.runLater(() -> {
                                 fxAudioEngine.playFailureSound();
                             });
@@ -172,31 +172,16 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                 }
             }
-
-
-            //TODO: use iterator
-//            while(!eventsList.isEmpty()) {
-//                GameEvent currentGameEvent = eventsList.peek();
-//                String eventType = currentGameEvent.type;
-//                Point2D coords = (Point2D) currentGameEvent.parameters;
-//                switch (eventType) {
-//                    case "movement":
-//                        focusOnTile((int) coords.getX(), (int)coords.getY());
-//                        movementSound((int) coords.getX(), (int)coords.getY());
-//                        System.out.println("now at: " + rowIndex + "," + columnIndex);
-//                        break;
-//                    case "flip":
-//                        Card currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int)coords.getX());
-//                        fxAudioEngine.playCardSound(currCard.getSound());
-//                        break;
-//                    case "invalidAction" :
-//                        fxAudioEngine.playInvalidMovementSound();
-//                        break;
-//                }
-//            }
         }
     }
 
+    @Override
+    public void playGameOver() {
+        System.err.println("play game over");
+        Platform.runLater(() -> {
+            fxAudioEngine.playSuccessSound();
+        });
+    }
 
 
 
@@ -262,7 +247,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                 mGridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
                 card.getButton().setOnKeyPressed(this);
             });
-            //it.remove(); // avoids a ConcurrentModificationException
         }
 
         Platform.runLater(()-> { //set first card as visited
@@ -277,14 +261,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         gameScene.getStylesheets().add("css/style.css");
         // OBSOLETE
         // mStage.setScene(gameScene);
-        gameScene.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ESCAPE:
-                    mStage.close();
-                    //TODO: open previous screen again
-                    break;
-            }
-        });
+
     }
 
     @Override

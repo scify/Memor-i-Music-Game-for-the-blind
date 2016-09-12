@@ -45,7 +45,7 @@ public class Card implements Tile{
         //image = new BackgroundImage( new Image( getClass().getResource("/img/" + imgName).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         sound = soundFile;
         button.setId(id);
-        button.setPrefHeight(MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS);
+        button.setPrefHeight(MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS - (MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS * 0.05));
         button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS);
         button.getStyleClass().addAll("cardButton", "closedCard");
         tileType = id;
@@ -73,7 +73,7 @@ public class Card implements Tile{
     }
 
     public void flipBackUI () {
-        String imgFile = "/img/questionmark.png";
+        String imgFile = "/img/door.jpg";
         button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 

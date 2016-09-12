@@ -56,7 +56,7 @@ public class MemoriRules implements Rules {
                 gsCurrentState.getEventQueue().add(new GameEvent("cardSound", uaAction.getCoords()));
                 if(tileIsLastOfTuple(memoriTerrain, currTile)) {
                     // If last of n-tuple flipped (i.e. if we have enough cards flipped to form a tuple)
-                    gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 1500, true));
+                    gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 1500, false));
                     // add tile to open tiles
                     memoriTerrain.addTileToOpenTiles(currTile);
                     // set all open cards won
@@ -116,7 +116,6 @@ public class MemoriRules implements Rules {
 
         if(isLastRound(gsCurrent)) {
             gameFinished = true;
-            //gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 500, true));
         }
         return gsCurrentState;
     }

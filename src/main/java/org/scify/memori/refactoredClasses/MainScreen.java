@@ -91,7 +91,18 @@ public class MainScreen extends Application {
             }
         });
 
+        primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                AudioEngine.playSound("four_times_four.mp3");
+            }
+        });
 
+
+    }
+
+    @FXML
+    protected void exitGame(KeyEvent evt) {
+        System.exit(0);
     }
 
     @FXML

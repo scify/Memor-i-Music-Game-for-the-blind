@@ -1,6 +1,8 @@
 package org.scify.memori.refactoredClasses;
 
 import javafx.application.Platform;
+import org.scify.memori.HighScore;
+import org.scify.memori.TimeWatch;
 import org.scify.memori.interfaces.refactored.*;
 
 public abstract class MemoriGame implements Game, Runnable {
@@ -8,7 +10,12 @@ public abstract class MemoriGame implements Game, Runnable {
     UI uInterface;
     RenderingEngine reRenderer;
 
+    TimeWatch watch;
+    private HighScore highScore;
+
     public MemoriGame() {
+        watch = TimeWatch.start();
+        highScore = new HighScore();
     }
 
     @Override
@@ -33,9 +40,12 @@ public abstract class MemoriGame implements Game, Runnable {
 
         // For every cycle
         while(!rRules.isGameFinished(gsCurrentState)) {
-
             final GameState toHandle = gsCurrentState;
-
+            // Ask to soon draw the state
+            Platform.runLater(() -> {
+                //draw game state
+                reRenderer.drawGameState(toHandle);
+            });
             // and keep on doing the loop in this thread
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
@@ -43,11 +53,6 @@ public abstract class MemoriGame implements Game, Runnable {
                 //apply it and determine the next state
                 gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);
             }
-            // Ask to soon draw the state
-            Platform.runLater(() -> {
-                //draw game state
-                reRenderer.drawGameState(toHandle);
-            });
 
 //            Thread.yield();
             try {
@@ -58,17 +63,28 @@ public abstract class MemoriGame implements Game, Runnable {
 
             // TODO: Also allow next state getting, when no user action was provided
         }
+
         GameState finalGsCurrentState = gsCurrentState;
         Platform.runLater(() -> {
             //draw game state
             reRenderer.drawGameState(finalGsCurrentState);
+            finalize();
         });
+
         System.err.println("GAME OVER");
+
+
     }
 
     @Override
     public void finalize() {
+        System.err.println("finalize");
+        Platform.runLater(() -> {
+            //draw game state
+            reRenderer.playGameOver();
+        });
 
+        highScore.updateHighScore(watch);
     }
 
 }

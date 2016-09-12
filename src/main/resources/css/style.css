@@ -2,18 +2,18 @@
     -fx-background-size: stretch;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
-    -fx-padding: 5%;
-    -fx-background-insets: 5%;
+    -fx-padding: 3%;
+    -fx-background-insets: 3%;
     -fx-background-position: center;
 }
 
 .closedCard {
-    -fx-background-image: url("/img/questionmark.png");
+    -fx-background-image: url("/img/door.jpg");
     -fx-background-size: 95% 95%;
 }
 
 .focusedCard {
-    -fx-background-color: green;
+    -fx-background-color: lightblue;
 }
 
 .cardButton:focused {
@@ -25,7 +25,8 @@
 }
 
 GridPane {
-    -fx-pref-height: 70% !important;
+    -fx-background-color: saddlebrown;
+    -fx-pref-height: 95% !important;
 }
 
 StackPane {

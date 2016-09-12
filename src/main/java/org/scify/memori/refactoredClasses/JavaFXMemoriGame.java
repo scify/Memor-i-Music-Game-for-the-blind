@@ -32,6 +32,15 @@ public class JavaFXMemoriGame extends MemoriGame {
 
         // Plus update current scene
         pushScene(fUI.gameScene);
+
+        fUI.gameScene.setOnKeyReleased(event -> {
+            switch (event.getCode()) {
+                case ESCAPE:
+                    //mStage.close();
+                    popScene();
+                    break;
+            }
+        });
     }
 
     public void pushScene(Scene sToPush) {
