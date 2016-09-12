@@ -1,5 +1,5 @@
 .cardButton {
-    -fx-background-size: stretch;
+    -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
     -fx-padding: 3%;
