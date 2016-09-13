@@ -11,9 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.scify.memori.FXAudioEngine;
 
-import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
@@ -41,6 +39,8 @@ public class MainScreen extends Application {
     private Button fiveTimesFour;
     @FXML
     private Button fourTimesSix;
+    @FXML
+    private Button fiveTimesSix;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -59,10 +59,13 @@ public class MainScreen extends Application {
         primaryScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ESCAPE:
+                    System.err.println("END");
                     primaryStage.close();
                     break;
             }
         });
+        SceneHandler.mainWindow = primaryStage;
+        SceneHandler.pushScene(primaryScene);
 
         primaryScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
@@ -128,6 +131,9 @@ public class MainScreen extends Application {
                 MainOptions.NUMBER_OF_ROWS = 2;
             } else if (evt.getSource() == tutorial) {
                 System.out.println("tutorial");
+                MainOptions.TUTORIAL_MODE = true;
+                MainOptions.NUMBER_OF_COLUMNS = 3;
+                MainOptions.NUMBER_OF_ROWS = 2;
             } else if (evt.getSource() == fourTimesThree) {
                 MainOptions.NUMBER_OF_COLUMNS = 4;
                 MainOptions.NUMBER_OF_ROWS = 3;
@@ -140,6 +146,9 @@ public class MainScreen extends Application {
             } else if(evt.getSource() == fourTimesSix) {
                 MainOptions.NUMBER_OF_COLUMNS = 6;
                 MainOptions.NUMBER_OF_ROWS = 4;
+            } else if(evt.getSource() == fiveTimesSix) {
+                MainOptions.NUMBER_OF_COLUMNS = 5;
+                MainOptions.NUMBER_OF_ROWS = 6;
             }
             startNormalGame(evt, MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
         }
@@ -148,18 +157,20 @@ public class MainScreen extends Application {
     @FXML
 
     protected void myScores(KeyEvent evt) {
-        FXHighScoresScreen highScoresScreen = new FXHighScoresScreen((Stage)((Node)(evt.getSource())).getScene().getWindow());
+        if (evt.getCode() == SPACE) {
+            FXHighScoresScreen highScoresScreen = new FXHighScoresScreen((Stage) ((Node) (evt.getSource())).getScene().getWindow());
+        }
     }
 
 
     @FXML
     protected void headphonesAdjustment() {
-        System.out.println("sdsdf");
+        System.out.println("headphonesAdjustment");
     }
 
     private void startNormalGame(KeyEvent evt, int numOfCols, int numOfRows) {
         MainOptions.gameLevel = numOfRows + "x" + numOfCols;
-        JavaFXMemoriGame game = new JavaFXMemoriGame((Stage)((Node)(evt.getSource())).getScene().getWindow());
+        FXMemoriGame game = new FXMemoriGame();
         game.initialize();
         // Run game in separate thread
         ExecutorService es  = Executors.newFixedThreadPool(1);

@@ -210,8 +210,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         System.out.println("point: " + rowIndex + "," + columnIndex);
         //get Node (in our case it's a button)
         Node node = getNodeByRowColumnIndex(rowIndex, columnIndex, gridPane);
-        //TODO: remove
-        //node.requestFocus();
         //remove the focused class from every other Node
         ObservableList<Node> nodes = gridPane.getChildren();
         for(Node nd: nodes) {
