@@ -40,7 +40,7 @@ public class MainScreen extends Application {
     @FXML
     private Button fourTimesSix;
     @FXML
-    private Button sixTimesSix;
+    private Button fiveTimesSix;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -146,8 +146,8 @@ public class MainScreen extends Application {
             } else if(evt.getSource() == fourTimesSix) {
                 MainOptions.NUMBER_OF_COLUMNS = 6;
                 MainOptions.NUMBER_OF_ROWS = 4;
-            } else if(evt.getSource() == sixTimesSix) {
-                MainOptions.NUMBER_OF_COLUMNS = 6;
+            } else if(evt.getSource() == fiveTimesSix) {
+                MainOptions.NUMBER_OF_COLUMNS = 5;
                 MainOptions.NUMBER_OF_ROWS = 6;
             }
             startNormalGame(evt, MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
