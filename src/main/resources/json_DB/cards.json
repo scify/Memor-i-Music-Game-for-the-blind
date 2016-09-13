@@ -12,6 +12,7 @@
     {"cardType" : "bee", "attrs": {"img": "animals/bee.jpg", "sounds": "animals/bee.wav"}},
     {"cardType" : "dove", "attrs": {"img": "animals/dove.jpg", "sounds": "animals/dove.wav"}},
     {"cardType" : "turkey", "attrs": {"img": "animals/turkey.jpg", "sounds": "animals/turkey.wav"}},
-    {"cardType" : "sparrow", "attrs": {"img": "animals/sparrow.jpg", "sounds": "animals/sparrow.wav"}}
+    {"cardType" : "sparrow", "attrs": {"img": "animals/sparrow.jpg", "sounds": "animals/sparrow.wav"}},
+    {"cardType" : "frog", "attrs": {"img": "animals/frog.jpg", "sounds": "animals/frog.wav"}}
   ]
 }
