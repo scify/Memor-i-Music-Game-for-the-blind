@@ -41,9 +41,9 @@ StackPane {
 
 .optionButton {
     -fx-pref-width: 400px;
-    -fx-pref-height: 100px;
+    -fx-pref-height: 70px;
     -fx-font-family: monospace;
-    -fx-font-size: 250%;
+    -fx-font-size: 230%;
     -fx-padding: 5px;
     -fx-border-insets: 5px;
     -fx-background-insets: 5px;

@@ -25,7 +25,7 @@
         <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="fourTimesFour" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="fiveTimesFour" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="fourTimesSix" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="6x6" fx:id="sixTimesSix" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="fiveTimesSix" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Τα σκορ μου ως τώρα" fx:id="myScores" onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit" onKeyPressed="#exitGame"/>
     </VBox>
