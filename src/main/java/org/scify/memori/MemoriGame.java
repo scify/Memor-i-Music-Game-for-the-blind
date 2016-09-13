@@ -71,7 +71,6 @@ public abstract class MemoriGame implements Game, Runnable {
 
         System.err.println("GAME OVER");
 
-
     }
 
     @Override
