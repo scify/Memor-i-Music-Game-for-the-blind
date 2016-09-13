@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class HighScore {
+public class HighScoreHandler {
 
     public void updateHighScore(TimeWatch watch) {
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
