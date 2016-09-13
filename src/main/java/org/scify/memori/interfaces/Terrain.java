@@ -6,5 +6,6 @@ package org.scify.memori.interfaces;
 public interface Terrain {
     int getWidth();
     int getHeight();
-    String getTileState(int x, int y);
+    Tile getTile(int x, int y);
+    boolean areAllTilesWon();
 }

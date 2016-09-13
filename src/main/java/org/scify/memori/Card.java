@@ -1,44 +1,27 @@
 package org.scify.memori;
 
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
+import org.scify.memori.MainOptions;
+import org.scify.memori.interfaces.Tile;
 
-public class Card {
-    private Button mBtn;
-    private String mId;
+public class Card implements Tile{
+    private Button button;
+    private String tileType;
     private String imgName;
-    private int xPos;
-    private int yPos;
     private boolean isFlipped;
     private boolean isWon;
-    BackgroundImage image;
     private String sound;
 
-    public void setxPos(int x) {
-        xPos = x;
+    public Button getButton() {
+        return button;
     }
-
-    public void setyPos(int y) {
-        yPos = y;
-    }
-
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
-    }
-
+    @Override
     public boolean getWon() {
         return isWon;
     }
 
-    public void winCard() {
+    @Override
+    public void setWon() {
         isWon = true;
     }
 
@@ -46,44 +29,51 @@ public class Card {
         isWon = false;
     }
 
+    @Override
     public boolean getFlipped() {
         return isFlipped;
     }
 
-    public void flipCard() {
-        String imgFile = "/img/" + imgName;
-        if(isFlipped) {
-            imgFile = "/img/questionmark.png";
-        }
-        isFlipped = !isFlipped;
-        mBtn.setStyle("-fx-background-image: url(" + imgFile +")");
-
-    }
-
-    public Card(String id, String img, String soundFile, PairDiscoveryRules rules) {
+    public Card(String id, String img, String soundFile) {
         imgName = img;
-        mBtn = new Button();
-        image = new BackgroundImage( new Image( getClass().getResource("/img/" + imgName).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        button = new Button();
+        //image = new BackgroundImage( new Image( getClass().getResource("/img/" + imgName).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         sound = soundFile;
-        mBtn.setId(id);
-        mBtn.setPrefHeight(MainOptions.mHeight/rules.getNumberOfRows());
-        mBtn.setPrefWidth(MainOptions.mWidth/rules.getNumberOfColumns());
-        mBtn.getStyleClass().addAll("cardButton", "closedCard");
-        
-        mId = id;
+        button.setId(id);
+        button.setPrefHeight(MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS - (MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS * 0.05));
+        button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS);
+        button.getStyleClass().addAll("cardButton", "closedCard");
+        tileType = id;
         setCardNotWon();
         isFlipped = false;
     }
 
-    public Button getButton() {
-        return mBtn;
+    @Override
+    public String getTileType() {
+        return tileType;
     }
 
-    public String getmId() {
-        return mId;
+
+    @Override
+    public void flip() {
+        isFlipped = !isFlipped;
+    }
+
+    /**
+     * function to set the UI of the flipped card (change icons)
+     */
+    public void flipUI() {
+        String imgFile = "/img/" + imgName;
+        button.setStyle("-fx-background-image: url(" + imgFile +")");
+    }
+
+    public void flipBackUI () {
+        String imgFile = "/img/door.jpg";
+        button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 
     public String getSound() {
         return sound;
     }
+
 }
