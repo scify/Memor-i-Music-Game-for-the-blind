@@ -47,7 +47,7 @@ mvn dependency:copy-dependencies
 
 * **SciFY Development team** - *Initial work* - [SciFY](https://github.com/scify)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/scify/Memor-i/graphs/contributors) who participated in this project.
 
 ## License
 
