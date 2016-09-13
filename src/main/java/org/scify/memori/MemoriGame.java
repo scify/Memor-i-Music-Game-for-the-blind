@@ -8,12 +8,10 @@ public abstract class MemoriGame implements Game, Runnable {
     UI uInterface;
     RenderingEngine reRenderer;
 
-    TimeWatch watch;
-    private HighScoreHandler highScore;
+
+
 
     public MemoriGame() {
-        watch = TimeWatch.start();
-        highScore = new HighScoreHandler();
     }
 
     @Override
@@ -66,12 +64,12 @@ public abstract class MemoriGame implements Game, Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        GameState finalGsCurrentState = gsCurrentState;
-        Platform.runLater(() -> {
-            //draw game state
-            reRenderer.drawGameState(finalGsCurrentState);
-            finalize();
-        });
+//        GameState finalGsCurrentState = gsCurrentState;
+//        Platform.runLater(() -> {
+//            //draw game state
+//            reRenderer.drawGameState(finalGsCurrentState);
+//            finalize();
+//        });
 
         System.err.println("GAME OVER");
 
@@ -79,13 +77,13 @@ public abstract class MemoriGame implements Game, Runnable {
 
     @Override
     public void finalize() {
-        System.err.println("finalize");
-        Platform.runLater(() -> {
-            //draw game state
-            reRenderer.playGameOver();
-        });
+//        System.err.println("finalize");
+//        Platform.runLater(() -> {
+//            //draw game state
+//            reRenderer.playGameOver();
+//        });
 
-        highScore.updateHighScore(watch);
+
     }
 
 }

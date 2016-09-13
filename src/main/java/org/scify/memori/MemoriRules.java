@@ -9,7 +9,12 @@ import java.util.*;
 public class MemoriRules implements Rules {
 
     private boolean gameFinished = false;
-
+    private HighScoreHandler highScore;
+    TimeWatch watch;
+    public MemoriRules() {
+        highScore = new HighScoreHandler();
+        watch = TimeWatch.start();
+    }
     @Override
     public GameState getInitialState() {
         return new MemoriGameState();
@@ -119,10 +124,36 @@ public class MemoriRules implements Rules {
                 //else if all same or first card
                     //add card to tuple
 
+        //if last round, create appropriate READY_TO_FINISH event
         if(isLastRound(gsCurrent)) {
-            gameFinished = true;
+            //if ready to finish event already in events queue
+            if(eventsQueueContainsEvent(gsCurrent.getEventQueue(), "READY_TO_FINISH")) {
+                //listen for user action indicating game over
+                if(uaAction.getActionType().equals("quit")) {
+                    gameFinished = true;
+                }
+                //TODO: allow either returning to main screen, or go to next level
+            } else {
+                //add appropriate event
+                gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH", ""));
+                //add UI events
+                gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 1500, true));
+                highScore.updateHighScore(watch);
+            }
         }
+
         return gsCurrentState;
+    }
+
+    private boolean eventsQueueContainsEvent(Queue<GameEvent> eventQueue, String eventType) {
+        Iterator<GameEvent> iter = eventQueue.iterator();
+        GameEvent currentGameEvent;
+        while (iter.hasNext()) {
+            currentGameEvent = iter.next();
+            if(currentGameEvent.type.equals(eventType))
+                return true;
+        }
+        return false;
     }
 
     private boolean isLastRound(GameState gsCurrent) {
@@ -193,14 +224,9 @@ public class MemoriRules implements Rules {
                     openTilesPoints.add(new Point2D.Double(pos.getY(), pos.getX()));
                 }
             }
-            //it.remove();
         }
 
         return openTilesPoints;
-    }
-
-    public boolean isLastMove(MemoriGameState gsCurrent) {
-        return MainOptions.NUMBER_OF_OPEN_CARDS <= gsCurrent.getiCurrentTurn();
     }
 
 }
