@@ -1,20 +1,15 @@
 package org.scify.memori;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.scify.memori.interfaces.HighScoresScreen;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static javafx.scene.input.KeyCode.SPACE;
 import static org.scify.memori.MainOptions.mHeight;
@@ -22,7 +17,6 @@ import static org.scify.memori.MainOptions.mWidth;
 
 public class FXHighScoresScreen implements HighScoresScreen {
 
-    //TODO: create stage manager class
     private HighScoreHandler highScoreHandler;
     /**
      * JavFX component to bind the scene with the .fxml and .css file
