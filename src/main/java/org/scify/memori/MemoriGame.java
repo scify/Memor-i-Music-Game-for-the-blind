@@ -9,11 +9,11 @@ public abstract class MemoriGame implements Game, Runnable {
     RenderingEngine reRenderer;
 
     TimeWatch watch;
-    private HighScore highScore;
+    private HighScoreHandler highScore;
 
     public MemoriGame() {
         watch = TimeWatch.start();
-        highScore = new HighScore();
+        highScore = new HighScoreHandler();
     }
 
     @Override

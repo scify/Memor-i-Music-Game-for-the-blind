@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.scify</groupId>
-    <artifactId>Memor-i</artifactId>
+    <artifactId>memori</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
@@ -40,7 +41,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.scify.memori.FirstScreen</mainClass>
+                            <mainClass>org.scify.memori.MainScreen</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

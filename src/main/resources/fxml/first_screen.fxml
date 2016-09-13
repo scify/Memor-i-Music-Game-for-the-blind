@@ -12,15 +12,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
 <StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.MainScreen">
     <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
-    <ImageView styleClass="boxImage">
-    <image>
-        <Image requestedHeight="250" requestedWidth="250" url="@../img/memori.png" />
-    </image>
-</ImageView>
-</HBox>
+        <ImageView styleClass="boxImage">
+            <image>
+                <Image requestedHeight="250" requestedWidth="250" url="@../img/memori.png" />
+            </image>
+        </ImageView>
+    </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
 >>>>>>> development
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
@@ -31,6 +30,7 @@
         <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="fourTimesFour" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="fiveTimesFour" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="fourTimesSix" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="Τα σκορ μου ως τώρα" fx:id="myScores" onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit" onKeyPressed="#exitGame"/>
     </VBox>
 

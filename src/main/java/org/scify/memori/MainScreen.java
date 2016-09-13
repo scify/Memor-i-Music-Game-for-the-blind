@@ -13,6 +13,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.scify.memori.FXAudioEngine;
 
+import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
@@ -145,6 +146,13 @@ public class MainScreen extends Application {
     }
 
     @FXML
+
+    protected void myScores(KeyEvent evt) {
+        FXHighScoresScreen highScoresScreen = new FXHighScoresScreen((Stage)((Node)(evt.getSource())).getScene().getWindow());
+    }
+
+
+    @FXML
     protected void headphonesAdjustment() {
         System.out.println("sdsdf");
     }
@@ -169,4 +177,6 @@ public class MainScreen extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

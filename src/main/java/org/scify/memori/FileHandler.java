@@ -53,7 +53,7 @@ public class FileHandler {
     }
 
 
-    public static String readHighScoreForLevel() {
+    public static String readHighScoreForCurrentLevel() {
         String highScore = "";
         Properties prop = new Properties();
         InputStream input = null;
@@ -63,6 +63,31 @@ public class FileHandler {
             input = new FileInputStream("config.properties");
             prop.load(input);
             highScore = prop.getProperty(MainOptions.gameLevel);
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return highScore;
+    }
+
+    public static String readHighScoreForLevel(String level) {
+        String highScore = "";
+        Properties prop = new Properties();
+        InputStream input = null;
+        try {
+
+            input = new FileInputStream("config.properties");
+            prop.load(input);
+            highScore = prop.getProperty(level);
 
         } catch (IOException io) {
             io.printStackTrace();
