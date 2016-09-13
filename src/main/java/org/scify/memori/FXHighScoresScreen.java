@@ -25,6 +25,7 @@ public class FXHighScoresScreen implements HighScoresScreen {
     //TODO: create stage manager class
     static Stage mainWindow;
     static List<Scene> allScenes;
+    private HighScoreHandler highScoreHandler;
     /**
      * JavFX component to bind the scene with the .fxml and .css file
      */
@@ -65,6 +66,7 @@ public class FXHighScoresScreen implements HighScoresScreen {
 
         scoresScene = new Scene(root, mWidth, mHeight);
         pushScene(scoresScene);
+
     }
 
     @Override
@@ -73,7 +75,7 @@ public class FXHighScoresScreen implements HighScoresScreen {
     }
 
     public FXHighScoresScreen() {
-
+        highScoreHandler = new HighScoreHandler();
     }
 
     /**
@@ -82,21 +84,30 @@ public class FXHighScoresScreen implements HighScoresScreen {
      */
     @FXML
     protected void parseHighScore(KeyEvent evt) {
+
         if (evt.getCode() == SPACE) {
+            String level = "";
             if (evt.getSource() == fourTimesFour) {
                 System.out.println("score for: 4x4");
+                level = "4x4";
             } else if (evt.getSource() == threeTimesTwo) {
                 System.out.println("score for: 2x3");
+                level = "2x3";
             } else if (evt.getSource() == fourTimesThree) {
                 System.out.println("score for: 3x4");
+                level = "3x4";
             } else if(evt.getSource() == twoTimesFour) {
                 System.out.println("score for: 2x4");
+                level = "2x4";
             } else if(evt.getSource() == fiveTimesFour) {
                 System.out.println("score for: 5x4");
+                level = "5x4";
             } else if(evt.getSource() == fourTimesSix) {
                 System.out.println("score for: 4x6");
+                level = "4x6";
             }
             //startNormalGame(evt, MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
+            System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(level));
         }
     }
 

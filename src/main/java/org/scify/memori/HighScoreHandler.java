@@ -12,7 +12,7 @@ public class HighScoreHandler {
 
     public void updateHighScore(TimeWatch watch) {
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
-        String highScore = FileHandler.readHighScoreForLevel();
+        String highScore = FileHandler.readHighScoreForCurrentLevel();
         if (highScore == null || Objects.equals(highScore, ""))
             highScore = "99:00:00";
         System.out.println("highScore " + highScore);
@@ -20,6 +20,10 @@ public class HighScoreHandler {
         System.out.println("time: " + passedTimeInSeconds);
         if(passedTimeInSeconds < TimeToSeconds(highScore))
             FileHandler.setHighScoreForLevel(String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds)));
+    }
+
+    public String getHighScoreForLevel(String level) {
+        return FileHandler.readHighScoreForLevel(level);
     }
 
     private String ConvertSecondToHHMMSSString(int nSecondTime) {
