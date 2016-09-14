@@ -52,11 +52,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     protected Parent root;
 
-    /**
-     * indexes defining the user poistion on the GridPane
-     */
-    private int columnIndex = 0;
-    private int rowIndex = 0;
 
     public FXRenderingEngine(Stage currentStage) {
         try {
@@ -120,7 +115,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         coords = (Point2D) currentGameEvent.parameters;
                         focusOnTile((int) coords.getX(), (int) coords.getY());
                         movementSound((int) coords.getX(), (int) coords.getY());
-                        System.out.println("now at: " + rowIndex + "," + columnIndex);
+                        System.out.println("now at: " + coords.getX() + "," + coords.getY());
                         listIterator.remove();
                         break;
                     case "invalidMovement":
@@ -296,19 +291,20 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         UserAction userAction = null;
 
         if (event.getCode() == SPACE) {
-            userAction = new UserAction("flip", rowIndex, columnIndex);
+            userAction = new UserAction("flip", event);
         } else if(isMovementAction(event)) {
-            if(movementValid(event)) {
-                updateColumnIndex(event);
-                updateRowIndex(event);
-                userAction = new UserAction("movement", rowIndex, columnIndex);
-            } else {
-                userAction = new UserAction("invalidMovement", rowIndex, columnIndex);
-            }
+//            if(movementValid(event)) {
+//                updateColumnIndex(event);
+//                updateRowIndex(event);
+//                userAction = new UserAction("movement", rowIndex, columnIndex);
+//            } else {
+//                userAction = new UserAction("invalidMovement", rowIndex, columnIndex);
+//            }
+            userAction = new UserAction("movement", event);
         } else if(event.getCode() == ENTER) {
-            userAction = new UserAction("help", rowIndex, columnIndex);
+            userAction = new UserAction("help", event);
         } else if(event.getCode() == F1) {
-            userAction = new UserAction("quit", rowIndex, columnIndex);
+            userAction = new UserAction("quit", event);
         }
         pendingUserActions.add(0, userAction);
     }
@@ -322,61 +318,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return evt.getCode() == UP || evt.getCode() == DOWN || evt.getCode() == LEFT || evt.getCode() == RIGHT;
     }
 
-    public void updateColumnIndex(KeyEvent evt) {
-        switch(evt.getCode()) {
-            case LEFT:
-                columnIndex--;
-                break;
-            case RIGHT:
-                columnIndex++;
-                break;
-            default: break;
-        }
-    }
 
-    public void updateRowIndex(KeyEvent evt) {
 
-        switch(evt.getCode()) {
-            case UP:
-                rowIndex--;
-                break;
-            case DOWN:
-                rowIndex++;
-                break;
-            default: break;
-        }
-    }
-
-    /**
-     * Determines whether the user move was valid
-     * @param evt
-     * @return true if the user move was valid
-     */
-    public boolean movementValid(KeyEvent evt) {
-        switch(evt.getCode()) {
-            case LEFT:
-                if(columnIndex == 0) {
-                    return false;
-                }
-                break;
-            case RIGHT:
-                if(columnIndex == MainOptions.NUMBER_OF_COLUMNS - 1) {
-                    return false;
-                }
-                break;
-            case UP:
-                if(rowIndex == 0) {
-                    return false;
-                }
-                break;
-            case DOWN:
-                if(rowIndex == MainOptions.NUMBER_OF_ROWS - 1) {
-                    return false;
-                }
-                break;
-        }
-        return true;
-    }
 
     //maps a value to a new set
     private double map(double x, double in_min, double in_max, double out_min, double out_max) {

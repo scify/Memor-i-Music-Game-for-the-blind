@@ -1,17 +1,35 @@
 package org.scify.memori.interfaces;
 
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+
 import java.awt.geom.Point2D;
 
-/**
- * Created by pisaris on 5/9/2016.
- */
 public class UserAction {
     String actionType;
-    Point2D coords;
 
-    public UserAction(String sType, int x, int y) {
+    public void setCoords(Point2D coords) {
+        this.coords = coords;
+    }
+
+    Point2D coords;
+    KeyEvent keyEvent;
+    KeyCode direction;
+
+
+    public KeyCode getDirection() {
+
+        return direction;
+    }
+
+    public UserAction(String sType, KeyEvent evt) {
         actionType = sType;
-        coords = new Point2D.Double(x,y);
+        keyEvent = evt;
+        direction = evt.getCode();
+    }
+
+    public KeyEvent getKeyEvent() {
+        return keyEvent;
     }
 
     public Point2D getCoords() {

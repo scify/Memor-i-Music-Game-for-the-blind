@@ -1,5 +1,6 @@
 package org.scify.memori;
 
+import javafx.scene.input.KeyEvent;
 import org.scify.memori.interfaces.GameEvent;
 import org.scify.memori.interfaces.GameState;
 import org.scify.memori.interfaces.Player;
@@ -13,18 +14,18 @@ public class MemoriGameState implements GameState {
     protected Player pCurrent;
     protected int iCurrentTurn;
     Queue<GameEvent> gameEventQueue;
+    /**
+     * Variable to flag a finished game
+     */
+    boolean gameFinished = false;
 
-    public void nextTurn() {
-        iCurrentTurn ++;
-    }
+    boolean loadNextLevel = false;
 
-    public int getiCurrentTurn() {
-        return iCurrentTurn;
-    }
-
-    public void resetTurn() {
-        iCurrentTurn = 0;
-    }
+    /**
+     * indexes defining the user poistion on the GridPane
+     */
+    private int columnIndex = 0;
+    private int rowIndex = 0;
 
     public MemoriGameState() {
         terrain = new MemoriTerrain();
@@ -43,6 +44,48 @@ public class MemoriGameState implements GameState {
         terrain = new MemoriTerrain();
         pCurrent = pSinglePlayer;
         iCurrentTurn = 0;
+    }
+
+    public void updateColumnIndex(KeyEvent evt) {
+        switch(evt.getCode()) {
+            case LEFT:
+                columnIndex--;
+                break;
+            case RIGHT:
+                columnIndex++;
+                break;
+            default: break;
+        }
+    }
+
+    public void updateRowIndex(KeyEvent evt) {
+
+        switch(evt.getCode()) {
+            case UP:
+                rowIndex--;
+                break;
+            case DOWN:
+                rowIndex++;
+                break;
+            default: break;
+        }
+    }
+
+    public void setColumnIndex(int columnIndex) {
+        this.columnIndex = columnIndex;
+    }
+
+    public void setRowIndex(int rowIndex) {
+        this.rowIndex = rowIndex;
+    }
+
+    public int getColumnIndex() {
+
+        return columnIndex;
+    }
+
+    public int getRowIndex() {
+        return rowIndex;
     }
 
     public Terrain getTerrain() {

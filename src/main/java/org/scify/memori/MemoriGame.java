@@ -8,9 +8,6 @@ public abstract class MemoriGame implements Game, Runnable {
     UI uInterface;
     RenderingEngine reRenderer;
 
-
-
-
     public MemoriGame() {
     }
 
@@ -33,7 +30,6 @@ public abstract class MemoriGame implements Game, Runnable {
         reRenderer.drawGameState(gsInitialState); // Initialize UI layout
         // Run asyncronously
         GameState gsCurrentState = gsInitialState; // Init
-
         // For every cycle
         while(!rRules.isGameFinished(gsCurrentState)) {
             final GameState toHandle = gsCurrentState;
@@ -64,12 +60,11 @@ public abstract class MemoriGame implements Game, Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        GameState finalGsCurrentState = gsCurrentState;
-//        Platform.runLater(() -> {
-//            //draw game state
-//            reRenderer.drawGameState(finalGsCurrentState);
-//            finalize();
-//        });
+        MemoriGameState memoriGameState = (MemoriGameState)gsCurrentState;
+        if(memoriGameState.gameFinished) {
+            System.err.println("END GAME");
+            SceneHandler.popScene();
+        }
 
         System.err.println("GAME OVER");
 
@@ -77,13 +72,6 @@ public abstract class MemoriGame implements Game, Runnable {
 
     @Override
     public void finalize() {
-//        System.err.println("finalize");
-//        Platform.runLater(() -> {
-//            //draw game state
-//            reRenderer.playGameOver();
-//        });
-
-
     }
 
 }

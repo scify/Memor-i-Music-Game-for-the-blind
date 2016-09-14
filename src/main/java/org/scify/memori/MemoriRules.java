@@ -1,5 +1,6 @@
 package org.scify.memori;
 
+import javafx.scene.input.KeyEvent;
 import org.scify.memori.interfaces.*;
 import org.scify.memori.interfaces.*;
 
@@ -7,8 +8,6 @@ import java.awt.geom.Point2D;
 import java.util.*;
 
 public class MemoriRules implements Rules {
-
-    private boolean gameFinished = false;
     private HighScoreHandler highScore;
     TimeWatch watch;
     public MemoriRules() {
@@ -23,21 +22,27 @@ public class MemoriRules implements Rules {
     @Override
     public GameState getNextState(GameState gsCurrent, UserAction uaAction) {
 
+
         MemoriGameState gsCurrentState = (MemoriGameState)gsCurrent;
+        //detect if valid movement and update row and column indexes
+        if(movementValid(uaAction.getKeyEvent(), gsCurrentState)) {
+            gsCurrentState.updateRowIndex(uaAction.getKeyEvent());
+            gsCurrentState.updateColumnIndex(uaAction.getKeyEvent());
+            uaAction.setCoords(new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex()));
+        } else {
+            // if invalid movement, return only an invalid game event
+            gsCurrentState.getEventQueue().add(new GameEvent("invalidMovement", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex())));
+            return gsCurrentState;
+        }
         MemoriTerrain memoriTerrain = (MemoriTerrain) (gsCurrentState.getTerrain());
         // currTile is the tile that was moved on or acted upon
-        Tile currTile = memoriTerrain.getTile((int) uaAction.getCoords().getX(), (int) uaAction.getCoords().getY());
+        Tile currTile = memoriTerrain.getTile(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex());
         System.out.println(currTile.getTileType());
         // Rules 1-4: Valid movement
         // type: movement, params: coords
         // delayed: false (zero), blocking:yes
         if(uaAction.getActionType().equals("movement")) {
             gsCurrentState.getEventQueue().add(new GameEvent("movement", uaAction.getCoords()));
-        } else if(uaAction.getActionType().equals("invalidMovement")) {
-            // Rule 5: Invalid movement
-            // type: invalidMove, params: none
-            // delayed: false, blocking:yes
-            gsCurrentState.getEventQueue().add(new GameEvent("invalidMovement", uaAction.getCoords()));
         } else if (uaAction.getActionType().equals("flip")) {
             // Rule 6: flip
             // If target card flipped
@@ -80,7 +85,7 @@ public class MemoriRules implements Rules {
                         // flipTile(currTile);
                         //gsCurrentState.getEventQueue().add(new GameEvent("flipBack", uaAction.getCoords(), new Date().getTime() + 1500, true));
                         memoriTerrain.addTileToOpenTiles(currTile);
-                        //TODO: push new turn event (or should be handled only in renderer?
+                        //TODO: push new turn event
                         // Reset all tiles
                         List<Point2D> openTilesPoints = resetAllOpenTiles(memoriTerrain);
                         memoriTerrain.resetOpenTiles();
@@ -97,40 +102,16 @@ public class MemoriRules implements Rules {
             }
         }
 
-        // Rules 1-4: Valid movement
-        // type: movement, params: coords
-        // delayed: false (zero), blocking:yes
-        // Rule 5: Invalid movement
-        // type: invalidMove, params: none
-        // delayed: false, blocking:yes
-        // Rule 6: flip
-        // If target card flipped
-            //if card won
-                //play empty sound
-            //else if card not won
-                // play card sound
-        // else if not flipped
-            // flip card
-            // push flip feedback event (delayed: true, blocking:yes)
-            // If last of n-tuple flipped (i.e. if we have enough cards flipped to form a tuple)
-                // Fix all cards in tuple as won cards
-                // Push success feedback event, DELAYED
-            // else not last card in tuple
-                // if at least one other open cards are different
-                    // Push failure feedback event
-                    // Flip card back
-                    // Reset all cards (error event)
-                    //gsCurrentState.getEventQueue().add(new GameEvent("reset", uaAction.getCoords(), new Date().getTime() + 1000, true));
-                //else if all same or first card
-                    //add card to tuple
-
         //if last round, create appropriate READY_TO_FINISH event
         if(isLastRound(gsCurrent)) {
             //if ready to finish event already in events queue
             if(eventsQueueContainsEvent(gsCurrent.getEventQueue(), "READY_TO_FINISH")) {
                 //listen for user action indicating game over
                 if(uaAction.getActionType().equals("quit")) {
-                    gameFinished = true;
+                    gsCurrentState.gameFinished = true;
+                }
+                if(uaAction.getActionType().equals("nextLevel")) {
+                    gsCurrentState.loadNextLevel = true;
                 }
                 //TODO: allow either returning to main screen, or go to next level
             } else {
@@ -199,7 +180,8 @@ public class MemoriRules implements Rules {
 
     @Override
     public boolean isGameFinished(GameState gsCurrent) {
-        return gameFinished;
+        MemoriGameState memoriGameState = (MemoriGameState)gsCurrent;
+        return memoriGameState.gameFinished;
     }
 
     public boolean isTileFlipped(Tile tile) {
@@ -212,7 +194,6 @@ public class MemoriRules implements Rules {
 
     public List<Point2D> resetAllOpenTiles(MemoriTerrain memoriTerrain) {
         List<Point2D> openTilesPoints = new ArrayList<>();
-        System.err.println("SETTING ALL OPEN CARDS AS CLOSED");
         memoriTerrain.openTiles.forEach(Tile::flip);
         for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
             Tile element = iter.next();
@@ -227,6 +208,37 @@ public class MemoriRules implements Rules {
         }
 
         return openTilesPoints;
+    }
+
+    /**
+     * Determines whether the user move was valid
+     * @param evt
+     * @return true if the user move was valid
+     */
+    public boolean movementValid(KeyEvent evt, MemoriGameState memoriGameState) {
+        switch(evt.getCode()) {
+            case LEFT:
+                if(memoriGameState.getColumnIndex() == 0) {
+                    return false;
+                }
+                break;
+            case RIGHT:
+                if(memoriGameState.getColumnIndex() == MainOptions.NUMBER_OF_COLUMNS - 1) {
+                    return false;
+                }
+                break;
+            case UP:
+                if(memoriGameState.getRowIndex() == 0) {
+                    return false;
+                }
+                break;
+            case DOWN:
+                if(memoriGameState.getRowIndex() == MainOptions.NUMBER_OF_ROWS - 1) {
+                    return false;
+                }
+                break;
+        }
+        return true;
     }
 
 }
