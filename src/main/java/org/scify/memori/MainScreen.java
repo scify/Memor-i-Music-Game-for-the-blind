@@ -181,8 +181,12 @@ public class MainScreen extends Application {
 
 
     @FXML
-    protected void headphonesAdjustment() {
-        System.out.println("headphonesAdjustment");
+    protected void headphonesAdjustment(KeyEvent evt) {
+        audioEngine = new FXAudioEngine();
+        if (evt.getCode() == SPACE) {
+                audioEngine.playBalancedSound(-1.0, "leftHeadphone.mp3");
+                audioEngine.playBalancedSound(1.0, "rightHeadphone.mp3");
+        }
     }
 
     private void startNormalGame(KeyEvent evt, int numOfCols, int numOfRows) {
