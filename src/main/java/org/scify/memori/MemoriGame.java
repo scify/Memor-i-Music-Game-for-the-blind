@@ -72,18 +72,12 @@ public abstract class MemoriGame implements Game, Runnable {
 
             // TODO: Also allow next state getting, when no user action was provided
         }
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         MemoriGameState memoriGameState = (MemoriGameState)gsCurrentState;
         if(memoriGameState.gameFinished) {
             System.err.println("END GAME");
             SceneHandler.popScene();
         }
-
-        System.err.println("GAME OVER");
 
     }
 

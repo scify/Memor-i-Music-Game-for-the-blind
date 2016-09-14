@@ -27,15 +27,23 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MemoriGameState implements GameState {
+    /**
+     * The terrain holding all the UI elements
+     */
     protected Terrain terrain;
     protected Player pCurrent;
     protected int iCurrentTurn;
+    /**
+     * A queue containing the game events (handled by the renderer Class)
+     */
     Queue<GameEvent> gameEventQueue;
     /**
      * Variable to flag a finished game
      */
     boolean gameFinished = false;
-
+    /**
+     * Variable to indicate whether a new game should start immediately
+     */
     boolean loadNextLevel = false;
 
     /**
@@ -63,6 +71,10 @@ public class MemoriGameState implements GameState {
         iCurrentTurn = 0;
     }
 
+    /**
+     * Updates the column index based on the Key event passed
+     * @param evt the Key Event
+     */
     public void updateColumnIndex(KeyEvent evt) {
         switch(evt.getCode()) {
             case LEFT:
@@ -75,6 +87,10 @@ public class MemoriGameState implements GameState {
         }
     }
 
+    /**
+     * Updates the row index based on the Key event passed
+     * @param evt the Key Event
+     */
     public void updateRowIndex(KeyEvent evt) {
 
         switch(evt.getCode()) {
@@ -98,10 +114,17 @@ public class MemoriGameState implements GameState {
         return rowIndex;
     }
 
+    /**
+     * Get the terrain that the UI elements are laid on
+     */
     public Terrain getTerrain() {
         return terrain;
     }
 
+    /**
+     * Getter for the game events queue
+     * @return A LinkedList representation of the game events queue
+     */
     @Override
     public LinkedList<GameEvent> getEventQueue() {
         return (LinkedList)gameEventQueue;
@@ -112,6 +135,10 @@ public class MemoriGameState implements GameState {
     public Player getCurrentPlayer() {
         return pCurrent;
     }
+
+    /**
+     * Empties the game events queue
+     */
     @Override
     public void resetEventsQueue() {
         gameEventQueue = new LinkedList();
