@@ -71,13 +71,6 @@ public class MemoriGameState implements GameState {
         }
     }
 
-    public void setColumnIndex(int columnIndex) {
-        this.columnIndex = columnIndex;
-    }
-
-    public void setRowIndex(int rowIndex) {
-        this.rowIndex = rowIndex;
-    }
 
     public int getColumnIndex() {
 

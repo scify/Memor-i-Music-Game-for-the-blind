@@ -293,13 +293,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         if (event.getCode() == SPACE) {
             userAction = new UserAction("flip", event);
         } else if(isMovementAction(event)) {
-//            if(movementValid(event)) {
-//                updateColumnIndex(event);
-//                updateRowIndex(event);
-//                userAction = new UserAction("movement", rowIndex, columnIndex);
-//            } else {
-//                userAction = new UserAction("invalidMovement", rowIndex, columnIndex);
-//            }
             userAction = new UserAction("movement", event);
         } else if(event.getCode() == ENTER) {
             userAction = new UserAction("help", event);
@@ -317,9 +310,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     private boolean isMovementAction(KeyEvent evt) {
         return evt.getCode() == UP || evt.getCode() == DOWN || evt.getCode() == LEFT || evt.getCode() == RIGHT;
     }
-
-
-
 
     //maps a value to a new set
     private double map(double x, double in_min, double in_max, double out_min, double out_max) {
