@@ -85,6 +85,7 @@ public class FXAudioEngine implements AudioEngine{
                 movementSoundPlayer.stop();
             }
         });
+        movementSoundPlayer.play();
     }
 
     /**
