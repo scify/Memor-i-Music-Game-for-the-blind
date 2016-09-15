@@ -193,6 +193,18 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
+                    case "TUTORIAL_0_UI":
+                        System.err.println("TUTORIAL_0_UI PLEASE CLICK RIGHT");
+                        listIterator.remove();
+                        break;
+                    case "TUTORIAL_1_UI":
+                        System.err.println("TUTORIAL_1_UI PLEASE CLICK LEFT");
+                        listIterator.remove();
+                        break;
+                    case "NOT_RIGHT_UI":
+                        System.err.println("PLEASE CLICK RIGHT!");
+                        listIterator.remove();
+                        break;
                     default:
                         break;
                 }
@@ -276,6 +288,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
         Platform.runLater(()-> { //set first card as focused
             gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
+
+        //TODO: ask ggianna
+        Platform.runLater(()-> { //set first card as focused
+            System.err.println("TUTORIAL STARTS PLEASE CLICK ENTER"); });
     }
 
     public void setUpFXComponents() throws IOException {
@@ -310,7 +326,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         } else if(isMovementAction(event)) {
             userAction = new UserAction("movement", event);
         } else if(event.getCode() == ENTER) {
-            userAction = new UserAction("help", event);
+            //userAction = new UserAction("help", event);
+            userAction = new UserAction("enter", event);
         } else if(event.getCode() == F1) {
             userAction = new UserAction("quit", event);
         } else if(event.getCode() == F2) {

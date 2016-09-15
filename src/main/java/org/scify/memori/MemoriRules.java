@@ -18,6 +18,7 @@
 
 package org.scify.memori;
 
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.scify.memori.interfaces.*;
 import org.scify.memori.interfaces.*;
@@ -88,6 +89,7 @@ public class MemoriRules implements Rules {
                     //if in tutorial mode, push explaining events
                     if(MainOptions.TUTORIAL_MODE) {
                         System.err.println("tutorial mode");
+                        //TODO: Add tutorial relevant sounds
                         gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 1500, false));
                     }
                     // add tile to open tiles
@@ -145,7 +147,103 @@ public class MemoriRules implements Rules {
             }
         }
 
+        if(MainOptions.TUTORIAL_MODE)
+            tutorialRulesSet(gsCurrentState, uaAction);
+
         return gsCurrentState;
+    }
+
+    private void tutorialRulesSet(MemoriGameState gsCurrentState, UserAction uaAction) {
+
+            // if tutorial_0 event does not exist
+                //If user clicked space
+                    // add tutorial_0 event to queue
+                    // add tutorial_0 UI event to queue
+            // else if tutorial_0 event exists
+                //if tutorial_1 event does not exist
+                    //if user clicked RIGHT
+                        //add tutorial_1 event to queue
+                        //add tutorial_1 UI event to queue
+                    //else  if user did not click RIGHT
+                        //add UI event indicating that the user should click RIGHT
+                //else if tutorial_1 event exists
+                    //if tutorial_2 event does not exist
+                        //if user clicked LEFT
+                            //add tutorial_2 event to queue
+                            //add tutorial_2 UI event to queue
+                        //else if user did not click LEFT
+                            //add UI event indicating that the user should click RIGHT
+                    //else if tutorial_2 event exists
+                        //if tutorial_3 event does not exist
+                            //if user clicked FLIP
+                                //add tutorial_3 event to queue
+                                //add tutorial_3 UI event to queue
+                        //if tutorial_3 event exists
+        // if tutorial_0 event does not exist
+        if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_0")) {
+            //If user clicked space
+            if (uaAction.getActionType().equals("enter")) {
+                // add tutorial_0 event to queue
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0", uaAction.getCoords()));
+                // add tutorial_0 UI event to queue
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0_UI", uaAction.getCoords()));
+            }
+            // else if tutorial_0 event exists
+        } else {
+            //if tutorial_1 event does not exist
+            if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_1")) {
+                //if user clicked RIGHT
+                if (uaAction.getDirection() == KeyCode.RIGHT) {
+                    //add tutorial_1 event to queue
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1", uaAction.getCoords()));
+                    //add tutorial_1 UI event to queue
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_UI", uaAction.getCoords()));
+                } //else  if user did not click RIGHT
+                else {
+                    gsCurrentState.getEventQueue().add(new GameEvent("NOT_RIGHT_UI", uaAction.getCoords()));
+                }
+                //else if tutorial_1 event exists
+            } else {
+                //if tutorial_2 event does not exist
+                if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
+                    //if user clicked LEFT
+                    if (uaAction.getDirection() == KeyCode.LEFT) {
+                        //add tutorial_2 event to queue
+                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2", uaAction.getCoords()));
+                        // add tutorial_2 UI event to queue
+                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", uaAction.getCoords()));
+                    } //else if user did not click LEFT
+                    else {
+                        //add UI event indicating that the user should click LEFT
+                        gsCurrentState.getEventQueue().add(new GameEvent("NOT_LEFT_UI", uaAction.getCoords()));
+                    }
+                }//else if tutorial_2 event exists
+                else {
+                    //if tutorial_3 event does not exist
+                    if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_3")) {
+                        //if user clicked ENTER
+                        if (uaAction.getActionType().equals("enter")) {
+                            //add tutorial_3 event to queue
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_3", uaAction.getCoords()));
+                            // add tutorial_3 UI event to queue
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_3_UI", uaAction.getCoords()));
+                        } else {
+                            gsCurrentState.getEventQueue().add(new GameEvent("NOT_ENTER_UI", uaAction.getCoords()));
+                        }
+                    } else {
+                        if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_4")) {
+                            if (uaAction.getActionType().equals("flip")) {
+                                //add tutorial_3 event to queue
+                                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_4", uaAction.getCoords()));
+                                // add tutorial_3 UI event to queue
+                                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_4_UI", uaAction.getCoords()));
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
     private boolean eventsQueueContainsEvent(Queue<GameEvent> eventQueue, String eventType) {
