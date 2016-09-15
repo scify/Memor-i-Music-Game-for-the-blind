@@ -237,10 +237,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      * @param columnIndex the Node y position
      */
     private void movementSound(int rowIndex, int columnIndex) {
-        System.err.println("movementSound");
         double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS, -1.0, 2.0);
         double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS, 1.5, 1.0);
-        System.err.println("rate: " + rate);
         fxAudioEngine.playMovementSound(soundBalance, rate);
     }
 
@@ -260,22 +258,23 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         System.out.println("initFXComponents");
         MemoriGameState memoriGS = currentState;
         MemoriTerrain terrain = (MemoriTerrain) memoriGS.getTerrain();
-
+        //Load the tiles list from the Terrain
         Map<Point2D, Tile> initialTiles = terrain.getTiles();
         Iterator it = initialTiles.entrySet().iterator();
-
+        //Iterate through the tiles list to add them to the Layour object
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
             Point2D point = (Point2D) pair.getKey();
             Card card = (Card) pair.getValue();
+            //add the card to layout when the Thread deems appropriate
             Platform.runLater(()-> {
                 gridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
-                System.out.println(card.getTileType());
             });
+            //Set up the event handler for the current card
             card.getButton().setOnKeyPressed(this);
         }
 
-        Platform.runLater(()-> { //set first card as visited
+        Platform.runLater(()-> { //set first card as focused
             gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
     }
 
@@ -305,7 +304,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         System.err.println("Key press!" +new Date().getTime());
 
         UserAction userAction = null;
-
+        //Handle different kinds of UI (keyboard) events
         if (event.getCode() == SPACE) {
             userAction = new UserAction("flip", event);
         } else if(isMovementAction(event)) {

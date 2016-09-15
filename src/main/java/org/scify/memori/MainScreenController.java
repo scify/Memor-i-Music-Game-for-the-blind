@@ -225,6 +225,9 @@ public class MainScreenController implements Initializable {
             if(result == 1) {
                 System.err.println("QUITING TO MAIN SCREEN");
                 sceneHandler.popScene();
+            } else if(result == 2) {
+                sceneHandler.simplePopScene();
+                startNormalGame(numOfCols++, numOfRows++);
             }
             System.out.println(result);
         } catch (InterruptedException e) {

@@ -70,4 +70,8 @@ public class SceneHandler {
         // return removed scene
         return sToPop;
     }
+
+    public void simplePopScene() {
+        allScenes.remove(allScenes.size() - 1);
+    }
 }
