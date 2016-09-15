@@ -34,6 +34,7 @@ import static org.scify.memori.MainOptions.mWidth;
 
 public class FXHighScoresScreen implements HighScoresScreen {
 
+    protected SceneHandler sceneHandler;
     private HighScoreHandler highScoreHandler;
     /**
      * JavFX component to bind the scene with the .fxml and .css file
@@ -59,8 +60,9 @@ public class FXHighScoresScreen implements HighScoresScreen {
     @FXML
     private Button fourTimesSix;
 
-    public FXHighScoresScreen(Stage mainWindow) {
-        SceneHandler.mainWindow = mainWindow;
+    public FXHighScoresScreen(SceneHandler shSceneHandler, Stage mainWindow) {
+        this.sceneHandler = shSceneHandler;
+        sceneHandler.setMainWindow(mainWindow);
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/scores.fxml"));
         } catch (IOException e) {
@@ -72,11 +74,11 @@ public class FXHighScoresScreen implements HighScoresScreen {
         fxAudioEngine = new FXAudioEngine();
 
         scoresScene = new Scene(root, mWidth, mHeight);
-        SceneHandler.pushScene(scoresScene);
+        sceneHandler.pushScene(scoresScene);
         scoresScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ESCAPE:
-                    SceneHandler.popScene();
+                    sceneHandler.popScene();
                     break;
             }
         });
@@ -133,7 +135,7 @@ public class FXHighScoresScreen implements HighScoresScreen {
     @FXML
     protected void backToMainScreen(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
-            SceneHandler.popScene();
+            sceneHandler.popScene();
         }
     }
 

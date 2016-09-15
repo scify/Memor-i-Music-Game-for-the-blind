@@ -46,7 +46,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     private FXAudioEngine fxAudioEngine;
 
-    private static Stage mStage = new Stage();
     /**
      * gridpane holds all cards
      */
@@ -70,10 +69,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     protected Parent root;
 
 
-    public FXRenderingEngine(Stage currentStage) {
+    public FXRenderingEngine() {
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/game.fxml"));
-            mStage = currentStage; // Initialize the stage variable
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -91,26 +89,27 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
     @Override
     public void drawGameState(MemoriGameState currentState) {
+        System.err.println("drawGameState");
         if (firstDraw) {
-            //initialize UI components
-            Platform.runLater(() -> {
+            //initialize UI components=
                 try {
                     setUpFXComponents();
                     initFXComponents(currentState);
                 }
                 catch (IOException e) {
                     e.printStackTrace();
-                }});
+                }
             firstDraw = false;
         }
         else {
             //update UI components
-            Platform.runLater(() -> { updateFXComponents(currentState); });
+            updateFXComponents(currentState);
         }
     }
 
     private long lLastUpdate = -1L;
     protected void updateFXComponents(MemoriGameState currentState) {
+        System.err.println("updateFXComponents");
         long lNewTime = new Date().getTime();
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
             Thread.yield(); // TODO: Use it or do nothing?
@@ -259,6 +258,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     }
 
     protected void initFXComponents(MemoriGameState currentState) {
+        System.out.println("initFXComponents");
         MemoriGameState memoriGS = currentState;
         MemoriTerrain terrain = (MemoriTerrain) memoriGS.getTerrain();
 
@@ -271,8 +271,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             Card card = (Card) pair.getValue();
             Platform.runLater(()-> {
                 gridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
-                card.getButton().setOnKeyPressed(this);
+                System.out.println(card.getTileType());
             });
+            card.getButton().setOnKeyPressed(this);
         }
 
         Platform.runLater(()-> { //set first card as visited
@@ -282,7 +283,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     public void setUpFXComponents() throws IOException {
         System.out.println("setUpFXComponents");
         gridPane = ((GridPane) root);
-        mStage.setTitle("Memor-i");
         gameScene.getStylesheets().add("css/style.css");
     }
 

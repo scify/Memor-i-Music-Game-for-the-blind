@@ -17,8 +17,10 @@
 
 package org.scify.memori.interfaces;
 
-public interface Game {
+import java.util.concurrent.Callable;
+
+public interface Game<T> extends Callable<T> {
     void initialize();
-    void run();
+    T call();
     void finalize();
 }

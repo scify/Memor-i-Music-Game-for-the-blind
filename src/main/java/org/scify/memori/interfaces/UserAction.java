@@ -30,6 +30,7 @@ public class UserAction {
     }
 
     Point2D coords;
+    //TODO: next 2 make generic (Map String, String)
     KeyEvent keyEvent;
     KeyCode direction;
 

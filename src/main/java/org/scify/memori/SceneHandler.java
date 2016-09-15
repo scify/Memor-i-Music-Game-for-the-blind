@@ -17,6 +17,7 @@
 
 package org.scify.memori;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -24,21 +25,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SceneHandler {
-
-    static Stage mainWindow;
-    static List<Scene> allScenes = new ArrayList<>();
-
-    public static void pushScene(Scene sToPush) {
-        allScenes.add(sToPush);
-        // Set the added scene as active
-        mainWindow.setScene(sToPush);
+    public SceneHandler() {
+        System.out.println("Initializing scene handler...");
     }
 
-    public static Scene  popScene() {
+    private Stage mainWindow;
+    private List<Scene> allScenes = new ArrayList<>();
+
+    public Stage getMainWindow() {
+        return mainWindow;
+    }
+
+    public void setMainWindow(Stage mainWindow) {
+        this.mainWindow = mainWindow;
+    }
+
+    public void pushScene(Scene sToPush) {
+        allScenes.add(sToPush);
+        // Set the added scene as active
+
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                mainWindow.setScene(sToPush);
+            }
+        });
+    }
+
+    public Scene  popScene() {
         Scene sToPop = allScenes.get(allScenes.size() - 1); // Get last added
         allScenes.remove(allScenes.size() - 1); // and pop it
-        // update active scene
-        mainWindow.setScene(allScenes.get(allScenes.size() - 1));
+        // update active scene IN FX ΤΗΕΜΕ
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                mainWindow.setScene(allScenes.get(allScenes.size() - 1));
+            }
+        });
+        // WARNING: The above call is asynchronous, so we are not CERTAIN that
+        // the mainWindow has already switched to the previous scene, at this point
+        // in time.
+
         // return removed scene
         return sToPop;
     }

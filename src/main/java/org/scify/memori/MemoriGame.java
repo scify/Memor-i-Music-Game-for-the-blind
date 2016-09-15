@@ -20,13 +20,28 @@ package org.scify.memori;
 import javafx.application.Platform;
 import org.scify.memori.interfaces.*;
 
-public abstract class MemoriGame implements Game, Runnable {
-    Rules rRules;
-    UI uInterface;
-    RenderingEngine reRenderer;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 
-    public MemoriGame() {
-    }
+public abstract class MemoriGame implements Game<Integer> {
+    /**
+     * constant defining whether the game is finished
+     */
+    private static final Integer GAME_FINISHED = 1;
+    /**
+     * constant defining whether the game should continue to next level
+     */
+    private static final Integer NEXT_LEVEL = 2;
+
+    Rules rRules;
+    /**
+     * Object responsible for UI events (User actions)
+     */
+    UI uInterface;
+    /**
+     * Object rensponsible for UI rendering events (sounds, graphics etc)
+     */
+    RenderingEngine reRenderer;
 
     @Override
     /**
@@ -41,20 +56,16 @@ public abstract class MemoriGame implements Game, Runnable {
     }
 
     @Override
-    public void run() {
-
-        final GameState gsInitialState=rRules.getInitialState();
+    public Integer call() {
+        final GameState gsInitialState = rRules.getInitialState();
         reRenderer.drawGameState(gsInitialState); // Initialize UI layout
         // Run asyncronously
         GameState gsCurrentState = gsInitialState; // Init
         // For every cycle
-        while(!rRules.isGameFinished(gsCurrentState)) {
+        while (!rRules.isGameFinished(gsCurrentState)) {
             final GameState toHandle = gsCurrentState;
             // Ask to soon draw the state
-            Platform.runLater(() -> {
-                //draw game state
-                reRenderer.drawGameState(toHandle);
-            });
+            Platform.runLater(() -> reRenderer.drawGameState(toHandle));
             // and keep on doing the loop in this thread
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
@@ -72,17 +83,15 @@ public abstract class MemoriGame implements Game, Runnable {
 
             // TODO: Also allow next state getting, when no user action was provided
         }
+        System.err.println("GAME OVER");
+        MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
 
-        MemoriGameState memoriGameState = (MemoriGameState)gsCurrentState;
-        if(memoriGameState.gameFinished) {
-            System.err.println("END GAME");
-            SceneHandler.popScene();
-        }
-
+        return memoriGameState.gameFinished ? GAME_FINISHED : NEXT_LEVEL;
     }
 
     @Override
     public void finalize() {
+        System.err.println("FINALIZE");
     }
 
 }

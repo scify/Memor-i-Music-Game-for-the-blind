@@ -18,24 +18,29 @@
 package org.scify.memori;
 
 public class FXMemoriGame extends MemoriGame {
+    protected SceneHandler sceneHandler;
 
+
+    public FXMemoriGame(SceneHandler shSceneHandler) {
+        this.sceneHandler = shSceneHandler;
+    }
 
     @Override
     public void initialize() {
         super.initialize();
 
-        FXRenderingEngine fUI = new FXRenderingEngine(SceneHandler.mainWindow);
+        FXRenderingEngine fUI = new FXRenderingEngine();
         uInterface = fUI;
         reRenderer = fUI;
 
         // Plus update current scene
-        SceneHandler.pushScene(fUI.gameScene);
+        sceneHandler.pushScene(fUI.gameScene);
 
         fUI.gameScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ESCAPE:
                     System.err.println("END GAME");
-                    SceneHandler.popScene();
+                    sceneHandler.popScene();
                     break;
             }
         });
