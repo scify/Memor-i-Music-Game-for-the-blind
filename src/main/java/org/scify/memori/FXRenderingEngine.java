@@ -89,7 +89,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
     @Override
     public void drawGameState(MemoriGameState currentState) {
-        System.err.println("drawGameState");
         if (firstDraw) {
             //initialize UI components=
                 try {
@@ -109,7 +108,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
     private long lLastUpdate = -1L;
     protected void updateFXComponents(MemoriGameState currentState) {
-        System.err.println("updateFXComponents");
         long lNewTime = new Date().getTime();
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
             Thread.yield(); // TODO: Use it or do nothing?
@@ -240,8 +238,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     private void movementSound(int rowIndex, int columnIndex) {
         System.err.println("movementSound");
-        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS - 0.6, -1.0, 1.0);
-        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS - 0.6, 1.0, 1.5);
+        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS, -1.0, 2.0);
+        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS, 1.5, 1.0);
+        System.err.println("rate: " + rate);
         fxAudioEngine.playMovementSound(soundBalance, rate);
     }
 
