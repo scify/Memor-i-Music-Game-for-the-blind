@@ -314,6 +314,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             userAction = new UserAction("help", event);
         } else if(event.getCode() == F1) {
             userAction = new UserAction("quit", event);
+        } else if(event.getCode() == F2) {
+            userAction = new UserAction("nextLevel", event);
         }
         pendingUserActions.add(0, userAction);
     }

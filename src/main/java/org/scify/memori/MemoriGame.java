@@ -86,7 +86,7 @@ public abstract class MemoriGame implements Game<Integer> {
         System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
 
-        return memoriGameState.gameFinished ? GAME_FINISHED : NEXT_LEVEL;
+        return memoriGameState.loadNextLevel ? NEXT_LEVEL : GAME_FINISHED;
     }
 
     @Override

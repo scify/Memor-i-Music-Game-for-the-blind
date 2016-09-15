@@ -101,7 +101,6 @@ public class MemoriRules implements Rules {
                     if(atLeastOneOtherTileIsDifferent(memoriTerrain, currTile)) {
                         // Flip card back
                         // flipTile(currTile);
-                        //gsCurrentState.getEventQueue().add(new GameEvent("flipBack", uaAction.getCoords(), new Date().getTime() + 1500, true));
                         memoriTerrain.addTileToOpenTiles(currTile);
                         //TODO: push new turn event
                         // Reset all tiles
@@ -126,10 +125,14 @@ public class MemoriRules implements Rules {
             if(eventsQueueContainsEvent(gsCurrent.getEventQueue(), "READY_TO_FINISH")) {
                 //listen for user action indicating game over
                 if(uaAction.getActionType().equals("quit")) {
+                    //the game should finish but not load a next level
+                    gsCurrentState.loadNextLevel = false;
                     gsCurrentState.gameFinished = true;
                 }
                 if(uaAction.getActionType().equals("nextLevel")) {
+                    //the game should finish and load a next level
                     gsCurrentState.loadNextLevel = true;
+                    gsCurrentState.gameFinished = true;
                 }
                 //TODO: allow either returning to main screen, or go to next level
             } else {
@@ -137,6 +140,7 @@ public class MemoriRules implements Rules {
                 gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH", ""));
                 //add UI events
                 gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 1500, true));
+                //TODO: Add event informing the user about either returning to main screen or starting next level
                 highScore.updateHighScore(watch);
             }
         }
