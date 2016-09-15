@@ -25,6 +25,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -50,6 +51,8 @@ public class MainScreenController implements Initializable {
     private Button fourTimesSix;
     @FXML
     private Button fiveTimesSix;
+
+    private String[] levels = {"2x3", "2x4", "3x4", "4x4", "5x4", "4x6", "5x6", "END"};
 
     public MainScreenController() {
         System.err.println("Constructor running...");
@@ -204,6 +207,7 @@ public class MainScreenController implements Initializable {
 
     private void startNormalGame(int numOfCols, int numOfRows) {
         MainOptions.gameLevel = numOfRows + "x" + numOfCols;
+        System.err.println(MainOptions.gameLevel);
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
         // Run game in separate thread
@@ -227,7 +231,13 @@ public class MainScreenController implements Initializable {
                 sceneHandler.popScene();
             } else if(result == 2) {
                 sceneHandler.simplePopScene();
-                startNormalGame(numOfCols++, numOfRows++);
+                String nextLevel = levels[Arrays.asList(levels).indexOf(MainOptions.gameLevel)  + 1];
+                System.err.println("next level: " + nextLevel);
+                if(!nextLevel.equals("END")) {
+                    MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
+                    MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
+                    startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+                }
             }
             System.out.println(result);
         } catch (InterruptedException e) {
