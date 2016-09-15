@@ -17,11 +17,13 @@
 
 package org.scify.memori;
 
+
 public class FXMemoriGame extends MemoriGame {
     protected SceneHandler sceneHandler;
 
 
     public FXMemoriGame(SceneHandler shSceneHandler) {
+
         this.sceneHandler = shSceneHandler;
     }
 
@@ -45,5 +47,6 @@ public class FXMemoriGame extends MemoriGame {
             }
         });
     }
+
 
 }

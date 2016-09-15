@@ -26,6 +26,8 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -202,12 +204,13 @@ public class MainScreenController implements Initializable {
         }
     }
 
-
     private void startNormalGame(int numOfCols, int numOfRows) {
         MainOptions.gameLevel = numOfRows + "x" + numOfCols;
         System.err.println(MainOptions.gameLevel);
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
+
+        //TODO: play introductory sound
         // Run game in separate thread
         ExecutorService es  = Executors.newFixedThreadPool(1);
         Future<Integer> future = es.submit(game);

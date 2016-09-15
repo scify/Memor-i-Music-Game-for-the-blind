@@ -68,10 +68,20 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     protected Parent root;
 
+    /**
+     * Each game level has an introductory sound associated with it
+     */
+    private Map<String, String> introductorySounds = new HashMap<>();
 
     public FXRenderingEngine() {
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/game.fxml"));
+            introductorySounds.put("2x3", "2x3IntroSound.wav");
+            introductorySounds.put("3x4", "3x4IntroSound.wav");
+            introductorySounds.put("4x4", "4x4IntroSound.wav");
+            introductorySounds.put("2x4", "2x4IntroSound.wav");
+            introductorySounds.put("5x4", "5x4IntroSound.wav");
+            introductorySounds.put("4x6", "4x6IntroSound.wav");
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -81,6 +91,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
         gameScene = new Scene(root, mWidth, mHeight);
     }
+
 
     /**
      * List of actions captured by the user interaction. User in the Player-derived methods.
@@ -290,8 +301,12 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
 
         //TODO: ask ggianna
-        Platform.runLater(()-> { //set first card as focused
-            System.err.println("TUTORIAL STARTS PLEASE CLICK ENTER"); });
+        if(MainOptions.TUTORIAL_MODE) {
+            System.err.println("TUTORIAL STARTS PLEASE CLICK ENTER");
+            //TODO: Play tutorial introductory sound
+        } else {
+            //TODO: Play game level introductory sound
+        }
     }
 
     public void setUpFXComponents() throws IOException {
