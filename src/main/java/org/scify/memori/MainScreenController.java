@@ -52,8 +52,6 @@ public class MainScreenController implements Initializable {
     @FXML
     private Button fiveTimesSix;
 
-    private String[] levels = {"2x3", "2x4", "3x4", "4x4", "5x4", "4x6", "5x6", "END"};
-
     public MainScreenController() {
         System.err.println("Constructor running...");
     }
@@ -231,12 +229,16 @@ public class MainScreenController implements Initializable {
                 sceneHandler.popScene();
             } else if(result == 2) {
                 sceneHandler.simplePopScene();
-                String nextLevel = levels[Arrays.asList(levels).indexOf(MainOptions.gameLevel)  + 1];
+                String[] gameLevels = game.getGameLevels();
+                String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)  + 1];
                 System.err.println("next level: " + nextLevel);
                 if(!nextLevel.equals("END")) {
                     MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
                     MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
+
                     startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+                } else {
+                    sceneHandler.popScene();
                 }
             }
             System.out.println(result);

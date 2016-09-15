@@ -46,6 +46,8 @@ public abstract class MemoriGame implements Game<Integer> {
      */
     RenderingEngine reRenderer;
 
+    private String[] gameLevels = {"2x3", "2x4", "3x4", "4x4", "5x4", "4x6", "5x6", "END"};
+
     @Override
     /**
      * Subclasses should initialize a UI
@@ -97,4 +99,7 @@ public abstract class MemoriGame implements Game<Integer> {
         System.err.println("FINALIZE");
     }
 
+    public String[] getGameLevels() {
+        return gameLevels;
+    }
 }
