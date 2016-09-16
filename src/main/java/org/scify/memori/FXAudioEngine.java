@@ -116,7 +116,7 @@ public class FXAudioEngine implements AudioEngine{
      * Plays an appropriate sound associated with a failure Game Event
      */
     public void playFailureSound() {
-        playSound(failureSound);
+        pauseAndPlaySound(failureSound, false);
     }
 
     /**
@@ -156,9 +156,8 @@ public class FXAudioEngine implements AudioEngine{
      * @param isBlocking whether the player should block the calling Thread while the sound is playing
      */
     public void playSound(String soundFile, boolean isBlocking) {
-        pauseSound();
+        //pauseSound();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
-        audioClip.setCycleCount(0);
         audioClip.play();
 
         if (isBlocking) {
@@ -174,4 +173,8 @@ public class FXAudioEngine implements AudioEngine{
         }
     }
 
+    public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
+        pauseSound();
+        playSound(soundFile, isBlocking);
+    }
 }

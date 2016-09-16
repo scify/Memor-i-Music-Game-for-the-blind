@@ -91,38 +91,38 @@ public class MainScreenController implements Initializable {
 
         primaryScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("tutorial.mp3");
+                audioEngine.pauseAndPlaySound("tutorial.mp3", false);
             }
         });
 
 
         primaryScene.lookup("#threeTimesTwo").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("two_times_three.mp3");
+                audioEngine.pauseAndPlaySound("two_times_three.mp3", false);
             }
         });
 
         primaryScene.lookup("#twoTimesFour").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("two_times_four.mp3");
+                audioEngine.pauseAndPlaySound("two_times_four.mp3", false);
             }
         });
 
         primaryScene.lookup("#fourTimesThree").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("three_times_four.mp3");
+                audioEngine.pauseAndPlaySound("three_times_four.mp3", false);
             }
         });
 
         primaryScene.lookup("#fourTimesFour").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("four_times_four.mp3");
+                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.playSound("four_times_four.mp3");
+                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
             }
         });
 
