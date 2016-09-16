@@ -134,7 +134,9 @@ public class MainScreenController implements Initializable {
      */
     @FXML
     protected void exitGame(KeyEvent evt) {
-        System.exit(0);
+        if (evt.getCode() == SPACE) {
+            System.exit(0);
+        }
     }
 
     /**
