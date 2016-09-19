@@ -78,6 +78,13 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      */
     private Map<Integer, String> storyLineSounds = new HashMap<>();
 
+    /**
+     * Every time a level ends, we should construct the end level Sound which consists of:
+     * 1) starting sound 2) the time in which the player finished the level 3) an ending sound
+     */
+    private String[] endLevelStartingSounds = {"sound1.wav", "sound2.wav", "sound3.wav", "sound4.wav"};
+    private String[] endLevelEndingSounds = {"sound1.wav", "sound2.wav", "sound3.wav", "sound4.wav"};
+
     public FXRenderingEngine() {
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/game.fxml"));
@@ -256,6 +263,24 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.playSuccessSound();
+                            listIterator[0].remove();
+                        }
+                        break;
+                    case "LEVEL_SUCCESS_STEP_1":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            int idx = new Random().nextInt(endLevelStartingSounds.length);
+                            String randomSound = (endLevelStartingSounds[idx]);
+                            fxAudioEngine.pauseAndPlaySound("end_level_starting_sounds/" + randomSound, currentGameEvent.blocking);
+                            listIterator[0].remove();
+                        }
+                        break;
+                    case "LEVEL_SUCCESS_STEP_2":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            int idx = new Random().nextInt(endLevelStartingSounds.length);
+                            String randomSound = (endLevelEndingSounds[idx]);
+                            fxAudioEngine.pauseAndPlaySound("end_level_ending_sounds/" + randomSound, currentGameEvent.blocking);
                             listIterator[0].remove();
                         }
                         break;

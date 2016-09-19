@@ -94,17 +94,17 @@ public class MemoriRules implements Rules {
             //if ready to finish event already in events queue
             if(eventsQueueContainsEvent(gsCurrent.getEventQueue(), "READY_TO_FINISH")) {
                 //listen for user action indicating game over
-                if(uaAction.getActionType().equals("quit")) {
-                    //the game should finish but not load a next level
-                    gsCurrentState.loadNextLevel = false;
-                    gsCurrentState.gameFinished = true;
-                }
-                if(uaAction.getActionType().equals("flip")) {
+//                if(uaAction.getActionType().equals("quit")) {
+//                    //the game should finish but not load a next level
+//                    gsCurrentState.loadNextLevel = false;
+//                    gsCurrentState.gameFinished = true;
+//                }
+                if(uaAction.getActionType().equals("enter")) {
                     //the game should finish and load a next level
                     gsCurrentState.replayLevel = true;
                     gsCurrentState.gameFinished = true;
                 }
-                if(uaAction.getActionType().equals("enter")) {
+                if(uaAction.getActionType().equals("flip")) {
                     //the game should finish and load a next level
                     gsCurrentState.loadNextLevel = true;
                     gsCurrentState.gameFinished = true;
@@ -113,10 +113,12 @@ public class MemoriRules implements Rules {
                 //add appropriate event
                 gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH", ""));
                 //add UI events
-                gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 2500, true));
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", uaAction.getCoords(), new Date().getTime() + 5000, true));
+                //TODO: Add tiem to sound functionlity and game event
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", uaAction.getCoords(), new Date().getTime() + 5200, true));
                 //TODO: Add event informing the user about either returning to main screen or starting next level
                 if(MainOptions.TUTORIAL_MODE) {
-                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", uaAction.getCoords(), new Date().getTime() + 3500, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", uaAction.getCoords(), new Date().getTime() + 6500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 }
                 highScore.updateHighScore(watch);
