@@ -175,6 +175,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             //TODO: Play game level introductory sound
             //play current storyline (game progress) sound
             fxAudioEngine.pauseAndPlaySound("storyline_audios/" + storyLineSounds.get(MainOptions.storyLineLevel), true);
+            fxAudioEngine.pauseAndPlaySound("level_intro_sounds/" + introductorySounds.get(MainOptions.gameLevel), true);
         }
     }
 
