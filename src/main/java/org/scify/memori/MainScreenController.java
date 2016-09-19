@@ -163,16 +163,18 @@ public class MainScreenController implements Initializable {
                 MainOptions.TUTORIAL_MODE = true;
                 MainOptions.gameLevel = 1;
             } else if (evt.getSource() == level1) {
-                MainOptions.gameLevel = 2;
+                MainOptions.gameLevel = 1;
             } else if (evt.getSource() == level2) {
-                MainOptions.gameLevel = 3;
+                MainOptions.gameLevel = 2;
             } else if (evt.getSource() == level3) {
-                MainOptions.gameLevel = 4;
+                MainOptions.gameLevel = 3;
             } else if(evt.getSource() == level4) {
+                MainOptions.gameLevel = 4;
+            } else if(evt.getSource() == level5) {
                 MainOptions.gameLevel = 5;
-            } else if(evt.getSource() == level5) {
+            } else if(evt.getSource() == level6) {
                 MainOptions.gameLevel = 6;
-            } else if(evt.getSource() == level5) {
+            } else if(evt.getSource() == level7) {
                 MainOptions.gameLevel = 7;
             }
             MainOptions.NUMBER_OF_ROWS = (int) gameLevelToDimensions.get(MainOptions.gameLevel).getX();
@@ -182,7 +184,7 @@ public class MainScreenController implements Initializable {
 
                 @Override
                 public void run() {
-                    startNormalGame(MainOptions.gameLevel);
+                    startNormalGame();
                 }
 
             });
@@ -210,7 +212,7 @@ public class MainScreenController implements Initializable {
         }
     }
 
-    private void startNormalGame(int gameLevel) {
+    private void startNormalGame() {
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
 
@@ -238,13 +240,13 @@ public class MainScreenController implements Initializable {
                 sceneHandler.simplePopScene();
                 if(MainOptions.TUTORIAL_MODE) {
                     MainOptions.TUTORIAL_MODE = false;
-                    loadNormalGameAfterTutorial();
+                    startNormalGame();
                 }
                 else
                     loadNextLevelForNormalGame();
 
             } else if(result == 3) {
-                startNormalGame(gameLevel);
+                startNormalGame();
             }
             System.out.println(result);
         } catch (InterruptedException e) {
@@ -263,17 +265,14 @@ public class MainScreenController implements Initializable {
 
     }
 
-    private void loadNormalGameAfterTutorial() {
-        startNormalGame(MainOptions.gameLevel);
-
-    }
-
     private void loadNextLevelForNormalGame() {
         MainOptions.gameLevel++;
         Point2D nextLevelDimensions = gameLevelToDimensions.get(MainOptions.gameLevel);
+        System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
         if(nextLevelDimensions != null) {
             MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();
             MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
+            startNormalGame();
         } else {
             sceneHandler.popScene();
         }
