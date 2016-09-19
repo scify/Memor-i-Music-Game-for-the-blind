@@ -72,17 +72,34 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     /**
      * Each game level has an introductory sound associated with it
      */
-    private Map<String, String> introductorySounds = new HashMap<>();
+    private Map<Integer, String> introductorySounds = new HashMap<>();
+    /**
+     * Every time we play a game we follow the story line
+     */
+    private Map<Integer, String> storyLineSounds = new HashMap<>();
 
     public FXRenderingEngine() {
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/game.fxml"));
-            introductorySounds.put("2x3", "2x3IntroSound.wav");
-            introductorySounds.put("3x4", "3x4IntroSound.wav");
-            introductorySounds.put("4x4", "4x4IntroSound.wav");
-            introductorySounds.put("2x4", "2x4IntroSound.wav");
-            introductorySounds.put("5x4", "5x4IntroSound.wav");
-            introductorySounds.put("4x6", "4x6IntroSound.wav");
+            introductorySounds.put(1, "level1IntroSound.wav");
+            introductorySounds.put(2, "level2IntroSound.wav");
+            introductorySounds.put(3, "level3IntroSound.wav");
+            introductorySounds.put(4, "level4IntroSound.wav");
+            introductorySounds.put(5, "level5IntroSound.wav");
+            introductorySounds.put(6, "level6IntroSound.wav");
+            introductorySounds.put(7, "level7IntroSound.wav");
+            introductorySounds.put(8, "level8IntroSound.wav");
+
+            storyLineSounds.put(1, "storyLine1.wav");
+            storyLineSounds.put(2, "storyLine2.wav");
+            storyLineSounds.put(3, "storyLine3.wav");
+            storyLineSounds.put(4, "storyLine4.wav");
+            storyLineSounds.put(5, "storyLine5.wav");
+            storyLineSounds.put(6, "storyLine6.wav");
+            storyLineSounds.put(7, "storyLine7.wav");
+            storyLineSounds.put(8, "storyLine8.wav");
+            storyLineSounds.put(9, "storyLine9.wav");
+
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -118,6 +135,57 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                 updateFXComponents(currentState);
             });
         }
+    }
+
+    public void setUpFXComponents() throws IOException {
+        System.out.println("setUpFXComponents");
+        gridPane = ((GridPane) root);
+        gameScene.getStylesheets().add("css/style.css");
+    }
+
+    protected void initFXComponents(MemoriGameState currentState) {
+        System.out.println("initFXComponents");
+        MemoriGameState memoriGS = currentState;
+        MemoriTerrain terrain = (MemoriTerrain) memoriGS.getTerrain();
+        //Load the tiles list from the Terrain
+        Map<Point2D, Tile> initialTiles = terrain.getTiles();
+        Iterator it = initialTiles.entrySet().iterator();
+        //Iterate through the tiles list to add them to the Layour object
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            Point2D point = (Point2D) pair.getKey();
+            Card card = (Card) pair.getValue();
+            //add the card to layout when the Thread deems appropriate
+            Platform.runLater(()-> {
+                gridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
+            });
+            //Set up the event handler for the current card
+            card.getButton().setOnKeyPressed(this);
+        }
+
+        Platform.runLater(()-> { //set first card as focused
+            gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
+
+        //TODO: ask ggianna
+        if(MainOptions.TUTORIAL_MODE) {
+            System.err.println("TUTORIAL STARTS PLEASE CLICK ENTER");
+            //TODO: Play tutorial introductory sound
+            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_intro.wav", false);
+        } else {
+            //TODO: Play game level introductory sound
+            //play current storyline (game progress) sound
+            fxAudioEngine.pauseAndPlaySound("storyline_audios/" + storyLineSounds.get(MainOptions.storyLineLevel), true);
+        }
+    }
+
+    @Override
+    public UserAction getNextUserAction(Player pCurrentPlayer) {
+        UserAction toReturn = null;
+        if(!pendingUserActions.isEmpty()) {
+            toReturn = pendingUserActions.get(0);
+            pendingUserActions.remove(0);
+        }
+        return toReturn;
     }
 
     private long lLastUpdate = -1L;
@@ -358,55 +426,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             }
         }
         return result;
-    }
-
-    protected void initFXComponents(MemoriGameState currentState) {
-        System.out.println("initFXComponents");
-        MemoriGameState memoriGS = currentState;
-        MemoriTerrain terrain = (MemoriTerrain) memoriGS.getTerrain();
-        //Load the tiles list from the Terrain
-        Map<Point2D, Tile> initialTiles = terrain.getTiles();
-        Iterator it = initialTiles.entrySet().iterator();
-        //Iterate through the tiles list to add them to the Layour object
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            Point2D point = (Point2D) pair.getKey();
-            Card card = (Card) pair.getValue();
-            //add the card to layout when the Thread deems appropriate
-            Platform.runLater(()-> {
-                gridPane.add(card.getButton(), (int) point.getX(), (int) point.getY());
-            });
-            //Set up the event handler for the current card
-            card.getButton().setOnKeyPressed(this);
-        }
-
-        Platform.runLater(()-> { //set first card as focused
-            gridPane.getChildren().get(0).getStyleClass().addAll("focusedCard"); });
-
-        //TODO: ask ggianna
-        if(MainOptions.TUTORIAL_MODE) {
-            System.err.println("TUTORIAL STARTS PLEASE CLICK ENTER");
-            //TODO: Play tutorial introductory sound
-            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_intro.wav", false);
-        } else {
-            //TODO: Play game level introductory sound
-        }
-    }
-
-    public void setUpFXComponents() throws IOException {
-        System.out.println("setUpFXComponents");
-        gridPane = ((GridPane) root);
-        gameScene.getStylesheets().add("css/style.css");
-    }
-
-    @Override
-    public UserAction getNextUserAction(Player pCurrentPlayer) {
-        UserAction toReturn = null;
-        if(!pendingUserActions.isEmpty()) {
-            toReturn = pendingUserActions.get(0);
-            pendingUserActions.remove(0);
-        }
-        return toReturn;
     }
 
     /**
