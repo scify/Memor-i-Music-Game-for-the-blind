@@ -24,7 +24,9 @@ import org.scify.memori.interfaces.*;
 import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
+import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MemoriRules implements Rules {
     private HighScoreHandler highScore;
@@ -114,7 +116,14 @@ public class MemoriRules implements Rules {
                 gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH", ""));
                 //add UI events
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", uaAction.getCoords(), new Date().getTime() + 5000, true));
-                //TODO: Add tiem to sound functionlity and game event
+                //TODO: Add time to sound functionlity and game event
+                long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
+                String timestampStr = String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds));
+                String[] tokens = timestampStr.split(":");
+                int minutes = Integer.parseInt(tokens[1]);
+                int seconds = Integer.parseInt(tokens[2]);
+                System.err.println("minutes: " + minutes);
+                System.err.println("seconds: " + seconds);
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", uaAction.getCoords(), new Date().getTime() + 5200, true));
                 //TODO: Add event informing the user about either returning to main screen or starting next level
                 if(MainOptions.TUTORIAL_MODE) {
@@ -425,6 +434,11 @@ public class MemoriRules implements Rules {
                 break;
         }
         return true;
+    }
+
+
+    private String ConvertSecondToHHMMSSString(int nSecondTime) {
+        return LocalTime.MIN.plusSeconds(nSecondTime).toString();
     }
 
 }
