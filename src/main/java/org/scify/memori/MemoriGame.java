@@ -35,7 +35,10 @@ public abstract class MemoriGame implements Game<Integer> {
      * constant defining whether the game should continue to next level
      */
     private static final Integer NEXT_LEVEL = 2;
-
+    /**
+     * constant defining whether the game should continue to next level
+     */
+    private static final Integer SAME_LEVEL = 3;
     Rules rRules;
     /**
      * Object responsible for UI events (User actions)
@@ -93,7 +96,12 @@ public abstract class MemoriGame implements Game<Integer> {
         System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
 
-        return memoriGameState.loadNextLevel ? NEXT_LEVEL : GAME_FINISHED;
+        if(memoriGameState.loadNextLevel)
+            return NEXT_LEVEL;
+        else if(memoriGameState.replayLevel)
+            return SAME_LEVEL;
+        else
+            return GAME_FINISHED;
     }
 
     @Override

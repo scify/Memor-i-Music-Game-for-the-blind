@@ -156,7 +156,6 @@ public class FXAudioEngine implements AudioEngine{
      * @param isBlocking whether the player should block the calling Thread while the sound is playing
      */
     public void playSound(String soundFile, boolean isBlocking) {
-        //pauseSound();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play();
 

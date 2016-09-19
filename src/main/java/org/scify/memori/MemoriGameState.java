@@ -45,12 +45,16 @@ public class MemoriGameState implements GameState {
      * Variable to indicate whether a new game should start immediately
      */
     boolean loadNextLevel = false;
-
+    /**
+     * Variable to indicate whether the current lavel should replay
+     */
+    public boolean replayLevel;
     /**
      * indexes defining the user poistion on the GridPane
      */
     private int columnIndex = 0;
     private int rowIndex = 0;
+
 
     public MemoriGameState() {
         terrain = new MemoriTerrain();

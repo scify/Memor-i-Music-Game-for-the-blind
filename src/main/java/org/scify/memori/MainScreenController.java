@@ -234,17 +234,15 @@ public class MainScreenController implements Initializable {
                 sceneHandler.popScene();
             } else if(result == 2) {
                 sceneHandler.simplePopScene();
-                String[] gameLevels = game.getGameLevels();
-                String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)  + 1];
-                System.err.println("next level: " + nextLevel);
-                if(!nextLevel.equals("END")) {
-                    MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
-                    MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
-
-                    startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
-                } else {
-                    sceneHandler.popScene();
+                if(MainOptions.TUTORIAL_MODE) {
+                    MainOptions.TUTORIAL_MODE = false;
+                    loadNormalGameAfterTutorial(game);
                 }
+                else
+                    loadNextLevelForNormalGame(game);
+
+            } else if(result == 3) {
+                startNormalGame(numOfCols, numOfRows);
             }
             System.out.println(result);
         } catch (InterruptedException e) {
@@ -261,5 +259,27 @@ public class MainScreenController implements Initializable {
 //        }
 //        game.finalize();
 
+    }
+
+    private void loadNormalGameAfterTutorial(FXMemoriGame game) {
+        String[] gameLevels = game.getGameLevels();
+        String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)];
+        MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
+        MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
+        startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+
+    }
+
+    private void loadNextLevelForNormalGame(FXMemoriGame game) {
+        String[] gameLevels = game.getGameLevels();
+        String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)  + 1];
+        System.err.println("next level: " + nextLevel);
+        if(!nextLevel.equals("END")) {
+            MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
+            MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
+            startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+        } else {
+            sceneHandler.popScene();
+        }
     }
 }

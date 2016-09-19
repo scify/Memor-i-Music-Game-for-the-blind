@@ -206,16 +206,17 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
                         break;
                     case "GO_RIGHT_AGAIN":
-                        System.err.println("TUTORIAL_0_UI PLEASE CLICK RIGHT");
-                        fxAudioEngine.playSound("game_instructions/please_press_right.wav", currentGameEvent.blocking);
-                        listIterator[0].remove();
-
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            System.err.println("TUTORIAL_0_UI PLEASE CLICK RIGHT");
+                            fxAudioEngine.playSound("game_instructions/please_press_right.wav", currentGameEvent.blocking);
+                            listIterator[0].remove();
+                        }
                         break;
                     case "TUTORIAL_2_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             //TODO: These sound effects should be combined into 1
                             fxAudioEngine.pauseAndPlaySound("game_instructions/please_press_down.wav", currentGameEvent.blocking);
-                            fxAudioEngine.playSound("game_instructions/when_ready_press_continue.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/when_ready_press_continue.wav", currentGameEvent.blocking);
                             listIterator[0].remove();
                         }
                         break;
@@ -230,7 +231,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "FLIP_EXPLANATION_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/flip_explanation.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/flip_explanation.wav", currentGameEvent.blocking);
                             listIterator[0].remove();
                         }
                         break;
@@ -277,6 +278,13 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "DOORS_CLOSED":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.playSound("game_effects/door_shutting.wav", currentGameEvent.blocking);
+                            listIterator[0].remove();
+
+                        }
+                        break;
+                    case "TUTORIAL_END_GAME_UI":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.playSound("game_instructions/tutorial_end_game.wav", currentGameEvent.blocking);
                             listIterator[0].remove();
 
                         }
@@ -411,32 +419,24 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         // DEBUG LINES
         System.err.println("Key press! " + new Date().getTime());
 
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                UserAction userAction = null;
-                //Handle different kinds of UI (keyboard) events
-                if (event.getCode() == SPACE) {
-                    userAction = new UserAction("flip", event);
-                } else if(isMovementAction(event)) {
-                    userAction = new UserAction("movement", event);
-                } else if(event.getCode() == ENTER) {
-                    //userAction = new UserAction("help", event);
-                    userAction = new UserAction("enter", event);
-                } else if(event.getCode() == F1) {
-                    userAction = new UserAction("quit", event);
-                } else if(event.getCode() == F2) {
-                    userAction = new UserAction("nextLevel", event);
-                }
-                pendingUserActions.add(0, userAction);
-            }
-
-        });
-        thread.start();
-
-
+        UserAction userAction = null;
+        //Handle different kinds of UI (keyboard) events
+        if (event.getCode() == SPACE) {
+            userAction = new UserAction("flip", event);
+        } else if(isMovementAction(event)) {
+            userAction = new UserAction("movement", event);
+        } else if(event.getCode() == ENTER) {
+            //userAction = new UserAction("help", event);
+            userAction = new UserAction("enter", event);
+        } else if(event.getCode() == F1) {
+            userAction = new UserAction("quit", event);
+        }
+//        else if(event.getCode() == F2) {
+//            userAction = new UserAction("nextLevel", event);
+//        }
+        pendingUserActions.add(0, userAction);
     }
+
 
     /**
      * Dtermines whether the user action was a movement game action
