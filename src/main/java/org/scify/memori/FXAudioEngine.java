@@ -1,3 +1,20 @@
+
+/**
+ * Copyright 2016 SciFY.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.scify.memori;
 
 import javafx.scene.media.AudioClip;
@@ -40,6 +57,9 @@ public class FXAudioEngine implements AudioEngine{
         System.out.println("column: " + columnHelpSounds.get(columnIndex));
     }
 
+    /**
+     * Pauses the currently playing audio, if there is one
+     */
     private void pauseSound() {
         if(audioClip != null)
             audioClip.stop();
@@ -47,47 +67,61 @@ public class FXAudioEngine implements AudioEngine{
             movementSoundPlayer.stop();
     }
 
+    /**
+     * Plays a sound describing a certain movement on the UI layout
+     * @param balance left/right panning value of the sound
+     * @param rate indicates how fast the sound will be playing. Used to distinguish vertical movements
+     */
     public void playMovementSound(double balance, double rate) {
-        //playSound(movementSound);
         pauseSound();
         if(movementSoundMedia == null) {
-            //System.out.println("initialise movement sound");
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }
-        //audioClip = new AudioClip(AudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
         movementSoundPlayer.setBalance(balance);
         movementSoundPlayer.setRate(rate);
-        //audioClip.rateProperty();
         movementSoundPlayer.setOnEndOfMedia(new Runnable() {
             public void run() {
-                //System.out.println("stop movement sound");
                 movementSoundPlayer.stop();
             }
         });
         movementSoundPlayer.play();
-
-
     }
 
+    /**
+     * Plays a sound associated with a Card object
+     * @param soundFile the file name (path) of the audio clip
+     * @param isBlocking whether the player should block the calling Thread while the sound is playing
+     */
     public void playCardSound(String soundFile, boolean isBlocking) {
         playSound(soundFile, isBlocking);
     }
 
 
+    /**
+     * Plays an appropriate sound associated with a successful Game Event
+     */
     public void playSuccessSound() {
         playSound(successSound, true);
     }
 
+    /**
+     * Plays an appropriate sound associated with an invalid movement
+     */
     public void playInvalidMovementSound() {
         playSound(invalidMovementSound);
     }
 
+    /**
+     * Plays an appropriate sound associated with a failure Game Event
+     */
     public void playFailureSound() {
-        //System.out.println("playFailureSound");
-        playSound(failureSound);
+        pauseAndPlaySound(failureSound, false);
     }
 
+    /**
+     * Plays an appropriate sound associated with an "empty" Game Event (if the user clicks on an already won Card)
+     */
     public void playEmptySound() {
         playSound(emptySound);
     }
@@ -97,10 +131,32 @@ public class FXAudioEngine implements AudioEngine{
         playSound(soundFile, false);
     }
 
-    public void playSound(String soundFile, boolean isBlocking) {
+    /**
+     * Plays a sound given a certain balance
+     * @param balance the desired balance
+     * @param soundFile the file name (path) of the audio clip
+     */
+    public void playBalancedSound(double balance, String soundFile) {
         pauseSound();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
-        audioClip.setCycleCount(0);
+        audioClip.play(1, balance, 1, balance, 1);
+        while (audioClip.isPlaying()) {
+            try {
+                Thread.sleep(100L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /**
+     * Plays a sound given a sound file path
+     * @param soundFile the file name (path) of the audio clip
+     * @param isBlocking whether the player should block the calling Thread while the sound is playing
+     */
+    public void playSound(String soundFile, boolean isBlocking) {
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play();
 
         if (isBlocking) {
@@ -116,4 +172,8 @@ public class FXAudioEngine implements AudioEngine{
         }
     }
 
+    public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
+        pauseSound();
+        playSound(soundFile, isBlocking);
+    }
 }
