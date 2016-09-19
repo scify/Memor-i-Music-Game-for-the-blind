@@ -19,13 +19,13 @@
     <VBox alignment="center" styleClass="optionButtonContainer">
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Οδηγός" fx:id="tutorial" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="threeTimesTwo" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x4" fx:id="twoTimesFour" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="3x4" fx:id="fourTimesThree" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="fourTimesFour" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="fiveTimesFour" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="fourTimesSix" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="fiveTimesSix" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="level1" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x4" fx:id="level2" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="3x4" fx:id="level3" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="level4" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="level5" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="level6" onKeyPressed="#initializeGameOptions"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="level7" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Τα σκορ μου ως τώρα" fx:id="myScores" onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit" onKeyPressed="#exitGame"/>
     </VBox>
