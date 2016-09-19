@@ -58,4 +58,11 @@ public class GameEvent {
         this.delay = 0;
         this.blocking = false;
     }
+
+    public GameEvent(String type) {
+        this.type = type;
+        this.parameters = null;
+        this.delay = 0;
+        this.blocking = false;
+    }
 }

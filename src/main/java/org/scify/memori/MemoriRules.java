@@ -66,7 +66,7 @@ public class MemoriRules implements Rules {
             if(MainOptions.TUTORIAL_MODE) {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT_UI", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex())));
-                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex())));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT"));
                 }
             }
             return gsCurrentState;
@@ -146,7 +146,7 @@ public class MemoriRules implements Rules {
             if(MainOptions.TUTORIAL_MODE){
                 if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "FLIP_EXPLANATION")) {
                     //add tutorial_3 event to queue
-                    gsCurrentState.getEventQueue().add(new GameEvent("FLIP_EXPLANATION", uaAction.getCoords()));
+                    gsCurrentState.getEventQueue().add(new GameEvent("FLIP_EXPLANATION"));
                     // add tutorial_3 UI event to queue
                     gsCurrentState.getEventQueue().add(new GameEvent("FLIP_EXPLANATION_UI", uaAction.getCoords(), new Date().getTime() + 3000, true));
 
@@ -158,7 +158,7 @@ public class MemoriRules implements Rules {
                 //if in tutorial mode, push explaining events
                 if(MainOptions.TUTORIAL_MODE) {
                     if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_CORRECT_PAIR")) {
-                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_CORRECT_PAIR", uaAction.getCoords()));
+                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_CORRECT_PAIR"));
                         gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_CORRECT_PAIR_UI", uaAction.getCoords(), new Date().getTime() + 2500, true));
                     }
                 }
@@ -190,13 +190,13 @@ public class MemoriRules implements Rules {
                     gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", uaAction.getCoords(), new Date().getTime() + 3300, false));
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR", uaAction.getCoords()));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR"));
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", uaAction.getCoords(), new Date().getTime() + 4000, true));
                         }
                     }
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_DOORS_CLOSED")) {
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED", uaAction.getCoords()));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED"));
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED_UI", uaAction.getCoords(), new Date().getTime() + 6000, true));
                         }
                     }
@@ -238,7 +238,7 @@ public class MemoriRules implements Rules {
             //If user clicked space
             if (uaAction.getActionType().equals("flip")) {
                 // add tutorial_0 event to queue
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0", uaAction.getCoords()));
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0"));
                 // add tutorial_0 UI event to queue
                 gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0_UI", uaAction.getCoords(), 0, true));
             }
@@ -249,7 +249,7 @@ public class MemoriRules implements Rules {
                 //if user clicked RIGHT
                 if (uaAction.getDirection() == KeyCode.RIGHT) {
                     //add tutorial_1 event to queue
-                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_STEP_1", uaAction.getCoords()));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_STEP_1"));
                     //add tutorial_1 UI event to queue
                     gsCurrentState.getEventQueue().add(new GameEvent("GO_RIGHT_AGAIN", uaAction.getCoords(), 0, true));
                 } //else  if user did not click RIGHT
@@ -262,7 +262,7 @@ public class MemoriRules implements Rules {
                     //if user clicked RIGHT
                     if (uaAction.getDirection() == KeyCode.RIGHT) {
                         //add tutorial_1 event to queue
-                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_STEP_2", uaAction.getCoords()));
+                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_STEP_2"));
                     } //else  if user did not click RIGHT
                     else {
                         gsCurrentState.getEventQueue().add(new GameEvent("NOT_RIGHT_UI", uaAction.getCoords(), 0, true));
@@ -274,7 +274,7 @@ public class MemoriRules implements Rules {
                         //if user clicked LEFT
                         if (uaAction.getDirection() == KeyCode.LEFT) {
                             //add tutorial_2 event to queue
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2", uaAction.getCoords()));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
                             // add tutorial_2 UI event to queue
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", uaAction.getCoords(), new Date().getTime() + 500, false));
                         } //else if user did not click LEFT
@@ -289,7 +289,7 @@ public class MemoriRules implements Rules {
                             //if user clicked ENTER
                             if (uaAction.getActionType().equals("enter")) {
                                 //add tutorial_3 event to queue
-                                gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION", uaAction.getCoords()));
+                                gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION"));
                                 // add tutorial_3 UI event to queue
                                 gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", uaAction.getCoords(), 0, true));
                             } else {
