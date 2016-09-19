@@ -49,7 +49,6 @@ public abstract class MemoriGame implements Game<Integer> {
      */
     RenderingEngine reRenderer;
 
-    private String[] gameLevels = {"2x3", "2x4", "3x4", "4x4", "5x4", "4x6", "5x6", "END"};
 
     @Override
     /**
@@ -95,7 +94,9 @@ public abstract class MemoriGame implements Game<Integer> {
         }
         System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
+        MainOptions.storyLineLevel++;
 
+        //TODO: should we store story line level in a file?
         if(memoriGameState.loadNextLevel)
             return NEXT_LEVEL;
         else if(memoriGameState.replayLevel)
@@ -109,7 +110,4 @@ public abstract class MemoriGame implements Game<Integer> {
         System.err.println("FINALIZE");
     }
 
-    public String[] getGameLevels() {
-        return gameLevels;
-    }
 }

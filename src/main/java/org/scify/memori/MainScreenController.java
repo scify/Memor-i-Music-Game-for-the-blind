@@ -24,8 +24,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import java.awt.geom.Point2D;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -40,19 +40,21 @@ public class MainScreenController implements Initializable {
     @FXML
     private Button tutorial;
     @FXML
-    private Button threeTimesTwo;
+    private Button level1;
     @FXML
-    private Button fourTimesFour;
+    private Button level2;
     @FXML
-    private Button fourTimesThree;
+    private Button level3;
     @FXML
-    private Button twoTimesFour;
+    private Button level4;
     @FXML
-    private Button fiveTimesFour;
+    private Button level5;
     @FXML
-    private Button fourTimesSix;
+    private Button level6;
     @FXML
-    private Button fiveTimesSix;
+    private Button level7;
+
+    private Map<Integer, Point2D> gameLevelToDimensions = new HashMap<>();
 
     public MainScreenController() {
         System.err.println("Constructor running...");
@@ -65,7 +67,13 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        gameLevelToDimensions.put(1, new Point2D.Double(2,3));
+        gameLevelToDimensions.put(2, new Point2D.Double(2,4));
+        gameLevelToDimensions.put(3, new Point2D.Double(3,4));
+        gameLevelToDimensions.put(4, new Point2D.Double(4,4));
+        gameLevelToDimensions.put(5, new Point2D.Double(5,4));
+        gameLevelToDimensions.put(6, new Point2D.Double(4,6));
+        gameLevelToDimensions.put(7, new Point2D.Double(5,6));
     }
 
     public void setParameters(Stage primaryStage, Scene primaryScene) {
@@ -96,32 +104,37 @@ public class MainScreenController implements Initializable {
         });
 
 
-        primaryScene.lookup("#threeTimesTwo").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+        primaryScene.lookup("#level1").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
+                //TODO: change file name to level-like
                 audioEngine.pauseAndPlaySound("two_times_three.mp3", false);
             }
         });
 
-        primaryScene.lookup("#twoTimesFour").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+        primaryScene.lookup("#level2").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
+                //TODO: change file name to level-like
                 audioEngine.pauseAndPlaySound("two_times_four.mp3", false);
             }
         });
 
-        primaryScene.lookup("#fourTimesThree").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+        primaryScene.lookup("#level3").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
+                //TODO: change file name to level-like
                 audioEngine.pauseAndPlaySound("three_times_four.mp3", false);
             }
         });
 
-        primaryScene.lookup("#fourTimesFour").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+        primaryScene.lookup("#level4").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
+                //TODO: change file name to level-like
                 audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
+                //TODO: change file name to exit
                 audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
             }
         });
@@ -146,39 +159,30 @@ public class MainScreenController implements Initializable {
     @FXML
     protected void initializeGameOptions(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
-            if (evt.getSource() == fourTimesFour) {
-                MainOptions.NUMBER_OF_COLUMNS = 4;
-                MainOptions.NUMBER_OF_ROWS = 4;
-            } else if (evt.getSource() == threeTimesTwo) {
-                MainOptions.NUMBER_OF_COLUMNS = 3;
-                MainOptions.NUMBER_OF_ROWS = 2;
-            } else if (evt.getSource() == tutorial) {
-                System.out.println("tutorial");
+            if (evt.getSource() == tutorial) {
                 MainOptions.TUTORIAL_MODE = true;
-                MainOptions.NUMBER_OF_COLUMNS = 3;
-                MainOptions.NUMBER_OF_ROWS = 2;
-            } else if (evt.getSource() == fourTimesThree) {
-                MainOptions.NUMBER_OF_COLUMNS = 4;
-                MainOptions.NUMBER_OF_ROWS = 3;
-            } else if(evt.getSource() == twoTimesFour) {
-                MainOptions.NUMBER_OF_COLUMNS = 4;
-                MainOptions.NUMBER_OF_ROWS = 2;
-            } else if(evt.getSource() == fiveTimesFour) {
-                MainOptions.NUMBER_OF_COLUMNS = 4;
-                MainOptions.NUMBER_OF_ROWS = 5;
-            } else if(evt.getSource() == fourTimesSix) {
-                MainOptions.NUMBER_OF_COLUMNS = 6;
-                MainOptions.NUMBER_OF_ROWS = 4;
-            } else if(evt.getSource() == fiveTimesSix) {
-                MainOptions.NUMBER_OF_COLUMNS = 5;
-                MainOptions.NUMBER_OF_ROWS = 6;
+                MainOptions.gameLevel = 1;
+            } else if (evt.getSource() == level1) {
+                MainOptions.gameLevel = 2;
+            } else if (evt.getSource() == level2) {
+                MainOptions.gameLevel = 3;
+            } else if (evt.getSource() == level3) {
+                MainOptions.gameLevel = 4;
+            } else if(evt.getSource() == level4) {
+                MainOptions.gameLevel = 5;
+            } else if(evt.getSource() == level5) {
+                MainOptions.gameLevel = 6;
+            } else if(evt.getSource() == level5) {
+                MainOptions.gameLevel = 7;
             }
+            MainOptions.NUMBER_OF_ROWS = (int) gameLevelToDimensions.get(MainOptions.gameLevel).getX();
+            MainOptions.NUMBER_OF_COLUMNS = (int) gameLevelToDimensions.get(MainOptions.gameLevel).getY();
             //TODO: Ask ggianna
             Thread thread = new Thread(new Runnable() {
 
                 @Override
                 public void run() {
-                    startNormalGame(MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
+                    startNormalGame(MainOptions.gameLevel);
                 }
 
             });
@@ -206,9 +210,7 @@ public class MainScreenController implements Initializable {
         }
     }
 
-    private void startNormalGame(int numOfCols, int numOfRows) {
-        MainOptions.gameLevel = numOfRows + "x" + numOfCols;
-        System.err.println(MainOptions.gameLevel);
+    private void startNormalGame(int gameLevel) {
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
 
@@ -236,13 +238,13 @@ public class MainScreenController implements Initializable {
                 sceneHandler.simplePopScene();
                 if(MainOptions.TUTORIAL_MODE) {
                     MainOptions.TUTORIAL_MODE = false;
-                    loadNormalGameAfterTutorial(game);
+                    loadNormalGameAfterTutorial();
                 }
                 else
-                    loadNextLevelForNormalGame(game);
+                    loadNextLevelForNormalGame();
 
             } else if(result == 3) {
-                startNormalGame(numOfCols, numOfRows);
+                startNormalGame(gameLevel);
             }
             System.out.println(result);
         } catch (InterruptedException e) {
@@ -261,23 +263,17 @@ public class MainScreenController implements Initializable {
 
     }
 
-    private void loadNormalGameAfterTutorial(FXMemoriGame game) {
-        String[] gameLevels = game.getGameLevels();
-        String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)];
-        MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
-        MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
-        startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+    private void loadNormalGameAfterTutorial() {
+        startNormalGame(MainOptions.gameLevel);
 
     }
 
-    private void loadNextLevelForNormalGame(FXMemoriGame game) {
-        String[] gameLevels = game.getGameLevels();
-        String nextLevel = gameLevels[Arrays.asList(gameLevels).indexOf(MainOptions.gameLevel)  + 1];
-        System.err.println("next level: " + nextLevel);
-        if(!nextLevel.equals("END")) {
-            MainOptions.NUMBER_OF_ROWS = Character.getNumericValue(nextLevel.charAt(0));
-            MainOptions.NUMBER_OF_COLUMNS = Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1));
-            startNormalGame(Character.getNumericValue(nextLevel.charAt(nextLevel.length() - 1)), Character.getNumericValue(nextLevel.charAt(0)));
+    private void loadNextLevelForNormalGame() {
+        MainOptions.gameLevel++;
+        Point2D nextLevelDimensions = gameLevelToDimensions.get(MainOptions.gameLevel);
+        if(nextLevelDimensions != null) {
+            MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();
+            MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
         } else {
             sceneHandler.popScene();
         }

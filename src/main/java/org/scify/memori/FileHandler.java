@@ -79,7 +79,7 @@ public class FileHandler {
 
             input = new FileInputStream("config.properties");
             prop.load(input);
-            highScore = prop.getProperty(MainOptions.gameLevel);
+            highScore = prop.getProperty(String.valueOf(MainOptions.gameLevel));
 
         } catch (IOException io) {
             io.printStackTrace();
@@ -133,7 +133,7 @@ public class FileHandler {
             output = new FileOutputStream("config.properties");
 
             // set the properties value
-            props.setProperty(MainOptions.gameLevel, highScore);
+            props.setProperty(String.valueOf(MainOptions.gameLevel), highScore);
 
             // save properties to project root folder
             props.store(output, null);
