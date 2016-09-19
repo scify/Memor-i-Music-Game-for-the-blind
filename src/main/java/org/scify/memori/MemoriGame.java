@@ -70,10 +70,12 @@ public abstract class MemoriGame implements Game<Integer> {
         while (!rRules.isGameFinished(gsCurrentState)) {
             final GameState toHandle = gsCurrentState;
             // Ask to soon draw the state
-            Platform.runLater(() -> reRenderer.drawGameState(toHandle));
+            //Platform.runLater(() -> reRenderer.drawGameState(toHandle));
+            reRenderer.drawGameState(toHandle);
             // and keep on doing the loop in this thread
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
+
             if (uaToHandle != null) {
                 //apply it and determine the next state
                 gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);

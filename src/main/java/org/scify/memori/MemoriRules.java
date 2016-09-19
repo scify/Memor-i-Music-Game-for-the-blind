@@ -50,8 +50,10 @@ public class MemoriRules implements Rules {
         ListIterator<GameEvent> listIterator = gsCurrentState.getEventQueue().listIterator();
         while (listIterator.hasNext()) {
             GameEvent currentGameEvent = listIterator.next();
-            if(currentGameEvent.blocking)
+            if(currentGameEvent.blocking) {
+                System.err.println("in blocking game event");
                 return gsCurrentState;
+            }
         }
 
         if(movementValid(uaAction.getKeyEvent(), gsCurrentState)) {
@@ -139,7 +141,7 @@ public class MemoriRules implements Rules {
             flipTile(currTile);
             // push flip feedback event (delayed: false, blocking: no)
             gsCurrentState.getEventQueue().add(new GameEvent("flip", uaAction.getCoords()));
-            gsCurrentState.getEventQueue().add(new GameEvent("DOOR_OPEN", uaAction.getCoords(), 0,true));
+            gsCurrentState.getEventQueue().add(new GameEvent("DOOR_OPEN", uaAction.getCoords(), 0, true));
             gsCurrentState.getEventQueue().add(new GameEvent("cardSound", uaAction.getCoords(), new Date().getTime() + 1200, false));
             if(MainOptions.TUTORIAL_MODE){
                 if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "FLIP_EXPLANATION")) {
