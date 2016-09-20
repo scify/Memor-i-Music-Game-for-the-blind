@@ -237,7 +237,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
                             Platform.runLater(() -> {
                                 currCard.flipUI();
-
                             });
                             listIterator.remove();
                         }
@@ -273,6 +272,31 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         if (new Date().getTime() > currentGameEvent.delay) {
                             int number = (int)currentGameEvent.parameters;
                             fxAudioEngine.playLetterSound(number);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "HELP_INSTRUCTIONS_UI":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            //TODO: these clips should be one
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_1.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_2.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_3.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_3.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "HELP_EXPLANATION_ROW":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_explanation_row.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "HELP_EXPLANATION_COLUMN":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_explanation_column.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
