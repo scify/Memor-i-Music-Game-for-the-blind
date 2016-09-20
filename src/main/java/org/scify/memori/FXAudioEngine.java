@@ -35,6 +35,8 @@ public class FXAudioEngine implements AudioEngine{
     private String invalidMovementSound = "invalid_movement.wav";
     private String failureSound = "error.wav";
     private String emptySound = "blip.wav";
+    private String numBasePath = "numbers/";
+    private String letterBasePath = "letters/";
 
     private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
     private HashMap<Integer, String> columnHelpSounds = new HashMap<>();
@@ -175,5 +177,15 @@ public class FXAudioEngine implements AudioEngine{
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
         pauseSound();
         playSound(soundFile, isBlocking);
+    }
+
+    public void playNumSound(int number) {
+        pauseSound();
+        playSound(numBasePath + String.valueOf(number) + ".wav", true);
+    }
+
+    public void playLetterSound(int number) {
+        pauseSound();
+        playSound(letterBasePath + String.valueOf(number) + ".wav", true);
     }
 }

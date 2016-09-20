@@ -65,4 +65,5 @@ public class GameEvent {
         this.delay = 0;
         this.blocking = false;
     }
+
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.FXHighScoresScreen">
+<StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.FXHighScoresScreenController">
     <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
         <ImageView styleClass="boxImage">
             <image>
@@ -16,12 +16,13 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="threeTimesTwo" onKeyPressed="#parseHighScore"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x4" fx:id="twoTimesFour" onKeyPressed="#parseHighScore"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="3x4" fx:id="fourTimesThree" onKeyPressed="#parseHighScore"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="fourTimesFour" onKeyPressed="#parseHighScore"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="fiveTimesFour" onKeyPressed="#parseHighScore"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="fourTimesSix" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="level1" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="2x4" fx:id="level2" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="3x4" fx:id="level3" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x4" fx:id="level4" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="level5" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="level6" onKeyPressed="#parseHighScore"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="level7" onKeyPressed="#parseHighScore"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Πίσω" fx:id="back" onKeyPressed="#backToMainScreen"/>
     </VBox>
 
