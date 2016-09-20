@@ -117,14 +117,9 @@ public class MemoriRules implements Rules {
                 //add UI events
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", uaAction.getCoords(), new Date().getTime() + 5000, true));
                 //TODO: Add time to sound functionlity and game event
-                long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
-                String timestampStr = String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds));
-                String[] tokens = timestampStr.split(":");
-                int minutes = Integer.parseInt(tokens[1]);
-                int seconds = Integer.parseInt(tokens[2]);
-                System.err.println("minutes: " + minutes);
-                System.err.println("seconds: " + seconds);
-                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", uaAction.getCoords(), new Date().getTime() + 5200, true));
+                addTimeGameEvent(watch, gsCurrentState);
+
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", uaAction.getCoords(), new Date().getTime() + 7200, true));
                 //TODO: Add event informing the user about either returning to main screen or starting next level
                 if(MainOptions.TUTORIAL_MODE) {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", uaAction.getCoords(), new Date().getTime() + 6500, false));
@@ -138,6 +133,21 @@ public class MemoriRules implements Rules {
             tutorialRulesSet(gsCurrentState, uaAction);
 
         return gsCurrentState;
+    }
+
+    private void addTimeGameEvent(TimeWatch watch, MemoriGameState gsCurrentState) {
+        long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
+        String timestampStr = String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds));
+        String[] tokens = timestampStr.split(":");
+        int minutes = Integer.parseInt(tokens[1]);
+        int seconds = Integer.parseInt(tokens[2]);
+        System.err.println("minutes: " + minutes);
+        System.err.println("seconds: " + seconds);
+        if(minutes != 0)
+            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", minutes, new Date().getTime() + 5200, true));
+        if(seconds != 0)
+            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", seconds, new Date().getTime() + 6000, true));
+
     }
 
     private void performFlip(Tile currTile, MemoriGameState gsCurrentState, UserAction uaAction, MemoriTerrain memoriTerrain) {

@@ -266,6 +266,14 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator[0].remove();
                         }
                         break;
+                    case "NUMERIC":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            int number = (int)currentGameEvent.parameters;
+                            fxAudioEngine.playNumSound(number);
+                            listIterator[0].remove();
+                        }
+                        break;
                     case "LEVEL_SUCCESS_STEP_1":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
