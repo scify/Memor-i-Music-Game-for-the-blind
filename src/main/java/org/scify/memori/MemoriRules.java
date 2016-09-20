@@ -76,6 +76,10 @@ public class MemoriRules implements Rules {
         return gsCurrentState;
     }
 
+    /**
+     * When a level starts the rules should add the relevant game events
+     * @param gsCurrentState the current game state
+     */
     private void handleLevelStartingGameEvents(MemoriGameState gsCurrentState) {
         if(MainOptions.TUTORIAL_MODE) {
             if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INTRO")) {
@@ -94,6 +98,11 @@ public class MemoriRules implements Rules {
         }
     }
 
+    /**
+     * If the events queue contains a blocking event it means that this event has not been handled by the rendering engine
+     * @param gsCurrentState the current state
+     * @return true if the events queue contains a blocking event
+     */
     private boolean eventQueueContainsBlockingEvent(MemoriGameState gsCurrentState) {
         //Iterate through game events. If there is a blocking event, return.
         ListIterator<GameEvent> listIterator = gsCurrentState.getEventQueue().listIterator();
@@ -107,14 +116,14 @@ public class MemoriRules implements Rules {
         return false;
     }
 
+    /**
+     * If the level is over the rules should add the relevant game events
+     * @param uaAction the user action (flip, move, help)
+     * @param gsCurrentState the current game state
+     */
     private void handleLevelFinishGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
         if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "READY_TO_FINISH")) {
             //listen for user action indicating game over
-//                if(uaAction.getActionType().equals("quit")) {
-//                    //the game should finish but not load a next level
-//                    gsCurrentState.loadNextLevel = false;
-//                    gsCurrentState.gameFinished = true;
-//                }
             if(uaAction.getActionType().equals("enter")) {
                 //the game should finish and load a next level
                 gsCurrentState.replayLevel = true;
@@ -129,20 +138,25 @@ public class MemoriRules implements Rules {
             //add appropriate event
             gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH"));
             //add UI events
-            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", uaAction.getCoords(), new Date().getTime() + 5000, true));
-            //TODO: Add time to sound functionlity and game event
+            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", null, new Date().getTime() + 5000, true));
             addTimeGameEvent(watch, gsCurrentState);
 
-            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", uaAction.getCoords(), new Date().getTime() + 7200, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
             //TODO: Add event informing the user about either returning to main screen or starting next level
             if(MainOptions.TUTORIAL_MODE) {
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", uaAction.getCoords(), new Date().getTime() + 6500, false));
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
                 gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
             }
+            //update high score
             highScore.updateHighScore(watch);
         }
     }
 
+    /**
+     * Handles the user actions
+     * @param uaAction the user action (flip, move, help)
+     * @param gsCurrentState the current game state
+     */
     private void handleUserActionGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
         if(movementValid(uaAction.getKeyEvent(), gsCurrentState)) {
             gsCurrentState.updateRowIndex(uaAction.getKeyEvent());
@@ -182,12 +196,22 @@ public class MemoriRules implements Rules {
         }
     }
 
+    /**
+     * Creates the game events including help ui events
+     * @param uaAction the user action
+     * @param gsCurrentState the current game state
+     */
     private void createHelpGameEvent(UserAction uaAction, MemoriGameState gsCurrentState) {
         Point2D coords = uaAction.getCoords();
         gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
         gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", (int)coords.getX() + 1, 0, true));
     }
 
+    /**
+     * Prepares the UI events that will play the sound clips for the high score
+     * @param watch The watch object that contains the timer
+     * @param gsCurrentState the current game state
+     */
     private void addTimeGameEvent(TimeWatch watch, MemoriGameState gsCurrentState) {
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
         String timestampStr = String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds));
@@ -204,6 +228,13 @@ public class MemoriRules implements Rules {
 
     }
 
+    /**
+     * Applies the rules and creates the game events relevant to flipping a card
+     * @param currTile the tile that the flip performed on
+     * @param gsCurrentState the current game state
+     * @param uaAction the user action object
+     * @param memoriTerrain the terrain holding all the tiles
+     */
     private void performFlip(Tile currTile, MemoriGameState gsCurrentState, UserAction uaAction, MemoriTerrain memoriTerrain) {
         // Rule 6: flip
         // If target card flipped
@@ -289,6 +320,11 @@ public class MemoriRules implements Rules {
         }
     }
 
+    /**
+     * When in tutorial mode, handles the tutorial game events
+     * @param gsCurrentState the current game state
+     * @param uaAction the user action object
+     */
     private void tutorialRulesSet(MemoriGameState gsCurrentState, UserAction uaAction) {
 
             // if tutorial_0 event does not exist
@@ -385,6 +421,12 @@ public class MemoriRules implements Rules {
         }
     }
 
+    /**
+     * Checks if a given event exists in the events list
+     * @param eventQueue the events list
+     * @param eventType the type of the event
+     * @return true if the event exists in the events list
+     */
     private boolean eventsQueueContainsEvent(Queue<GameEvent> eventQueue, String eventType) {
         Iterator<GameEvent> iter = eventQueue.iterator();
         GameEvent currentGameEvent;
@@ -396,6 +438,11 @@ public class MemoriRules implements Rules {
         return false;
     }
 
+    /**
+     * Checks if the current round is the last one (if all the tiles are won)
+     * @param gsCurrent the current game state
+     * @return true if the current round is the last one
+     */
     private boolean isLastRound(GameState gsCurrent) {
         return ((MemoriGameState)gsCurrent).areAllTilesWon();
     }
@@ -410,6 +457,12 @@ public class MemoriRules implements Rules {
         }
     }
 
+    /**
+     * Checks if at least one of the currently open (but not won) tiles is different that the current tile
+     * @param memoriTerrain the terrain holding all the tiles
+     * @param currTile the current tile
+     * @return true if one of the open tiles is different from the current tile
+     */
     private boolean atLeastOneOtherTileIsDifferent(MemoriTerrain memoriTerrain, Tile currTile) {
         boolean answer = false;
         for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
@@ -420,6 +473,12 @@ public class MemoriRules implements Rules {
         return answer;
     }
 
+    /**
+     * Checks if the current tile is the last of the n-tuple
+     * @param memoriTerrain the terrain holding all the tiles
+     * @param currTile the current tile
+     * @return true is the current tile is the last of the n-tuple
+     */
     private boolean tileIsLastOfTuple(MemoriTerrain memoriTerrain, Tile currTile) {
         boolean answer = false;
         for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
@@ -435,8 +494,6 @@ public class MemoriRules implements Rules {
         currTile.flip();
     }
 
-
-
     @Override
     public boolean isGameFinished(GameState gsCurrent) {
         MemoriGameState memoriGameState = (MemoriGameState)gsCurrent;
@@ -451,6 +508,12 @@ public class MemoriRules implements Rules {
         return tile.getWon();
     }
 
+    /**
+     * When the user opens a tile that does not belong to the currently n-tuple of tiles
+     * the round is failed and all the open tiles should be flipped back
+     * @param memoriTerrain the terrain holding all the tiles
+     * @return a list containing the coordinates of the open tiles
+     */
     public List<Point2D> resetAllOpenTiles(MemoriTerrain memoriTerrain) {
         List<Point2D> openTilesPoints = new ArrayList<>();
         memoriTerrain.openTiles.forEach(Tile::flip);
@@ -499,7 +562,6 @@ public class MemoriRules implements Rules {
         }
         return true;
     }
-
 
     private String ConvertSecondToHHMMSSString(int nSecondTime) {
         return LocalTime.MIN.plusSeconds(nSecondTime).toString();
