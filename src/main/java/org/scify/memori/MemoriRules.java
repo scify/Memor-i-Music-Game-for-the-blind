@@ -143,6 +143,7 @@ public class MemoriRules implements Rules {
         int seconds = Integer.parseInt(tokens[2]);
         System.err.println("minutes: " + minutes);
         System.err.println("seconds: " + seconds);
+        //TODO: handle singular or plural minutes and seconds
         if(minutes != 0)
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", minutes, new Date().getTime() + 5200, true));
         if(seconds != 0)
