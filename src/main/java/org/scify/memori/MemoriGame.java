@@ -78,10 +78,9 @@ public abstract class MemoriGame implements Game<Integer> {
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
 
-            if (uaToHandle != null) {
                 //apply it and determine the next state
                 gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);
-            }
+
 
 //            Thread.yield();
             try {
