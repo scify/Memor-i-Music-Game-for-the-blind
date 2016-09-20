@@ -21,7 +21,6 @@ package org.scify.memori;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.scify.memori.interfaces.*;
-import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.time.LocalTime;
