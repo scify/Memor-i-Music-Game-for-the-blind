@@ -17,127 +17,40 @@
 
 package org.scify.memori;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.scify.memori.interfaces.HighScoresScreen;
 
 import java.io.IOException;
 
-import static javafx.scene.input.KeyCode.SPACE;
 import static org.scify.memori.MainOptions.mHeight;
 import static org.scify.memori.MainOptions.mWidth;
 
 public class FXHighScoresScreen implements HighScoresScreen {
 
     protected SceneHandler sceneHandler;
-    private HighScoreHandler highScoreHandler;
-    /**
-     * JavFX component to bind the scene with the .fxml and .css file
-     */
-    protected Parent root;
-
-    /**
-     * An Audio Engine object, able to play sounds
-     */
-    private FXAudioEngine fxAudioEngine;
-    private Scene scoresScene;
-
-    @FXML
-    private Button threeTimesTwo;
-    @FXML
-    private Button fourTimesFour;
-    @FXML
-    private Button fourTimesThree;
-    @FXML
-    private Button twoTimesFour;
-    @FXML
-    private Button fiveTimesFour;
-    @FXML
-    private Button fourTimesSix;
 
     public FXHighScoresScreen(SceneHandler shSceneHandler, Stage mainWindow) {
         this.sceneHandler = shSceneHandler;
         sceneHandler.setMainWindow(mainWindow);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/scores.fxml"));
+        Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/scores.fxml"));
+            root = fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
-            return;
         }
 
-        //initialize the audio engine object
-        fxAudioEngine = new FXAudioEngine();
+        Scene scoresScene = new Scene(root, mWidth, mHeight);
 
-        scoresScene = new Scene(root, mWidth, mHeight);
-        sceneHandler.pushScene(scoresScene);
-        scoresScene.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ESCAPE:
-                    sceneHandler.popScene();
-                    break;
-            }
-        });
-
-
+        FXHighScoresScreenController controller = fxmlLoader.getController();
+        controller.setParameters(sceneHandler, scoresScene);
     }
 
     @Override
     public void initialize() {
 
     }
-
-    public FXHighScoresScreen() {
-        highScoreHandler = new HighScoreHandler();
-    }
-
-    /**
-     * Depending on the button clicked, the Main options (number of columns and rows) are initialized and a new game starts
-     * @param evt
-     */
-    @FXML
-    protected void parseHighScore(KeyEvent evt) {
-
-        if (evt.getCode() == SPACE) {
-            String level = "";
-            if (evt.getSource() == fourTimesFour) {
-                System.out.println("score for: 4x4");
-                level = "4x4";
-            } else if (evt.getSource() == threeTimesTwo) {
-                System.out.println("score for: 2x3");
-                level = "2x3";
-            } else if (evt.getSource() == fourTimesThree) {
-                System.out.println("score for: 3x4");
-                level = "3x4";
-            } else if(evt.getSource() == twoTimesFour) {
-                System.out.println("score for: 2x4");
-                level = "2x4";
-            } else if(evt.getSource() == fiveTimesFour) {
-                System.out.println("score for: 5x4");
-                level = "5x4";
-            } else if(evt.getSource() == fourTimesSix) {
-                System.out.println("score for: 4x6");
-                level = "4x6";
-            }
-            //startNormalGame(evt, MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
-            System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(level));
-        }
-    }
-
-    /**
-     * Goes back to main screen
-     * @param evt
-     */
-    @FXML
-    protected void backToMainScreen(KeyEvent evt) {
-        if (evt.getCode() == SPACE) {
-            sceneHandler.popScene();
-        }
-    }
-
-
 }

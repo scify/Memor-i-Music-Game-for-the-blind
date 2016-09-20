@@ -39,8 +39,8 @@ public class HighScoreHandler {
             FileHandler.setHighScoreForLevel(String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds)));
     }
 
-    public String getHighScoreForLevel(String level) {
-        return FileHandler.readHighScoreForLevel(level);
+    public String getHighScoreForLevel(int level) {
+        return FileHandler.readHighScoreForLevel(String.valueOf(level));
     }
 
     private String ConvertSecondToHHMMSSString(int nSecondTime) {
