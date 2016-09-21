@@ -94,6 +94,12 @@ public class MemoriRules implements Rules {
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, true));
                 }
             }
+            if(MainOptions.gameLevel == 4) {
+                if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
+                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS"));
+                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, true));
+                }
+            }
         }
     }
 
@@ -179,7 +185,7 @@ public class MemoriRules implements Rules {
                 else
                     performFlip(currTile, gsCurrentState, uaAction, memoriTerrain);
             } else if(uaAction.getActionType().equals("enter")) {
-                if(!MainOptions.TUTORIAL_MODE && eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_BTN_TUTORIAL"))
+                if(!MainOptions.TUTORIAL_MODE && eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS"))
                     createHelpGameEvent(uaAction, gsCurrentState);
             }
         } else {
@@ -204,6 +210,13 @@ public class MemoriRules implements Rules {
         Point2D coords = uaAction.getCoords();
         gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
         gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", (int)coords.getX() + 1, 0, true));
+        //If in help instructions mode, add appropriate explanation
+        if (eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
+            gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_ROW", null, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_COLUMN", null, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", (int)coords.getX() + 1, 0, true));
+        }
     }
 
     /**
