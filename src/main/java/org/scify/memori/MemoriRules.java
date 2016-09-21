@@ -83,21 +83,21 @@ public class MemoriRules implements Rules {
         if(MainOptions.TUTORIAL_MODE) {
             if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INTRO")) {
                 gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INTRO"));
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INTRO_UI"));
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INTRO_UI", null, 0, false));
             }
         } else {
             if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "STORYLINE_AUDIO")) {
                 gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO"));
-                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, true));
+                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, false));
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "LEVEL_INTRO_AUDIO")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO"));
-                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, true));
+                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, false));
                 }
             }
             if(MainOptions.gameLevel == 4) {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS"));
-                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, true));
+                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, false));
                 }
             }
         }

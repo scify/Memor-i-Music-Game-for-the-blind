@@ -182,6 +182,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return toReturn;
     }
 
+    @Override
+    public void cancelCurrentRendering() {
+        fxAudioEngine.pauseCurrentlyPlayingAudio();
+    }
+
     private long lLastUpdate = -1L;
     GameEvent currentGameEvent;
     protected void updateFXComponents(MemoriGameState currentState) {
@@ -321,7 +326,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "TUTORIAL_INTRO_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_intro.wav", false);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_intro.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

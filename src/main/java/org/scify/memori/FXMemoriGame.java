@@ -42,6 +42,9 @@ public class FXMemoriGame extends MemoriGame {
             switch (event.getCode()) {
                 case ESCAPE:
                     System.err.println("END GAME");
+                    if(MainOptions.TUTORIAL_MODE)
+                        MainOptions.TUTORIAL_MODE = false;
+                    reRenderer.cancelCurrentRendering();
                     sceneHandler.popScene();
                     break;
             }

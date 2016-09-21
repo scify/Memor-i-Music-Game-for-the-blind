@@ -75,7 +75,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param rate indicates how fast the sound will be playing. Used to distinguish vertical movements
      */
     public void playMovementSound(double balance, double rate) {
-        pauseSound();
+        pauseCurrentlyPlayingAudio();
         if(movementSoundMedia == null) {
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
@@ -139,7 +139,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file name (path) of the audio clip
      */
     public void playBalancedSound(double balance, String soundFile) {
-        pauseSound();
+        pauseCurrentlyPlayingAudio();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
         while (audioClip.isPlaying()) {
@@ -175,17 +175,21 @@ public class FXAudioEngine implements AudioEngine{
     }
 
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
-        pauseSound();
+        pauseCurrentlyPlayingAudio();
         playSound(soundFile, isBlocking);
     }
 
     public void playNumSound(int number) {
-        pauseSound();
+        pauseCurrentlyPlayingAudio();
         playSound(numBasePath + String.valueOf(number) + ".wav", true);
     }
 
     public void playLetterSound(int number) {
-        pauseSound();
+        pauseCurrentlyPlayingAudio();
         playSound(letterBasePath + String.valueOf(number) + ".wav", true);
+    }
+
+    public void pauseCurrentlyPlayingAudio() {
+        pauseSound();
     }
 }
