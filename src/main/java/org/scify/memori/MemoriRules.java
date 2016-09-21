@@ -69,7 +69,7 @@ public class MemoriRules implements Rules {
         }
 
         //if in tutorial, handle the tutorial game events
-        if(MainOptions.TUTORIAL_MODE)
+        if(MainOptions.TUTORIAL_MODE && uaAction != null)
             tutorialRulesSet(gsCurrentState, uaAction);
 
         return gsCurrentState;
