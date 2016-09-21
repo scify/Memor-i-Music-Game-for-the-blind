@@ -76,6 +76,4 @@ limitations under the License.
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* [Maven plugin for parsing JSON files](https://mvnrepository.com/artifact/org.json/json)
