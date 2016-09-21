@@ -384,7 +384,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_INVALID_MOVEMENT_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/tutorial_invalid_movement.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_invalid_movement.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
