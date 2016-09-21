@@ -4,11 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
-<<<<<<< HEAD
-<StackPane alignment="center" prefHeight="450.0" prefWidth="506.0" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memori.FirstScreen">
-    <VBox alignment="center" spacing="10" styleClass="optionButtonContainer">
-=======
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.HBox?>
@@ -21,7 +16,6 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
->>>>>>> development
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Οδηγός" fx:id="tutorial" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="level1" onKeyPressed="#initializeGameOptions"/>
@@ -31,7 +25,7 @@
         <Button contentDisplay="CENTER" styleClass="optionButton" text="5x4" fx:id="level5" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="4x6" fx:id="level6" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="level7" onKeyPressed="#initializeGameOptions"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Τα σκορ μου ανά επίπεδο" fx:id="myScores" onKeyPressed="#myScores"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Τα σκορ μου ανά επίπεδο" fx:id="myScores" onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit" onKeyPressed="#exitGame"/>
     </VBox>
 
