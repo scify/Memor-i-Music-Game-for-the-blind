@@ -17,14 +17,8 @@
 
 package org.scify.memori;
 
-import javafx.application.Platform;
 import org.scify.memori.interfaces.*;
 
-import java.awt.geom.Point2D;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
 
 public abstract class MemoriGame implements Game<Integer> {
     /**
