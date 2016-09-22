@@ -6,7 +6,7 @@
     {"cardType" : "rooster", "attrs": {"img": "animals/rooster.jpg", "sounds": "animals/rooster.wav"}},
     {"cardType" : "sheep", "attrs": {"img": "animals/sheep.jpg", "sounds": "animals/sheep.wav"}},
     {"cardType" : "pig", "attrs": {"img": "animals/pig.jpg", "sounds": "animals/pig.wav"}},
-    {"cardType" : "dog_1", "attrs": {"img": "animals/dog_1.jpg", "sounds": "animals/bark.wav"}},
+    {"cardType" : "dog_1", "attrs": {"img": "animals/dog.gif", "sounds": "animals/bark.wav"}},
     {"cardType" : "donkey", "attrs": {"img": "animals/donkey.jpg", "sounds": "animals/donkey.wav"}},
     {"cardType" : "duck", "attrs": {"img": "animals/duck.jpg", "sounds": "animals/duck.wav"}},
     {"cardType" : "bee", "attrs": {"img": "animals/bee.jpg", "sounds": "animals/bee.wav"}},
