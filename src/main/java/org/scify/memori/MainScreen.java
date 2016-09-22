@@ -25,11 +25,14 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 public class MainScreen extends Application {
     private StackPane stackPane;
     private double mWidth = Screen.getPrimary().getBounds().getWidth();
     private double mHeight = Screen.getPrimary().getBounds().getHeight();
+    private Rectangle graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 
 
     public MainScreen() {
@@ -47,8 +50,8 @@ public class MainScreen extends Application {
         primaryStage.setTitle("Memor-i");
         MainScreenController controller = fxmlLoader.getController();
         // set as width and height the screen width and height
-        MainOptions.mWidth = mWidth;
-        MainOptions.mHeight = mHeight;
+        MainOptions.mWidth = graphicsEnvironment.getWidth() - 10;
+        MainOptions.mHeight = graphicsEnvironment.getHeight() - 10;
         // construct the scene (the content of the stage)
         Scene primaryScene = new Scene(root, mWidth, mHeight);
 

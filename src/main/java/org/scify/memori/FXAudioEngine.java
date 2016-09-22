@@ -144,6 +144,7 @@ public class FXAudioEngine implements AudioEngine{
         pauseCurrentlyPlayingAudios();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
+        playingAudios.add(audioClip);
         while (audioClip.isPlaying()) {
             try {
                 Thread.sleep(100L);
@@ -195,4 +196,5 @@ public class FXAudioEngine implements AudioEngine{
         if(playingAudios.size() > 0)
             playingAudios.forEach(AudioClip::stop);
     }
+
 }

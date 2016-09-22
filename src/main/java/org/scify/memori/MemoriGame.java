@@ -89,13 +89,11 @@ public abstract class MemoriGame implements Game<Integer> {
                 e.printStackTrace();
             }
 
-            // TODO: Also allow next state getting, when no user action was provided
         }
         System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
         MainOptions.storyLineLevel++;
 
-        //TODO: should we store story line level in a file?
         if(memoriGameState.loadNextLevel)
             return NEXT_LEVEL;
         else if(memoriGameState.replayLevel)

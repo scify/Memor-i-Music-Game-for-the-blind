@@ -88,7 +88,7 @@ public class Card implements Tile{
         sound = soundFile;
         button.setId(id);
         // each card takes a dynamic height and width, based on the height and with of the screen
-        button.setPrefHeight(MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS - (MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS * 0.05));
+        button.setPrefHeight((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS ) - ((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS) * 0.1));
         button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS);
         // apply the appropriate style classes
         button.getStyleClass().addAll("cardButton", "closedCard");

@@ -18,6 +18,8 @@
 package org.scify.memori;
 
 
+import javafx.scene.media.AudioClip;
+
 public class FXMemoriGame extends MemoriGame {
     protected SceneHandler sceneHandler;
 
@@ -46,6 +48,7 @@ public class FXMemoriGame extends MemoriGame {
                         MainOptions.TUTORIAL_MODE = false;
                     reRenderer.cancelCurrentRendering();
                     Thread.currentThread().interrupt();
+
                     sceneHandler.popScene();
                     break;
             }
