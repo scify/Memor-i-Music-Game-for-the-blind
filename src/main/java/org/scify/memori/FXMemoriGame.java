@@ -45,6 +45,7 @@ public class FXMemoriGame extends MemoriGame {
                     if(MainOptions.TUTORIAL_MODE)
                         MainOptions.TUTORIAL_MODE = false;
                     reRenderer.cancelCurrentRendering();
+                    Thread.currentThread().interrupt();
                     sceneHandler.popScene();
                     break;
             }

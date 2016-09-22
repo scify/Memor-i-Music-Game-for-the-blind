@@ -22,6 +22,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.scify.memori.interfaces.AudioEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FXAudioEngine implements AudioEngine{
@@ -34,9 +35,10 @@ public class FXAudioEngine implements AudioEngine{
     private String successSound = "success.wav";
     private String invalidMovementSound = "invalid_movement.wav";
     private String failureSound = "error.wav";
-    private String emptySound = "blip.wav";
+    private String emptySound = "game_effects/door-knock.wav";
     private String numBasePath = "numbers/";
     private String letterBasePath = "letters/";
+    private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
     private HashMap<Integer, String> columnHelpSounds = new HashMap<>();
@@ -75,7 +77,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param rate indicates how fast the sound will be playing. Used to distinguish vertical movements
      */
     public void playMovementSound(double balance, double rate) {
-        pauseCurrentlyPlayingAudio();
+        pauseCurrentlyPlayingAudios();
         if(movementSoundMedia == null) {
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
@@ -139,7 +141,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file name (path) of the audio clip
      */
     public void playBalancedSound(double balance, String soundFile) {
-        pauseCurrentlyPlayingAudio();
+        pauseCurrentlyPlayingAudios();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
         while (audioClip.isPlaying()) {
@@ -160,7 +162,7 @@ public class FXAudioEngine implements AudioEngine{
     public void playSound(String soundFile, boolean isBlocking) {
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play();
-
+        playingAudios.add(audioClip);
         if (isBlocking) {
             // Wait until completion
             while (audioClip.isPlaying()) {
@@ -175,21 +177,22 @@ public class FXAudioEngine implements AudioEngine{
     }
 
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
-        pauseCurrentlyPlayingAudio();
+        pauseCurrentlyPlayingAudios();
         playSound(soundFile, isBlocking);
     }
 
     public void playNumSound(int number) {
-        pauseCurrentlyPlayingAudio();
+        pauseCurrentlyPlayingAudios();
         playSound(numBasePath + String.valueOf(number) + ".wav", true);
     }
 
     public void playLetterSound(int number) {
-        pauseCurrentlyPlayingAudio();
+        pauseCurrentlyPlayingAudios();
         playSound(letterBasePath + String.valueOf(number) + ".wav", true);
     }
 
-    public void pauseCurrentlyPlayingAudio() {
-        pauseSound();
+    public void pauseCurrentlyPlayingAudios() {
+        if(playingAudios.size() > 0)
+            playingAudios.forEach(AudioClip::stop);
     }
 }

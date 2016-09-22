@@ -88,7 +88,7 @@ public class MemoriRules implements Rules {
         } else {
             if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "STORYLINE_AUDIO")) {
                 gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO"));
-                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, false));
+                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, true));
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "LEVEL_INTRO_AUDIO")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO"));
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, false));
@@ -128,32 +128,36 @@ public class MemoriRules implements Rules {
      */
     private void handleLevelFinishGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
         if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "READY_TO_FINISH")) {
-            //listen for user action indicating game over
-            if(uaAction.getActionType().equals("enter")) {
-                //the game should finish and load a next level
-                gsCurrentState.replayLevel = true;
-                gsCurrentState.gameFinished = true;
-            }
-            if(uaAction.getActionType().equals("flip")) {
-                //the game should finish and load a next level
-                gsCurrentState.loadNextLevel = true;
-                gsCurrentState.gameFinished = true;
+            if(uaAction != null) {
+                //listen for user action indicating game over
+                if(uaAction.getActionType().equals("enter")) {
+                    //the game should finish and load a next level
+                    gsCurrentState.replayLevel = true;
+                    gsCurrentState.gameFinished = true;
+                }
+                if(uaAction.getActionType().equals("flip")) {
+                    //the game should finish and load a next level
+                    gsCurrentState.loadNextLevel = true;
+                    gsCurrentState.gameFinished = true;
+                }
             }
         } else {
-            //add appropriate event
-            gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH"));
-            //add UI events
-            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", null, new Date().getTime() + 5000, true));
-            addTimeGameEvent(watch, gsCurrentState);
+            if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "READY_TO_FINISH")) {
+                //add appropriate event
+                gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH"));
+                //add UI events
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", null, new Date().getTime() + 5000, true));
+                addTimeGameEvent(watch, gsCurrentState);
 
-            gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
-            //TODO: Add event informing the user about either returning to main screen or starting next level
-            if(MainOptions.TUTORIAL_MODE) {
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
+                //TODO: Add event informing the user about either returning to main screen or starting next level
+                if (MainOptions.TUTORIAL_MODE) {
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
+                }
+                //update high score
+                highScore.updateHighScore(watch);
             }
-            //update high score
-            highScore.updateHighScore(watch);
         }
     }
 
@@ -254,7 +258,7 @@ public class MemoriRules implements Rules {
             //if card won
             if(isTileWon(currTile)) {
                 //play empty sound
-                gsCurrentState.getEventQueue().add(new GameEvent("empty", uaAction.getCoords()));
+                gsCurrentState.getEventQueue().add(new GameEvent("EMPTY"));
             } else {
                 //else if card not won
                 // play card sound
