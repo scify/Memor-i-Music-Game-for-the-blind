@@ -77,7 +77,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param rate indicates how fast the sound will be playing. Used to distinguish vertical movements
      */
     public void playMovementSound(double balance, double rate) {
-        pauseCurrentlyPlayingAudios();
+        pauseSound();
         if(movementSoundMedia == null) {
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
@@ -193,8 +193,10 @@ public class FXAudioEngine implements AudioEngine{
     }
 
     public void pauseCurrentlyPlayingAudios() {
-        if(playingAudios.size() > 0)
-            playingAudios.forEach(AudioClip::stop);
+        for (AudioClip audio: playingAudios) {
+            if(audio.isPlaying())
+                audio.stop();
+        }
     }
 
 }

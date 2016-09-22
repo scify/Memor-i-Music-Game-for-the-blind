@@ -366,6 +366,48 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
+                    case "LEVEL_END_UNIVERSAL":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/level_ending_universal.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "MINUTE":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/minute.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "MINUTES":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/minutes.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "AND":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/and.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "SECOND":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/second.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "SECONDS":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/seconds.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
                     case "TUTORIAL_0_UI":
                         //TODO: These sound effects should be combined into 1
                         fxAudioEngine.pauseAndPlaySound("game_instructions/count_on_you.wav", currentGameEvent.blocking);
@@ -376,8 +418,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "GO_RIGHT_AGAIN":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            System.err.println("TUTORIAL_0_UI PLEASE CLICK RIGHT");
-                            fxAudioEngine.playSound("game_instructions/please_press_right.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/press_right_until_end.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

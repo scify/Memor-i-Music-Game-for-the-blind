@@ -150,10 +150,13 @@ public class MemoriRules implements Rules {
                 addTimeGameEvent(watch, gsCurrentState);
 
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
-                //TODO: Add event informing the user about either returning to main screen or starting next level
+
                 if (MainOptions.TUTORIAL_MODE) {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
+                } else {
+                    //TODO: Add event informing the user about either returning to main screen or starting next level
+                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8200, false));
                 }
                 //update high score
                 highScore.updateHighScore(watch);
@@ -237,10 +240,22 @@ public class MemoriRules implements Rules {
         System.err.println("minutes: " + minutes);
         System.err.println("seconds: " + seconds);
         //TODO: handle singular or plural minutes and seconds
-        if(minutes != 0)
+        if(minutes != 0) {
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", minutes, new Date().getTime() + 5200, true));
-        if(seconds != 0)
+            if(minutes > 9)
+                gsCurrentState.getEventQueue().add(new GameEvent("MINUTES", minutes, new Date().getTime() + 5300, true));
+            else
+                gsCurrentState.getEventQueue().add(new GameEvent("MINUTE", minutes, new Date().getTime() + 5500, true));
+        }
+        if(minutes != 0 && seconds != 0)
+            gsCurrentState.getEventQueue().add(new GameEvent("AND", minutes, new Date().getTime() + 5700, true));
+        if(seconds != 0) {
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", seconds, new Date().getTime() + 6000, true));
+            if(seconds > 9)
+                gsCurrentState.getEventQueue().add(new GameEvent("SECONDS", minutes, new Date().getTime() + 5300, true));
+            else
+                gsCurrentState.getEventQueue().add(new GameEvent("SECOND", minutes, new Date().getTime() + 5500, true));
+        }
 
     }
 

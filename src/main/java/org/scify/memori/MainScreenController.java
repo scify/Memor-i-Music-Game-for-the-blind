@@ -246,6 +246,7 @@ public class MainScreenController implements Initializable {
                     loadNextLevelForNormalGame();
 
             } else if(result == 3) {
+                sceneHandler.simplePopScene();
                 startNormalGame();
             }
             System.out.println(result);

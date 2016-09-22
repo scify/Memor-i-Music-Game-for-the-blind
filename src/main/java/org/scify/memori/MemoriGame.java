@@ -93,7 +93,7 @@ public abstract class MemoriGame implements Game<Integer> {
         System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
         MainOptions.storyLineLevel++;
-
+        reRenderer.cancelCurrentRendering();
         if(memoriGameState.loadNextLevel)
             return NEXT_LEVEL;
         else if(memoriGameState.replayLevel)
