@@ -27,20 +27,21 @@ import java.util.concurrent.TimeUnit;
 
 public class HighScoreHandler {
 
+    private FileHandler fileHandler = new FileHandler();
     public void updateHighScore(TimeWatch watch) {
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
-        String highScore = FileHandler.readHighScoreForCurrentLevel();
+        String highScore = fileHandler.readHighScoreForCurrentLevel();
         if (highScore == null || Objects.equals(highScore, ""))
             highScore = "99:00:00";
         System.out.println("highScore " + highScore);
         System.out.println("highScore " + TimeToSeconds(highScore));
         System.out.println("time: " + passedTimeInSeconds);
         if(passedTimeInSeconds < TimeToSeconds(highScore))
-            FileHandler.setHighScoreForLevel(String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds)));
+            fileHandler.setHighScoreForLevel(String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds)));
     }
 
     public String getHighScoreForLevel(int level) {
-        return FileHandler.readHighScoreForLevel(String.valueOf(level));
+        return fileHandler.readHighScoreForLevel(String.valueOf(level));
     }
 
     private String ConvertSecondToHHMMSSString(int nSecondTime) {
