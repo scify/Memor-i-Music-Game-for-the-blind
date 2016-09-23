@@ -586,16 +586,20 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             //userAction = new UserAction("help", event);
             userAction = new UserAction("enter", event);
         } else if(event.getCode() == F1) {
-            userAction = new UserAction("quit", event);
+            userAction = new UserAction("f1", event);
+        } else if(event.getCode() == ESCAPE) {
+            userAction = new UserAction("escape", event);
+            event.consume();
         }
-//        else if(event.getCode() == F2) {
-//            userAction = new UserAction("nextLevel", event);
-//        }
-        //TODO: ask ggianna
+
+        //if there is a game event currently being processed
         if(currentGameEvent != null) {
+            //if the currently processed event is blocking, the UI engine does not accept any user actions
+            //if the currently processed event is not blocking, accept user actions
             if (!currentGameEvent.blocking)
                 pendingUserActions.add(0, userAction);
         } else {
+            //if there is no processed event, accept the user action
             pendingUserActions.add(0, userAction);
         }
     }

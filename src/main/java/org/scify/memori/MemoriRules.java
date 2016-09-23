@@ -194,6 +194,9 @@ public class MemoriRules implements Rules {
             } else if(uaAction.getActionType().equals("enter")) {
                 if(!MainOptions.TUTORIAL_MODE && eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS"))
                     createHelpGameEvent(uaAction, gsCurrentState);
+            } else if(uaAction.getActionType().equals("escape")) {
+                //exit current game
+                gsCurrentState.gameFinished = true;
             }
         } else {
             // if invalid movement, return only an invalid game event
