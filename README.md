@@ -1,6 +1,8 @@
 
 # Memor-i
 
+![Memor-i logo](https://raw.githubusercontent.com/scify/Memor-i/master/src/main/resources/img/memori.png)
+
 A Memory card game especially tailored to meet the needs of blind people.
 Check out our [YouTube video](https://www.youtube.com/watch?v=M2DqT5e975w)
 
