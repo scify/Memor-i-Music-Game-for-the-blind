@@ -40,6 +40,13 @@ mvn assembly:single
 mvn dependency:copy-dependencies
 ```
 
+These tasks can also be accomplished more easily just by running 
+```
+./repetitive_tasks.sh
+```
+
+which is a UNIX executable file located at the root of the project.
+
 ## Built With
 
 * Java - 1.8
