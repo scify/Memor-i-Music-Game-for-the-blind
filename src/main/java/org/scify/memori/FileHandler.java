@@ -28,7 +28,7 @@ import java.util.*;
 
 public class FileHandler {
 
-    private String propertiesFile = "config.properties";
+    private String propertiesFile = "high_scores.properties";
 
     public Map<String, ArrayList<String>> readCardsFromJSONFile() {
         Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
