@@ -41,7 +41,7 @@ mvn dependency:copy-dependencies
 
 These tasks can also be accomplished more easily just by running 
 ```
-./repetitive_tasks.sh
+./build_project.sh
 ```
 
 which is a UNIX executable file located at the root of the project.
