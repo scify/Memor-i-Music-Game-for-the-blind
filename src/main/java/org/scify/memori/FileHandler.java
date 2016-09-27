@@ -76,85 +76,49 @@ public class FileHandler {
     public String readHighScoreForCurrentLevel() {
         String highScore = "";
         Properties prop = new Properties();
-        InputStream resourceStream = null;
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+
+        File scoresFile = new File(propertiesFile);
         try {
-
-            resourceStream = loader.getResourceAsStream(propertiesFile);
-            prop.load(resourceStream);
+            scoresFile.createNewFile();
+            FileInputStream in = new FileInputStream(scoresFile);
+            prop.load(in);
             highScore = prop.getProperty(String.valueOf(MainOptions.gameLevel));
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (resourceStream != null) {
-                try {
-                    resourceStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return highScore;
     }
 
     public String readHighScoreForLevel(String level) {
         String highScore = "";
         Properties prop = new Properties();
-        InputStream resourceStream = null;
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+
+        File scoresFile = new File(propertiesFile);
         try {
-
-            resourceStream = loader.getResourceAsStream(propertiesFile);
-            prop.load(resourceStream);
+            scoresFile.createNewFile();
+            FileInputStream in = new FileInputStream(scoresFile);
+            prop.load(in);
             highScore = prop.getProperty(String.valueOf(level));
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (resourceStream != null) {
-                try {
-                    resourceStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return highScore;
     }
 
     public void setHighScoreForLevel (String highScore) {
-        OutputStream output = null;
 
+        Properties props = new Properties();
+
+        File scoresFile = new File(propertiesFile);
         try {
-            ClassLoader loader = Thread.currentThread().getContextClassLoader();
-            InputStream resourceStream = loader.getResourceAsStream(propertiesFile);
-            Properties props = new Properties();
-            props.load(resourceStream);
-            resourceStream.close();
-            URL resourceUrl = getClass().getResource(propertiesFile);
-            File file = new File(resourceUrl.toURI());
-            output = new FileOutputStream(file);
-
-            // set the properties value
+            scoresFile.createNewFile();
+            FileOutputStream out = new FileOutputStream(scoresFile);
             props.setProperty(String.valueOf(MainOptions.gameLevel), highScore);
-
-            // save properties to project root folder
-            props.store(output, null);
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } catch (URISyntaxException e) {
+            props.store(out, null);
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                output.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         }
     }
 }

@@ -109,17 +109,18 @@ public class FXHighScoresScreenController {
             } else if(evt.getSource() == level7) {
                 level = 7;
             }
-            //startNormalGame(evt, MainOptions.NUMBER_OF_COLUMNS, MainOptions.NUMBER_OF_ROWS);
             System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(level));
             String timestampStr = highScoreHandler.getHighScoreForLevel(level);
-            String[] tokens = timestampStr.split(":");
-            int minutes = Integer.parseInt(tokens[1]);
-            int seconds = Integer.parseInt(tokens[2]);
-            //TODO: handle singular or plural minutes and seconds
-            if(minutes != 0)
-                audioEngine.playNumSound(minutes);
-            if(seconds != 0)
-                audioEngine.playNumSound(seconds);
+            if(timestampStr != null) {
+                String[] tokens = timestampStr.split(":");
+                int minutes = Integer.parseInt(tokens[1]);
+                int seconds = Integer.parseInt(tokens[2]);
+                //TODO: handle singular or plural minutes and seconds
+                if (minutes != 0)
+                    audioEngine.playNumSound(minutes);
+                if (seconds != 0)
+                    audioEngine.playNumSound(seconds);
+            }
         }
     }
 
