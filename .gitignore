@@ -1,4 +1,4 @@
 .idea/
 target/
-config.properties
+src/main/resources/high_scores.properties
 out
