@@ -2,3 +2,4 @@
 target/
 src/main/resources/high_scores.properties
 out
+src/test/
