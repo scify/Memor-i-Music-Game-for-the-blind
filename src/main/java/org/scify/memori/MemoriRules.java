@@ -423,21 +423,6 @@ public class MemoriRules implements Rules {
                 } else {
                     //if tutorial_2 event does not exist
                     if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT")) {
-//                        if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
-//                            //add tutorial_2 event to queue
-//                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
-//                        } //else if user did not click LEFT
-//                        else {
-////                            //if user clicked LEFT
-//                            if (uaAction.getDirection() == KeyCode.LEFT) {
-//                                // add tutorial_2 UI event to queue
-//                                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, true));
-//
-//                            } else {
-//                                //add UI event indicating that the user should click LEFT
-//                                gsCurrentState.getEventQueue().add(new GameEvent("NOT_LEFT_UI", null, new Date().getTime() + 200, true));
-//                            }
-//                        }//else if tutorial_2 event exists
                         // if the invalid movement event was handled by the rendering engine
                         if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT_UI")) {
                             if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
