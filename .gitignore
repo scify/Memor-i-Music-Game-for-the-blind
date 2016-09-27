@@ -1,5 +1,5 @@
 .idea/
 target/
-src/main/resources/high_scores.properties
+high_scores.properties
 out
 src/test/

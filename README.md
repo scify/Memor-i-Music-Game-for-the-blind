@@ -27,9 +27,6 @@ Java home: /usr/lib/jvm/java-8-oracle/jre
 
 ### Installing
 
-First, create a high_scores.properties file in the resources (src/main/resources/) directory of the project.
-This file is included in the .gitignore file and will contain the information about the high scores for each game level.
-
 By looking at pom.xml you will see some plugins this project uses. 
 Supposing that Maven runs correctly on your machine and you have configured this project as a Maven project, 
 these plugins will be automativcally downloaded and installed upon compilation.
