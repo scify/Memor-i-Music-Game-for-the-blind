@@ -27,13 +27,29 @@ import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Integral part of the Game Engine. This class is used to evaluate every User event of the game and
+ * to also prepare the {@link GameState} object to be rendered at every cycle
+ */
 public class MemoriRules implements Rules {
+    /**
+     * a {@link HighScoreHandler} instance to handle the high score as soon as the game has finished
+     */
     private HighScoreHandler highScore;
+    /**
+     * When the user makes the first move, start the watch
+     * This variable is used to identify if the watch has been already started or not
+     */
     private boolean watchStarted = false;
+    /**
+     * a {@link TimeWatch} instance to track the elapsed time of the game
+     */
     TimeWatch watch;
+
     public MemoriRules() {
         highScore = new HighScoreHandler();
     }
+
     @Override
     public GameState getInitialState() {
         return new MemoriGameState();

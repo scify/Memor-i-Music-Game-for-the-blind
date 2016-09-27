@@ -81,6 +81,11 @@ public abstract class MemoriGame implements Game<Integer> {
             }
 
         }
+        // the final game state will contain the user input relevant to the future of the game
+        // the user can select to
+        // a) end the game and return to the main screen
+        // b) play the same level again
+        // c) go to the next level
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
         MainOptions.storyLineLevel++;
         reRenderer.cancelCurrentRendering();
