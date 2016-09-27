@@ -361,30 +361,30 @@ public class MemoriRules implements Rules {
      */
     private void tutorialRulesSet(MemoriGameState gsCurrentState, UserAction uaAction) {
 
-            // if tutorial_0 event does not exist
-                //If user clicked space
-                    // add tutorial_0 event to queue
-                    // add tutorial_0 UI event to queue
-            // else if tutorial_0 event exists
-                //if tutorial_1 event does not exist
-                    //if user clicked RIGHT
-                        //add tutorial_1 event to queue
-                        //add tutorial_1 UI event to queue
-                    //else  if user did not click RIGHT
-                        //add UI event indicating that the user should click RIGHT
-                //else if tutorial_1 event exists
-                    //if tutorial_2 event does not exist
-                        //if user clicked LEFT
-                            //add tutorial_2 event to queue
-                            //add tutorial_2 UI event to queue
-                        //else if user did not click LEFT
-                            //add UI event indicating that the user should click RIGHT
-                    //else if tutorial_2 event exists
-                        //if tutorial_3 event does not exist
-                            //if user clicked FLIP
-                                //add tutorial_3 event to queue
-                                //add tutorial_3 UI event to queue
-                        //if tutorial_3 event exists
+        // if tutorial_0 event does not exist
+        //If user clicked space
+        // add tutorial_0 event to queue
+        // add tutorial_0 UI event to queue
+        // else if tutorial_0 event exists
+        //if tutorial_1 event does not exist
+        //if user clicked RIGHT
+        //add tutorial_1 event to queue
+        //add tutorial_1 UI event to queue
+        //else  if user did not click RIGHT
+        //add UI event indicating that the user should click RIGHT
+        //else if tutorial_1 event exists
+        //if tutorial_2 event does not exist
+        //if user clicked LEFT
+        //add tutorial_2 event to queue
+        //add tutorial_2 UI event to queue
+        //else if user did not click LEFT
+        //add UI event indicating that the user should click RIGHT
+        //else if tutorial_2 event exists
+        //if tutorial_3 event does not exist
+        //if user clicked FLIP
+        //add tutorial_3 event to queue
+        //add tutorial_3 UI event to queue
+        //if tutorial_3 event exists
         // if tutorial_0 event does not exist
         if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_0")) {
             //If user clicked space
@@ -422,30 +422,48 @@ public class MemoriRules implements Rules {
                     //else if tutorial_1 event exists
                 } else {
                     //if tutorial_2 event does not exist
-                    if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
-                        //if user clicked LEFT
-                        if (uaAction.getDirection() == KeyCode.LEFT) {
-                            //add tutorial_2 event to queue
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
-                            // add tutorial_2 UI event to queue
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, true));
-                        } //else if user did not click LEFT
-                        else {
-                            //add UI event indicating that the user should click LEFT
-                            gsCurrentState.getEventQueue().add(new GameEvent("NOT_LEFT_UI", null, new Date().getTime() + 200, true));
-                        }
-                    }//else if tutorial_2 event exists
-                    else {
-                        //if tutorial_3 event does not exist
-                        if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "DOORS_EXPLANATION")) {
-                            //if user clicked ENTER
-                            if (uaAction.getActionType().equals("enter")) {
-                                //add tutorial_3 event to queue
-                                gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION"));
-                                // add tutorial_3 UI event to queue
-                                gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", null, new Date().getTime() + 200, true));
+                    if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT")) {
+//                        if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
+//                            //add tutorial_2 event to queue
+//                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
+//                        } //else if user did not click LEFT
+//                        else {
+////                            //if user clicked LEFT
+//                            if (uaAction.getDirection() == KeyCode.LEFT) {
+//                                // add tutorial_2 UI event to queue
+//                                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, true));
+//
+//                            } else {
+//                                //add UI event indicating that the user should click LEFT
+//                                gsCurrentState.getEventQueue().add(new GameEvent("NOT_LEFT_UI", null, new Date().getTime() + 200, true));
+//                            }
+//                        }//else if tutorial_2 event exists
+                        // if the invalid movement event was handled by the rendering engine
+                        if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT_UI")) {
+                            if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_2")) {
+                                //if user clicked LEFT
+                                if (uaAction.getDirection() == KeyCode.LEFT) {
+                                    // add tutorial_2 UI event to queue
+                                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, true));
+                                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
+
+                                } else {
+                                    //add UI event indicating that the user should click LEFT
+                                    gsCurrentState.getEventQueue().add(new GameEvent("NOT_LEFT_UI", null, new Date().getTime() + 200, true));
+                                }
                             } else {
-                                //gsCurrentState.getEventQueue().add(new GameEvent("NOT_ENTER_UI", uaAction.getCoords(), 0, false));
+                                //if tutorial_3 event does not exist
+                                if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "DOORS_EXPLANATION")) {
+                                    //if user clicked ENTER
+                                    if (uaAction.getActionType().equals("enter")) {
+                                        //add tutorial_3 event to queue
+                                        gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION"));
+                                        // add tutorial_3 UI event to queue
+                                        gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", null, new Date().getTime() + 200, true));
+                                    } else {
+                                        //gsCurrentState.getEventQueue().add(new GameEvent("NOT_ENTER_UI", uaAction.getCoords(), 0, false));
+                                    }
+                                }
                             }
                         }
                     }

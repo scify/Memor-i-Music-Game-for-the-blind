@@ -41,16 +41,16 @@ import static javafx.scene.input.KeyCode.RIGHT;
 public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, EventHandler<KeyEvent> {
 
     /**
-     * An Audio Engine object, able to play sounds
+     * A {@link AudioEngine} object, able to play sounds
      */
     private FXAudioEngine fxAudioEngine;
 
     /**
-     * gridpane holds all cards
+     * The {@link GridPane} holds all cards
      */
     private GridPane gridPane;
     /**
-     * computing the current screen height and width
+     * computes the current screen height and width
      */
     private double mWidth = Screen.getPrimary().getBounds().getWidth();
     private double mHeight = Screen.getPrimary().getBounds().getHeight();
@@ -567,7 +567,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     }
 
     /**
-     * Handles the UI events (button clicks) and populates the user actions list
+     * Handles the UI events (button clicks) and populates the {@link UserAction} list
      * @param event the event emitted from Ui
      */
     @Override
@@ -606,8 +606,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
 
     /**
-     * Determines whether the user action was a movement game action
-     * @param evt
+     * Determines whether the user action was a movement {@link GameEvent}.
+     * @param evt the action event
      * @return true if the evt was a movement action
      */
     private boolean isMovementAction(KeyEvent evt) {
