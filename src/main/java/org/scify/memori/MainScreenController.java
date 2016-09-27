@@ -34,6 +34,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
 
 public class MainScreenController implements Initializable {
@@ -83,15 +84,7 @@ public class MainScreenController implements Initializable {
         primaryScene.getStylesheets().add("css/style.css");
         primaryStage.show();
         primaryStage.requestFocus();
-        //primaryStage.setFullScreen(true);
-        primaryScene.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ESCAPE:
-                    System.err.println("END");
-                    primaryStage.close();
-                    break;
-            }
-        });
+        primaryStage.setFullScreen(true);
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
@@ -192,6 +185,8 @@ public class MainScreenController implements Initializable {
             thread.start();
 
 
+        } else if (evt.getCode() == ESCAPE) {
+            System.exit(0);
         }
     }
 
@@ -200,6 +195,8 @@ public class MainScreenController implements Initializable {
     protected void myScores(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
             FXHighScoresScreen highScoresScreen = new FXHighScoresScreen(sceneHandler, sceneHandler.getMainWindow());
+        } else if (evt.getCode() == ESCAPE) {
+            System.exit(0);
         }
     }
 
@@ -209,6 +206,8 @@ public class MainScreenController implements Initializable {
         if (evt.getCode() == SPACE) {
             audioEngine.playBalancedSound(-1.0, "leftHeadphone.mp3");
             audioEngine.playBalancedSound(1.0, "rightHeadphone.mp3");
+        } else if (evt.getCode() == ESCAPE) {
+            System.exit(0);
         }
     }
 
@@ -246,6 +245,7 @@ public class MainScreenController implements Initializable {
                     loadNextLevelForNormalGame();
 
             } else if(result == 3) {
+                sceneHandler.simplePopScene();
                 startNormalGame();
             }
             System.out.println(result);

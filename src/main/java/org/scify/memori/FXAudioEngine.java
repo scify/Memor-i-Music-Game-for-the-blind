@@ -22,6 +22,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.scify.memori.interfaces.AudioEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FXAudioEngine implements AudioEngine{
@@ -34,9 +35,10 @@ public class FXAudioEngine implements AudioEngine{
     private String successSound = "success.wav";
     private String invalidMovementSound = "invalid_movement.wav";
     private String failureSound = "error.wav";
-    private String emptySound = "blip.wav";
+    private String emptySound = "game_effects/door-knock.wav";
     private String numBasePath = "numbers/";
     private String letterBasePath = "letters/";
+    private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
     private HashMap<Integer, String> columnHelpSounds = new HashMap<>();
@@ -139,9 +141,10 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file name (path) of the audio clip
      */
     public void playBalancedSound(double balance, String soundFile) {
-        pauseSound();
+        pauseCurrentlyPlayingAudios();
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
+        playingAudios.add(audioClip);
         while (audioClip.isPlaying()) {
             try {
                 Thread.sleep(100L);
@@ -160,7 +163,7 @@ public class FXAudioEngine implements AudioEngine{
     public void playSound(String soundFile, boolean isBlocking) {
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
         audioClip.play();
-
+        playingAudios.add(audioClip);
         if (isBlocking) {
             // Wait until completion
             while (audioClip.isPlaying()) {
@@ -175,17 +178,25 @@ public class FXAudioEngine implements AudioEngine{
     }
 
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
-        pauseSound();
+        pauseCurrentlyPlayingAudios();
         playSound(soundFile, isBlocking);
     }
 
     public void playNumSound(int number) {
-        pauseSound();
+        pauseCurrentlyPlayingAudios();
         playSound(numBasePath + String.valueOf(number) + ".wav", true);
     }
 
     public void playLetterSound(int number) {
-        pauseSound();
+        pauseCurrentlyPlayingAudios();
         playSound(letterBasePath + String.valueOf(number) + ".wav", true);
     }
+
+    public void pauseCurrentlyPlayingAudios() {
+        for (AudioClip audio: playingAudios) {
+            if(audio.isPlaying())
+                audio.stop();
+        }
+    }
+
 }

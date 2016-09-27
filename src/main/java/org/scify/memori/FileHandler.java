@@ -22,10 +22,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.*;
 
 public class FileHandler {
 
+    private String propertiesFile = "high_scores.properties";
 
     public Map<String, ArrayList<String>> readCardsFromJSONFile() {
         Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
@@ -70,83 +73,52 @@ public class FileHandler {
     }
 
 
-    public static String readHighScoreForCurrentLevel() {
+    public String readHighScoreForCurrentLevel() {
         String highScore = "";
         Properties prop = new Properties();
-        InputStream input = null;
 
+        File scoresFile = new File(propertiesFile);
         try {
-
-            input = new FileInputStream("config.properties");
-            prop.load(input);
+            scoresFile.createNewFile();
+            FileInputStream in = new FileInputStream(scoresFile);
+            prop.load(in);
             highScore = prop.getProperty(String.valueOf(MainOptions.gameLevel));
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return highScore;
     }
 
-    public static String readHighScoreForLevel(String level) {
+    public String readHighScoreForLevel(String level) {
         String highScore = "";
         Properties prop = new Properties();
-        InputStream input = null;
+
+        File scoresFile = new File(propertiesFile);
         try {
-
-            input = new FileInputStream("config.properties");
-            prop.load(input);
-            highScore = prop.getProperty(level);
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
+            scoresFile.createNewFile();
+            FileInputStream in = new FileInputStream(scoresFile);
+            prop.load(in);
+            highScore = prop.getProperty(String.valueOf(level));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return highScore;
     }
 
-    public static void setHighScoreForLevel (String highScore) {
-        OutputStream output = null;
+    public void setHighScoreForLevel (String highScore) {
 
+        Properties props = new Properties();
+
+        File scoresFile = new File(propertiesFile);
         try {
-            FileInputStream in = new FileInputStream("config.properties");
-            Properties props = new Properties();
-            props.load(in);
-            in.close();
-
-            output = new FileOutputStream("config.properties");
-
-            // set the properties value
+            scoresFile.createNewFile();
+            FileOutputStream out = new FileOutputStream(scoresFile);
             props.setProperty(String.valueOf(MainOptions.gameLevel), highScore);
-
-            // save properties to project root folder
-            props.store(output, null);
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            try {
-                output.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            props.store(out, null);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

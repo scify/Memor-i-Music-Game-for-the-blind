@@ -28,13 +28,11 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 import org.scify.memori.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import static javafx.scene.input.KeyCode.*;
 import static javafx.scene.input.KeyCode.LEFT;
@@ -43,16 +41,21 @@ import static javafx.scene.input.KeyCode.RIGHT;
 public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, EventHandler<KeyEvent> {
 
     /**
-     * An Audio Engine object, able to play sounds
+     * The rendering engine processes the game events, one at a time.
+     * The currently processed {@link GameEvent} may block any UI input.
+     */
+    GameEvent currentGameEvent;
+    /**
+     * A {@link AudioEngine} object, able to play sounds
      */
     private FXAudioEngine fxAudioEngine;
 
     /**
-     * gridpane holds all cards
+     * The {@link GridPane} holds all cards
      */
     private GridPane gridPane;
     /**
-     * computing the current screen height and width
+     * computes the current screen height and width
      */
     private double mWidth = Screen.getPrimary().getBounds().getWidth();
     private double mHeight = Screen.getPrimary().getBounds().getHeight();
@@ -73,6 +76,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
      * Each game level has an introductory sound associated with it
      */
     private Map<Integer, String> introductorySounds = new HashMap<>();
+    /**
+     * Each game level has an introductory sound effect (eg rain, animals sounds) associated with it
+     */
+    private Map<Integer, String> storyLineIntroductorySoundEffects = new HashMap<>();
     /**
      * Every time we play a game we follow the story line
      */
@@ -96,6 +103,15 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             introductorySounds.put(6, "level6IntroSound.wav");
             introductorySounds.put(7, "level7IntroSound.wav");
             introductorySounds.put(8, "level8IntroSound.wav");
+
+            storyLineIntroductorySoundEffects.put(1, "rain.wav");
+            storyLineIntroductorySoundEffects.put(2, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(3, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(4, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(5, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(6, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(7, "animals1.wav");
+            storyLineIntroductorySoundEffects.put(8, "animals1.wav");
 
             storyLineSounds.put(1, "storyLine1.wav");
             storyLineSounds.put(2, "storyLine2.wav");
@@ -182,8 +198,13 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return toReturn;
     }
 
+    @Override
+    public void cancelCurrentRendering() {
+        fxAudioEngine.pauseCurrentlyPlayingAudios();
+    }
+
     private long lLastUpdate = -1L;
-    GameEvent currentGameEvent;
+
     protected void updateFXComponents(MemoriGameState currentState) {
         long lNewTime = new Date().getTime();
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
@@ -215,7 +236,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         listIterator.remove();
 
                         break;
-                    case "empty":
+                    case "EMPTY":
                         fxAudioEngine.playEmptySound();
                         listIterator.remove();
                         break;
@@ -321,7 +342,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "TUTORIAL_INTRO_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_intro.wav", false);
+                            fxAudioEngine.playSound("game_instructions/tutorial_intro.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -335,7 +356,11 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "STORYLINE_AUDIO_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("storyline_audios/" + storyLineSounds.get(MainOptions.storyLineLevel), currentGameEvent.blocking);
+                            String storyLineIntroductorySoundEffect = storyLineIntroductorySoundEffects.get(MainOptions.storyLineLevel);
+                            if(storyLineIntroductorySoundEffect != null) {
+                                fxAudioEngine.playSound("game_effects/" + storyLineIntroductorySoundEffect, false);
+                            }
+                            fxAudioEngine.playSound("storyline_audios/" + storyLineSounds.get(MainOptions.storyLineLevel), currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -346,17 +371,59 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
+                    case "LEVEL_END_UNIVERSAL":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/level_ending_universal.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "MINUTE":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/minute.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "MINUTES":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/minutes.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "AND":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/and.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "SECOND":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/second.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "SECONDS":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("game_effects/seconds.wav", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
                     case "TUTORIAL_0_UI":
                         //TODO: These sound effects should be combined into 1
                         fxAudioEngine.pauseAndPlaySound("game_instructions/count_on_you.wav", currentGameEvent.blocking);
+                        fxAudioEngine.playSound("game_effects/walking.wav", currentGameEvent.blocking);
                         fxAudioEngine.playSound("game_instructions/we_are_here.wav", currentGameEvent.blocking);
                         fxAudioEngine.playSound("game_instructions/please_press_right.wav", currentGameEvent.blocking);
                         listIterator.remove();
                         break;
                     case "GO_RIGHT_AGAIN":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            System.err.println("TUTORIAL_0_UI PLEASE CLICK RIGHT");
-                            fxAudioEngine.playSound("game_instructions/please_press_right.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/press_right_until_end.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -384,7 +451,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_INVALID_MOVEMENT_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/tutorial_invalid_movement.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_invalid_movement.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -417,6 +484,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "TUTORIAL_CORRECT_PAIR_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.playSound("game_instructions/correct_pair_explanation.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_effects/door-knock.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/lets_find_another_pair.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/go_to_another_position.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -441,7 +511,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     default:
                         break;
                 }
-                //TODO: ask ggianna
                 currentGameEvent = null;
             }
         }
@@ -502,7 +571,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     }
 
     /**
-     * Handles the UI events (button clicks) and populates the user actions list
+     * Handles the UI events (button clicks) and populates the {@link UserAction} list
      * @param event the event emitted from Ui
      */
     @Override
@@ -521,24 +590,28 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             //userAction = new UserAction("help", event);
             userAction = new UserAction("enter", event);
         } else if(event.getCode() == F1) {
-            userAction = new UserAction("quit", event);
+            userAction = new UserAction("f1", event);
+        } else if(event.getCode() == ESCAPE) {
+            userAction = new UserAction("escape", event);
+            event.consume();
         }
-//        else if(event.getCode() == F2) {
-//            userAction = new UserAction("nextLevel", event);
-//        }
-        //TODO: ask ggianna
+
+        //if there is a game event currently being processed
         if(currentGameEvent != null) {
+            //if the currently processed event is blocking, the UI engine does not accept any user actions
+            //if the currently processed event is not blocking, accept user actions
             if (!currentGameEvent.blocking)
                 pendingUserActions.add(0, userAction);
         } else {
+            //if there is no processed event, accept the user action
             pendingUserActions.add(0, userAction);
         }
     }
 
 
     /**
-     * Determines whether the user action was a movement game action
-     * @param evt
+     * Determines whether the user action was a movement {@link GameEvent}.
+     * @param evt the action event
      * @return true if the evt was a movement action
      */
     private boolean isMovementAction(KeyEvent evt) {

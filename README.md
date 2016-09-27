@@ -1,6 +1,8 @@
 
 # Memor-i
 
+![Memor-i logo](https://raw.githubusercontent.com/scify/Memor-i/master/src/main/resources/img/memori.png)
+
 A Memory card game especially tailored to meet the needs of blind people.
 Check out our [YouTube video](https://www.youtube.com/watch?v=M2DqT5e975w)
 
@@ -25,10 +27,7 @@ Java home: /usr/lib/jvm/java-8-oracle/jre
 
 ### Installing
 
-First, create a config.properties file in the root directory of the project.
-This file is included in the .gitignore file and will contain the information about the high scores for each game level.
-
-BY looking at pom.xml you will see some plugins this project uses. 
+By looking at pom.xml you will see some plugins this project uses. 
 Supposing that Maven runs correctly on your machine and you have configured this project as a Maven project, 
 these plugins will be automativcally downloaded and installed upon compilation.
 
@@ -39,6 +38,13 @@ mvn assembly:single
 
 mvn dependency:copy-dependencies
 ```
+
+These tasks can also be accomplished more easily just by running 
+```
+./build_project.sh
+```
+
+which is a UNIX executable file located at the root of the project.
 
 ## Built With
 
@@ -76,6 +82,4 @@ limitations under the License.
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* [Maven plugin for parsing JSON files](https://mvnrepository.com/artifact/org.json/json)

@@ -6,7 +6,7 @@
     {"cardType" : "rooster", "attrs": {"img": "animals/rooster.jpg", "sounds": "animals/rooster.wav"}},
     {"cardType" : "sheep", "attrs": {"img": "animals/sheep.jpg", "sounds": "animals/sheep.wav"}},
     {"cardType" : "pig", "attrs": {"img": "animals/pig.jpg", "sounds": "animals/pig.wav"}},
-    {"cardType" : "dog_1", "attrs": {"img": "animals/dog_1.jpg", "sounds": "animals/bark.wav"}},
+    {"cardType" : "dog_1", "attrs": {"img": "animals/dog.gif", "sounds": "animals/bark.wav"}},
     {"cardType" : "donkey", "attrs": {"img": "animals/donkey.jpg", "sounds": "animals/donkey.wav"}},
     {"cardType" : "duck", "attrs": {"img": "animals/duck.jpg", "sounds": "animals/duck.wav"}},
     {"cardType" : "bee", "attrs": {"img": "animals/bee.jpg", "sounds": "animals/bee.wav"}},
@@ -14,6 +14,8 @@
     {"cardType" : "turkey", "attrs": {"img": "animals/turkey.jpg", "sounds": "animals/turkey.wav"}},
     {"cardType" : "sparrow", "attrs": {"img": "animals/sparrow.jpg", "sounds": "animals/sparrow.wav"}},
     {"cardType" : "frog", "attrs": {"img": "animals/frog.jpg", "sounds": "animals/frog.wav"}},
-    {"cardType" : "elephant", "attrs": {"img": "animals/elephant.jpg", "sounds": "animals/elephant.wav"}}
+    {"cardType" : "elephant", "attrs": {"img": "animals/elephant.jpg", "sounds": "animals/elephant.wav"}},
+    {"cardType" : "cuckoo", "attrs": {"img": "animals/cuckoo.jpg", "sounds": "animals/cuckoo.wav"}},
+    {"cardType" : "guinea-pig", "attrs": {"img": "animals/guinea-pig.jpg", "sounds": "animals/guinea-pig.wav"}}
   ]
 }
