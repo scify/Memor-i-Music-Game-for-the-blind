@@ -65,18 +65,15 @@ public abstract class MemoriGame implements Game<Integer> {
         // For every cycle
         while (!rRules.isGameFinished(gsCurrentState)) {
             final GameState toHandle = gsCurrentState;
-            // Ask to soon draw the state
-            //Platform.runLater(() -> reRenderer.drawGameState(toHandle));
+            // Ask to draw the state
             reRenderer.drawGameState(toHandle);
             // and keep on doing the loop in this thread
             //get next user action
             UserAction uaToHandle = uInterface.getNextUserAction(gsCurrentState.getCurrentPlayer());
 
-                //apply it and determine the next state
-                gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);
+            //apply it and determine the next state
+            gsCurrentState = rRules.getNextState(gsCurrentState, uaToHandle);
 
-
-//            Thread.yield();
             try {
                 Thread.sleep(50L); // Allow repainting
             } catch (InterruptedException e) {
@@ -84,7 +81,6 @@ public abstract class MemoriGame implements Game<Integer> {
             }
 
         }
-        System.err.println("GAME OVER");
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
         MainOptions.storyLineLevel++;
         reRenderer.cancelCurrentRendering();
