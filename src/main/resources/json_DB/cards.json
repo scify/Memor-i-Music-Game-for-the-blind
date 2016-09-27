@@ -14,6 +14,8 @@
     {"cardType" : "turkey", "attrs": {"img": "animals/turkey.jpg", "sounds": "animals/turkey.wav"}},
     {"cardType" : "sparrow", "attrs": {"img": "animals/sparrow.jpg", "sounds": "animals/sparrow.wav"}},
     {"cardType" : "frog", "attrs": {"img": "animals/frog.jpg", "sounds": "animals/frog.wav"}},
-    {"cardType" : "elephant", "attrs": {"img": "animals/elephant.jpg", "sounds": "animals/elephant.wav"}}
+    {"cardType" : "elephant", "attrs": {"img": "animals/elephant.jpg", "sounds": "animals/elephant.wav"}},
+    {"cardType" : "cuckoo", "attrs": {"img": "animals/cuckoo.jpg", "sounds": "animals/cuckoo.wav"}},
+    {"cardType" : "guinea-pig", "attrs": {"img": "animals/guinea-pig.jpg", "sounds": "animals/guinea-pig.wav"}}
   ]
 }
