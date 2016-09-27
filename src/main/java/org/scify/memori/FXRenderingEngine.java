@@ -41,6 +41,11 @@ import static javafx.scene.input.KeyCode.RIGHT;
 public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, EventHandler<KeyEvent> {
 
     /**
+     * The rendering engine processes the game events, one at a time.
+     * The currently processed {@link GameEvent} may block any UI input.
+     */
+    GameEvent currentGameEvent;
+    /**
      * A {@link AudioEngine} object, able to play sounds
      */
     private FXAudioEngine fxAudioEngine;
@@ -199,7 +204,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     }
 
     private long lLastUpdate = -1L;
-    GameEvent currentGameEvent;
+
     protected void updateFXComponents(MemoriGameState currentState) {
         long lNewTime = new Date().getTime();
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
@@ -506,7 +511,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     default:
                         break;
                 }
-                //TODO: ask ggianna
                 currentGameEvent = null;
             }
         }
