@@ -261,7 +261,7 @@ public class MemoriRules implements Rules {
         //TODO: handle singular or plural minutes and seconds
         if(minutes != 0) {
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", minutes, new Date().getTime() + 5200, true));
-            if(minutes > 9)
+            if(minutes > 1)
                 gsCurrentState.getEventQueue().add(new GameEvent("MINUTES", minutes, new Date().getTime() + 5300, true));
             else
                 gsCurrentState.getEventQueue().add(new GameEvent("MINUTE", minutes, new Date().getTime() + 5500, true));
@@ -270,7 +270,7 @@ public class MemoriRules implements Rules {
             gsCurrentState.getEventQueue().add(new GameEvent("AND", minutes, new Date().getTime() + 5700, true));
         if(seconds != 0) {
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", seconds, new Date().getTime() + 6000, true));
-            if(seconds > 9)
+            if(seconds > 1)
                 gsCurrentState.getEventQueue().add(new GameEvent("SECONDS", minutes, new Date().getTime() + 5300, true));
             else
                 gsCurrentState.getEventQueue().add(new GameEvent("SECOND", minutes, new Date().getTime() + 5500, true));

@@ -56,11 +56,6 @@ public class FXAudioEngine implements AudioEngine{
 
     }
 
-    public void playHelperSound(int rowIndex, int columnIndex) {
-        System.out.println("row: " + rowHelpSounds.get(rowIndex));
-        System.out.println("column: " + columnHelpSounds.get(columnIndex));
-    }
-
     /**
      * Pauses the currently playing audio, if there is one
      */

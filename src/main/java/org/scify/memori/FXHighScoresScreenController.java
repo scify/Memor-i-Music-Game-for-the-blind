@@ -116,10 +116,23 @@ public class FXHighScoresScreenController {
                 int minutes = Integer.parseInt(tokens[1]);
                 int seconds = Integer.parseInt(tokens[2]);
                 //TODO: handle singular or plural minutes and seconds
-                if (minutes != 0)
+                if (minutes != 0) {
                     audioEngine.playNumSound(minutes);
-                if (seconds != 0)
+                    System.out.println("minutes: " + minutes);
+                    if(minutes > 1)
+                        audioEngine.pauseAndPlaySound("game_effects/minutes.wav", true);
+                    else
+                        audioEngine.pauseAndPlaySound("game_effects/minute.wav", true);
+                }
+                if(minutes != 0 && seconds != 0)
+                    audioEngine.pauseAndPlaySound("game_effects/and.wav", true);
+                if (seconds != 0) {
                     audioEngine.playNumSound(seconds);
+                    if(seconds > 1)
+                        audioEngine.pauseAndPlaySound("game_effects/seconds.wav", true);
+                    else
+                        audioEngine.pauseAndPlaySound("game_effects/second.wav", true);
+                }
             }
         }
     }
