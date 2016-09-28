@@ -20,6 +20,12 @@
     {"cardType" : "mosquito", "attrs": {"img": "animals/mosquito.jpg", "sounds": "animals/mosquito.wav"}},
     {"cardType" : "mouse", "attrs": {"img": "animals/mouse.jpg", "sounds": "animals/mouse.wav"}},
     {"cardType" : "raven", "attrs": {"img": "animals/raven.jpg", "sounds": "animals/raven.wav"}},
-    {"cardType" : "nightingale", "attrs": {"img": "animals/nightingale.jpg", "sounds": "animals/nightingale.wav"}}
+    {"cardType" : "nightingale", "attrs": {"img": "animals/nightingale.jpg", "sounds": "animals/nightingale.wav"}},
+    {"cardType" : "lion", "attrs": {"img": "animals/lion.jpg", "sounds": "animals/lion.wav"}},
+    {"cardType" : "seagull", "attrs": {"img": "animals/seagull.jpg", "sounds": "animals/seagull.wav"}},
+    {"cardType" : "seal", "attrs": {"img": "animals/seal.jpg", "sounds": "animals/seal.wav"}},
+    {"cardType" : "cicada", "attrs": {"img": "animals/cicada.jpg", "sounds": "animals/cicada.wav"}},
+    {"cardType" : "wolf", "attrs": {"img": "animals/wolf.jpg", "sounds": "animals/wolf.wav"}},
+    {"cardType" : "monkey", "attrs": {"img": "animals/monkey.jpg", "sounds": "animals/monkey.wav"}}
   ]
 }
