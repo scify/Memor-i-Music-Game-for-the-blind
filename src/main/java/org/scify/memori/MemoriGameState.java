@@ -149,8 +149,8 @@ public class MemoriGameState implements GameState {
     }
 
     /**
-     * CHecks if all tiles are in a won state
-     * @return
+     * Checks if all tiles are in a won state
+     * @return true if all tiles are won
      */
     public boolean areAllTilesWon() {
         //System.out.println("won: " + terrain.areAllTilesWon());

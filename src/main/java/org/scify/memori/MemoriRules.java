@@ -587,7 +587,8 @@ public class MemoriRules implements Rules {
 
     /**
      * Determines whether the user move was valid
-     * @param evt
+     * @param evt the kay event (action by the user)
+     * @param memoriGameState the current game state
      * @return true if the user move was valid
      */
     public boolean movementValid(KeyEvent evt, MemoriGameState memoriGameState) {

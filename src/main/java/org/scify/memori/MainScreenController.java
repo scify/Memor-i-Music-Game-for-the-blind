@@ -136,7 +136,7 @@ public class MainScreenController implements Initializable {
 
     /**
      * Quits game
-     * @param evt
+     * @param evt the keyboard event
      */
     @FXML
     protected void exitGame(KeyEvent evt) {
@@ -147,7 +147,7 @@ public class MainScreenController implements Initializable {
 
     /**
      * Depending on the button clicked, the Main options (number of columns and rows) are initialized and a new game starts
-     * @param evt
+     * @param evt the keyboard event
      */
     @FXML
     protected void initializeGameOptions(KeyEvent evt) {

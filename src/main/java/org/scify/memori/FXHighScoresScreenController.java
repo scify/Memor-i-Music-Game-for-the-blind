@@ -99,7 +99,7 @@ public class FXHighScoresScreenController {
 
     /**
      * Depending on the button clicked, the Main options (number of columns and rows) are initialized and a new game starts
-     * @param evt
+     * @param evt the keyboard event
      */
     @FXML
     protected void parseHighScore(KeyEvent evt) {
@@ -151,7 +151,7 @@ public class FXHighScoresScreenController {
 
     /**
      * Goes back to main screen
-     * @param evt
+     * @param evt the keyboard event
      */
     @FXML
     protected void backToMainScreen(KeyEvent evt) {
