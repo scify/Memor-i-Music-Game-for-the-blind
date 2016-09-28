@@ -87,12 +87,16 @@ public abstract class MemoriGame implements Game<Integer> {
         // b) play the same level again
         // c) go to the next level
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
-        MainOptions.storyLineLevel++;
+
         reRenderer.cancelCurrentRendering();
-        if(memoriGameState.loadNextLevel)
+        if(memoriGameState.loadNextLevel) {
+            MainOptions.storyLineLevel++;
             return NEXT_LEVEL;
-        else if(memoriGameState.replayLevel)
+        }
+        else if(memoriGameState.replayLevel) {
+            MainOptions.storyLineLevel++;
             return SAME_LEVEL;
+        }
         else
             return GAME_FINISHED;
     }
