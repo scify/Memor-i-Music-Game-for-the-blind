@@ -344,23 +344,23 @@ public class MemoriRules implements Rules {
                     memoriTerrain.resetOpenTiles();
                     for (Iterator<Point2D> iter = openTilesPoints.iterator(); iter.hasNext(); ) {
                         Point2D position = iter.next();
-                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 2500, false));
+                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 3500, false));
                     }
                     // Push failure feedback event
                     //gsCurrentState.getEventQueue().add(new GameEvent("failure", uaAction.getCoords(), new Date().getTime() + 1500, false));
 
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 3000, false));
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 3300, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4000, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4300, false));
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR"));
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 4000, true));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 5200, true));
                         }
                     }
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_DOORS_CLOSED")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED"));
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED_UI", null, new Date().getTime() + 6000, true));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED_UI", null, new Date().getTime() + 7000, true));
                         }
                     }
                 } else {

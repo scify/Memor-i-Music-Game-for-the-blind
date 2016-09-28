@@ -23,15 +23,27 @@ import org.scify.memori.interfaces.Tile;
 import java.awt.geom.Point2D;
 import java.util.*;
 
+/**
+ * Holds the basic grid of cards.
+ * Responsible for creating the cards (reading from the .json file) and assigning the cards to a List
+ */
 public class MemoriTerrain implements Terrain {
+    /**
+     * Each {@link Tile} is tied with a position {@link Point2D} on the terrain
+     */
     Map<Point2D, Tile> tiles;
-    //TODO: should openTiles be member of Terrain or MemoriGameState?
+    /**
+     * When a player flips a card, this card is stored in a temporary list (gets reset at the beginning of every round)
+     */
     List<Tile> openTiles;
 
     public Map<Point2D, Tile> getTiles() {
         return tiles;
     }
 
+    /**
+     * Constructs the basic terrain, gets the {@link Card}s from the DB (.json file) and assigns them to a {@link List}.
+     */
     public MemoriTerrain() {
         tiles = new HashMap<>();
         openTiles = new ArrayList<>();
@@ -48,6 +60,11 @@ public class MemoriTerrain implements Terrain {
         }
     }
 
+    /**
+     *
+     * @param cardVarieties the number of card pattern we want to have in the game (e.g. 2-card-patterns, 3-card-patterns, etc)
+     * @return A {@link List} of {@link Card}s that will participate in the game
+     */
     private List<Card> produceDeckOfCards(int cardVarieties) {
 
         List<Card> unShuffledCards = new ArrayList<>();
@@ -73,6 +90,11 @@ public class MemoriTerrain implements Terrain {
         return unShuffledCards;
     }
 
+    /**
+     * Shuffles the given {@link List} of {@link Card}s.
+     * @param deckCards the list of cards
+     * @return the shuffled list of cards
+     */
     public List<Card> shuffleDeck(List<Card> deckCards) {
         long seed = System.nanoTime();
         Collections.shuffle(deckCards, new Random(seed));
@@ -89,17 +111,19 @@ public class MemoriTerrain implements Terrain {
         return MainOptions.NUMBER_OF_ROWS;
     }
 
+    /**
+     * Given a row and column, find and return the corresponding card.
+     * @param rowIndex the row index
+     * @param columnIndex the column index
+     * @return the {@link Tile} found in the requested position
+     */
     @Override
-    public Tile getTile(int x, int y) {
-        return tiles.get(new Point2D.Double(y, x));
-    }
-
-    public Tile getTileByRowAndColumn(int rowIndex, int columnIndex) {
-        return tiles.get(new Point2D.Double(rowIndex, columnIndex));
+    public Tile getTile(int rowIndex, int columnIndex) {
+        return tiles.get(new Point2D.Double(columnIndex, rowIndex));
     }
 
     /**
-     * Check if the card of same type is already in open cards
+     * Check if the card of same type is already in open cards.
      *
      * @param tile the requested tile
      * @return card state
@@ -114,42 +138,24 @@ public class MemoriTerrain implements Terrain {
         return answer;
     }
 
-    /**
-     * Set the tile won
-     *
-     * @param tile the requested tile
-     */
-    public void setTileWon(Tile tile) {
-        tile.setWon();
-    }
-
-    public void setAllOpenTilesWon() {
-        openTiles.forEach(Tile::setWon);
-        //reset open tiles list
-        openTiles = new ArrayList<>();
-    }
-
     @Override
     public String toString() {
         return tiles.toString();
     }
 
     /**
-     * flips the Node (card) located at the position (x, y)
-     * @param tile the requested tile
+     * When a tile is flipped, it is then added to the open tiles temporary list.
+     * @param tile the requested {@link Tile}
      */
-    public void toggleTile(Tile tile) {
-        //System.out.println(tile.getTileType());
-        Point2D point = (Point2D) getKeyFromValue(tiles, tile.getTileType());
-        System.out.println("toggled: " + point.getX() + "," + point.getY());
-        tile.flip();
-    }
-
     public void addTileToOpenTiles(Tile tile) {
         openTiles.add(tile);
     }
 
 
+    /**
+     * Checks if all the tiles on the Terrain are won
+     * @return true if all tiles are won
+     */
     @Override
     public boolean areAllTilesWon() {
         final boolean[] answer = {true};
@@ -160,17 +166,9 @@ public class MemoriTerrain implements Terrain {
         return answer[0];
     }
 
-
-    public Object getKeyFromValue(Map hm, Object value) {
-        for (Object o : hm.keySet()) {
-            Tile tile = (Tile)hm.get(o);
-            if (tile.getTileType().equals(value)) {
-                return o;
-            }
-        }
-        return null;
-    }
-
+    /**
+     * When a new round starts, the open tiles {@link List} gets reset.
+     */
     public void resetOpenTiles() {
         openTiles = new ArrayList<>();
     }

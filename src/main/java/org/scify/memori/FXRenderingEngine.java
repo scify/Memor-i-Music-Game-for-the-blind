@@ -244,7 +244,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         if (new Date().getTime() > currentGameEvent.delay) {
 
                             coords = (Point2D) currentGameEvent.parameters;
-                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
+                            currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
 
                             fxAudioEngine.playCardSound(currCard.getSound(), currentGameEvent.blocking);
                             listIterator.remove();
@@ -255,7 +255,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
                             coords = (Point2D) currentGameEvent.parameters;
-                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
+                            currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
                             Platform.runLater(() -> {
                                 currCard.flipUI();
                             });
@@ -266,7 +266,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
                             coords = (Point2D) currentGameEvent.parameters;
-                            currCard = (Card) ((MemoriTerrain) (currentState.getTerrain())).getTileByRowAndColumn((int) coords.getY(), (int) coords.getX());
+                            currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
                             Platform.runLater(() -> {
                                 currCard.flipBackUI();
                             });

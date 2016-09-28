@@ -22,16 +22,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.*;
 
+/**
+ * Responsible for interacting with files
+ * Files used by this program are: a) high score file and b) the json representation of the DB holding all cards (animals)
+ */
 public class FileHandler {
 
+    /**
+     * The file that represents the DB
+     */
     private String propertiesFile = "high_scores.properties";
 
     public Map<String, ArrayList<String>> readCardsFromJSONFile() {
-        Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+        //  each DB "row" will be represented as a Map of String (id) to a Map of Strings (the card attributes, like sound and image)
+        Map<String, ArrayList<String>> map = new HashMap<>();
         Scanner scanner = null;
         try {
             scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream("json_DB/cards.json")));
@@ -39,10 +45,15 @@ public class FileHandler {
 
             JSONObject rootObject = new JSONObject(jsonStr); // Parse the JSON to a JSONObject
             JSONArray rows = rootObject.getJSONArray("cards"); // Get all JSONArray rows
-            rows = shuffleJsonArray(rows);
+            // shuffle the rows (we want the cards to be in a random order)
             rows = shuffleJsonArray(rows);
             ArrayList<String> tempMap;
-            for(int i = 0; i < (MainOptions.NUMBER_OF_COLUMNS * MainOptions.NUMBER_OF_ROWS) / 2; i++) { // Loop over each each row
+            /**
+             * The number of cards we need depends on the level (number of rows and columns)
+             * divided by the number of the card tuple we want to form (2-card patterns, 3-card patterns, etc)
+             */
+            int numOfCards = (MainOptions.NUMBER_OF_COLUMNS * MainOptions.NUMBER_OF_ROWS) / MainOptions.NUMBER_OF_OPEN_CARDS;
+            for(int i = 0; i < numOfCards; i++) { // Loop over each each row
                 JSONObject cardObj = rows.getJSONObject(i); // Get row object
                 tempMap = new ArrayList<>();
                 JSONObject cardAttrs = cardObj.getJSONObject("attrs");
@@ -52,7 +63,6 @@ public class FileHandler {
             }
 
         } finally {
-            //close the scanner
             scanner.close();
         }
         return map;
