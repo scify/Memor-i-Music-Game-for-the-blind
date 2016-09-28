@@ -38,6 +38,10 @@ import static javafx.scene.input.KeyCode.*;
 import static javafx.scene.input.KeyCode.LEFT;
 import static javafx.scene.input.KeyCode.RIGHT;
 
+/**
+ * The Rendering Engine is responsible for handling Game Events (drawing, playing audios etc) as well as implementing the UI events listener
+ * (keyboard events in this case)
+ */
 public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, EventHandler<KeyEvent> {
 
     /**
@@ -198,6 +202,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         return toReturn;
     }
 
+    /**
+     * Pauses every rendering function
+     */
     @Override
     public void cancelCurrentRendering() {
         fxAudioEngine.pauseCurrentlyPlayingAudios();
@@ -208,7 +215,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     protected void updateFXComponents(MemoriGameState currentState) {
         long lNewTime = new Date().getTime();
         if (lNewTime - lLastUpdate < 100L) {// If no less than 1/10 sec has passed
-            Thread.yield(); // TODO: Use it or do nothing?
+            Thread.yield();
             return; // Do nothing
         } else {
             lLastUpdate = lNewTime;
@@ -516,6 +523,9 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         }
     }
 
+    /**
+     * When a level ends, play a success sound
+     */
     @Override
     public void playGameOver() {
         System.err.println("play game over");

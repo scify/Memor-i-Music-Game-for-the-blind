@@ -19,6 +19,9 @@ package org.scify.memori;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Class that represents a stopwatch. Used to track the elapsed time for a game level.
+ */
 public class TimeWatch {
     long starts;
 

@@ -28,6 +28,9 @@ import java.io.IOException;
 import static org.scify.memori.MainOptions.mHeight;
 import static org.scify.memori.MainOptions.mWidth;
 
+/**
+ * JavaFX Screen constructor page
+ */
 public class FXHighScoresScreen implements HighScoresScreen {
 
     protected SceneHandler sceneHandler;

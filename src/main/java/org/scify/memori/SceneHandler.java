@@ -24,12 +24,21 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handles the scenes changing across the application.
+ */
 public class SceneHandler {
     public SceneHandler() {
         System.out.println("Initializing scene handler...");
     }
 
+    /**
+     * Main window that the application runs on (this application is a one-window application)
+     */
     private Stage mainWindow;
+    /**
+     * History af scenes created and used in the application (ability to go back to a certain scene)
+     */
     private List<Scene> allScenes = new ArrayList<>();
 
     public Stage getMainWindow() {
@@ -40,10 +49,13 @@ public class SceneHandler {
         this.mainWindow = mainWindow;
     }
 
+    /**
+     * Set a given scene as the active one
+     * @param sToPush the scene we want to make active
+     */
     public void pushScene(Scene sToPush) {
         allScenes.add(sToPush);
         // Set the added scene as active
-
 
         Platform.runLater(new Runnable() {
             @Override
@@ -53,6 +65,10 @@ public class SceneHandler {
         });
     }
 
+    /**
+     * Removes the last scene from the scenes list and sets the previous one as active
+     * @return the last scene from the scenes list
+     */
     public Scene  popScene() {
         Scene sToPop = allScenes.get(allScenes.size() - 1); // Get last added
         allScenes.remove(allScenes.size() - 1); // and pop it
@@ -71,6 +87,9 @@ public class SceneHandler {
         return sToPop;
     }
 
+    /**
+     * Removes the last scene from the scenes list
+     */
     public void simplePopScene() {
         allScenes.remove(allScenes.size() - 1);
     }

@@ -21,6 +21,10 @@ import javafx.scene.control.Button;
 import org.scify.memori.MainOptions;
 import org.scify.memori.interfaces.Tile;
 
+/**
+ * Implements the {@link Tile} representation in the game.
+ * The user can move on tiles and flip them
+ */
 public class Card implements Tile{
 
     /**
