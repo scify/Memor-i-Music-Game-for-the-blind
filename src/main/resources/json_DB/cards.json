@@ -16,6 +16,7 @@
     {"cardType" : "frog", "attrs": {"img": "animals/frog.jpg", "sounds": "animals/frog.wav"}},
     {"cardType" : "elephant", "attrs": {"img": "animals/elephant.jpg", "sounds": "animals/elephant.wav"}},
     {"cardType" : "cuckoo", "attrs": {"img": "animals/cuckoo.jpg", "sounds": "animals/cuckoo.wav"}},
-    {"cardType" : "guinea-pig", "attrs": {"img": "animals/guinea-pig.jpg", "sounds": "animals/guinea-pig.wav"}}
+    {"cardType" : "guinea-pig", "attrs": {"img": "animals/guinea-pig.jpg", "sounds": "animals/guinea-pig.wav"}},
+    {"cardType" : "mosquito", "attrs": {"img": "animals/mosquito.jpg", "sounds": "animals/mosquito.wav"}}
   ]
 }
