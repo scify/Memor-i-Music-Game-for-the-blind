@@ -90,11 +90,13 @@ public abstract class MemoriGame implements Game<Integer> {
 
         reRenderer.cancelCurrentRendering();
         if(memoriGameState.loadNextLevel) {
-            MainOptions.storyLineLevel++;
+            if(!MainOptions.TUTORIAL_MODE)
+                MainOptions.storyLineLevel++;
             return NEXT_LEVEL;
         }
         else if(memoriGameState.replayLevel) {
-            MainOptions.storyLineLevel++;
+            if(!MainOptions.TUTORIAL_MODE)
+                MainOptions.storyLineLevel++;
             return SAME_LEVEL;
         }
         else
