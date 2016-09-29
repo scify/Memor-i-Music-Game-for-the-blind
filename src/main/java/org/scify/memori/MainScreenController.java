@@ -230,19 +230,25 @@ public class MainScreenController implements Initializable {
 
         try {
             Integer result = future.get();
+            //quit to main screen
             if(result == 1) {
                 System.err.println("QUITING TO MAIN SCREEN");
+                if(MainOptions.TUTORIAL_MODE)
+                    MainOptions.TUTORIAL_MODE = false;
                 sceneHandler.popScene();
-            } else if(result == 2) {
+            } else if(result == 2) // load next level
+                 {
                 sceneHandler.simplePopScene();
                 if(MainOptions.TUTORIAL_MODE) {
+                    //if the last game was in tutorial mode, load the first normal game
                     MainOptions.TUTORIAL_MODE = false;
                     startNormalGame();
                 }
                 else
                     loadNextLevelForNormalGame();
 
-            } else if(result == 3) {
+            } else if(result == 3) //play same level again
+            {
                 sceneHandler.simplePopScene();
                 startNormalGame();
             }
