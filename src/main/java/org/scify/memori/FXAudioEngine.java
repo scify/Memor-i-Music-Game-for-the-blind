@@ -153,7 +153,7 @@ public class FXAudioEngine implements AudioEngine{
     /**
      * Plays a sound given a sound file path
      * @param soundFile the file name (path) of the audio clip
-     * @param isBlocking whether the player should block the calling Thread while the sound is playing
+     * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
     public void playSound(String soundFile, boolean isBlocking) {
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
@@ -172,21 +172,37 @@ public class FXAudioEngine implements AudioEngine{
         }
     }
 
+    /**
+     * Pauses the currently playing sound and plays a new one
+     * @param soundFile the file of the sound we want to play
+     * @param isBlocking whether the sound should block the {@link Thread} while playing
+     */
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
         pauseCurrentlyPlayingAudios();
         playSound(soundFile, isBlocking);
     }
 
+    /**
+     * Plays the sound representation of a number.
+     * @param number the given number
+     */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
         playSound(numBasePath + String.valueOf(number) + ".wav", true);
     }
 
+    /**
+     * PLay the sound representation of a letter.
+     * @param number the number associated with the letter (e.g. 1 for A, 2 for B, etc. We do not care for capital letters or not).
+     */
     public void playLetterSound(int number) {
         pauseCurrentlyPlayingAudios();
         playSound(letterBasePath + String.valueOf(number) + ".wav", true);
     }
 
+    /**
+     * Pause any currently playing audios (every audio that is playing is stored in the playingAudios list).
+     */
     public void pauseCurrentlyPlayingAudios() {
         for (AudioClip audio: playingAudios) {
             if(audio.isPlaying())
