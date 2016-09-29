@@ -33,7 +33,7 @@ public class FXAudioEngine implements AudioEngine{
     private String soundBasePath = "/audios/";
     private String movementSound = "beep.wav";
     private String successSound = "success.wav";
-    private String invalidMovementSound = "invalid_movement.wav";
+    private String invalidMovementSound = "bump.wav";
     private String failureSound = "error.wav";
     private String emptySound = "game_effects/door-knock.wav";
     private String numBasePath = "numbers/";
