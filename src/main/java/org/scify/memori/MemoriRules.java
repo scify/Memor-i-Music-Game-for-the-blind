@@ -171,7 +171,6 @@ public class MemoriRules implements Rules {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 } else {
-                    //TODO: Add event informing the user about either returning to main screen or starting next level
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8200, false));
                 }
                 //update high score
@@ -258,7 +257,6 @@ public class MemoriRules implements Rules {
         int seconds = Integer.parseInt(tokens[2]);
         System.err.println("minutes: " + minutes);
         System.err.println("seconds: " + seconds);
-        //TODO: handle singular or plural minutes and seconds
         if(minutes != 0) {
             gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", minutes, new Date().getTime() + 5200, true));
             if(minutes > 1)
@@ -338,7 +336,6 @@ public class MemoriRules implements Rules {
                     // Flip card back
                     // flipTile(currTile);
                     memoriTerrain.addTileToOpenTiles(currTile);
-                    //TODO: push new turn event
                     // Reset all tiles
                     List<Point2D> openTilesPoints = resetAllOpenTiles(memoriTerrain);
                     memoriTerrain.resetOpenTiles();
@@ -461,8 +458,6 @@ public class MemoriRules implements Rules {
                                         gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION"));
                                         // add tutorial_3 UI event to queue
                                         gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", null, new Date().getTime() + 200, true));
-                                    } else {
-                                        //gsCurrentState.getEventQueue().add(new GameEvent("NOT_ENTER_UI", uaAction.getCoords(), 0, false));
                                     }
                                 }
                             }
@@ -553,11 +548,11 @@ public class MemoriRules implements Rules {
         return memoriGameState.gameFinished;
     }
 
-    public boolean isTileFlipped(Tile tile) {
+    protected boolean isTileFlipped(Tile tile) {
         return tile.getFlipped();
     }
 
-    public boolean isTileWon(Tile tile) {
+    protected boolean isTileWon(Tile tile) {
         return tile.getWon();
     }
 

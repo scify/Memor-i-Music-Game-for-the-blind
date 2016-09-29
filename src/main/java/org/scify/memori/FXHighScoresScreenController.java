@@ -127,7 +127,6 @@ public class FXHighScoresScreenController {
                 String[] tokens = timestampStr.split(":");
                 int minutes = Integer.parseInt(tokens[1]);
                 int seconds = Integer.parseInt(tokens[2]);
-                //TODO: handle singular or plural minutes and seconds
                 if (minutes != 0) {
                     audioEngine.playNumSound(minutes);
                     System.out.println("minutes: " + minutes);

@@ -172,7 +172,6 @@ public class MainScreenController implements Initializable {
             }
             MainOptions.NUMBER_OF_ROWS = (int) gameLevelToDimensions.get(MainOptions.gameLevel).getX();
             MainOptions.NUMBER_OF_COLUMNS = (int) gameLevelToDimensions.get(MainOptions.gameLevel).getY();
-            //TODO: Ask ggianna
             Thread thread = new Thread(new Runnable() {
 
                 @Override
@@ -215,7 +214,6 @@ public class MainScreenController implements Initializable {
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
 
-        //TODO: play introductory sound
         // Run game in separate thread
         ExecutorService es  = Executors.newFixedThreadPool(1);
         Future<Integer> future = es.submit(game);
