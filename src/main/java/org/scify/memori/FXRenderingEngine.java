@@ -504,7 +504,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_END_GAME_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/tutorial_end_game.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_instructions/tutorial_ending.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

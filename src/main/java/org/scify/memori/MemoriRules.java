@@ -169,7 +169,7 @@ public class MemoriRules implements Rules {
 
                 if (MainOptions.TUTORIAL_MODE) {
                     //TODO: change to tutorial - specific
-                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 6500, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 } else {
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8200, false));
