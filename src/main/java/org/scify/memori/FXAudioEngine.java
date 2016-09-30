@@ -196,8 +196,9 @@ public class FXAudioEngine implements AudioEngine{
      * @param number the number associated with the letter (e.g. 1 for A, 2 for B, etc. We do not care for capital letters or not).
      */
     public void playLetterSound(int number) {
+        System.out.println(letterBasePath + number + ".wav");
         pauseCurrentlyPlayingAudios();
-        playSound(letterBasePath + String.valueOf(number) + ".wav", true);
+        playSound(letterBasePath + number + ".wav", true);
     }
 
     /**

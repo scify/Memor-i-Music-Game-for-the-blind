@@ -309,7 +309,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_1.wav", currentGameEvent.blocking);
                             fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_2.wav", currentGameEvent.blocking);
                             fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_3.wav", currentGameEvent.blocking);
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_3.wav", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions_4.wav", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

@@ -113,7 +113,7 @@ public class MemoriRules implements Rules {
             if(MainOptions.gameLevel == 4) {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS"));
-                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, true));
                 }
             }
         }
@@ -208,7 +208,7 @@ public class MemoriRules implements Rules {
                 else
                     performFlip(currTile, gsCurrentState, uaAction, memoriTerrain);
             } else if(uaAction.getActionType().equals("enter")) {
-                if(!MainOptions.TUTORIAL_MODE && eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS"))
+                if(!MainOptions.TUTORIAL_MODE /*&& eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")*/)
                     createHelpGameEvent(uaAction, gsCurrentState);
             } else if(uaAction.getActionType().equals("escape")) {
                 //exit current game
@@ -228,20 +228,22 @@ public class MemoriRules implements Rules {
     }
 
     /**
-     * Creates the game events including help ui events
+     * Creates the help ui events
      * @param uaAction the user action
      * @param gsCurrentState the current game state
      */
     private void createHelpGameEvent(UserAction uaAction, MemoriGameState gsCurrentState) {
         Point2D coords = uaAction.getCoords();
+        System.out.println("x: " + coords.getX() + " y: " + coords.getY());
         gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
-        gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", (int)coords.getX() + 1, 0, true));
+        gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", MainOptions.NUMBER_OF_ROWS - ((int)coords.getX()), 0, true));
         //If in help instructions mode, add appropriate explanation
-        if (eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
+        if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS_EXPLANATION")) {
+            gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_EXPLANATION"));
             gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_ROW", null, 0, true));
             gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
             gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_COLUMN", null, 0, true));
-            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", (int)coords.getX() + 1, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", MainOptions.NUMBER_OF_ROWS - ((int)coords.getX()), 0, true));
         }
     }
 
