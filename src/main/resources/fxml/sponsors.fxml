@@ -23,14 +23,12 @@
         <Label styleClass="sponsorLabel" text="Efthymia Bogea" />
         <Label styleClass="sponsorLabel" text="Alfa Beta Roto S.A." />
         <Label styleClass="sponsorLabel" text="Ioannis Pantazis" />
-
         <Label styleClass="sponsorLabel" text="Nikos Aletras" />
         <Label styleClass="sponsorLabel" text="Ioannis Askitoglou" />
         <Label styleClass="sponsorLabel" text="Μανώλης Χλουβεράκης" />
     </VBox>
     <VBox alignment="center" styleClass="sponsorsContainer">
         <Label styleClass="sponsorLabel" text="Krystallo Michou" />
-
         <Label styleClass="sponsorLabel" text="Bill Kapralos" />
         <Label styleClass="sponsorLabel" text="Christoforos Korakas" />
         <Label styleClass="sponsorLabel" text="Nikki Johnston" />
@@ -41,12 +39,7 @@
         <Label styleClass="sponsorLabel" text="Athina Spiliopoulou" />
         <Label styleClass="sponsorLabel" text="Olympia Papayannakopoulou" />
     </VBox>
-    <VBox alignment="CENTER_RIGHT" styleClass="sponsorsContainer" style="-fx-padding: 50px">
-
-
-
-
-        <Label styleClass="sponsorLabel" text="Orestis Popotas" />
+    <VBox alignment="CENTER_RIGHT" styleClass="sponsorsContainer" style="-fx-padding: 50px"><Label styleClass="sponsorLabel" text="Orestis Popotas" />
         <Label styleClass="sponsorLabel" text="Efstratios Andronikos" />
         <Label styleClass="sponsorLabel" text="Orestis Telelis" />
         <Label styleClass="sponsorLabel" text="Maria Terlixidou" />
@@ -56,7 +49,6 @@
         <Label styleClass="sponsorLabel" text="Αθανάσιος Καραλής" />
         <Label styleClass="sponsorLabel" text="George Bogeas" />
     </VBox>
-
     <stylesheets>
         <URL value="@/css/style.css" />
     </stylesheets>
