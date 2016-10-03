@@ -58,12 +58,14 @@ StackPane {
 
 .optionButton {
     -fx-pref-width: 400px;
-    -fx-pref-height: 70px;
+    -fx-pref-height: 50px;
     -fx-font-family: monospace;
-    -fx-font-size: 230%;
-    -fx-padding: 5px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+    -fx-font-size: 200%;
+    -fx-padding: 4px;
+    -fx-border-insets: 4px;
+    -fx-background-insets: 4px;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
 }
 
 .largeButton {
@@ -80,6 +82,11 @@ StackPane {
 .optionButtonContainer {
     -fx-pref-width: 50%;
     -fx-pref-height: 100%;
+}
+
+.sponsorsContainer {
+    -fx-pref-width: 30%;
+    -fx-pref-height: 90%;
 }
 
 .sponsorLabel {
