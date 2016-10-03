@@ -24,14 +24,14 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
-    -fx-padding: 3%;
-    -fx-background-insets: 3%;
+    -fx-padding: 8%;
+    -fx-background-insets: 8%;
     -fx-background-position: center;
 }
 
 .closedCard {
     -fx-background-image: url("/img/door.jpg");
-    -fx-background-size: 95% 95%;
+    -fx-background-size: 92% 92%;
 }
 
 .focusedCard {
