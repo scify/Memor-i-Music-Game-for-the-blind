@@ -78,6 +78,16 @@ StackPane {
 }
 
 .optionButtonContainer {
-    -fx-pref-width: 100%;
+    -fx-pref-width: 50%;
     -fx-pref-height: 100%;
+}
+
+.sponsorLabel {
+    -fx-pref-height: 40px;
+    -fx-font-family: monospace;
+    -fx-font-size: 160%;
+    -fx-padding: 2px;
+    -fx-border-insets: 2px;
+    -fx-background-insets: 2px;
+    -fx-text-fill: white;
 }

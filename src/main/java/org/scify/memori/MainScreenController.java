@@ -190,10 +190,18 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-
     protected void myScores(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
             FXHighScoresScreen highScoresScreen = new FXHighScoresScreen(sceneHandler, sceneHandler.getMainWindow());
+        } else if (evt.getCode() == ESCAPE) {
+            System.exit(0);
+        }
+    }
+
+    @FXML
+    protected void goToSponsorsPage(KeyEvent evt) {
+        if (evt.getCode() == SPACE) {
+            SponsorsScreen highScoresScreen = new SponsorsScreen(sceneHandler, sceneHandler.getMainWindow());
         } else if (evt.getCode() == ESCAPE) {
             System.exit(0);
         }
