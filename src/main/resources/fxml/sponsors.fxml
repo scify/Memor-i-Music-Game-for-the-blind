@@ -9,22 +9,53 @@
 <?import javafx.scene.control.Label?>
 <StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea">
     <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
-        <ImageView styleClass="boxImage">
-            <image>
-                <Image requestedHeight="250" requestedWidth="250" url="@../img/memori.png" />
-            </image>
-        </ImageView>
+    <ImageView styleClass="boxImage">
+    <image>
+    <Image requestedHeight="250" requestedWidth="250" url="@../img/memori.png" />
+    </image>
+    </ImageView>
     </HBox>
-        <VBox alignment="CENTER" styleClass="optionButtonContainer">
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-            <Label styleClass="sponsorLabel" text="Label" />
-        </VBox>
+    <VBox alignment="CENTER_LEFT" styleClass="sponsorsContainer" style="-fx-padding: 50px">
+        <Label styleClass="sponsorLabel" text="Elina Makri" />
+        <Label styleClass="sponsorLabel" text="Akrotiri Women's Group" />
+        <Label styleClass="sponsorLabel" text="Ioannis Pantazis" />
+        <Label styleClass="sponsorLabel" text="Irina Arnold" />
+        <Label styleClass="sponsorLabel" text="Efthymia Bogea" />
+        <Label styleClass="sponsorLabel" text="Alfa Beta Roto S.A." />
+        <Label styleClass="sponsorLabel" text="Ioannis Pantazis" />
+
+        <Label styleClass="sponsorLabel" text="Nikos Aletras" />
+        <Label styleClass="sponsorLabel" text="Ioannis Askitoglou" />
+        <Label styleClass="sponsorLabel" text="Μανώλης Χλουβεράκης" />
+    </VBox>
+    <VBox alignment="center" styleClass="sponsorsContainer">
+        <Label styleClass="sponsorLabel" text="Krystallo Michou" />
+
+        <Label styleClass="sponsorLabel" text="Bill Kapralos" />
+        <Label styleClass="sponsorLabel" text="Christoforos Korakas" />
+        <Label styleClass="sponsorLabel" text="Nikki Johnston" />
+        <Label styleClass="sponsorLabel" text="Γεώργιος Βλάχος" />
+        <Label styleClass="sponsorLabel" text="Aggeliki Xona" />
+        <Label styleClass="sponsorLabel" text="Dion SPILIOPOULOS" />
+        <Label styleClass="sponsorLabel" text="Meropi Paneli" />
+        <Label styleClass="sponsorLabel" text="Athina Spiliopoulou" />
+        <Label styleClass="sponsorLabel" text="Olympia Papayannakopoulou" />
+    </VBox>
+    <VBox alignment="CENTER_RIGHT" styleClass="sponsorsContainer" style="-fx-padding: 50px">
+
+
+
+
+        <Label styleClass="sponsorLabel" text="Orestis Popotas" />
+        <Label styleClass="sponsorLabel" text="Efstratios Andronikos" />
+        <Label styleClass="sponsorLabel" text="Orestis Telelis" />
+        <Label styleClass="sponsorLabel" text="Maria Terlixidou" />
+        <Label styleClass="sponsorLabel" text="Marousa Tsakogianni" />
+        <Label styleClass="sponsorLabel" text="Dimitrios Stratakis" />
+        <Label styleClass="sponsorLabel" text="Monica Pistoli" />
+        <Label styleClass="sponsorLabel" text="Αθανάσιος Καραλής" />
+        <Label styleClass="sponsorLabel" text="George Bogeas" />
+    </VBox>
 
     <stylesheets>
         <URL value="@/css/style.css" />
