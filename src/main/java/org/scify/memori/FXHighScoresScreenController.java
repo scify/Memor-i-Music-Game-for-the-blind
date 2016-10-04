@@ -63,36 +63,49 @@ public class FXHighScoresScreenController {
 
         scoresScene.lookup("#level1").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("two_times_three.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level1.wav", false);
             }
         });
 
         scoresScene.lookup("#level2").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("two_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level2.wav", false);
             }
         });
 
         scoresScene.lookup("#level3").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("three_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level3.wav", false);
             }
         });
 
         scoresScene.lookup("#level4").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level4.wav", false);
+            }
+        });
+
+        scoresScene.lookup("#level5").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level5.wav", false);
+            }
+        });
+
+        scoresScene.lookup("#level6").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level6.wav", false);
+            }
+        });
+
+        scoresScene.lookup("#level7").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level7.wav", false);
             }
         });
 
         scoresScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to exit
-                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("back.wav", false);
             }
         });
     }

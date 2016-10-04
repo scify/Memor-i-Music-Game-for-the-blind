@@ -90,45 +90,76 @@ public class MainScreenController implements Initializable {
 
         primaryStage.show();
 
+        primaryScene.lookup("#headphonesAdjustment").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/headphones_adjustment.wav", false);
+            }
+        });
+
         primaryScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("tutorial.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/tutorial.wav", false);
             }
         });
 
 
         primaryScene.lookup("#level1").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("two_times_three.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level1.wav", false);
             }
         });
 
         primaryScene.lookup("#level2").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("two_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level2.wav", false);
             }
         });
 
         primaryScene.lookup("#level3").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("three_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level3.wav", false);
             }
         });
 
         primaryScene.lookup("#level4").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to level-like
-                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/level4.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#level5").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level5.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#level6").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level6.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#level7").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/level7.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#myScores").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/my_scores.wav", false);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: change file name to exit
-                audioEngine.pauseAndPlaySound("four_times_four.mp3", false);
+                audioEngine.pauseAndPlaySound("main_screen/exit.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/sponsors.wav", false);
             }
         });
 
@@ -211,8 +242,8 @@ public class MainScreenController implements Initializable {
     @FXML
     protected void headphonesAdjustment(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
-            audioEngine.playBalancedSound(-1.0, "leftHeadphone.mp3");
-            audioEngine.playBalancedSound(1.0, "rightHeadphone.mp3");
+            audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.wav");
+            audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.wav");
         } else if (evt.getCode() == ESCAPE) {
             System.exit(0);
         }
