@@ -27,7 +27,7 @@
         <Button contentDisplay="CENTER" styleClass="optionButton" text="5x6" fx:id="level7" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Τα σκορ μου ανά επίπεδο" fx:id="myScores" onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit" onKeyPressed="#exitGame"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Χορηγοί" fx:id="sposnors" onKeyPressed="#goToSponsorsPage"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="Χορηγοί" fx:id="sponsors" onKeyPressed="#goToSponsorsPage"/>
     </VBox>
 
     <stylesheets>
