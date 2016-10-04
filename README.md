@@ -6,6 +6,8 @@
 A Memory card game especially tailored to meet the needs of blind people.
 Check out our [YouTube video](https://www.youtube.com/watch?v=M2DqT5e975w)
 
+![Memor-i gameplay](https://raw.githubusercontent.com/scify/Memor-i/master/src/main/resources/img/memori_gameplay.gif)
+
 ## Getting Started
 
 Please take a look at the [project roadmap](http://jira.scify.org/secure/RapidBoard.jspa?rapidView=99&projectKey=MEM&view=detail&selectedIssue=MEM-35")
