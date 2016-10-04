@@ -88,6 +88,8 @@ public class MainScreenController implements Initializable {
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
+        //TODO: add welcome audio clip
+
         primaryStage.show();
 
         primaryScene.lookup("#headphonesAdjustment").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
