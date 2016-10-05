@@ -59,6 +59,7 @@ public class FileHandler {
                 JSONObject cardAttrs = cardObj.getJSONObject("attrs");
                 tempMap.add(0, cardAttrs.getString("img"));
                 tempMap.add(1, cardAttrs.getString("sounds"));
+                tempMap.add(2, cardAttrs.getString("description_sound"));
                 map.put(cardObj.getString("cardType"), tempMap);
             }
 

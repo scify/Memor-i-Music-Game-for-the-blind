@@ -81,9 +81,10 @@ public class MemoriTerrain implements Terrain {
                 ArrayList<String> cardAttrs = entry.getValue();
                 //cardSounds is a comma separated string of sound files
                 String cardSound = cardAttrs.get(1);
+                String tileDescription = cardAttrs.get(2);
                 //we need to transform it into an array and poll one sound
 
-                Card newCard = new Card(entry.getKey(), cardAttrs.get(0), cardSound);
+                Card newCard = new Card(entry.getKey(), cardAttrs.get(0), cardSound, tileDescription);
                 unShuffledCards.add(newCard);
             }
         }

@@ -258,6 +258,17 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
                         }
                         break;
+                    case "CARD_DESCRIPTION":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+
+                            coords = (Point2D) currentGameEvent.parameters;
+                            currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
+
+                            fxAudioEngine.pauseAndPlaySound(currCard.getDescriptionSound(), currentGameEvent.blocking);
+                            listIterator.remove();
+
+                        }
+                        break;
                     case "flip":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {

@@ -51,7 +51,10 @@ public class Card implements Tile{
      * file name of the sound associated with the card
      */
     private String sound;
-
+    /**
+     * file name of the card description sound
+     */
+    private String descriptionSound;
     /**
      *
      * @return the Node (Button) that is laid on the layout
@@ -86,10 +89,11 @@ public class Card implements Tile{
         return isFlipped;
     }
 
-    public Card(String id, String img, String soundFile) {
+    public Card(String id, String img, String soundFile, String description) {
         imgName = img;
         button = new Button();
         sound = soundFile;
+        descriptionSound = description;
         button.setId(id);
         // each card takes a dynamic height and width, based on the height and with of the screen
         button.setPrefHeight((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS ) - ((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS) * 0.1));
@@ -135,4 +139,7 @@ public class Card implements Tile{
         return sound;
     }
 
+    public String getDescriptionSound() {
+        return descriptionSound;
+    }
 }
