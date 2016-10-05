@@ -257,6 +257,7 @@ public class MainScreenController implements Initializable {
     }
 
     private void startNormalGame() {
+        audioEngine.pauseCurrentlyPlayingAudios();
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
         game.initialize();
 
