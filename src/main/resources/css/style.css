@@ -98,3 +98,17 @@ StackPane {
     -fx-background-insets: 2px;
     -fx-text-fill: white;
 }
+
+.welcomeButton {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 70px;
+    -fx-font-family: monospace;
+    -fx-font-size: 230%;
+    -fx-padding: 4px;
+    -fx-border-insets: 4px;
+    -fx-background-insets: 4px;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}

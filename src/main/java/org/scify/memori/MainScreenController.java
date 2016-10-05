@@ -89,6 +89,11 @@ public class MainScreenController implements Initializable {
         sceneHandler.pushScene(primaryScene);
 
         //TODO: add welcome audio clip
+        primaryScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/welcome.wav", false);
+            }
+        });
 
         primaryStage.show();
 

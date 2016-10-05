@@ -16,6 +16,7 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
+        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="Welcome to Memor-i!" fx:id="welcome"/>
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Οδηγός" fx:id="tutorial" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="level1" onKeyPressed="#initializeGameOptions"/>
