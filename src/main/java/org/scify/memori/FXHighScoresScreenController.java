@@ -136,6 +136,9 @@ public class FXHighScoresScreenController {
             }
             System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(level));
             String timestampStr = highScoreHandler.getHighScoreForLevel(level);
+            // if there is a score in this level (ie if score is nt null)
+            // play relevant audio clips
+            // else play informative audio clip prompting to play the score
             if(timestampStr != null) {
                 String[] tokens = timestampStr.split(":");
                 int minutes = Integer.parseInt(tokens[1]);
@@ -157,6 +160,8 @@ public class FXHighScoresScreenController {
                     else
                         audioEngine.pauseAndPlaySound("game_effects/second.wav", true);
                 }
+            } else {
+                audioEngine.pauseAndPlaySound("no_score.wav", false);
             }
         }
     }
