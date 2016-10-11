@@ -1,0 +1,86 @@
+{
+  "equivalence_card_sets": [
+    [
+      {
+        "label": "guitar",
+        "category": "item",
+        "sounds": [
+          "guitar1.wav",
+          "guitar2.wav"
+        ],
+        "images": [
+          "guitar1.png",
+          "guitar2.png"
+        ]
+      },
+      {
+        "label": "violin",
+        "category": "item",
+        "sounds": [
+          "violin1.wav",
+          "violin2.wav"
+        ],
+        "images": [
+          "violin1.png",
+          "violin2.png"
+        ]
+      },
+      {
+        "label": "bouzouki",
+        "category": "item",
+        "sounds": [
+          "bouzouki1.wav",
+          "bouzouki2.wav"
+        ],
+        "images": [
+          "bouzouki1.png",
+          "bouzouki2.png"
+        ]
+      },
+      {
+        "label": "strings",
+        "category": "instrument_family",
+        "sounds": [],
+        "images": [
+          "strings.png"
+        ],
+        "arity": 3
+      }
+    ],
+    [
+      {
+        "label": "drums",
+        "category": "item",
+        "sounds": [
+          "drums1.wav",
+          "drums2.wav"
+        ],
+        "images": [
+          "drums1.png",
+          "drums2.png"
+        ]
+      },
+      {
+        "label": "bongos",
+        "category": "item",
+        "sounds": [
+          "bongos1.wav",
+          "bongos2.wav"
+        ],
+        "images": [
+          "bongos1.png",
+          "bongos2.png"
+        ]
+      },
+      {
+        "label": "percussion",
+        "category": "instrument_family",
+        "sounds": [],
+        "images": [
+          "percussion.png"
+        ],
+        "arity": 2
+      }
+    ]
+  ]
+}
