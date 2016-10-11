@@ -21,8 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.scify.windmusicgame.SceneHandler;
-import org.scify.windmusicgame.interfaces.HighScoresScreen;
+import org.scify.windmusicgame.helperClasses.SceneHandler;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
 /**
  * JavaFX Screen constructor page
  */
-public class SponsorsScreen implements HighScoresScreen {
+public class SponsorsScreen{
 
     protected SceneHandler sceneHandler;
 
@@ -59,8 +58,4 @@ public class SponsorsScreen implements HighScoresScreen {
         });
     }
 
-    @Override
-    public void initialize() {
-
-    }
 }
