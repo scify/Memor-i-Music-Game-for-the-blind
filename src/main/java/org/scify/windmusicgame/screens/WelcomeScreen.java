@@ -33,7 +33,7 @@ public class WelcomeScreen extends Application {
     private Rectangle graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 
     public WelcomeScreen() {
-        System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
+        //System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
     }
 
     @Override

@@ -5,12 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.scify.windmusicgame.FXAudioEngine;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.helperClasses.SceneHandler;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
 
 /**
+ * Controller class for the welcome screen
  * Created by pisaris on 11/10/2016.
  */
 public class WelcomeScreenController {
@@ -50,11 +51,18 @@ public class WelcomeScreenController {
     }
 
     public void selectGame(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == SPACE) {
+            audioEngine.pauseCurrentlyPlayingAudios();
+            new GameSelectionScreen(sceneHandler);
+        } else if (keyEvent.getCode() == ESCAPE) {
+            System.exit(0);
+        }
     }
 
     @FXML
     protected void headphonesAdjustment(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
+            audioEngine.pauseCurrentlyPlayingAudios();
             audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.wav");
             audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.wav");
         } else if (evt.getCode() == ESCAPE) {
@@ -67,6 +75,7 @@ public class WelcomeScreenController {
      * @param keyEvent the keyboard event
      */
     public void exitGame(KeyEvent keyEvent) {
+        audioEngine.pauseCurrentlyPlayingAudios();
         if (keyEvent.getCode() == SPACE) {
             System.exit(0);
         }
@@ -78,6 +87,7 @@ public class WelcomeScreenController {
      */
     public void goToSponsorsScreen(KeyEvent keyEvent) {
         if (keyEvent.getCode() == SPACE) {
+            audioEngine.pauseCurrentlyPlayingAudios();
             new SponsorsScreen(sceneHandler, sceneHandler.getMainWindow());
         } else if (keyEvent.getCode() == ESCAPE) {
             System.exit(0);
