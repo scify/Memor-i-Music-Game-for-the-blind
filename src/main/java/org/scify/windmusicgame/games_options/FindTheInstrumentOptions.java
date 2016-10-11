@@ -48,4 +48,10 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         storyLineSounds.put(8, "game2/storyLine8.wav");
         storyLineSounds.put(9, "game2/storyLine9.wav");
     }
+
+    public FindTheInstrumentOptions() {
+        initializeGameLevels();
+        initializeGameIntroductorySounds();
+        initializeGameStoryLineSounds();
+    }
 }

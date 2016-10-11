@@ -41,4 +41,10 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         storyLineSounds.put(6, "game2/storyLine6.wav");
         storyLineSounds.put(7, "game2/storyLine7.wav");
     }
+
+    public FindTheNoteOptions() {
+        initializeGameLevels();
+        initializeGameIntroductorySounds();
+        initializeGameStoryLineSounds();
+    }
 }

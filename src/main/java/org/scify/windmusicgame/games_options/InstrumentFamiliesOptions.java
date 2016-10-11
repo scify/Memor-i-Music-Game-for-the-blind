@@ -39,4 +39,10 @@ public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements 
         storyLineSounds.put(5, "game1/storyLine5.wav");
         storyLineSounds.put(6, "game1/storyLine6.wav");
     }
+
+    public InstrumentFamiliesOptions() {
+        initializeGameLevels();
+        initializeGameIntroductorySounds();
+        initializeGameStoryLineSounds();
+    }
 }
