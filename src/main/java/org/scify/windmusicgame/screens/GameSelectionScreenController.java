@@ -2,9 +2,14 @@ package org.scify.windmusicgame.screens;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import org.scify.windmusicgame.FXAudioEngine;
+import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
+import org.scify.windmusicgame.games_options.FindTheNoteOptions;
+import org.scify.windmusicgame.games_options.InstrumentFamiliesOptions;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.interfaces.GameOptions;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -13,6 +18,9 @@ import static javafx.scene.input.KeyCode.SPACE;
  * Created by pisaris on 11/10/2016.
  */
 public class GameSelectionScreenController {
+    public Button findInstrumentFamiliesGame;
+    public Button findInstrumentGame;
+    public Button findNoteGame;
     protected SceneHandler sceneHandler;
 
     protected FXAudioEngine audioEngine;
@@ -61,5 +69,14 @@ public class GameSelectionScreenController {
     }
 
     public void initializeGame(KeyEvent keyEvent) {
+        GameOptions gameOptions = null;
+        if(keyEvent.getSource() == findInstrumentFamiliesGame) {
+            gameOptions = new InstrumentFamiliesOptions();
+        } else if(keyEvent.getSource() == findInstrumentGame) {
+            gameOptions = new FindTheInstrumentOptions();
+        } else if( keyEvent.getSource() == findNoteGame) {
+            gameOptions = new FindTheNoteOptions();
+        }
+        System.err.println(gameOptions);
     }
 }
