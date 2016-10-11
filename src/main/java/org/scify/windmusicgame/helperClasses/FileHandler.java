@@ -15,11 +15,12 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.helperClasses;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.scify.windmusicgame.MainOptions;
 
 import java.io.*;
 import java.math.BigInteger;
