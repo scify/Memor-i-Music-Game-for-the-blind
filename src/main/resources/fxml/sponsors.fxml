@@ -5,51 +5,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
 <StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea">
-    <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
-    <ImageView styleClass="boxImage">
-    <image>
-    <Image requestedHeight="250" requestedWidth="250" url="@../img/memori.png" />
-    </image>
-    </ImageView>
-    </HBox>
-    <VBox alignment="CENTER_LEFT" styleClass="sponsorsContainer" style="-fx-padding: 50px">
-        <Label styleClass="sponsorLabel" text="Elina Makri" />
-        <Label styleClass="sponsorLabel" text="Akrotiri Women's Group" />
-        <Label styleClass="sponsorLabel" text="Ioannis Pantazis" />
-        <Label styleClass="sponsorLabel" text="Irina Arnold" />
-        <Label styleClass="sponsorLabel" text="Efthymia Bogea" />
-        <Label styleClass="sponsorLabel" text="Alfa Beta Roto S.A." />
-        <Label styleClass="sponsorLabel" text="Ioannis Pantazis" />
-        <Label styleClass="sponsorLabel" text="Nikos Aletras" />
-        <Label styleClass="sponsorLabel" text="Ioannis Askitoglou" />
-        <Label styleClass="sponsorLabel" text="Μανώλης Χλουβεράκης" />
-    </VBox>
-    <VBox alignment="center" styleClass="sponsorsContainer">
-        <Label styleClass="sponsorLabel" text="Krystallo Michou" />
-        <Label styleClass="sponsorLabel" text="Bill Kapralos" />
-        <Label styleClass="sponsorLabel" text="Christoforos Korakas" />
-        <Label styleClass="sponsorLabel" text="Nikki Johnston" />
-        <Label styleClass="sponsorLabel" text="Γεώργιος Βλάχος" />
-        <Label styleClass="sponsorLabel" text="Aggeliki Xona" />
-        <Label styleClass="sponsorLabel" text="Dion SPILIOPOULOS" />
-        <Label styleClass="sponsorLabel" text="Meropi Paneli" />
-        <Label styleClass="sponsorLabel" text="Athina Spiliopoulou" />
-        <Label styleClass="sponsorLabel" text="Olympia Papayannakopoulou" />
-    </VBox>
-    <VBox alignment="CENTER_RIGHT" styleClass="sponsorsContainer" style="-fx-padding: 50px"><Label styleClass="sponsorLabel" text="Orestis Popotas" />
-        <Label styleClass="sponsorLabel" text="Efstratios Andronikos" />
-        <Label styleClass="sponsorLabel" text="Orestis Telelis" />
-        <Label styleClass="sponsorLabel" text="Maria Terlixidou" />
-        <Label styleClass="sponsorLabel" text="Marousa Tsakogianni" />
-        <Label styleClass="sponsorLabel" text="Dimitrios Stratakis" />
-        <Label styleClass="sponsorLabel" text="Monica Pistoli" />
-        <Label styleClass="sponsorLabel" text="Αθανάσιος Καραλής" />
-        <Label styleClass="sponsorLabel" text="George Bogeas" />
+
+    <VBox alignment="center" spacing="30">
+        <ImageView styleClass="boxImage">
+            <image>
+                <Image url="@../img/logo.png" />
+            </image>
+        </ImageView>
+        <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-pref-width: 1500"  textAlignment="CENTER">
+
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="largeText">
+
+
+                Δημιουργώντας θετικό αντίκτυπο στην κοινωνία
+
+                Εθελοντισμός σημαίνει αλληλεγγύη και ανιδιοτελή προσφορά. Εκφράζεται με πολλούς τρόπους, ο καθένας από αυτούς με τη δική του φυσιογνωμία και μέθοδο δράσης. Κοινό χαρακτηριστικό όμως όλων είναι η συνδρομή τους στην προάσπιση των θεμελιωδών δικαιωμάτων.
+
+                Στην εποχή μας οι εθελοντικές δράσεις συμβάλουν στην αντιμετώπιση των κοινωνικών, οικονομικών και περιβαλλοντικών προβλημάτων με στόχο την αναπλήρωση των κενών που δημιουργεί η αδυναμία του κράτους και οι μηχανισμοί της αγοράς.
+
+                Στο πλαίσιο αυτό στη χώρα μας τα τελευταία χρόνια λειτουργούν πολλές Μη κυβερνητικές Οργανώσεις με πληθώρα δράσεων και κύρια πεδία εφαρμογής το περιβάλλον, τον πολιτισμό, τις κοινωνικές υπηρεσίες, τον αθλητισμό.
+
+                Ο εθελοντισμός δεν είναι απλά ένας όρος, είναι στάση ζωής και δρα εποικοδομητικά στο κοινωνικό στερέωμα καθώς αφορά όλους ανεξάρτητα από κοινωνικές και οικονομικές διακρίσεις, προάγει την ενεργή συμμετοχή των πολιτών στην προάσπιση των θεμελιωδών τους δικαιωμάτων και ενδυναμώνει την κοινωνική αλληλεγγύη και συνοχή.
+
+                Στην WIND πιστεύουμε την έννοια του εθελοντισμού. Βασικός άξονας του προγράμματος εταιρικής υπευθυνότητας της εταιρίας είναι η κοινωνική συνεισφορά και η παρότρυνση όλων για ενεργή συμμετοχή. Στόχος των δράσεών μας, δεν είναι απλά η ευαισθητοποίηση του κοινού, αλλά η μαζική κινητοποίηση. Γνωρίζουμε ότι η συμμετοχική προσπάθεια είναι αυτή που δίνει ουσιαστικές λύσεις. Είναι η κινητήριος δύναμη.
+
+                Ενεργοποιούμε μηχανισμούς για συλλογική δράση προσπαθώντας να οδηγούμε την κοινωνία ένα βήμα μπροστά. Η στρατηγική Εταιρικής Υπευθυνότητας που ακολουθούμε έχει ως πρωταρχικό στόχο να συνδέσει τις λειτουργίες, τα προϊόντα και τις υπηρεσίες της εταιρείας, με τη δέσμευσή μας για μια καλύτερη κοινωνία και ένα υγιές περιβάλλον.
+
+                Σε μια δύσκολη συγκυρία, όπως αυτή της οικονομικής κρίσης που βιώνει εδώ και αρκετά χρόνια η χώρα μας, πιστεύουμε βαθιά πως οι εθελοντικές δράσεις μπορούν να συμβάλλουν σημαντικά στην βελτίωση της ποιότητας ζωής αρκετών συνανθρώπων μας.
+            </Text>
+        </TextFlow>
+
     </VBox>
     <stylesheets>
-        <URL value="@/css/style.css" />
+        <URL value="@/css/style.css"/>
     </stylesheets>
 </StackPane>
