@@ -50,6 +50,7 @@ public class WelcomeScreenController {
         });
     }
 
+
     public void selectGame(KeyEvent keyEvent) {
         if (keyEvent.getCode() == SPACE) {
             audioEngine.pauseCurrentlyPlayingAudios();
@@ -77,6 +78,8 @@ public class WelcomeScreenController {
     public void exitGame(KeyEvent keyEvent) {
         audioEngine.pauseCurrentlyPlayingAudios();
         if (keyEvent.getCode() == SPACE) {
+            System.exit(0);
+        } else if (keyEvent.getCode() == ESCAPE) {
             System.exit(0);
         }
     }

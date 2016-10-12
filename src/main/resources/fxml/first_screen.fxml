@@ -16,7 +16,7 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
-        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="Welcome to WIND Memor-i music game!" fx:id="welcome"/>
+        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="Welcome to WIND Music Game for the blind!" fx:id="welcome"/>
         <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Ρύθμιση ακουστικών" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Οδηγός" fx:id="tutorial" onKeyPressed="#initializeGameOptions"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="2x3" fx:id="level1" onKeyPressed="#initializeGameOptions"/>

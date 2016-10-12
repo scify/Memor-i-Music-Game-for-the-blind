@@ -15,11 +15,17 @@
  * limitations under the License.
  */
 
-.logoContainer {
-    -fx-padding: 5px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+@font-face {
+    font-family: Trebuchet;
+    src: url('Trebuchet.ttf');
 }
+
+.logoContainer {
+    -fx-padding: 30px;
+    -fx-border-insets: 30px;
+    -fx-background-insets: 30px;
+}
+
 .cardButton {
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
@@ -35,7 +41,7 @@
 }
 
 .focusedCard {
-    -fx-background-color: yellow;
+    -fx-background-color: #DDDD00;
 }
 
 .cardButton:focused {
@@ -44,23 +50,25 @@
 
 .rootPane {
     -fx-pref-height: 100%;
+    -fx-background-color: linear-gradient(to right, #005CCC, #003A80); /* Standard syntax */
 }
 
 GridPane {
-    -fx-background-color: blue;
+    /*-fx-background-color: #00B1EB;*/
     -fx-pref-height: 95% !important;
 }
 
+
 StackPane {
-    -fx-background-color: blue;
+    /*-fx-background-color: #00B1EB;*/
     -fx-pref-width: 100%;
 }
 
 .optionButton {
     -fx-pref-width: 400px;
-    -fx-pref-height: 50px;
-    -fx-font-family: monospace;
-    -fx-font-size: 250%;
+    -fx-pref-height: 70px;
+    -fx-font-family: Trebuchet;
+    -fx-font-size: 220%;
     -fx-padding: 4px;
     -fx-border-insets: 4px;
     -fx-background-insets: 4px;
@@ -70,14 +78,14 @@ StackPane {
 }
 
 .largeButton {
-    -fx-pref-width: 800px;
+    -fx-pref-width: 600px;
 }
 
 .optionButton:focused {
-    -fx-background-color: yellow;
+    -fx-background-color: #DDDD00;
     -fx-highlight-fill: -fx-accent;
     -fx-highlight-text-fill: white;
-    -fx-text-fill: blue;
+    -fx-text-fill: #004C86;
 }
 
 .optionButtonContainer {
@@ -86,32 +94,42 @@ StackPane {
 }
 
 .sponsorsContainer {
-    -fx-pref-width: 30%;
-    -fx-pref-height: 90%;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 80%;
 }
 
 .sponsorLabel {
     -fx-pref-height: 40px;
-    -fx-font-family: monospace;
+    -fx-font-family: Trebuchet;
     -fx-font-size: 250%;
     -fx-padding: 2px;
     -fx-border-insets: 2px;
     -fx-background-insets: 2px;
-    -fx-text-fill: yellow;
+    -fx-text-fill: #DDDD00;
     -fx-font-weight: bold;
 }
 
 .welcomeButton {
-    -fx-pref-width: 600px;
+    -fx-pref-width: 1000px;
     -fx-pref-height: 70px;
-    -fx-font-family: monospace;
-    -fx-font-size: 300%;
+    -fx-font-family: Trebuchet;
+    -fx-font-size: 250%;
     -fx-padding: 4px;
     -fx-border-insets: 4px;
     -fx-background-insets: 4px;
     -fx-border-radius: 10 10 10 10;
     -fx-background-radius: 10 10 10 10;
     -fx-background-color: transparent;
-    -fx-text-fill: yellow;
+    -fx-text-fill: #DDDD00;
+}
+
+.largeText {
+    -fx-font-family: Trebuchet;
+    -fx-max-width: 90%;
+    -fx-font-size: 180%;
+    -fx-padding: 15px;
+    -fx-border-insets: 15px;
+    -fx-background-insets: 15px;
+    -fx-fill: white;
     -fx-font-weight: bold;
 }

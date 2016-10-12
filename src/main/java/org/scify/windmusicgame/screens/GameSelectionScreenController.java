@@ -7,6 +7,7 @@ import javafx.scene.input.KeyEvent;
 import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.windmusicgame.games_options.FindTheNoteOptions;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.games_options.InstrumentFamiliesOptions;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
@@ -24,11 +25,6 @@ public class GameSelectionScreenController {
     protected SceneHandler sceneHandler;
 
     protected FXAudioEngine audioEngine;
-
-    public GameSelectionScreenController() {
-        System.err.println("Constructor running...");
-        System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
-    }
 
     public void setParameters(SceneHandler sceneHandler, Scene gameSelectionScene) {
         audioEngine = new FXAudioEngine();
@@ -65,18 +61,27 @@ public class GameSelectionScreenController {
         System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
         if (evt.getCode() == SPACE) {
             sceneHandler.popScene();
+        } else if (evt.getCode() == ESCAPE) {
+            System.exit(0);
         }
     }
 
     public void initializeGame(KeyEvent keyEvent) {
-        GameOptions gameOptions = null;
-        if(keyEvent.getSource() == findInstrumentFamiliesGame) {
-            gameOptions = new InstrumentFamiliesOptions();
-        } else if(keyEvent.getSource() == findInstrumentGame) {
-            gameOptions = new FindTheInstrumentOptions();
-        } else if( keyEvent.getSource() == findNoteGame) {
-            gameOptions = new FindTheNoteOptions();
+        if (keyEvent.getCode() == SPACE) {
+            GameWithLevelsOptions gameOptions = null;
+            if (keyEvent.getSource() == findInstrumentFamiliesGame) {
+                gameOptions = new InstrumentFamiliesOptions();
+            } else if (keyEvent.getSource() == findInstrumentGame) {
+                gameOptions = new FindTheInstrumentOptions();
+            } else if (keyEvent.getSource() == findNoteGame) {
+                gameOptions = new FindTheNoteOptions();
+            }
+            System.err.println(gameOptions);
+
+            new GameLevelsScreen(sceneHandler, gameOptions);
+        } else if (keyEvent.getCode() == ESCAPE) {
+            System.exit(0);
         }
-        System.err.println(gameOptions);
+
     }
 }

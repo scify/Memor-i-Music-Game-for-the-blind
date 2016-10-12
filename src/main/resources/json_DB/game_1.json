@@ -4,45 +4,57 @@
       {
         "label": "guitar",
         "category": "item",
+        "unique": true,
         "sounds": [
-          "guitar1.wav",
-          "guitar2.wav"
+          "instruments/guitar1.wav",
+          "instruments/guitar2.wav"
         ],
         "images": [
-          "guitar1.png",
-          "guitar2.png"
+          "instruments/guitar1.jpg",
+          "instruments/guitar2.jpg"
+        ],
+        "descriptiveSounds": [
         ]
       },
       {
         "label": "violin",
         "category": "item",
+        "unique": true,
         "sounds": [
-          "violin1.wav",
-          "violin2.wav"
+          "instruments/violin1.wav",
+          "instruments/violin2.wav"
         ],
         "images": [
-          "violin1.png",
-          "violin2.png"
+          "instruments/violin1.jpg",
+          "instruments/violin2.jpg"
+        ],
+        "descriptiveSounds": [
         ]
       },
       {
-        "label": "bouzouki",
+        "label": "cello",
         "category": "item",
+        "unique": true,
         "sounds": [
-          "bouzouki1.wav",
-          "bouzouki2.wav"
+          "instruments/cello1.wav"
         ],
         "images": [
-          "bouzouki1.png",
-          "bouzouki2.png"
+          "instruments/cello1.jpg"
+        ],
+        "descriptiveSounds": [
         ]
       },
       {
         "label": "strings",
         "category": "instrument_family",
-        "sounds": [],
+        "unique": false,
+        "sounds": [
+          "strings.wav"
+        ],
         "images": [
-          "strings.png"
+          "instrument_families/strings1.jpg"
+        ],
+        "descriptiveSounds": [
         ],
         "arity": 3
       }
@@ -51,33 +63,40 @@
       {
         "label": "drums",
         "category": "item",
+        "unique": true,
         "sounds": [
-          "drums1.wav",
-          "drums2.wav"
+          "instruments/drums1.wav",
+          "instruments/drums2.wav"
         ],
         "images": [
-          "drums1.png",
-          "drums2.png"
+          "instruments/drums1.jpg"
+        ],
+        "descriptiveSounds": [
         ]
       },
       {
         "label": "bongos",
         "category": "item",
+        "unique": true,
         "sounds": [
-          "bongos1.wav",
-          "bongos2.wav"
+          "instruments/bongos1.wav",
+          "instruments/bongos2.wav"
         ],
         "images": [
-          "bongos1.png",
-          "bongos2.png"
+          "game_1/instruments/bongos1.jpg"
+        ],
+        "descriptiveSounds": [
         ]
       },
       {
         "label": "percussion",
         "category": "instrument_family",
+        "unique": false,
         "sounds": [],
         "images": [
-          "percussion.png"
+          "instrument_families/percussion1.jpg"
+        ],
+        "descriptiveSounds": [
         ],
         "arity": 2
       }
