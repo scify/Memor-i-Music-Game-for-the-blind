@@ -1,16 +1,15 @@
 
-# Memor-i
+# Memor-i Wind Music Game for the blind
 
 ![Memor-i logo](https://raw.githubusercontent.com/scify/Memor-i/master/src/main/resources/img/memori.png)
 
-A Memory card game especially tailored to meet the needs of blind people.
+A Set of "Memory" card games especially tailored to meet the needs of blind music students.
 Check out our [YouTube video](https://www.youtube.com/watch?v=M2DqT5e975w)
 
-![Memor-i gameplay](https://raw.githubusercontent.com/scify/Memor-i/master/src/main/resources/img/memori_gameplay.gif)
 
 ## Getting Started
 
-Please take a look at the [project roadmap](http://jira.scify.org/secure/RapidBoard.jspa?rapidView=99&projectKey=MEM&view=detail&selectedIssue=MEM-35")
+Please take a look at the [project roadmap](http://jira.scify.org/secure/RapidBoard.jspa?rapidView=121&projectKey=WMG&view=detail&selectedIssue=WMG-3")
 To see currently open tasks, discussed ideas and submitted bugs
 
 ### Prerequisities
