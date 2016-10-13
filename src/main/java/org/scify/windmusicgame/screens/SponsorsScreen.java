@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 
 import java.io.IOException;
+import java.util.Timer;
 
 import static org.scify.windmusicgame.MainOptions.mHeight;
 import static org.scify.windmusicgame.MainOptions.mWidth;
@@ -34,7 +35,7 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
 public class SponsorsScreen{
 
     protected SceneHandler sceneHandler;
-
+    Timer timer = new Timer();;
     public SponsorsScreen(SceneHandler shSceneHandler, Stage mainWindow) {
         this.sceneHandler = shSceneHandler;
         sceneHandler.setMainWindow(mainWindow);
@@ -52,10 +53,23 @@ public class SponsorsScreen{
         sponsorsScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ESCAPE:
+                    timer.cancel();
+                    timer.purge();
                     sceneHandler.popScene();
                     break;
             }
         });
+
+        // after 8 seconds, we should return to the previous screen
+        timer.schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        sceneHandler.popScene();
+                    }
+                },
+                8000
+        );
     }
 
 }
