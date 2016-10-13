@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package org.scify.memori.interfaces;
+package org.scify.windmusicgame.interfaces;
 
 public interface Tile {
     void flip();
-    String getTileType();
+    String getLabel();
     void setWon();
     boolean getFlipped();
     boolean getWon();

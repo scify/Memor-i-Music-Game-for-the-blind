@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 /**
  * Class that implements all options. Has only static variables and methods.
@@ -32,4 +32,5 @@ public class MainOptions {
     public static double mHeight;
     public static double mWidth;
     public static int storyLineLevel = 1;
+    public static String gameScoresFile;
 }

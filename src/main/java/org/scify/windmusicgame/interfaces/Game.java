@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package org.scify.memori.interfaces;
+package org.scify.windmusicgame.interfaces;
 
 import java.util.concurrent.Callable;
 
 public interface Game<T> extends Callable<T> {
-    void initialize();
+    void initialize(GameOptions gameOptions);
     T call();
     void finalize();
 }

@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import org.scify.windmusicgame.helperClasses.SceneHandler;
 
 import static javafx.scene.input.KeyCode.SPACE;
 

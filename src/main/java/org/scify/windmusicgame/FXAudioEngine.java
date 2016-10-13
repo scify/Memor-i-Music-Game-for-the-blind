@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import org.scify.memori.interfaces.AudioEngine;
+import org.scify.windmusicgame.interfaces.AudioEngine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -101,7 +101,7 @@ public class FXAudioEngine implements AudioEngine{
      * Plays an appropriate sound associated with a successful Game Event
      */
     public void playSuccessSound() {
-        playSound(successSound, true);
+        pauseAndPlaySound(successSound, true);
     }
 
     /**

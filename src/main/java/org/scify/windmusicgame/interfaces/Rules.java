@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.memori.interfaces;
+package org.scify.windmusicgame.interfaces;
 
 public interface Rules {
-    GameState getInitialState();
+    GameState getInitialState(GameOptions gameOptions);
     GameState getNextState(GameState gsCurrent, UserAction uaAction);
     boolean isGameFinished(GameState gsCurrent);
 }

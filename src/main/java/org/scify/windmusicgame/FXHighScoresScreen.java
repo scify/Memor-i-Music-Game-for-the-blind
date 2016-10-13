@@ -15,18 +15,19 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.scify.memori.interfaces.HighScoresScreen;
+import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.interfaces.HighScoresScreen;
 
 import java.io.IOException;
 
-import static org.scify.memori.MainOptions.mHeight;
-import static org.scify.memori.MainOptions.mWidth;
+import static org.scify.windmusicgame.MainOptions.mHeight;
+import static org.scify.windmusicgame.MainOptions.mWidth;
 
 /**
  * JavaFX Screen constructor page

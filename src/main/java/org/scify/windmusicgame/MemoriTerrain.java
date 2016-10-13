@@ -60,7 +60,6 @@ public class MemoriTerrain implements Terrain {
         List<Card> shuffledCards = shuffleDeck(unshuffledCards);
 
         int cardIndex = 0;
-
         for (int iX = 0; iX < getWidth(); iX++) {
             for (int iY = 0; iY < getHeight(); iY++) {
                 tiles.put(new Point2D.Double(iX, iY), shuffledCards.get(cardIndex));

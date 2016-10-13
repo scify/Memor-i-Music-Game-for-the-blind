@@ -15,7 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
+
+import org.scify.windmusicgame.helperClasses.FileHandler;
+import org.scify.windmusicgame.helperClasses.TimeWatch;
 
 import java.text.DateFormat;
 import java.text.ParseException;

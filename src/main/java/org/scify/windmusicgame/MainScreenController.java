@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,6 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.screens.SponsorsScreen;
 
 import java.awt.geom.Point2D;
 import java.net.URL;
@@ -88,7 +90,6 @@ public class MainScreenController implements Initializable {
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
-        //TODO: add welcome audio clip
         primaryScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
                 audioEngine.pauseAndPlaySound("main_screen/welcome.wav", false);
@@ -259,7 +260,7 @@ public class MainScreenController implements Initializable {
     private void startNormalGame() {
         audioEngine.pauseCurrentlyPlayingAudios();
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
-        game.initialize();
+        //game.initialize();
 
         // Run game in separate thread
         ExecutorService es  = Executors.newFixedThreadPool(1);

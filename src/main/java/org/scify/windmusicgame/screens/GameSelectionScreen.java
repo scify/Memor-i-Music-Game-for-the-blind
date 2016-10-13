@@ -32,12 +32,5 @@ public class GameSelectionScreen {
 
         controller.setParameters(sceneHandler, gameSelectionScene);
 
-        gameSelectionScene.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ESCAPE:
-                    sceneHandler.popScene();
-                    break;
-            }
-        });
     }
 }

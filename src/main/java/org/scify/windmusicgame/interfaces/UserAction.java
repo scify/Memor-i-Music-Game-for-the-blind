@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.memori.interfaces;
+package org.scify.windmusicgame.interfaces;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
