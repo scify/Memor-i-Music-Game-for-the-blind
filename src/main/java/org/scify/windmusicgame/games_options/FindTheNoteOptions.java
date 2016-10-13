@@ -42,7 +42,15 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         storyLineSounds.put(7, "game2/storyLine7.wav");
     }
 
+    @Override
+    public String getDBRespresenation() {
+        return cardsDBRepresentation;
+    }
+
     public FindTheNoteOptions() {
+        gameDescription = "ΒΡΕΙΤΕ ΤΗ ΝΟΤΑ";
+        cardsDBRepresentation = "json_DB/find_the_note.json";
+        gameDescriptionSound = "game_levels_screen_sounds/find_note.mp3";
         initializeGameLevels();
         initializeGameIntroductorySounds();
         initializeGameStoryLineSounds();

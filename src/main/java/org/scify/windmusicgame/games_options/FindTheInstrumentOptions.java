@@ -49,7 +49,15 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         storyLineSounds.put(9, "game2/storyLine9.wav");
     }
 
+    @Override
+    public String getDBRespresenation() {
+        return cardsDBRepresentation;
+    }
+
     public FindTheInstrumentOptions() {
+        gameDescription = "ΒΡΕΙΤΕ ΤΟ ΟΡΓΑΝΟ";
+        cardsDBRepresentation = "json_DB/find_the_instrument.json";
+        gameDescriptionSound = "game_levels_screen_sounds/find_instrument.mp3";
         initializeGameLevels();
         initializeGameIntroductorySounds();
         initializeGameStoryLineSounds();

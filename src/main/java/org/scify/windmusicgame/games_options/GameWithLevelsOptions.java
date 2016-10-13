@@ -9,6 +9,16 @@ import java.util.Map;
  * Created by pisaris on 11/10/2016.
  */
 public class GameWithLevelsOptions {
+
+    /**
+     * gameDescription is presented at the game levels screen
+     */
+    protected String gameDescription;
+
+    /**
+     * gameDescription sound is presented at the game levels screen
+     */
+    protected String gameDescriptionSound;
     /**
      * Each game level is associated with a set of dimensions
      */
@@ -23,4 +33,29 @@ public class GameWithLevelsOptions {
      * Each game level has an introductory sound associated with it
      */
     protected Map<Integer, String> introductorySounds = new HashMap<>();
+
+    /**
+     * The DB representation that the game Cards are stored in (in our case, a JSON file).
+     */
+    protected String cardsDBRepresentation;
+
+    public String getGameDescription() {
+        return gameDescription;
+    }
+
+    public Map<Integer, Point2D> getGameLevelToDimensions() {
+        return gameLevelToDimensions;
+    }
+
+    public Map<Integer, String> getStoryLineSounds() {
+        return storyLineSounds;
+    }
+
+    public Map<Integer, String> getIntroductorySounds() {
+        return introductorySounds;
+    }
+
+    public String getGameDescriptionSound() {
+        return gameDescriptionSound;
+    }
 }

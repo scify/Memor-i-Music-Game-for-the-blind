@@ -40,7 +40,15 @@ public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements 
         storyLineSounds.put(6, "game1/storyLine6.wav");
     }
 
+    @Override
+    public String getDBRespresenation() {
+        return cardsDBRepresentation;
+    }
+
     public InstrumentFamiliesOptions() {
+        gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΟΡΓΑΝΟΥ";
+        cardsDBRepresentation = "json_DB/find_the_instrument_families.json";
+        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_family.mp3";
         initializeGameLevels();
         initializeGameIntroductorySounds();
         initializeGameStoryLineSounds();
