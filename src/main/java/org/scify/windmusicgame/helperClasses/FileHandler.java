@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.scify.windmusicgame.MainOptions;
+import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -39,7 +40,7 @@ public class FileHandler {
     private String propertiesFile = "high_scores.properties";
 
 
-    public ArrayList<JSONObject> getCardsFromJSONFile() {
+    public ArrayList<JSONObject> getCardsFromJSONFile(GameOptions gameOptions) {
 
         ArrayList<JSONObject> cardsList = new ArrayList<>();
         // cardsListTemp will hold the read cards from the current equivalence card set.
@@ -49,11 +50,14 @@ public class FileHandler {
         int randomNumber;
         Scanner scanner = null;
         try {
-            scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream("json_DB/game_1.json")));
+            scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream(gameOptions.getDBRespresenation())));
             String jsonStr = scanner.useDelimiter("\\A").next();
 
             JSONObject rootObject = new JSONObject(jsonStr); // Parse the JSON to a JSONObject
             JSONArray cardSets = getEquivalenceCardSets(rootObject);
+
+            cardSets = assignHashCodesToCardsSets(cardSets);
+
             /*
               The number of cards we need depends on the level (number of rows and columns)
               divided by the number of the card tuple we want to form (2-card patterns, 3-card patterns, etc)
@@ -67,7 +71,6 @@ public class FileHandler {
                 // select a random equivalence card set
                 JSONArray randomCardSet = cardSets.getJSONArray(randomNumber);
                 // equivalenceCardSetHashCode describes the current card set
-                String equivalenceCardSetHashCode = randomString();
                 // shuffle the selected card set so that we pick random cards
                 randomCardSet = shuffleJsonArray(randomCardSet);
                 Iterator it = randomCardSet.iterator();
@@ -87,7 +90,6 @@ public class FileHandler {
                                 break;
                             }
                         }
-                        currCard.put("equivalenceCardSetHashCode", equivalenceCardSetHashCode);
                         // add card
                         cardsListTemp.add(currCard);
                         // mark category as read
@@ -103,6 +105,20 @@ public class FileHandler {
             scanner.close();
         }
         return cardsList;
+    }
+
+    private JSONArray assignHashCodesToCardsSets(JSONArray cardSets) {
+        Iterator it = cardSets.iterator();
+        while(it.hasNext()) {
+            String equivalenceCardSetHashCode = randomString();
+            JSONArray currSet = (JSONArray) it.next();
+            Iterator itCards = currSet.iterator();
+            while(itCards.hasNext()) {
+                JSONObject currCard = (JSONObject) itCards.next();
+                currCard.put("equivalenceCardSetHashCode", equivalenceCardSetHashCode);
+            }
+        }
+        return cardSets;
     }
 
     public JSONArray getEquivalenceCardSets(JSONObject rootObject) {

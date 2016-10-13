@@ -15,10 +15,14 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
-import org.scify.memori.interfaces.Terrain;
-import org.scify.memori.interfaces.Tile;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.scify.windmusicgame.helperClasses.FileHandler;
+import org.scify.windmusicgame.interfaces.GameOptions;
+import org.scify.windmusicgame.interfaces.Terrain;
+import org.scify.windmusicgame.interfaces.Tile;
 
 import java.awt.geom.Point2D;
 import java.util.*;
@@ -41,13 +45,18 @@ public class MemoriTerrain implements Terrain {
         return tiles;
     }
 
+    protected GameOptions gameOptions;
+
+
     /**
      * Constructs the basic terrain, gets the {@link Card}s from the DB (.json file) and assigns them to a {@link List}.
+     * @param gameOptions
      */
-    public MemoriTerrain() {
+    public MemoriTerrain(GameOptions gameOptions) {
+        this.gameOptions = gameOptions;
         tiles = new HashMap<>();
         openTiles = new ArrayList<>();
-        List<Card> unshuffledCards = produceDeckOfCards(MainOptions.NUMBER_OF_OPEN_CARDS);
+        List<Card> unshuffledCards = produceDeckOfCards(gameOptions);
         List<Card> shuffledCards = shuffleDeck(unshuffledCards);
 
         int cardIndex = 0;
@@ -61,34 +70,52 @@ public class MemoriTerrain implements Terrain {
     }
 
     /**
-     *
-     * @param cardVarieties the number of card pattern we want to have in the game (e.g. 2-card-patterns, 3-card-patterns, etc)
+     * Read Cards from DB
      * @return A {@link List} of {@link Card}s that will participate in the game
      */
-    private List<Card> produceDeckOfCards(int cardVarieties) {
+    private List<Card> produceDeckOfCards(GameOptions gameOptions) {
 
         List<Card> unShuffledCards = new ArrayList<>();
 
-        //cardsMap will contain the values of the json object as key-value pairs
-        Map<String, ArrayList<String>> cardsMap;
+        //cardsList will contain the values of the json object as key-value pairs
+        ArrayList<JSONObject> cardsList;
         //Preparing the JSON parser class
         FileHandler parser = new FileHandler();
         //read the cards from the JSON file
-        cardsMap = parser.readCardsFromJSONFile();
+        cardsList = parser.getCardsFromJSONFile(gameOptions);
+        Iterator it = cardsList.iterator();
+        while(it.hasNext()) {
+            JSONObject currObj = (JSONObject) it.next();
+            Card newCard = new CategorizedCard(
+                    (String) currObj.get("label"),
+                    getStringArray((JSONArray) currObj.get("images")),
+                    getStringArray((JSONArray) currObj.get("sounds")),
+                    getStringArray((JSONArray) currObj.get("descriptiveSounds")),
+                    (String)currObj.get("category"),
+                    (String)currObj.get("equivalenceCardSetHashCode"),
+                    (String)currObj.get("nameSound")
+            );
+            unShuffledCards.add(newCard);
+        }
 
-        for (Map.Entry<String, ArrayList<String>> entry : cardsMap.entrySet()) {
-            for (int cardsNum = 0; cardsNum < cardVarieties; cardsNum++) {
-                ArrayList<String> cardAttrs = entry.getValue();
-                //cardSounds is a comma separated string of sound files
-                String cardSound = cardAttrs.get(1);
-                String tileDescription = cardAttrs.get(2);
-                //we need to transform it into an array and poll one sound
+        return unShuffledCards;
+    }
 
-                Card newCard = new Card(entry.getKey(), cardAttrs.get(0), cardSound, tileDescription);
-                unShuffledCards.add(newCard);
+    /**
+     * Parses a {@link JSONArray} elements to a String array
+     * @param jsonArray the JSON formatted array ( eg ["1", "2"] )
+     * @return a String array containing the elements of the JSON array
+     */
+    public static String[] getStringArray(JSONArray jsonArray){
+        String[] stringArray = null;
+        int length = jsonArray.length();
+        if(jsonArray!=null){
+            stringArray = new String[length];
+            for(int i=0;i<length;i++){
+                stringArray[i]= jsonArray.optString(i);
             }
         }
-        return unShuffledCards;
+        return stringArray;
     }
 
     /**
@@ -133,7 +160,7 @@ public class MemoriTerrain implements Terrain {
         boolean answer = false;
         if (!openTiles.isEmpty())
             for (Tile currTile : openTiles) {
-                if (currTile.getTileType().equals(tile.getTileType()))
+                if (currTile.getLabel().equals(tile.getLabel()))
                     answer = true;
             }
         return answer;
