@@ -16,7 +16,7 @@
         </ImageView>
     </HBox>
     <HBox alignment="BOTTOM_LEFT" spacing="5" styleClass="logoContainer">
-        <ImageView styleClass="logoImage" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView styleClass="logoImage" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/Powered_by_SciFY.png" />
             </image>
