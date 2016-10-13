@@ -147,9 +147,3 @@ StackPane {
     -fx-fill: #004C86;
     -fx-font-weight: bold;
 }
-
-.textRight {
-    -fx-text-alignment: right;
-    -fx-alignment: right;
-    position: absolute;
-}
