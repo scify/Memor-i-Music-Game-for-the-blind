@@ -11,9 +11,9 @@
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="org.scify.windmusicgame.screens.GameLevelsScreenController">
     <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
-        <ImageView styleClass="boxImage">
+        <ImageView styleClass="logoImage" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/logo.png"/>
+                <Image url="@../img/WIND_logo.png" />
             </image>
         </ImageView>
     </HBox>
