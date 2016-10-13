@@ -128,10 +128,28 @@ StackPane {
 .largeText {
     -fx-font-family: Ubuntu;
     -fx-max-width: 90%;
-    -fx-font-size: 180%;
+    -fx-font-size: 220%;
     -fx-padding: 15px;
     -fx-border-insets: 15px;
     -fx-background-insets: 15px;
     -fx-fill: white;
     -fx-font-weight: bold;
+}
+
+.sponsorTextBig {
+    -fx-font-family: Ubuntu;
+    -fx-max-width: 500px;
+    -fx-wrap-text: true;
+    -fx-font-size: 220%;
+    -fx-padding: 15px;
+    -fx-border-insets: 15px;
+    -fx-background-insets: 15px;
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+
+.textRight {
+    -fx-text-alignment: right;
+    -fx-alignment: right;
+    position: absolute;
 }
