@@ -107,7 +107,6 @@ public class FileHandler {
         } finally {
             scanner.close();
         }
-        System.out.println("num of cards after: " + cardCount);
         return cardsList;
     }
 
