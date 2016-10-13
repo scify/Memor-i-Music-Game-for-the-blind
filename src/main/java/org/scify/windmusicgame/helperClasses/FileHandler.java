@@ -49,6 +49,7 @@ public class FileHandler {
         ArrayList<JSONObject> cardsListTemp;
         int randomNumber;
         Scanner scanner = null;
+        int cardCount = 0;
         try {
             scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream(gameOptions.getDBRespresenation())));
             String jsonStr = scanner.useDelimiter("\\A").next();
@@ -63,7 +64,8 @@ public class FileHandler {
               divided by the number of the card tuple we want to form (2-card patterns, 3-card patterns, etc)
              */
             int numOfCards = (MainOptions.NUMBER_OF_COLUMNS * MainOptions.NUMBER_OF_ROWS);
-            int cardCount = 0;
+            System.out.println("num of cards: " + numOfCards);
+
             while (cardCount < numOfCards) {
                 cardsListTemp = new ArrayList<>();
                 // produce a random number for the card sets (we want to select a random card set)
@@ -93,17 +95,19 @@ public class FileHandler {
                         // add card
                         cardsListTemp.add(currCard);
                         // mark category as read
-                        categories.add(categories.size(), currCard.get("category"));
-                        cardCount ++;
+                        categories.add(currCard.get("category"));
+
                     }
 
                 }
                 cardsList.addAll(cardsListTemp);
+                cardCount += cardsListTemp.size();
             }
 
         } finally {
             scanner.close();
         }
+        System.out.println("num of cards after: " + cardCount);
         return cardsList;
     }
 
