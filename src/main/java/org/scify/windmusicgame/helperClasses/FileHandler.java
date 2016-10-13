@@ -37,7 +37,7 @@ public class FileHandler {
     /**
      * The file that the high scores get stored
      */
-    private String propertiesFile = "high_scores.properties";
+    private String propertiesFile = MainOptions.gameScoresFile;
 
 
     public ArrayList<JSONObject> getCardsFromJSONFile(GameOptions gameOptions) {
@@ -152,7 +152,8 @@ public class FileHandler {
 
         File scoresFile = new File(propertiesFile);
         try {
-            scoresFile.createNewFile();
+            if(!scoresFile.exists())
+                scoresFile.createNewFile();
             FileInputStream in = new FileInputStream(scoresFile);
             prop.load(in);
             highScore = prop.getProperty(String.valueOf(MainOptions.gameLevel));
@@ -169,7 +170,8 @@ public class FileHandler {
 
         File scoresFile = new File(propertiesFile);
         try {
-            scoresFile.createNewFile();
+            if(!scoresFile.exists())
+                scoresFile.createNewFile();
             FileInputStream in = new FileInputStream(scoresFile);
             prop.load(in);
             highScore = prop.getProperty(String.valueOf(level));
@@ -186,7 +188,8 @@ public class FileHandler {
 
         File scoresFile = new File(propertiesFile);
         try {
-            scoresFile.createNewFile();
+            if(!scoresFile.exists())
+                scoresFile.createNewFile();
             FileOutputStream out = new FileOutputStream(scoresFile);
             props.setProperty(String.valueOf(MainOptions.gameLevel), highScore);
             props.store(out, null);
