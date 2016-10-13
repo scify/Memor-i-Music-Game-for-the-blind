@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
-<StackPane alignment="center" styleClass="rootPane" xmlns="http://javafx.com/javafx/8.0.102-ea">
+<StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea">
 
     <VBox alignment="center" spacing="50">
 
@@ -21,10 +21,10 @@
                     <Image url="@../img/WIND_logo.png" />
                 </image>
             </ImageView>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="largeText">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
             Motto?motto?motto?motto?
         </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="largeText">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
             www.wind.gr
         </Text>
 
