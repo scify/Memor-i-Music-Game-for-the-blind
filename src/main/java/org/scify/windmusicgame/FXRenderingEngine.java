@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -28,7 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
-import org.scify.memori.interfaces.*;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
+import org.scify.windmusicgame.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -96,7 +97,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     private String[] endLevelStartingSounds = {"sound1.wav", "sound2.wav", "sound3.wav", "sound4.wav"};
     private String[] endLevelEndingSounds = {"sound1.wav", "sound2.wav", "sound3.wav", "sound4.wav"};
 
-    public FXRenderingEngine() {
+    private GameWithLevelsOptions gameWithLevelsOptions;
+
+    public FXRenderingEngine(GameOptions gameOptions) {
+        this.gameWithLevelsOptions = (GameWithLevelsOptions) gameOptions;
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/game.fxml"));
             introductorySounds.put(1, "level1IntroSound.wav");
@@ -252,19 +256,20 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
                             coords = (Point2D) currentGameEvent.parameters;
                             currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
-
-                            fxAudioEngine.playCardSound(currCard.getSound(), currentGameEvent.blocking);
+                            String cardSound = currCard.getRandomSound();
+                            if(cardSound != null)
+                                fxAudioEngine.playCardSound(cardSound, currentGameEvent.blocking);
                             listIterator.remove();
 
                         }
                         break;
                     case "CARD_DESCRIPTION":
                         if (new Date().getTime() > currentGameEvent.delay) {
-
                             coords = (Point2D) currentGameEvent.parameters;
                             currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
-
-                            fxAudioEngine.pauseAndPlaySound(currCard.getDescriptionSound(), currentGameEvent.blocking);
+                            String cardDescriptionSound = currCard.getDescriptionSound();
+                            if(cardDescriptionSound != null)
+                                fxAudioEngine.pauseAndPlaySound(cardDescriptionSound, currentGameEvent.blocking);
                             listIterator.remove();
 
                         }
@@ -275,7 +280,18 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             coords = (Point2D) currentGameEvent.parameters;
                             currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
                             Platform.runLater(() -> {
-                                currCard.flipUI();
+                                currCard.flipUI(0);
+                            });
+                            listIterator.remove();
+                        }
+                        break;
+                    case "flip_second":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            coords = (Point2D) currentGameEvent.parameters;
+                            currCard = (Card) currentState.getTerrain().getTile((int) coords.getX(), (int) coords.getY());
+                            Platform.runLater(() -> {
+                                currCard.flipUI(1);
                             });
                             listIterator.remove();
                         }
@@ -295,6 +311,13 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.playSuccessSound();
+                            listIterator.remove();
+                        }
+                        break;
+                    case "STOP_AUDIOS":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseCurrentlyPlayingAudios();
                             listIterator.remove();
                         }
                         break;

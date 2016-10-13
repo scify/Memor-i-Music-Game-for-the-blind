@@ -16,11 +16,12 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.scify.memori.interfaces.*;
+import org.scify.windmusicgame.helperClasses.TimeWatch;
+import org.scify.windmusicgame.interfaces.*;
 
 import java.awt.geom.Point2D;
 import java.time.LocalTime;
@@ -51,8 +52,8 @@ public class MemoriRules implements Rules {
     }
 
     @Override
-    public GameState getInitialState() {
-        return new MemoriGameState();
+    public GameState getInitialState(GameOptions gameOptions) {
+        return new MemoriGameState(gameOptions);
     }
 
     @Override
@@ -65,8 +66,8 @@ public class MemoriRules implements Rules {
         if(eventQueueContainsBlockingEvent(gsCurrentState)) {
             return gsCurrentState;
         }
-
-        handleLevelStartingGameEvents(gsCurrentState);
+        //TODO: uncomment
+        //handleLevelStartingGameEvents(gsCurrentState);
 
         //if a user action (eg Keyboard event was provided), handle the emitting Game events
         if(uaAction != null) {
@@ -193,7 +194,7 @@ public class MemoriRules implements Rules {
             MemoriTerrain memoriTerrain = (MemoriTerrain) (gsCurrentState.getTerrain());
             // currTile is the tile that was moved on or acted upon
             Tile currTile = memoriTerrain.getTile(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex());
-            System.out.println(currTile.getTileType());
+            System.out.println(currTile.getLabel());
             // Rules 1-4: Valid movement
             // type: movement, params: coords
             // delayed: false (zero), blocking:yes
@@ -308,8 +309,9 @@ public class MemoriRules implements Rules {
             flipTile(currTile);
             // push flip feedback event (delayed: false, blocking: no)
             gsCurrentState.getEventQueue().add(new GameEvent("flip", uaAction.getCoords()));
+            gsCurrentState.getEventQueue().add(new GameEvent("flip_second", uaAction.getCoords(), new Date().getTime() + 2000, false));
             gsCurrentState.getEventQueue().add(new GameEvent("DOOR_OPEN", uaAction.getCoords(), 0, true));
-            gsCurrentState.getEventQueue().add(new GameEvent("cardSound", uaAction.getCoords(), new Date().getTime() + 1200, false));
+            gsCurrentState.getEventQueue().add(new GameEvent("cardSound", uaAction.getCoords(), 0, false));
             if(MainOptions.TUTORIAL_MODE){
                 if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "FLIP_EXPLANATION")) {
                     //add FLIP_EXPLANATION event to queue
@@ -322,6 +324,8 @@ public class MemoriRules implements Rules {
             if(tileIsLastOfTuple(memoriTerrain, currTile)) {
                 // If last of n-tuple flipped (i.e. if we have enough cards flipped to form a tuple)
                 gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 4000, true));
+                // TODO: card description should only occur in a 20% chance.
+                // Also we should implement a search (maybe only one card in the winning tuple has a description
                 gsCurrentState.getEventQueue().add(new GameEvent("CARD_DESCRIPTION", uaAction.getCoords(), new Date().getTime() + 4500, true));
                 //if in tutorial mode, push explaining events
                 if(MainOptions.TUTORIAL_MODE) {
@@ -347,13 +351,13 @@ public class MemoriRules implements Rules {
                     memoriTerrain.resetOpenTiles();
                     for (Iterator<Point2D> iter = openTilesPoints.iterator(); iter.hasNext(); ) {
                         Point2D position = iter.next();
-                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 3500, false));
+                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 4000, false));
                     }
                     // Push failure feedback event
                     //gsCurrentState.getEventQueue().add(new GameEvent("failure", uaAction.getCoords(), new Date().getTime() + 1500, false));
-
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4000, false));
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4300, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 4100, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4200, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 4500, false));
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR"));
@@ -518,29 +522,43 @@ public class MemoriRules implements Rules {
      * @return true if one of the open tiles is different from the current tile
      */
     private boolean atLeastOneOtherTileIsDifferent(MemoriTerrain memoriTerrain, Tile currTile) {
+        CategorizedCard tileToCard = (CategorizedCard)currTile;
         boolean answer = false;
         for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
             Tile element = iter.next();
-            if(!Objects.equals(element.getTileType(), currTile.getTileType()))
+            CategorizedCard elementToCard = (CategorizedCard)element;
+            // if the current card is not equal with the given card
+            if(!cardsAreEqual(elementToCard, tileToCard))
                 answer = true;
         }
         return answer;
     }
 
     /**
+     * Checks if 2 given {@link CategorizedCard}s are equal (must be of different categories but be in the same equivalence card set)
+     * @param card1 the first {@link CategorizedCard}
+     * @param card2 the second {@link CategorizedCard}
+     * @return true if the 2 given cards are equal
+     */
+    private boolean cardsAreEqual(CategorizedCard card1, CategorizedCard card2) {
+        System.out.println("category1: " + card1.getCategory());
+        System.out.println("category2: " + card2.getCategory());
+        System.out.println("hash1: " + card1.getEquivalenceCardSetHashCode());
+        System.out.println("hash2: " + card2.getEquivalenceCardSetHashCode());
+        return !(card1.getCategory().equals(card2.getCategory())) && card1.getEquivalenceCardSetHashCode().equals(card2.getEquivalenceCardSetHashCode());
+    }
+
+    /**
      * Checks if the current tile is the last of the n-tuple
      * @param memoriTerrain the terrain holding all the tiles
      * @param currTile the current tile
-     * @return true is the current tile is the last of the n-tuple
+     * @return true if the current tile is the last of the n-tuple
      */
     private boolean tileIsLastOfTuple(MemoriTerrain memoriTerrain, Tile currTile) {
         boolean answer = false;
-        for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
-            Tile element = iter.next();
-            if(Objects.equals(element.getTileType(), currTile.getTileType()))
-                if(memoriTerrain.openTiles.size() == MainOptions.NUMBER_OF_OPEN_CARDS - 1)
-                    answer = true;
-        }
+        // if all cards in the open cards tuple are equal and we have reached the end of the tuple (2-cards, 3-cards etc)
+        if(!atLeastOneOtherTileIsDifferent(memoriTerrain, currTile) && (memoriTerrain.openTiles.size() == MainOptions.NUMBER_OF_OPEN_CARDS - 1))
+            answer = true;
         return answer;
     }
 
