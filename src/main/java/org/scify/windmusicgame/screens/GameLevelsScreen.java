@@ -34,12 +34,5 @@ public class GameLevelsScreen {
 
         controller.setParameters(sceneHandler, gameLevelsScene, gameOptions);
 
-        gameLevelsScene.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ESCAPE:
-                    sceneHandler.popScene();
-                    break;
-            }
-        });
     }
 }

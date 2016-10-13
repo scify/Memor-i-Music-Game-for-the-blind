@@ -29,26 +29,28 @@ import static javafx.scene.input.KeyCode.SPACE;
 public class GameLevelsScreenController {
 
     public VBox gameLevelsContainer;
+    public Button gameDescription;
 
     protected SceneHandler sceneHandler;
 
     protected FXAudioEngine audioEngine;
 
-    protected GameOptions gameOptions;
+    protected GameWithLevelsOptions gameOptions;
 
     public void setParameters(SceneHandler sceneHandler, Scene gameSelectionScene, GameWithLevelsOptions gameOptions) {
         audioEngine = new FXAudioEngine();
         this.sceneHandler = sceneHandler;
-        this.gameOptions = (GameOptions) gameOptions;
+        this.gameOptions = gameOptions;
         sceneHandler.pushScene(gameSelectionScene);
 
         gameSelectionScene.lookup("#gameDescription").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: play the game description sound
-                //audioEngine.pauseAndPlaySound("main_screen/welcome.wav", false);
+                audioEngine.pauseAndPlaySound(gameOptions.getGameDescriptionSound(), false);
             }
         });
         gameLevelsContainer = (VBox) gameSelectionScene.lookup("#gameLevels");
+        gameDescription = (Button) gameSelectionScene.lookup("#gameDescription");
+        gameDescription.setText(gameOptions.getGameDescription());
         addGameLevelButtons(gameLevelsContainer, gameOptions);
     }
 
@@ -57,19 +59,22 @@ public class GameLevelsScreenController {
         for (Map.Entry<Integer, Point2D> gameLevelToDimensions : gameLevelsToDimensions.entrySet()) {
             System.out.println(gameLevelToDimensions.getKey() + "/" + gameLevelToDimensions.getValue());
             Point2D levelDimensions = gameLevelToDimensions.getValue();
+
             Button gameLevelBtn = new Button();
             gameLevelBtn.setText((int)levelDimensions.getX() + "x" + (int)levelDimensions.getY());
             gameLevelBtn.getStyleClass().add("optionButton");
             gameLevelBtn.setId(gameLevelToDimensions.getKey().toString());
-            gameLevelBtn.setOnKeyTyped(new EventHandler<KeyEvent>() {
-                @Override
-                public void handle(KeyEvent event) {
-                    System.out.println(event.getCode());
-                    if(event.getCode() == SPACE){
-                        System.err.println(gameLevelToDimensions.getKey());
-                        MainOptions.gameLevel = gameLevelToDimensions.getKey();
-                        startNormalGame();
-                    }
+
+            gameLevelBtn.setOnKeyPressed(event -> {
+                System.out.println(event.getCode());
+                if(event.getCode() == SPACE){
+                    System.err.println(gameLevelToDimensions.getKey());
+                    MainOptions.gameLevel = gameLevelToDimensions.getKey();
+                    MainOptions.NUMBER_OF_ROWS = (int)levelDimensions.getX();
+                    MainOptions.NUMBER_OF_COLUMNS = (int)levelDimensions.getY();
+                    MainOptions.gameScoresFile = this.gameOptions.scoresFile;
+                    Thread thread = new Thread(() -> startNormalGame());
+                    thread.start();
                 }
             });
             buttonsContainer.getChildren().add(gameLevelBtn);
@@ -79,7 +84,7 @@ public class GameLevelsScreenController {
     private void startNormalGame() {
         audioEngine.pauseCurrentlyPlayingAudios();
         FXMemoriGame game = new FXMemoriGame(sceneHandler);
-        game.initialize();
+        game.initialize((GameOptions) gameOptions);
 
         // Run game in separate thread
         ExecutorService es  = Executors.newFixedThreadPool(1);
