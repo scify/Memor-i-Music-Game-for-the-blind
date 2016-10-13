@@ -15,13 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.scene.input.KeyEvent;
-import org.scify.memori.interfaces.GameEvent;
-import org.scify.memori.interfaces.GameState;
-import org.scify.memori.interfaces.Player;
-import org.scify.memori.interfaces.Terrain;
+import org.scify.windmusicgame.interfaces.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -56,8 +53,11 @@ public class MemoriGameState implements GameState {
     private int rowIndex = 0;
 
 
-    public MemoriGameState() {
-        terrain = new MemoriTerrain();
+    GameOptions gameOptions;
+
+    public MemoriGameState(GameOptions gameOptions) {
+        this.gameOptions = gameOptions;
+        terrain = new MemoriTerrain(gameOptions);
         pCurrent = new Player() {
             @Override
             public int getScore() {
@@ -69,8 +69,8 @@ public class MemoriGameState implements GameState {
     }
 
 
-    public MemoriGameState(Player pSinglePlayer) {
-        terrain = new MemoriTerrain();
+    public MemoriGameState(Player pSinglePlayer, GameOptions gameOptions) {
+        terrain = new MemoriTerrain(gameOptions);
         pCurrent = pSinglePlayer;
         iCurrentTurn = 0;
     }

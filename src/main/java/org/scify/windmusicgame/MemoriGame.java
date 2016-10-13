@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
-import org.scify.memori.interfaces.*;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
+import org.scify.windmusicgame.interfaces.*;
 
 
 public abstract class MemoriGame implements Game<Integer> {
@@ -43,12 +44,14 @@ public abstract class MemoriGame implements Game<Integer> {
      */
     RenderingEngine reRenderer;
 
+    GameOptions gameOptions;
 
     @Override
     /**
      * Subclasses should initialize a UI
      */
-    public void initialize() {
+    public void initialize(GameOptions gameOptions) {
+        this.gameOptions = gameOptions;
         rRules = new MemoriRules();
         // Example initialization
 //        RenderingEngine fUI = new FXRenderingEngine();
@@ -58,7 +61,7 @@ public abstract class MemoriGame implements Game<Integer> {
 
     @Override
     public Integer call() {
-        final GameState gsInitialState = rRules.getInitialState();
+        final GameState gsInitialState = rRules.getInitialState(gameOptions);
         reRenderer.drawGameState(gsInitialState); // Initialize UI layout
         // Run asyncronously
         GameState gsCurrentState = gsInitialState; // Init

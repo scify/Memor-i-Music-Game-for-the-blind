@@ -15,21 +15,22 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
+import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.interfaces.GameOptions;
 
 public class FXMemoriGame extends MemoriGame {
     protected SceneHandler sceneHandler;
-
 
     public FXMemoriGame(SceneHandler shSceneHandler) {
         this.sceneHandler = shSceneHandler;
     }
 
     @Override
-    public void initialize() {
-        super.initialize();
-        FXRenderingEngine fUI = new FXRenderingEngine();
+    public void initialize(GameOptions gameOptions) {
+        super.initialize(gameOptions);
+        FXRenderingEngine fUI = new FXRenderingEngine(gameOptions);
         uInterface = fUI;
         reRenderer = fUI;
 
