@@ -15,11 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.memori;
+package org.scify.windmusicgame;
 
 import javafx.scene.control.Button;
-import org.scify.memori.MainOptions;
-import org.scify.memori.interfaces.Tile;
+import org.scify.windmusicgame.interfaces.Tile;
 
 /**
  * Implements the {@link Tile} representation in the game.
@@ -34,11 +33,11 @@ public class Card implements Tile{
     /**
      * the type of the card. Cards with the same type are considered identical
      */
-    private String tileType;
+    private String label;
     /**
      * file name of the image associated with the card
      */
-    private String imgName;
+    private String[] images;
     /**
      * whether the Card has been flipped
      */
@@ -50,11 +49,15 @@ public class Card implements Tile{
     /**
      * file name of the sound associated with the card
      */
-    private String sound;
+    private String[] sounds;
     /**
      * file name of the card description sound
      */
-    private String descriptionSound;
+    private String cardNameSound;
+    /**
+     * file name of the card name sound
+     */
+    private String[] descriptiveSounds;
     /**
      *
      * @return the Node (Button) that is laid on the layout
@@ -89,25 +92,25 @@ public class Card implements Tile{
         return isFlipped;
     }
 
-    public Card(String id, String img, String soundFile, String description) {
-        imgName = img;
-        button = new Button();
-        sound = soundFile;
-        descriptionSound = description;
-        button.setId(id);
+    public Card(String label, String[] images, String[] sounds, String[] descriptiveSounds, String cardNameSound) {
+        this.images = images;
+        this.button = new Button();
+        this.sounds = sounds;
+        this.descriptiveSounds = descriptiveSounds;
+        this.cardNameSound = cardNameSound;
+        this.button.setId(label);
         // each card takes a dynamic height and width, based on the height and with of the screen
-        button.setPrefHeight((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS ) - ((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS) * 0.1));
-        button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS - ((MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS) * 0.1));
+        this.button.setPrefHeight((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS ) - ((MainOptions.mHeight/MainOptions.NUMBER_OF_ROWS) * 0.1));
+        this.button.setPrefWidth(MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS - ((MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS) * 0.1));
         // apply the appropriate style classes
-        button.getStyleClass().addAll("cardButton", "closedCard");
-        tileType = id;
-        isWon = false;
-        isFlipped = false;
+        this.button.getStyleClass().addAll("cardButton", "closedCard");
+        this.label = label;
+        this.isWon = false;
+        this.isFlipped = false;
     }
 
-    @Override
-    public String getTileType() {
-        return tileType;
+    public String getLabel() {
+        return label;
     }
 
 
@@ -118,11 +121,17 @@ public class Card implements Tile{
 
     /**
      * function to set the UI of the flipped card (change icons)
+     * @param imgIndex the index of the image
      */
-    public void flipUI() {
-        String imgFile = "/img/" + imgName;
-        button.setStyle("-fx-background-image: url(" + imgFile +")");
+    public void flipUI(int imgIndex) {
+        // only if this image exists
+        if(imgIndex < images.length) {
+            String imgFile = "/img/" + images[imgIndex];
+            button.setStyle("-fx-background-image: url(" + imgFile + ")");
+        }
     }
+
+
     /**
      * function to set the UI of the flipped back card (change icons)
      */
@@ -132,14 +141,22 @@ public class Card implements Tile{
     }
 
     /**
-     * Get the sound of the card
+     * Get a random sound from the card sounds
      * @return the sound file name associated with the card
      */
-    public String getSound() {
-        return sound;
+    public String getRandomSound() {
+        if(sounds.length != 0)
+            return sounds[random_int(0, sounds.length)];
+        return null;
     }
 
     public String getDescriptionSound() {
-        return descriptionSound;
+        if(descriptiveSounds.length != 0)
+            return descriptiveSounds[random_int(0, descriptiveSounds.length)];
+        return null;
+    }
+
+    private int random_int(int Min, int Max) {
+        return (int) (Math.random()*(Max-Min))+Min;
     }
 }
