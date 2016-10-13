@@ -31,7 +31,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "violin",
         "category": "item",
@@ -62,7 +63,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "harp",
         "category": "item",
@@ -93,7 +95,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "cello",
         "category": "item",
@@ -116,7 +119,7 @@
         "sounds": [
           "instrument_names/cello1.wav"
         ],
-        "nameSound":"",
+        "nameSound": "",
         "images": [
           "instrument_names/cello1.png",
           "instrument_names/cello2.png"
@@ -124,7 +127,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "flute",
         "category": "item",
@@ -147,7 +151,7 @@
         "sounds": [
           "instrument_names/flute1.wav"
         ],
-        "nameSound":"",
+        "nameSound": "",
         "images": [
           "instrument_names/flute1.png",
           "instrument_names/flute2.png"
@@ -155,7 +159,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "clarinet",
         "category": "item",
@@ -178,7 +183,7 @@
         "sounds": [
           "instrument_names/clarinet1.wav"
         ],
-        "nameSound":"",
+        "nameSound": "",
         "images": [
           "instrument_names/clarinet1.png",
           "instrument_names/clarinet2.png"
@@ -186,7 +191,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "oboe",
         "category": "item",
@@ -217,7 +223,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "trumpet",
         "category": "item",
@@ -248,7 +255,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "trombone",
         "category": "item",
@@ -279,7 +287,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "timpani",
         "category": "item",
@@ -310,7 +319,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "snare",
         "category": "item",
@@ -341,7 +351,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "xylophone",
         "category": "item",
@@ -372,7 +383,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "cymbal",
         "category": "item",
@@ -403,7 +415,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "piano",
         "category": "item",
@@ -434,7 +447,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "cembalo",
         "category": "item",
@@ -465,7 +479,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "organ",
         "category": "item",
@@ -496,7 +511,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "double-bass",
         "category": "item",
@@ -527,7 +543,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "fagotto",
         "category": "item",
@@ -558,7 +575,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "saxophone",
         "category": "item",
@@ -589,7 +607,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "french-horn",
         "category": "item",
@@ -620,7 +639,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "tuba",
         "category": "item",
@@ -651,7 +671,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "glockenspiel",
         "category": "item",
@@ -682,7 +703,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "elguitar",
         "category": "item",
@@ -713,7 +735,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "harmonium",
         "category": "item",
@@ -744,7 +767,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "marimba",
         "category": "item",
@@ -775,7 +799,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "accordion",
         "category": "item",
@@ -806,7 +831,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "drums",
         "category": "item",
@@ -837,7 +863,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "oud",
         "category": "item",
@@ -868,7 +895,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "triangle",
         "category": "item",
@@ -899,7 +927,8 @@
         "descriptiveSounds": [
         ]
       }
-    ],[
+    ],
+    [
       {
         "label": "flogera",
         "category": "item",
