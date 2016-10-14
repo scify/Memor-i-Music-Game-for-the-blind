@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
 <StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea">
 
@@ -15,19 +14,14 @@
         <Text styleClass="sponsorTextBig" >
             Το μουσικό παιχνίδι Memor-i υλοποιήθηκε από τη SciFY με την ευγενική υποστήριξη της εταιρείας τηλεπικοινωνιών WIND.
         </Text>
-        <HBox alignment="CENTER_RIGHT">
-            <padding><Insets top="0" right="125" bottom="25" left="25"/></padding>
-            <Text textAlignment="RIGHT" styleClass="sponsorTextBig">
-                Την ευχαριστούμε!
-            </Text>
-        </HBox>
+        <padding><Insets top="0" right="0" bottom="25" left="25"/></padding>
         <ImageView styleClass="logoImage" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/WIND_logo.png" />
             </image>
         </ImageView>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
-            Motto?motto?motto?motto?
+            Για περισσότερες πληροφορίες σχετικά με τη WIND επισκεφθείτε το
         </Text>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
             www.wind.gr

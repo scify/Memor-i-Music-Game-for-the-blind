@@ -24,6 +24,8 @@
         <VBox alignment="center" fx:id="gameLevels">
 
         </VBox>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="Το σκορ μου σε κάθε επίπεδο" fx:id="scores"
+                onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Επιστροφή" fx:id="back"
                 onKeyPressed="#backToMainScreen"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit"
