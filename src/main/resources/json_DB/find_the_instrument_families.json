@@ -190,6 +190,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
+          "instrument_families/strings.wav"
         ],
         "nameSound": "",
         "images": [
@@ -234,7 +235,9 @@
         "label": "percussion",
         "category": "instrument_family",
         "unique": false,
-        "sounds": [],
+        "sounds": [
+          "instrument_families/percussion.wav"
+        ],
         "images": [
           "instrument_families/percussion1.png",
           "instrument_families/percussion2.png"
@@ -376,7 +379,9 @@
         "label": "inflatables_copper",
         "category": "instrument_family",
         "unique": false,
-        "sounds": [],
+        "sounds": [
+          "instrument_families/inflatable_copper.wav"
+        ],
         "nameSound": "",
         "images": [
           "instrument_families/inflatables_copper1.png",
@@ -420,7 +425,9 @@
         "label": "inflatables_wooden",
         "category": "instrument_family",
         "unique": false,
-        "sounds": [],
+        "sounds": [
+          "instrument_families/inflatable_wooden.wav"
+        ],
         "nameSound": "",
         "images": [
           "instrument_families/inflatables_wooden1.png",
@@ -478,7 +485,9 @@
         "label": "percussion_membrane",
         "category": "instrument_family",
         "unique": false,
-        "sounds": [],
+        "sounds": [
+          "instrument_families/percussion_membrane.wav"
+        ],
         "images": [
           "instrument_families/percussion_membrane1.png",
           "instrument_families/percussion_membrane2.png"
