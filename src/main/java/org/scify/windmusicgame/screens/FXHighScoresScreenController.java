@@ -1,12 +1,12 @@
 /**
  * Copyright 2016 SciFY.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -89,15 +89,15 @@ public class FXHighScoresScreenController {
             Point2D levelDimensions = gameLevelToDimensions.getValue();
 
             Button gameLevelBtn = new Button();
-            gameLevelBtn.setText((int)levelDimensions.getX() + "x" + (int)levelDimensions.getY());
+            gameLevelBtn.setText((int) levelDimensions.getX() + "x" + (int) levelDimensions.getY());
             gameLevelBtn.getStyleClass().add("optionButton");
             gameLevelBtn.setId(gameLevelToDimensions.getKey().toString());
 
             gameLevelBtn.setOnKeyPressed(event -> {
-                if(event.getCode() == SPACE){
+                if (event.getCode() == SPACE) {
                     System.err.println(gameLevelToDimensions.getKey());
                     MainOptions.gameScoresFile = this.gameOptions.scoresFile;
-                    parseHighScore(event);
+                    parseHighScore(gameLevelToDimensions.getKey());
                 }
             });
 
@@ -112,59 +112,42 @@ public class FXHighScoresScreenController {
     }
 
     /**
-     * Depending on the button clicked, the Main options (number of columns and rows) are initialized and a new game starts
-     * @param evt the keyboard event
+     * Fetch the score for a given game level
+     * @param gameLevel the game level
      */
     @FXML
-    protected void parseHighScore(KeyEvent evt) {
+    protected void parseHighScore(int gameLevel) {
 
-        if (evt.getCode() == SPACE) {
-            int level = 0;
-            if (evt.getSource() == level1) {
-                level = 1;
-            } else if (evt.getSource() == level2) {
-                level = 2;
-            } else if (evt.getSource() == level3) {
-                level = 3;
-            } else if(evt.getSource() == level4) {
-                level = 4;
-            } else if(evt.getSource() == level5) {
-                level = 5;
-            } else if(evt.getSource() == level6) {
-                level = 6;
-            } else if(evt.getSource() == level7) {
-                level = 7;
+        System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(gameLevel));
+        String timestampStr = highScoreHandler.getHighScoreForLevel(gameLevel);
+        // if there is a score in this level (ie if score is nt null)
+        // play relevant audio clips
+        // else play informative audio clip prompting to play the score
+        if (timestampStr != null) {
+            String[] tokens = timestampStr.split(":");
+            int minutes = Integer.parseInt(tokens[1]);
+            int seconds = Integer.parseInt(tokens[2]);
+            if (minutes != 0) {
+                audioEngine.playNumSound(minutes);
+                System.out.println("minutes: " + minutes);
+                if (minutes > 1)
+                    audioEngine.pauseAndPlaySound("game_effects/minutes.wav", true);
+                else
+                    audioEngine.pauseAndPlaySound("game_effects/minute.wav", true);
             }
-            System.err.println("high score: " + highScoreHandler.getHighScoreForLevel(level));
-            String timestampStr = highScoreHandler.getHighScoreForLevel(level);
-            // if there is a score in this level (ie if score is nt null)
-            // play relevant audio clips
-            // else play informative audio clip prompting to play the score
-            if(timestampStr != null) {
-                String[] tokens = timestampStr.split(":");
-                int minutes = Integer.parseInt(tokens[1]);
-                int seconds = Integer.parseInt(tokens[2]);
-                if (minutes != 0) {
-                    audioEngine.playNumSound(minutes);
-                    System.out.println("minutes: " + minutes);
-                    if(minutes > 1)
-                        audioEngine.pauseAndPlaySound("game_effects/minutes.wav", true);
-                    else
-                        audioEngine.pauseAndPlaySound("game_effects/minute.wav", true);
-                }
-                if(minutes != 0 && seconds != 0)
-                    audioEngine.pauseAndPlaySound("game_effects/and.wav", true);
-                if (seconds != 0) {
-                    audioEngine.playNumSound(seconds);
-                    if(seconds > 1)
-                        audioEngine.pauseAndPlaySound("game_effects/seconds.wav", true);
-                    else
-                        audioEngine.pauseAndPlaySound("game_effects/second.wav", true);
-                }
-            } else {
-                audioEngine.pauseAndPlaySound("no_score.wav", false);
+            if (minutes != 0 && seconds != 0)
+                audioEngine.pauseAndPlaySound("game_effects/and.wav", true);
+            if (seconds != 0) {
+                audioEngine.playNumSound(seconds);
+                if (seconds > 1)
+                    audioEngine.pauseAndPlaySound("game_effects/seconds.wav", true);
+                else
+                    audioEngine.pauseAndPlaySound("game_effects/second.wav", true);
             }
+        } else {
+            audioEngine.pauseAndPlaySound("no_score.wav", false);
         }
+
     }
 
     /**
