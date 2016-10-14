@@ -55,6 +55,12 @@ public class GameLevelsScreenController {
             }
         });
 
+        gameSelectionScene.lookup("#scores").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/my_scores.wav", false);
+            }
+        });
+
         gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
                 audioEngine.pauseAndPlaySound("game_levels_screen_sounds/back.wav", false);
@@ -169,6 +175,13 @@ public class GameLevelsScreenController {
         if (evt.getCode() == SPACE) {
             audioEngine.pauseCurrentlyPlayingAudios();
             sceneHandler.popScene();
+        }
+    }
+
+    public void myScores(KeyEvent keyEvent) {
+        audioEngine.pauseCurrentlyPlayingAudios();
+        if (keyEvent.getCode() == SPACE) {
+            new FXHighScoresScreen(sceneHandler, (GameOptions) this.gameOptions);
         }
     }
 }

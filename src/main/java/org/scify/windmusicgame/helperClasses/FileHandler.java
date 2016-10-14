@@ -34,11 +34,6 @@ import java.util.*;
  */
 public class FileHandler {
 
-    /**
-     * The file that the high scores get stored
-     */
-    private String propertiesFile = MainOptions.gameScoresFile;
-
 
     public ArrayList<JSONObject> getCardsFromJSONFile(GameOptions gameOptions) {
 
@@ -150,7 +145,7 @@ public class FileHandler {
         String highScore = "";
         Properties prop = new Properties();
 
-        File scoresFile = new File(propertiesFile);
+        File scoresFile = new File(MainOptions.gameScoresFile);
         try {
             if(!scoresFile.exists())
                 scoresFile.createNewFile();
@@ -168,7 +163,7 @@ public class FileHandler {
         String highScore = "";
         Properties prop = new Properties();
 
-        File scoresFile = new File(propertiesFile);
+        File scoresFile = new File(MainOptions.gameScoresFile);
         try {
             if(!scoresFile.exists())
                 scoresFile.createNewFile();
@@ -186,7 +181,7 @@ public class FileHandler {
 
         Properties props = new Properties();
 
-        File scoresFile = new File(propertiesFile);
+        File scoresFile = new File(MainOptions.gameScoresFile);
         try {
             if(!scoresFile.exists())
                 scoresFile.createNewFile();
