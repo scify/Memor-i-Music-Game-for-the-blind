@@ -72,7 +72,7 @@ public class SponsorsScreen{
                         sceneHandler.popScene();
                     }
                 },
-                8000
+                12000
         );
     }
 

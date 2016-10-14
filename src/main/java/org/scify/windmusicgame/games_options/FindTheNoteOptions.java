@@ -29,6 +29,14 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         introductorySounds.put(5, "game2/level5IntroSound.wav");
         introductorySounds.put(6, "game2/level6IntroSound.wav");
         introductorySounds.put(7, "game2/level7IntroSound.wav");
+
+        gameLevelSounds.put(1, "game_levels_screen_sounds/2x3.wav");
+        gameLevelSounds.put(2, "game_levels_screen_sounds/2x4.wav");
+        gameLevelSounds.put(3, "game_levels_screen_sounds/3x4.wav");
+        gameLevelSounds.put(4, "game_levels_screen_sounds/4x4.wav");
+        gameLevelSounds.put(5, "game_levels_screen_sounds/4x5.wav");
+        gameLevelSounds.put(6, "game_levels_screen_sounds/4x6.wav");
+        gameLevelSounds.put(7, "game_levels_screen_sounds/5x6.wav");
     }
 
     @Override

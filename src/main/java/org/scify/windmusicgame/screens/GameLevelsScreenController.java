@@ -48,6 +48,13 @@ public class GameLevelsScreenController {
                 audioEngine.pauseAndPlaySound(gameOptions.getGameDescriptionSound(), false);
             }
         });
+
+        gameSelectionScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/tutorial.wav", false);
+            }
+        });
+
         gameLevelsContainer = (VBox) gameSelectionScene.lookup("#gameLevels");
         gameDescription = (Button) gameSelectionScene.lookup("#gameDescription");
         gameDescription.setText(gameOptions.getGameDescription());
@@ -66,7 +73,6 @@ public class GameLevelsScreenController {
             gameLevelBtn.setId(gameLevelToDimensions.getKey().toString());
 
             gameLevelBtn.setOnKeyPressed(event -> {
-                System.out.println(event.getCode());
                 if(event.getCode() == SPACE){
                     System.err.println(gameLevelToDimensions.getKey());
                     MainOptions.gameLevel = gameLevelToDimensions.getKey();
@@ -77,6 +83,13 @@ public class GameLevelsScreenController {
                     thread.start();
                 }
             });
+
+            gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+                if (newPropertyValue) {
+                    audioEngine.pauseAndPlaySound(this.gameOptions.getGameLevelSounds().get(gameLevelToDimensions.getKey()), false);
+                }
+            });
+
             buttonsContainer.getChildren().add(gameLevelBtn);
         }
     }

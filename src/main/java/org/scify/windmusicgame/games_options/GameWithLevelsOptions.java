@@ -35,6 +35,15 @@ public class GameWithLevelsOptions {
     protected Map<Integer, String> introductorySounds = new HashMap<>();
 
     /**
+     * Each game level has an description sound associated with it
+     */
+    protected Map<Integer, String> gameLevelSounds = new HashMap<>();
+
+    public Map<Integer, String> getGameLevelSounds() {
+        return gameLevelSounds;
+    }
+
+    /**
      * The DB representation that the game Cards are stored in (in our case, a JSON file).
      */
     protected String cardsDBRepresentation;

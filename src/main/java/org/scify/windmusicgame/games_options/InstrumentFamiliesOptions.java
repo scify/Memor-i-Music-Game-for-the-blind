@@ -18,6 +18,13 @@ public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements 
         gameLevelToDimensions.put(4, new Point2D.Double(4,4));
         gameLevelToDimensions.put(5, new Point2D.Double(4,5));
         gameLevelToDimensions.put(6, new Point2D.Double(4,6));
+
+        gameLevelSounds.put(1, "game_levels_screen_sounds/2x3.wav");
+        gameLevelSounds.put(2, "game_levels_screen_sounds/2x4.wav");
+        gameLevelSounds.put(3, "game_levels_screen_sounds/3x4.wav");
+        gameLevelSounds.put(4, "game_levels_screen_sounds/4x4.wav");
+        gameLevelSounds.put(5, "game_levels_screen_sounds/4x5.wav");
+        gameLevelSounds.put(6, "game_levels_screen_sounds/4x6.wav");
     }
 
     @Override

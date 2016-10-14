@@ -33,8 +33,7 @@ public class GameSelectionScreenController {
 
         gameSelectionScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                //TODO: uncomment
-                //audioEngine.pauseAndPlaySound("main_screen/welcome.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/welcome.wav", false);
             }
         });
     }
