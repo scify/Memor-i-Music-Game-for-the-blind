@@ -48,6 +48,24 @@ public class WelcomeScreenController {
                 audioEngine.pauseAndPlaySound("main_screen/headphones_adjustment.wav", false);
             }
         });
+
+        primaryScene.lookup("#gameSelection").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/game_selection.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/sponsor.wav", false);
+            }
+        });
+
+        primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("main_screen/exit.wav", false);
+            }
+        });
     }
 
 

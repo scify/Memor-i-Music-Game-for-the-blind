@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 
 import java.io.IOException;
@@ -35,7 +36,8 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
 public class SponsorsScreen{
 
     protected SceneHandler sceneHandler;
-    Timer timer = new Timer();;
+    Timer timer = new Timer();
+    FXAudioEngine audioEngine = new FXAudioEngine();
     public SponsorsScreen(SceneHandler shSceneHandler, Stage mainWindow) {
         this.sceneHandler = shSceneHandler;
         sceneHandler.setMainWindow(mainWindow);
@@ -46,7 +48,7 @@ public class SponsorsScreen{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        audioEngine.pauseAndPlaySound("sponsor_screen/sponsor_message.wav", false);
         Scene sponsorsScene = new Scene(root, mWidth, mHeight);
         sceneHandler.pushScene(sponsorsScene);
 
@@ -55,6 +57,7 @@ public class SponsorsScreen{
                 case ESCAPE:
                     timer.cancel();
                     timer.purge();
+                    audioEngine.pauseCurrentlyPlayingAudios();
                     sceneHandler.popScene();
                     break;
             }
@@ -65,6 +68,7 @@ public class SponsorsScreen{
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
+                        audioEngine.pauseCurrentlyPlayingAudios();
                         sceneHandler.popScene();
                     }
                 },
