@@ -67,7 +67,7 @@ StackPane {
 
 .optionButton {
     -fx-pref-width: 400px;
-    -fx-pref-height: 70px;
+    -fx-pref-height: 60px;
     -fx-font-family: Ubuntu;
     -fx-font-size: 220%;
     -fx-padding: 4px;
