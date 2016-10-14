@@ -138,8 +138,8 @@ public class GameLevelsScreenController {
                     MainOptions.TUTORIAL_MODE = false;
                     startNormalGame();
                 }
-//                else
-//                    loadNextLevelForNormalGame();
+                else
+                    loadNextLevelForNormalGame();
 
             } else if(result == 3) //play same level again
             {
@@ -153,6 +153,20 @@ public class GameLevelsScreenController {
             e.printStackTrace();
         }
 
+    }
+
+
+    private void loadNextLevelForNormalGame() {
+        MainOptions.gameLevel++;
+        Point2D nextLevelDimensions = gameOptions.getGameLevelToDimensions().get(MainOptions.gameLevel);
+        System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
+        if(nextLevelDimensions != null) {
+            MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();
+            MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
+            startNormalGame();
+        } else {
+            sceneHandler.popScene();
+        }
     }
 
     /**
