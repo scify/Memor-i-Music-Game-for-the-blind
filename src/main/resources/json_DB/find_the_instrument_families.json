@@ -218,6 +218,20 @@
         ]
       },
       {
+        "label": "glockenspiel",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instruments/glockenspiel1.wav"
+        ],
+        "nameSound": "instrument_names/glockenspiel.wav",
+        "images": [
+          "instruments/glockenspiel1.jpg"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
         "label": "cymbal",
         "category": "item",
         "unique": true,
@@ -361,20 +375,7 @@
         "descriptiveSounds": [
         ]
       },
-      {
-        "label": "glockenspiel",
-        "category": "item",
-        "unique": true,
-        "sounds": [
-          "instruments/glockenspiel1.wav"
-        ],
-        "nameSound": "instrument_names/glockenspiel.wav",
-        "images": [
-          "instruments/glockenspiel1.jpg"
-        ],
-        "descriptiveSounds": [
-        ]
-      },
+
       {
         "label": "inflatables_copper",
         "category": "instrument_family",
@@ -389,7 +390,7 @@
         ],
         "descriptiveSounds": [
         ],
-        "arity": 5
+        "arity": 8
       }
     ],
     [
