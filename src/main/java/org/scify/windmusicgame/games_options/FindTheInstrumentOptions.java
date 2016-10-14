@@ -68,7 +68,7 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         scoresFile = "find_instrument_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΟΡΓΑΝΟ";
         cardsDBRepresentation = "json_DB/find_the_instrument.json";
-        gameDescriptionSound = "game_levels_screen_sounds/find_instrument.mp3";
+        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_description.wav";
         initializeGameLevels();
         initializeGameIntroductorySounds();
         initializeGameStoryLineSounds();

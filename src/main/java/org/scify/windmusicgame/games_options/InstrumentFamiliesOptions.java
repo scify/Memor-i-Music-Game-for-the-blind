@@ -56,7 +56,7 @@ public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements 
         scoresFile = "find_instrument_families_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΟΡΓΑΝΟΥ";
         cardsDBRepresentation = "json_DB/find_the_instrument_families.json";
-        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_family.mp3";
+        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_families_description.wav";
         initializeGameLevels();
         initializeGameIntroductorySounds();
         initializeGameStoryLineSounds();

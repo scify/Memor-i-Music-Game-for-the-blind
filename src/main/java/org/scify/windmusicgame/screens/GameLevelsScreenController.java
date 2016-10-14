@@ -55,6 +55,18 @@ public class GameLevelsScreenController {
             }
         });
 
+        gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/back.wav", false);
+            }
+        });
+
+        gameSelectionScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                audioEngine.pauseAndPlaySound("exit.wav", false);
+            }
+        });
+
         gameLevelsContainer = (VBox) gameSelectionScene.lookup("#gameLevels");
         gameDescription = (Button) gameSelectionScene.lookup("#gameDescription");
         gameDescription.setText(gameOptions.getGameDescription());
@@ -155,6 +167,7 @@ public class GameLevelsScreenController {
     @FXML
     protected void backToMainScreen(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
+            audioEngine.pauseCurrentlyPlayingAudios();
             sceneHandler.popScene();
         }
     }

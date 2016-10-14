@@ -26,7 +26,7 @@
         </VBox>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="Επιστροφή" fx:id="back"
                 onKeyPressed="#backToMainScreen"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="sponsors"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit"
                 onKeyPressed="#exitGame"/>
     </VBox>
 
