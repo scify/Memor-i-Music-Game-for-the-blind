@@ -6,12 +6,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/guitar1.wav"
+          "instruments/guitar1.mp3"
         ],
         "nameSound": "instrument_names/guitar.wav",
         "images": [
-          "instruments/guitar1.jpg",
-          "instruments/guitar2.jpg"
+          "instruments/guitar1.png",
+          "instruments/guitar2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -21,12 +21,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/violin1.wav"
+          "instruments/violin1.mp3"
         ],
         "nameSound": "instrument_names/violin.wav",
         "images": [
-          "instruments/violin1.jpg",
-          "instruments/violin2.jpg"
+          "instruments/violin1.png",
+          "instruments/violin2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -36,11 +36,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/cello1.wav"
+          "instruments/cello1.mp3"
         ],
         "nameSound": "instrument_names/cello.wav",
         "images": [
-          "instruments/cello1.jpg"
+          "instruments/cello1.png",
+          "instruments/cello2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -50,11 +51,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/harp1.wav"
+          "instruments/harp1.mp3"
         ],
         "nameSound": "instrument_names/harp.wav",
         "images": [
-          "instruments/harp1.jpg"
+          "instruments/harp1.png",
+          "instruments/harp2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -64,7 +66,7 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/piano1.wav"
+          "instruments/piano1.mp3"
         ],
         "nameSound": "instrument_names/piano.wav",
         "images": [
@@ -78,11 +80,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/double-bass1.wav"
+          "instruments/double-bass1.mp3"
         ],
         "nameSound": "instrument_names/double-bass.wav",
         "images": [
-          "instruments/double-bass1.jpg"
+          "instruments/double-bass1.png",
+          "instruments/double-bass2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -92,11 +95,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/organ1.wav"
+          "instruments/organ1.mp3"
         ],
         "nameSound": "instrument_names/organ.wav",
         "images": [
-          "instruments/organ1.jpg"
+          "instruments/organ1.png",
+          "instruments/organ2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -106,11 +110,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/cembalo1.wav"
+          "instruments/cembalo1.mp3"
         ],
         "nameSound": "instrument_names/cembalo.wav",
         "images": [
-          "instruments/cembalo1.jpg"
+          "instruments/cembalo1.png",
+          "instruments/cembalo2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -120,11 +125,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/harmonium1.wav"
+          "instruments/harmonium1.mp3"
         ],
         "nameSound": "instrument_names/harmonium.wav",
         "images": [
-          "instruments/harmonium1.jpg"
+          "instruments/harmonium1.jpg",
+          "instruments/harmonium2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -134,11 +140,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/elguitar1.wav"
+          "instruments/elguitar1.mp3"
         ],
         "nameSound": "instrument_names/elguitar.wav",
         "images": [
-          "instruments/elguitar1.jpg"
+          "instruments/elguitar1.png",
+          "instruments/elguitar2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -148,11 +155,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/accordion1.wav"
+          "instruments/accordion1.mp3"
         ],
         "nameSound": "instrument_names/accordion.wav",
         "images": [
-          "instruments/accordion1.jpg"
+          "instruments/accordion1.png",
+          "instruments/accordion2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -162,11 +170,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/oud1.wav"
+          "instruments/oud1.mp3"
         ],
         "nameSound": "instrument_names/oud.wav",
         "images": [
-          "instruments/oud1.jpg"
+          "instruments/oud1.png",
+          "instruments/oud2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -176,11 +185,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/marimba1.wav"
+          "instruments/marimba1.mp3"
         ],
         "nameSound": "instrument_names/marimba.wav",
         "images": [
-          "instruments/marimba1.png"
+          "instruments/marimba1.png",
+          "instruments/marimba2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -208,11 +218,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/triangle1.wav"
+          "instruments/triangle1.mp3"
         ],
         "nameSound": "instrument_names/triangle.wav",
         "images": [
-          "instruments/triangle1.jpg"
+          "instruments/triangle1.png",
+          "instruments/triangle2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -222,11 +233,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/glockenspiel1.wav"
+          "instruments/glockenspiel1.mp3"
         ],
         "nameSound": "instrument_names/glockenspiel.wav",
         "images": [
-          "instruments/glockenspiel1.jpg"
+          "instruments/glockenspiel1.png",
+          "instruments/glockenspiel2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -236,11 +248,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/cymbal1.wav"
+          "instruments/cymbal1.mp3"
         ],
         "nameSound": "instrument_names/cymbal.wav",
         "images": [
-          "instruments/cymbal1.jpg"
+          "instruments/cymbal1.png",
+          "instruments/cymbal2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -268,11 +281,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/clarinet1.wav"
+          "instruments/clarinet1.mp3"
         ],
         "nameSound": "instrument_names/clarinet.wav",
         "images": [
-          "instruments/clarinet1.jpg"
+          "instruments/clarinet1.jpg",
+          "instruments/clarinet2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -282,11 +296,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/oboe1.wav"
+          "instruments/oboe1.mp3"
         ],
         "nameSound": "instrument_names/oboe.wav",
         "images": [
-          "instruments/oboe1.jpg"
+          "instruments/oboe1.png",
+          "instruments/oboe2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -296,11 +311,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/trumpet1.wav"
+          "instruments/trumpet1.mp3"
         ],
         "nameSound": "instrument_names/trumpet.wav",
         "images": [
-          "instruments/trumpet1.jpg"
+          "instruments/trumpet1.png",
+          "instruments/trumpet2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -310,11 +326,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/trombone1.wav"
+          "instruments/trombone1.mp3"
         ],
         "nameSound": "instrument_names/trombone.wav",
         "images": [
-          "instruments/trombone1.jpg"
+          "instruments/trombone1.jpg",
+          "instruments/trombone2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -324,11 +341,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/fagotto1.wav"
+          "instruments/fagotto1.mp3"
         ],
         "nameSound": "instrument_names/fagotto.wav",
         "images": [
-          "instruments/fagotto1.jpg"
+          "instruments/fagotto1.png",
+          "instruments/fagotto2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -342,7 +360,8 @@
         ],
         "nameSound": "instrument_names/saxophone.wav",
         "images": [
-          "instruments/saxophone1.jpg"
+          "instruments/saxophone1.png",
+          "instruments/saxophone2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -352,11 +371,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/french-horn1.wav"
+          "instruments/french-horn1.mp3"
         ],
         "nameSound": "instrument_names/french-horn.wav",
         "images": [
-          "instruments/french-horn1.png"
+          "instruments/french-horn1.png",
+          "instruments/french-horn2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -366,11 +386,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/tuba1.wav"
+          "instruments/tuba1.mp3"
         ],
         "nameSound": "instrument_names/tuba.wav",
         "images": [
-          "instruments/tuba1.jpg"
+          "instruments/tuba1.png",
+          "instruments/tuba2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -399,11 +420,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/flute1.wav"
+          "instruments/flute1.mp3"
         ],
         "nameSound": "instrument_names/flute.wav",
         "images": [
-          "instruments/flute1.jpg"
+          "instruments/flute1.png",
+          "instruments/flute2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -413,11 +435,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/flogera1.wav"
+          "instruments/flogera1.mp3"
         ],
         "nameSound": "instrument_names/flogera.wav",
         "images": [
-          "instruments/flogera1.jpg"
+          "instruments/flogera1.png",
+          "instruments/flogera2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -445,11 +468,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/snare1.wav"
+          "instruments/snare1.mp3"
         ],
         "nameSound": "instrument_names/snare.wav",
         "images": [
-          "instruments/snare1.png"
+          "instruments/snare1.png",
+          "instruments/snare2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -459,11 +483,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/timpani1.wav"
+          "instruments/timpani1.mp3"
         ],
         "nameSound": "instrument_names/timpani.wav",
         "images": [
-          "instruments/timpani1.jpg"
+          "instruments/timpani1.png",
+          "instruments/timpani2.png"
         ],
         "descriptiveSounds": [
         ]
@@ -473,11 +498,12 @@
         "category": "item",
         "unique": true,
         "sounds": [
-          "instruments/drums1.wav"
+          "instruments/drums1.mp3"
         ],
         "nameSound": "instrument_names/drums.wav",
         "images": [
-          "instruments/drums1.jpg"
+          "instruments/drums1.png",
+          "instruments/drums2.png"
         ],
         "descriptiveSounds": [
         ]
