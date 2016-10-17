@@ -9,7 +9,11 @@ import java.io.IOException;
  * Created by pisaris on 17/10/2016.
  */
 public class SponsorScreenController {
-    public void openLink(MouseEvent keyEvent) {
+    /**
+     * Opens a link to the sponsor page
+     * @param event the mouse event
+     */
+    public void openSponsorLink(MouseEvent event) {
         try {
             new ProcessBuilder("x-www-browser", "https://www.wind.gr").start();
         } catch (IOException e) {

@@ -25,7 +25,7 @@
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
             Για περισσότερες πληροφορίες σχετικά με τη WIND επισκεφθείτε το
         </Text>
-        <Text styleClass="sponsorTextBig, linkText" onMouseClicked="#openLink">www.wind.gr</Text>
+        <Text styleClass="sponsorTextBig, linkText" onMouseClicked="#openSponsorLink">www.wind.gr</Text>
 
     </VBox>
     <stylesheets>
