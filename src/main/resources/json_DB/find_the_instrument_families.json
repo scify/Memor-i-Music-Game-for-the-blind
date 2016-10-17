@@ -129,7 +129,7 @@
         ],
         "nameSound": "instrument_names/harmonium.wav",
         "images": [
-          "instruments/harmonium1.jpg",
+          "instruments/harmonium1.png",
           "instruments/harmonium2.png"
         ],
         "descriptiveSounds": [
@@ -285,7 +285,7 @@
         ],
         "nameSound": "instrument_names/clarinet.wav",
         "images": [
-          "instruments/clarinet1.jpg",
+          "instruments/clarinet1.png",
           "instruments/clarinet2.png"
         ],
         "descriptiveSounds": [
@@ -330,7 +330,7 @@
         ],
         "nameSound": "instrument_names/trombone.wav",
         "images": [
-          "instruments/trombone1.jpg",
+          "instruments/trombone1.png",
           "instruments/trombone2.png"
         ],
         "descriptiveSounds": [
