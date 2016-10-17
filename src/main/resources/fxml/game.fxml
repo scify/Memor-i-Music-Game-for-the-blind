@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
 <?import java.net.URL?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
 <GridPane styleClass="rootPane" alignment="center" hgap="1" vgap="1" xmlns="http://javafx.com/javafx/8.0.102-ea">
     <stylesheets>
         <URL value="@/css/style.css" />

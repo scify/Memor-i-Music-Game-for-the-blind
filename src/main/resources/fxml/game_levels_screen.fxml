@@ -13,7 +13,14 @@
     <HBox alignment="BOTTOM_RIGHT" spacing="5" styleClass="logoContainer">
         <ImageView styleClass="logoImage" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/WIND_logo.png" />
+                <Image url="@../img/WIND_logo_white.png" />
+            </image>
+        </ImageView>
+    </HBox>
+    <HBox alignment="BOTTOM_LEFT" spacing="5" styleClass="logoContainer">
+        <ImageView styleClass="logoImage" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/Powered_by_SciFY.png" />
             </image>
         </ImageView>
     </HBox>
