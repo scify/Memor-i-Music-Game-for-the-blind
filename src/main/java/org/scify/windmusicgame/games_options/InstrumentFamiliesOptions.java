@@ -6,6 +6,7 @@ import java.awt.geom.Point2D;
 
 /**
  * Game Options class for the First game (associate all instruments with their families)
+ * This Class describes the option variables for "Find the instrument family" game
  * Created by pisaris on 11/10/2016.
  */
 public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements GameOptions {

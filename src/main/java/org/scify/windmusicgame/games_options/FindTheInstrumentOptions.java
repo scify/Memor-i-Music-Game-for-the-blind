@@ -5,6 +5,7 @@ import org.scify.windmusicgame.interfaces.GameOptions;
 import java.awt.geom.Point2D;
 
 /**
+ * This Class describes the option variables for "Find the instrument" game
  * Created by pisaris on 11/10/2016.
  */
 public class FindTheInstrumentOptions extends GameWithLevelsOptions implements GameOptions{

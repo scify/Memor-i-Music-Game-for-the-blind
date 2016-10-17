@@ -105,6 +105,11 @@ public class FileHandler {
         return cardsList;
     }
 
+    /**
+     * given a JSONArray of card objects, assign a unique hash code (for the equivalence set) to each card.
+     * @param cardSets the set of cards
+     * @return the set of cards with the hash codes
+     */
     private JSONArray assignHashCodesToCardsSets(JSONArray cardSets) {
         Iterator it = cardSets.iterator();
         while(it.hasNext()) {
@@ -119,6 +124,11 @@ public class FileHandler {
         return cardSets;
     }
 
+    /**
+     * Given a set of equivalence sets, get the shuffled set.
+     * @param rootObject the set of equivalence sets
+     * @return the shuffled set
+     */
     public JSONArray getEquivalenceCardSets(JSONObject rootObject) {
         JSONArray cardSets = rootObject.getJSONArray("equivalence_card_sets"); // Get all JSONArray rows
         // shuffle the rows (we want the cards to be in a random order)
@@ -126,6 +136,12 @@ public class FileHandler {
         return cardSets;
     }
 
+    /**
+     * Shuffle a JSONArray and return it.
+     * @param array the initial JSONArray
+     * @return the shuffled JSONArray
+     * @throws JSONException
+     */
     public static JSONArray shuffleJsonArray (JSONArray array) throws JSONException {
         // Implementing Fisher–Yates shuffle
         Random rnd = new Random();
@@ -140,7 +156,10 @@ public class FileHandler {
         return array;
     }
 
-
+    /**
+     * Reads the current high score for the current game level and the current game.
+     * @return the high score (can be null if no high score)
+     */
     public String readHighScoreForCurrentLevel() {
         String highScore = "";
         Properties prop = new Properties();
@@ -159,6 +178,11 @@ public class FileHandler {
         return highScore;
     }
 
+    /**
+     * Reads the current high score for a given game level and the current game.
+     * @param level the given game level (1,2,... etc)
+     * @return the high score (can be null if no high score)
+     */
     public String readHighScoreForLevel(String level) {
         String highScore = "";
         Properties prop = new Properties();
@@ -177,6 +201,10 @@ public class FileHandler {
         return highScore;
     }
 
+    /**
+     * Sets a given high score for the current game level and the current game.
+     * @param highScore the high score to be set.
+     */
     public void setHighScoreForLevel (String highScore) {
 
         Properties props = new Properties();
@@ -193,10 +221,20 @@ public class FileHandler {
         }
     }
 
+    /**
+     * Produce a random integer in [Min - Max) set
+     * @param Min the minimum number
+     * @param Max the maximum number
+     * @return a random integer in [Min - Max)
+     */
     private int random_int(int Min, int Max) {
         return (int) (Math.random()*(Max-Min))+Min;
     }
 
+    /**
+     * Produces a random String.
+     * @return a random String object
+     */
     private String randomString() {
         SecureRandom random = new SecureRandom();
         return new BigInteger(130, random).toString(32);
