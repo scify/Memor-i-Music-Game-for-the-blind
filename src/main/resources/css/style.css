@@ -138,7 +138,7 @@ StackPane {
 
 .sponsorTextBig {
     -fx-font-family: Ubuntu;
-    -fx-max-width: 500px;
+    -fx-max-width: 300px;
     -fx-wrap-text: true;
     -fx-font-size: 220%;
     -fx-padding: 15px;

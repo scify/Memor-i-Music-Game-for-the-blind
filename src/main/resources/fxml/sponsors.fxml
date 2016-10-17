@@ -11,8 +11,8 @@
 
     <VBox alignment="center" spacing="50">
 
-        <Text styleClass="sponsorTextBig" >
-            Το μουσικό παιχνίδι Memor-i υλοποιήθηκε από τη SciFY με την ευγενική υποστήριξη της εταιρείας τηλεπικοινωνιών WIND.
+        <Text styleClass="sponsorTextBig" style="-fx-max-width: 100px">
+            Το μουσικό παιχνίδι Memor-i υλοποιήθηκε με την ευγενική υποστήριξη της εταιρείας τηλεπικοινωνιών WIND.
         </Text>
         <padding><Insets top="0" right="0" bottom="25" left="25"/></padding>
         <ImageView styleClass="logoImage" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
@@ -20,10 +20,9 @@
                 <Image url="@../img/WIND_logo.png" />
             </image>
         </ImageView>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
-            Για περισσότερες πληροφορίες σχετικά με τη WIND επισκεφθείτε το
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig, linkText" onMouseClicked="#openSponsorLink">
+            Για περισσότερες πληροφορίες σχετικά με τη WIND επισκεφθείτε το www.wind.gr
         </Text>
-        <Text styleClass="sponsorTextBig, linkText" onMouseClicked="#openSponsorLink">www.wind.gr</Text>
 
     </VBox>
     <stylesheets>
