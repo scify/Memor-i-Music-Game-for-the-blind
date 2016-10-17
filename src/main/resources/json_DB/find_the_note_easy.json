@@ -1,0 +1,236 @@
+{
+  "equivalence_card_sets": [
+    [
+      {
+        "label": "A",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/A2.mp3",
+          "single_notes/Piano/A2.mp3",
+          "single_notes/Violin/A2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "A_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/C.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/A1.png",
+          "single_notes/A2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ], [
+      {
+        "label": "B",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/B2.mp3",
+          "single_notes/Piano/B2.mp3",
+          "single_notes/Violin/B2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "B_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/B.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/B1.png",
+          "single_notes/B2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ],[
+      {
+        "label": "C",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/C2.mp3",
+          "single_notes/Piano/C2.mp3",
+          "single_notes/Violin/C2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "C_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/C.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/C1.png",
+          "single_notes/C2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ], [
+      {
+        "label": "D",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/D2.mp3",
+          "single_notes/Piano/D2.mp3",
+          "single_notes/Violin/D2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "D_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/D.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/D1.png",
+          "single_notes/D2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ], [
+      {
+        "label": "E",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/E2.mp3",
+          "single_notes/Piano/E2.mp3",
+          "single_notes/Violin/E2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "E_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/E.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/E1.png",
+          "single_notes/E2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ], [
+      {
+        "label": "F",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/F2.mp3",
+          "single_notes/Piano/F2.mp3",
+          "single_notes/Violin/F2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "F_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/F.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/F1.png",
+          "single_notes/F2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ], [
+      {
+        "label": "G",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "single_notes/Guitar/G2.mp3",
+          "single_notes/Piano/G2.mp3",
+          "single_notes/Violin/G2.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/note_questionmark1.png",
+          "single_notes/note_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      },
+      {
+        "label": "G_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "single_notes_names/G.wav"
+        ],
+        "nameSound": "",
+        "images": [
+          "single_notes/G1.png",
+          "single_notes/G2.png"
+        ],
+        "descriptiveSounds": [
+        ]
+      }
+    ]
+  ]
+}
