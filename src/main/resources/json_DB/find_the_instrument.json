@@ -21,7 +21,7 @@
         "category": "item_name",
         "unique": true,
         "sounds": [
-          "instrument_names/guitar_name1.wav"
+          "instrument_names/guitar.wav"
         ],
         "nameSound": "",
         "images": [

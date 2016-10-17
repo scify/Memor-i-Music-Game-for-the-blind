@@ -17,7 +17,6 @@
 
 package org.scify.windmusicgame;
 
-import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.interfaces.*;
 
 
