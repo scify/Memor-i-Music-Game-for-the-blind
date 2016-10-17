@@ -7,7 +7,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
-<StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea">
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Button?>
+<StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.windmusicgame.screens.SponsorScreenController">
 
     <VBox alignment="center" spacing="50">
 
@@ -23,9 +25,7 @@
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
             Για περισσότερες πληροφορίες σχετικά με τη WIND επισκεφθείτε το
         </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig">
-            www.wind.gr
-        </Text>
+        <Text styleClass="sponsorTextBig, linkText" onMouseClicked="#openLink">www.wind.gr</Text>
 
     </VBox>
     <stylesheets>
