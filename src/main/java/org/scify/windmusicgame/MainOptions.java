@@ -18,7 +18,7 @@
 package org.scify.windmusicgame;
 
 /**
- * Class that implements all options. Has only static variables and methods.
+ * Class that implements all public game options. Has only static variables and methods.
  * Purpose of the class is to make all options relevant constants (current level, terrain size)
  * available through all classes.
  */
