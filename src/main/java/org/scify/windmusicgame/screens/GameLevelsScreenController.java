@@ -10,11 +10,15 @@ import javafx.scene.layout.VBox;
 import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.FXMemoriGame;
 import org.scify.windmusicgame.MainOptions;
+import org.scify.windmusicgame.MemoriGameLevel;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -80,20 +84,23 @@ public class GameLevelsScreenController {
     }
 
     private void addGameLevelButtons(VBox buttonsContainer, GameWithLevelsOptions gameOpts) {
-        Map<Integer, Point2D> gameLevelsToDimensions = gameOpts.getGameLevelToDimensions();
-        for (Map.Entry<Integer, Point2D> gameLevelToDimensions : gameLevelsToDimensions.entrySet()) {
-            System.out.println(gameLevelToDimensions.getKey() + "/" + gameLevelToDimensions.getValue());
-            Point2D levelDimensions = gameLevelToDimensions.getValue();
+        List<MemoriGameLevel> allLevels = gameOpts.getGameLevels();
+        Map<Integer, Point2D> gameLevelsToDimensions = new HashMap<>();
+        for(MemoriGameLevel gameLevel: allLevels) {
+            gameLevelsToDimensions.put(gameLevel.getLevelCode(), gameLevel.getDimensions());
+        }
+
+        for(MemoriGameLevel gameLevel: allLevels) {
+            Point2D levelDimensions = gameLevel.getDimensions();
 
             Button gameLevelBtn = new Button();
             gameLevelBtn.setText((int)levelDimensions.getX() + "x" + (int)levelDimensions.getY());
             gameLevelBtn.getStyleClass().add("optionButton");
-            gameLevelBtn.setId(gameLevelToDimensions.getKey().toString());
+            gameLevelBtn.setId(gameLevel.getDimensions().toString());
 
             gameLevelBtn.setOnKeyPressed(event -> {
                 if(event.getCode() == SPACE){
-                    System.err.println(gameLevelToDimensions.getKey());
-                    MainOptions.gameLevel = gameLevelToDimensions.getKey();
+                    MainOptions.gameLevel = gameLevel.getLevelCode();
                     MainOptions.NUMBER_OF_ROWS = (int)levelDimensions.getX();
                     MainOptions.NUMBER_OF_COLUMNS = (int)levelDimensions.getY();
                     MainOptions.gameScoresFile = this.gameOptions.scoresFile;
@@ -104,7 +111,7 @@ public class GameLevelsScreenController {
 
             gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue) {
-                    audioEngine.pauseAndPlaySound(this.gameOptions.getGameLevelSounds().get(gameLevelToDimensions.getKey()), false);
+                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false);
                 }
             });
 
@@ -158,7 +165,8 @@ public class GameLevelsScreenController {
 
     private void loadNextLevelForNormalGame() {
         MainOptions.gameLevel++;
-        Point2D nextLevelDimensions = gameOptions.getGameLevelToDimensions().get(MainOptions.gameLevel);
+        MemoriGameLevel nextLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
+        Point2D nextLevelDimensions = nextLevel.getDimensions();
         System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
         if(nextLevelDimensions != null) {
             MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();

@@ -24,11 +24,14 @@ import javafx.scene.layout.VBox;
 import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.HighScoreHandler;
 import org.scify.windmusicgame.MainOptions;
+import org.scify.windmusicgame.MemoriGameLevel;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static javafx.scene.input.KeyCode.SPACE;
@@ -83,7 +86,11 @@ public class FXHighScoresScreenController {
     }
 
     private void addGameLevelButtons(VBox buttonsContainer, GameWithLevelsOptions gameOpts) {
-        Map<Integer, Point2D> gameLevelsToDimensions = gameOpts.getGameLevelToDimensions();
+        List<MemoriGameLevel> allLevels = gameOpts.getGameLevels();
+        Map<Integer, Point2D> gameLevelsToDimensions = new HashMap<>();
+        for(MemoriGameLevel gameLevel: allLevels) {
+            gameLevelsToDimensions.put(gameLevel.getLevelCode(), gameLevel.getDimensions());
+        }
         for (Map.Entry<Integer, Point2D> gameLevelToDimensions : gameLevelsToDimensions.entrySet()) {
             System.out.println(gameLevelToDimensions.getKey() + "/" + gameLevelToDimensions.getValue());
             Point2D levelDimensions = gameLevelToDimensions.getValue();
@@ -102,8 +109,9 @@ public class FXHighScoresScreenController {
             });
 
             gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+                MemoriGameLevel currLevel = this.gameOptions.getGameLevels().get(gameLevelToDimensions.getKey());
                 if (newPropertyValue) {
-                    audioEngine.pauseAndPlaySound(this.gameOptions.getGameLevelSounds().get(gameLevelToDimensions.getKey()), false);
+                    audioEngine.pauseAndPlaySound(currLevel.getIntroScreenSound(), false);
                 }
             });
 

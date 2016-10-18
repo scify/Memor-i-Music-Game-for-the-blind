@@ -7,7 +7,6 @@ package org.scify.windmusicgame.interfaces;
 public interface GameOptions {
 
     void initializeGameLevels();
-    void initializeGameIntroductorySounds();
     void initializeGameStoryLineSounds();
 
     String getDBRespresenation();
