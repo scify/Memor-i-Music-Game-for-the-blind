@@ -3,3 +3,4 @@ target/
 *.properties
 out
 src/test/
+push_to_testing.sh
