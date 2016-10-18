@@ -47,7 +47,7 @@ public class FileHandler {
         int randomNumber;
         Scanner scanner = null;
         int cardCount = 0;
-        MemoriGameLevel gameLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
+        MemoriGameLevel gameLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel - 1);
         try {
             scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream(gameLevel.getJSONDBFileForLevel())));
             String jsonStr = scanner.useDelimiter("\\A").next();
