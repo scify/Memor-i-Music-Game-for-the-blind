@@ -14,7 +14,8 @@
           "instruments/guitar2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "violin",
@@ -29,7 +30,8 @@
           "instruments/violin2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cello",
@@ -44,7 +46,8 @@
           "instruments/cello2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "harp",
@@ -59,7 +62,8 @@
           "instruments/harp2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "piano",
@@ -73,7 +77,8 @@
           "instruments/piano1.jpg"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "double-bass",
@@ -88,7 +93,8 @@
           "instruments/double-bass2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "organ",
@@ -103,7 +109,8 @@
           "instruments/organ2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cembalo",
@@ -118,7 +125,8 @@
           "instruments/cembalo2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "harmonium",
@@ -133,7 +141,8 @@
           "instruments/harmonium2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "elguitar",
@@ -148,7 +157,8 @@
           "instruments/elguitar2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "accordion",
@@ -163,7 +173,8 @@
           "instruments/accordion2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "oud",
@@ -178,7 +189,8 @@
           "instruments/oud2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "marimba",
@@ -193,7 +205,8 @@
           "instruments/marimba2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "strings",
@@ -209,7 +222,8 @@
         ],
         "descriptiveSounds": [
         ],
-        "arity": 5
+        "arity": 5,
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -226,7 +240,8 @@
           "instruments/triangle2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "glockenspiel",
@@ -241,7 +256,8 @@
           "instruments/glockenspiel2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cymbal",
@@ -256,7 +272,8 @@
           "instruments/cymbal2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "percussion",
@@ -272,7 +289,8 @@
         "nameSound": "",
         "descriptiveSounds": [
         ],
-        "arity": 4
+        "arity": 4,
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -289,7 +307,8 @@
           "instruments/clarinet2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "oboe",
@@ -304,7 +323,8 @@
           "instruments/oboe2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "trumpet",
@@ -319,7 +339,8 @@
           "instruments/trumpet2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "trombone",
@@ -334,7 +355,8 @@
           "instruments/trombone2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "fagotto",
@@ -349,7 +371,8 @@
           "instruments/fagotto2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "saxophone",
@@ -364,7 +387,8 @@
           "instruments/saxophone2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "french-horn",
@@ -379,7 +403,8 @@
           "instruments/french-horn2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "tuba",
@@ -394,7 +419,8 @@
           "instruments/tuba2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
 
       {
@@ -411,7 +437,8 @@
         ],
         "descriptiveSounds": [
         ],
-        "arity": 8
+        "arity": 8,
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -428,7 +455,8 @@
           "instruments/flute2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "flogera",
@@ -443,7 +471,8 @@
           "instruments/flogera2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "inflatables_wooden",
@@ -459,7 +488,8 @@
         ],
         "descriptiveSounds": [
         ],
-        "arity": 2
+        "arity": 2,
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -476,7 +506,8 @@
           "instruments/snare2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "timpani",
@@ -491,7 +522,8 @@
           "instruments/timpani2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "drums",
@@ -506,7 +538,8 @@
           "instruments/drums2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "percussion_membrane",
@@ -522,7 +555,8 @@
         "nameSound": "",
         "descriptiveSounds": [
         ],
-        "arity": 4
+        "arity": 4,
+        "equivalenceCardSetHashCode":""
       }
     ]
   ]

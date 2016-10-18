@@ -16,7 +16,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "A_name",
@@ -31,7 +32,8 @@
           "single_notes/A2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ], [
       {
@@ -49,7 +51,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "B_name",
@@ -64,7 +67,8 @@
           "single_notes/B2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],[
       {
@@ -82,7 +86,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "C_name",
@@ -97,7 +102,8 @@
           "single_notes/C2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ], [
       {
@@ -115,7 +121,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "D_name",
@@ -130,7 +137,8 @@
           "single_notes/D2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ], [
       {
@@ -148,7 +156,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "E_name",
@@ -163,7 +172,8 @@
           "single_notes/E2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ], [
       {
@@ -181,7 +191,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "F_name",
@@ -196,7 +207,8 @@
           "single_notes/F2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ], [
       {
@@ -214,7 +226,8 @@
           "single_notes/note_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "G_name",
@@ -229,7 +242,8 @@
           "single_notes/G2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ]
   ]

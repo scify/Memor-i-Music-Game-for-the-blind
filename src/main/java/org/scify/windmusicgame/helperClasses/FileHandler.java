@@ -118,7 +118,8 @@ public class FileHandler {
             Iterator itCards = currSet.iterator();
             while(itCards.hasNext()) {
                 JSONObject currCard = (JSONObject) itCards.next();
-                currCard.put("equivalenceCardSetHashCode", equivalenceCardSetHashCode);
+                if(currCard.get("equivalenceCardSetHashCode").equals(""))
+                    currCard.put("equivalenceCardSetHashCode", equivalenceCardSetHashCode);
             }
         }
         return cardSets;

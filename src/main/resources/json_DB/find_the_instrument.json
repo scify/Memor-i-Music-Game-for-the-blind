@@ -14,7 +14,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "guitar_name",
@@ -29,7 +30,8 @@
           "instrument_names/guitar2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -46,7 +48,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "violin_name",
@@ -61,7 +64,8 @@
           "instrument_names/violin2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -78,7 +82,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "harp_name",
@@ -93,7 +98,8 @@
           "instrument_names/harp2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -110,7 +116,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cello_name",
@@ -125,7 +132,8 @@
           "instrument_names/cello2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -142,7 +150,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "flute_name",
@@ -157,7 +166,8 @@
           "instrument_names/flute2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -174,7 +184,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "clarinet_name",
@@ -189,7 +200,8 @@
           "instrument_names/clarinet2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -206,7 +218,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "oboe_name",
@@ -221,7 +234,8 @@
           "instrument_names/oboe2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -238,7 +252,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "trumpet_name",
@@ -253,7 +268,8 @@
           "instrument_names/trumpet2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -270,7 +286,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "trombone_name",
@@ -285,7 +302,8 @@
           "instrument_names/trombone2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -302,7 +320,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "timpani_name",
@@ -317,7 +336,8 @@
           "instrument_names/timpani2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -334,7 +354,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "snare_name",
@@ -349,7 +370,8 @@
           "instrument_names/snare2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -366,7 +388,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "xylophone_name",
@@ -381,7 +404,8 @@
           "instrument_names/xylophone2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -398,7 +422,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cymbal_name",
@@ -413,7 +438,8 @@
           "instrument_names/cymbal2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -430,7 +456,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "piano_name",
@@ -445,7 +472,8 @@
           "instrument_names/piano2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -462,7 +490,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "cembalo_name",
@@ -477,7 +506,8 @@
           "instrument_names/cembalo2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -494,7 +524,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "organ_name",
@@ -509,7 +540,8 @@
           "instrument_names/organ2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -526,7 +558,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "double-bass_name",
@@ -541,7 +574,8 @@
           "instrument_names/double-bass2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -558,7 +592,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "fagotto_name",
@@ -573,7 +608,8 @@
           "instrument_names/fagotto2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -590,7 +626,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "saxophone_name",
@@ -605,7 +642,8 @@
           "instrument_names/saxophone2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -622,7 +660,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "french-horn_name",
@@ -637,7 +676,8 @@
           "instrument_names/french-horn2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -654,7 +694,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "tuba_name",
@@ -669,7 +710,8 @@
           "instrument_names/tuba2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -686,7 +728,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "glockenspiel_name",
@@ -701,7 +744,8 @@
           "instrument_names/glockenspiel2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -718,7 +762,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "elguitar_name",
@@ -733,7 +778,8 @@
           "instrument_names/elguitar2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -750,7 +796,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "harmonium_name",
@@ -765,7 +812,8 @@
           "instrument_names/harmonium2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -782,7 +830,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "marimba_name",
@@ -797,7 +846,8 @@
           "instrument_names/marimba2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -814,7 +864,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "accordion_name",
@@ -829,7 +880,8 @@
           "instrument_names/accordion2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -846,7 +898,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "drums_name",
@@ -861,7 +914,8 @@
           "instrument_names/drums2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -878,7 +932,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "oud_name",
@@ -893,7 +948,8 @@
           "instrument_names/oud2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -910,7 +966,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "triangle_name",
@@ -925,7 +982,8 @@
           "instrument_names/triangle2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ],
     [
@@ -942,7 +1000,8 @@
           "instruments/instrument_questionmark2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       },
       {
         "label": "flogera_name",
@@ -957,7 +1016,8 @@
           "instrument_names/flogera2.png"
         ],
         "descriptiveSounds": [
-        ]
+        ],
+        "equivalenceCardSetHashCode":""
       }
     ]
   ]
