@@ -2,13 +2,15 @@
   "equivalence_card_sets": [
     [
       {
-        "label": "A",
+        "label": "A2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/A2.mp3",
           "single_notes/Piano/A2.mp3",
-          "single_notes/Violin/A2.mp3"
+          "single_notes/Violin/A2.mp3",
+          "single_notes/Trumpet/A2.mp3",
+          "single_notes/Xylophone/A2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -37,13 +39,15 @@
       }
     ], [
       {
-        "label": "B",
+        "label": "B2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/B2.mp3",
           "single_notes/Piano/B2.mp3",
-          "single_notes/Violin/B2.mp3"
+          "single_notes/Violin/B2.mp3",
+          "single_notes/Trumpet/B2.mp3",
+          "single_notes/Xylophone/B2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -72,13 +76,15 @@
       }
     ],[
       {
-        "label": "C",
+        "label": "C2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/C2.mp3",
           "single_notes/Piano/C2.mp3",
-          "single_notes/Violin/C2.mp3"
+          "single_notes/Violin/C2.mp3",
+          "single_notes/Trumpet/C2.mp3",
+          "single_notes/Xylophone/C2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -107,13 +113,15 @@
       }
     ], [
       {
-        "label": "D",
+        "label": "D2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/D2.mp3",
           "single_notes/Piano/D2.mp3",
-          "single_notes/Violin/D2.mp3"
+          "single_notes/Violin/D2.mp3",
+          "single_notes/Trumpet/D2.mp3",
+          "single_notes/Xylophone/D2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -142,13 +150,15 @@
       }
     ], [
       {
-        "label": "E",
+        "label": "E2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/E2.mp3",
           "single_notes/Piano/E2.mp3",
-          "single_notes/Violin/E2.mp3"
+          "single_notes/Violin/E2.mp3",
+          "single_notes/Trumpet/E2.mp3",
+          "single_notes/Xylophone/E2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -177,13 +187,15 @@
       }
     ], [
       {
-        "label": "F",
+        "label": "F2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/F2.mp3",
           "single_notes/Piano/F2.mp3",
-          "single_notes/Violin/F2.mp3"
+          "single_notes/Violin/F2.mp3",
+          "single_notes/Trumpet/F2.mp3",
+          "single_notes/Xylophone/F2.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -212,13 +224,15 @@
       }
     ], [
       {
-        "label": "G",
+        "label": "G2",
         "category": "item",
         "unique": true,
         "sounds": [
           "single_notes/Guitar/G2.mp3",
           "single_notes/Piano/G2.mp3",
-          "single_notes/Violin/G2.mp3"
+          "single_notes/Violin/G2.mp3",
+          "single_notes/Trumpet/G2.mp3",
+          "single_notes/Xylophone/G2.mp3"
         ],
         "nameSound": "",
         "images": [
