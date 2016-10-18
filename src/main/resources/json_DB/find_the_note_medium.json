@@ -44,7 +44,7 @@
       {
         "label": "A_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/C.wav"
         ],
@@ -102,7 +102,7 @@
       {
         "label": "B_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/B.wav"
         ],
@@ -160,7 +160,7 @@
       {
         "label": "C_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/C.wav"
         ],
@@ -218,7 +218,7 @@
       {
         "label": "D_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/D.wav"
         ],
@@ -276,7 +276,7 @@
       {
         "label": "E_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/E.wav"
         ],
@@ -334,7 +334,7 @@
       {
         "label": "F_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/F.wav"
         ],
@@ -392,7 +392,7 @@
       {
         "label": "G_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/G.wav"
         ],

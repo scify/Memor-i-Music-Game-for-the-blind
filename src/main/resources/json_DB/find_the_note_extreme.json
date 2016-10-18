@@ -40,11 +40,11 @@
         "descriptiveSounds": [
         ],
         "equivalenceCardSetHashCode":""
-      },,
+      },
       {
         "label": "A_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/C.wav"
         ],
@@ -101,7 +101,7 @@
       {
         "label": "B_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/B.wav"
         ],
@@ -158,7 +158,7 @@
       {
         "label": "C_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/C.wav"
         ],
@@ -215,7 +215,7 @@
       {
         "label": "D_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/D.wav"
         ],
@@ -272,7 +272,7 @@
       {
         "label": "E_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/E.wav"
         ],
@@ -329,7 +329,7 @@
       {
         "label": "F_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/F.wav"
         ],
@@ -382,11 +382,11 @@
         "descriptiveSounds": [
         ],
         "equivalenceCardSetHashCode":""
-      },,
+      },
       {
         "label": "G_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/G.wav"
         ],
@@ -442,7 +442,7 @@
       {
         "label": "Ab_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/Ab.wav"
         ],
@@ -498,7 +498,7 @@
       {
         "label": "Bb_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/Bb.wav"
         ],
@@ -554,7 +554,7 @@
       {
         "label": "C#_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/C#.wav"
         ],
@@ -610,7 +610,7 @@
       {
         "label": "D#_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/D#.wav"
         ],
@@ -666,7 +666,7 @@
       {
         "label": "F#_name",
         "category": "item_name",
-        "unique": true,
+        "unique": false,
         "sounds": [
           "single_notes_names/F#.wav"
         ],
