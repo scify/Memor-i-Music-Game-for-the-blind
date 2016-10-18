@@ -85,10 +85,6 @@ public class GameLevelsScreenController {
 
     private void addGameLevelButtons(VBox buttonsContainer, GameWithLevelsOptions gameOpts) {
         List<MemoriGameLevel> allLevels = gameOpts.getGameLevels();
-        Map<Integer, Point2D> gameLevelsToDimensions = new HashMap<>();
-        for(MemoriGameLevel gameLevel: allLevels) {
-            gameLevelsToDimensions.put(gameLevel.getLevelCode(), gameLevel.getDimensions());
-        }
 
         for(MemoriGameLevel gameLevel: allLevels) {
             Point2D levelDimensions = gameLevel.getDimensions();
