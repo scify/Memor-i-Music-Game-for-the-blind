@@ -56,10 +56,6 @@ public class GameWithLevelsOptions {
      */
     protected Map<Integer, String> storyLineSounds = new HashMap<>();
 
-    /**
-     * The DB representation that the game Cards are stored in (in our case, a JSON file).
-     */
-    protected String cardsDBRepresentation;
     public String scoresFile;
 
     public String getGameDescription() {

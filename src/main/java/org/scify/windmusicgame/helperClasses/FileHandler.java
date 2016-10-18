@@ -21,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.scify.windmusicgame.MainOptions;
+import org.scify.windmusicgame.MemoriGameLevel;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.io.*;
@@ -35,7 +37,7 @@ import java.util.*;
 public class FileHandler {
 
 
-    public ArrayList<JSONObject> getCardsFromJSONFile(GameOptions gameOptions) {
+    public ArrayList<JSONObject> getCardsFromJSONFile(GameWithLevelsOptions gameOptions) {
 
         ArrayList<JSONObject> cardsList = new ArrayList<>();
         // cardsListTemp will hold the read cards from the current equivalence card set.
@@ -45,8 +47,9 @@ public class FileHandler {
         int randomNumber;
         Scanner scanner = null;
         int cardCount = 0;
+        MemoriGameLevel gameLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
         try {
-            scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream(gameOptions.getDBRespresenation())));
+            scanner = new Scanner( new InputStreamReader(getClass().getClassLoader().getResourceAsStream(gameLevel.getJSONDBFileForLevel())));
             String jsonStr = scanner.useDelimiter("\\A").next();
 
             JSONObject rootObject = new JSONObject(jsonStr); // Parse the JSON to a JSONObject

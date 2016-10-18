@@ -32,13 +32,13 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
     public void initializeGameLevels() {
 
         gameLevels = new ArrayList<>();
-        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "game1/level1IntroSound.wav", "game_levels_screen_sounds/2x3.wav"));
-        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "game1/level2IntroSound.wav", "game_levels_screen_sounds/2x4.wav"));
-        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "game1/level3IntroSound.wav", "game_levels_screen_sounds/3x4.wav"));
-        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "game1/level4IntroSound.wav", "game_levels_screen_sounds/4x4.wav"));
-        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "game1/level5IntroSound.wav", "game_levels_screen_sounds/4x5.wav"));
-        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "game1/level6IntroSound.wav", "game_levels_screen_sounds/4x6.wav"));
-        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "game1/level7IntroSound.wav", "game_levels_screen_sounds/5x6.wav"));
+        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "game1/level1IntroSound.wav", "game_levels_screen_sounds/2x3.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "game1/level2IntroSound.wav", "game_levels_screen_sounds/2x4.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "game1/level3IntroSound.wav", "game_levels_screen_sounds/3x4.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "game1/level4IntroSound.wav", "game_levels_screen_sounds/4x4.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "game1/level5IntroSound.wav", "game_levels_screen_sounds/4x5.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "game1/level6IntroSound.wav", "game_levels_screen_sounds/4x6.wav", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "game1/level7IntroSound.wav", "game_levels_screen_sounds/5x6.wav", "json_DB/find_the_note_easy.json"));
 
     }
 
@@ -53,15 +53,9 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         storyLineSounds.put(7, "game2/storyLine7.wav");
     }
 
-    @Override
-    public String getDBRespresenation() {
-        return cardsDBRepresentation;
-    }
-
     public FindTheNoteOptions() {
         scoresFile = ".find_note_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΗ ΝΟΤΑ";
-        cardsDBRepresentation = "json_DB/find_the_note_easy.json";
         gameDescriptionSound = "game_levels_screen_sounds/find_note_description.wav";
         initializeGameLevels();
         initializeGameStoryLineSounds();

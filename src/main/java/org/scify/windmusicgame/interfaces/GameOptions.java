@@ -8,6 +8,4 @@ public interface GameOptions {
 
     void initializeGameLevels();
     void initializeGameStoryLineSounds();
-
-    String getDBRespresenation();
 }

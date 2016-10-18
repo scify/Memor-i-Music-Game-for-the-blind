@@ -28,12 +28,21 @@ public class MemoriGameLevel implements GameLevel {
      */
     protected String introScreenSound;
 
+    /**
+     * Each game level may have a dedicated JSON file for getting {@link Card}s
+     */
+    protected String JSONDBFileForLevel;
 
-    public MemoriGameLevel(int levelCode, Point2D dimensions, String introSound, String introScreenSound) {
+    public MemoriGameLevel(int levelCode, Point2D dimensions, String introSound, String introScreenSound, String JSONDBFileForLevel) {
         this.levelCode = levelCode;
         this.dimensions = dimensions;
         this.introSound = introSound;
         this.introScreenSound = introScreenSound;
+        this.JSONDBFileForLevel = JSONDBFileForLevel;
+    }
+
+    public String getJSONDBFileForLevel() {
+        return JSONDBFileForLevel;
     }
 
     public int getLevelCode() {

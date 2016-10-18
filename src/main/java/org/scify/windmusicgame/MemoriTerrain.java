@@ -19,6 +19,7 @@ package org.scify.windmusicgame;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.helperClasses.FileHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 import org.scify.windmusicgame.interfaces.Terrain;
@@ -81,7 +82,7 @@ public class MemoriTerrain implements Terrain {
         //Preparing the JSON parser class
         FileHandler parser = new FileHandler();
         //read the cards from the JSON file
-        cardsList = parser.getCardsFromJSONFile(gameOptions);
+        cardsList = parser.getCardsFromJSONFile((GameWithLevelsOptions) gameOptions);
         Iterator it = cardsList.iterator();
         while(it.hasNext()) {
             JSONObject currObj = (JSONObject) it.next();
