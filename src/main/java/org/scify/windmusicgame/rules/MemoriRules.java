@@ -16,10 +16,11 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.rules;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.scify.windmusicgame.*;
 import org.scify.windmusicgame.helperClasses.TimeWatch;
 import org.scify.windmusicgame.interfaces.*;
 
@@ -150,12 +151,12 @@ public class MemoriRules implements Rules {
                 if(uaAction.getActionType().equals("enter")) {
                     //the game should finish and load a next level
                     gsCurrentState.replayLevel = true;
-                    gsCurrentState.gameFinished = true;
+                    gsCurrentState.setGameFinished(true);
                 }
                 if(uaAction.getActionType().equals("flip")) {
                     //the game should finish and load a next level
-                    gsCurrentState.loadNextLevel = true;
-                    gsCurrentState.gameFinished = true;
+                    gsCurrentState.setLoadNextLevel(true);
+                    gsCurrentState.setGameFinished(true);
                 }
             }
         } else {
@@ -212,7 +213,7 @@ public class MemoriRules implements Rules {
                     createHelpGameEvent(uaAction, gsCurrentState);
             } else if(uaAction.getActionType().equals("escape")) {
                 //exit current game
-                gsCurrentState.gameFinished = true;
+                gsCurrentState.setGameFinished(true);
             }
         } else {
             // if invalid movement, return only an invalid game event
@@ -510,7 +511,7 @@ public class MemoriRules implements Rules {
      * @param memoriTerrain the terrain containing the open tiles tuple
      */
     private void setAllOpenTilesWon(MemoriTerrain memoriTerrain) {
-        for (Tile openTile : memoriTerrain.openTiles) {
+        for (Tile openTile : memoriTerrain.getOpenTiles()) {
             openTile.setWon();
         }
     }
@@ -524,7 +525,7 @@ public class MemoriRules implements Rules {
     private boolean atLeastOneOtherTileIsDifferent(MemoriTerrain memoriTerrain, Tile currTile) {
         CategorizedCard tileToCard = (CategorizedCard)currTile;
         boolean answer = false;
-        for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
+        for (Iterator<Tile> iter = memoriTerrain.getOpenTiles().iterator(); iter.hasNext(); ) {
             Tile element = iter.next();
             CategorizedCard elementToCard = (CategorizedCard)element;
             // if the current card is not equal with the given card
@@ -557,7 +558,7 @@ public class MemoriRules implements Rules {
     private boolean tileIsLastOfTuple(MemoriTerrain memoriTerrain, Tile currTile) {
         boolean answer = false;
         // if all cards in the open cards tuple are equal and we have reached the end of the tuple (2-cards, 3-cards etc)
-        if(!atLeastOneOtherTileIsDifferent(memoriTerrain, currTile) && (memoriTerrain.openTiles.size() == MainOptions.NUMBER_OF_OPEN_CARDS - 1))
+        if(!atLeastOneOtherTileIsDifferent(memoriTerrain, currTile) && (memoriTerrain.getOpenTiles().size() == MainOptions.NUMBER_OF_OPEN_CARDS - 1))
             answer = true;
         return answer;
     }
@@ -569,7 +570,7 @@ public class MemoriRules implements Rules {
     @Override
     public boolean isGameFinished(GameState gsCurrent) {
         MemoriGameState memoriGameState = (MemoriGameState)gsCurrent;
-        return memoriGameState.gameFinished;
+        return memoriGameState.isGameFinished();
     }
 
     protected boolean isTileFlipped(Tile tile) {
@@ -588,10 +589,10 @@ public class MemoriRules implements Rules {
      */
     public List<Point2D> resetAllOpenTiles(MemoriTerrain memoriTerrain) {
         List<Point2D> openTilesPoints = new ArrayList<>();
-        memoriTerrain.openTiles.forEach(Tile::flip);
-        for (Iterator<Tile> iter = memoriTerrain.openTiles.iterator(); iter.hasNext(); ) {
+        memoriTerrain.getOpenTiles().forEach(Tile::flip);
+        for (Iterator<Tile> iter = memoriTerrain.getOpenTiles().iterator(); iter.hasNext(); ) {
             Tile element = iter.next();
-            Iterator it = memoriTerrain.tiles.entrySet().iterator();
+            Iterator it = memoriTerrain.getTiles().entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry pair = (Map.Entry)it.next();
                 if(element == pair.getValue()) {

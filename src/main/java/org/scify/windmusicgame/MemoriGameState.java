@@ -157,4 +157,32 @@ public class MemoriGameState implements GameState {
         return terrain.areAllTilesWon();
     }
 
+    public Queue<GameEvent> getGameEventQueue() {
+        return gameEventQueue;
+    }
+
+    public void setLoadNextLevel(boolean loadNextLevel) {
+        this.loadNextLevel = loadNextLevel;
+    }
+
+    public void setGameFinished(boolean gameFinished) {
+
+        this.gameFinished = gameFinished;
+    }
+
+    public boolean isGameFinished() {
+        return gameFinished;
+    }
+
+    public boolean isLoadNextLevel() {
+        return loadNextLevel;
+    }
+
+    public boolean isReplayLevel() {
+        return replayLevel;
+    }
+
+    public GameOptions getGameOptions() {
+        return gameOptions;
+    }
 }

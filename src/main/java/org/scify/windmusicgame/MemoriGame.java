@@ -18,6 +18,7 @@
 package org.scify.windmusicgame;
 
 import org.scify.windmusicgame.interfaces.*;
+import org.scify.windmusicgame.rules.MemoriRules;
 
 
 public abstract class MemoriGame implements Game<Integer> {

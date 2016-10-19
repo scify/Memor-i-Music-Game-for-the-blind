@@ -200,4 +200,12 @@ public class MemoriTerrain implements Terrain {
     public void resetOpenTiles() {
         openTiles = new ArrayList<>();
     }
+
+    public List<Tile> getOpenTiles() {
+        return openTiles;
+    }
+
+    public GameOptions getGameOptions() {
+        return gameOptions;
+    }
 }
