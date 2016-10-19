@@ -28,7 +28,7 @@ import java.util.List;
  * This Class describes the option variables for "Find the instrument family" game
  * Created by pisaris on 11/10/2016.
  */
-public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements GameOptions {
+public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implements GameOptions {
 
     @Override
     public void initializeGameLevels() {
@@ -77,7 +77,7 @@ public class InstrumentFamiliesOptions extends GameWithLevelsOptions implements 
     }
 
 
-    public InstrumentFamiliesOptions() {
+    public FindInstrumentFamilyOptions() {
         scoresFile = ".find_instrument_families_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΟΡΓΑΝΟΥ";
         gameDescriptionSound = "game_levels_screen_sounds/find_instrument_families_description.wav";

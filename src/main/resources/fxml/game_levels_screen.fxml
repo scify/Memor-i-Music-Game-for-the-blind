@@ -27,7 +27,7 @@
     <VBox alignment="center" styleClass="optionButtonContainer">
         <Button contentDisplay="CENTER" styleClass="welcomeButton" fx:id="gameDescription"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="ΟΔΗΓΟΣ" fx:id="tutorial"
-                onKeyPressed="#backToMainScreen"/>
+                onKeyPressed="#startTutorial"/>
         <VBox alignment="center" fx:id="gameLevels">
 
         </VBox>

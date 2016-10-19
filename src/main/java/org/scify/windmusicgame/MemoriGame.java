@@ -19,6 +19,7 @@ package org.scify.windmusicgame;
 
 import org.scify.windmusicgame.interfaces.*;
 import org.scify.windmusicgame.rules.MemoriRules;
+import org.scify.windmusicgame.rules.TutorialRules;
 
 
 public abstract class MemoriGame implements Game<Integer> {
@@ -52,7 +53,10 @@ public abstract class MemoriGame implements Game<Integer> {
      */
     public void initialize(GameOptions gameOptions) {
         this.gameOptions = gameOptions;
-        rRules = new MemoriRules();
+        if(MainOptions.TUTORIAL_MODE)
+            rRules = new TutorialRules();
+        else
+            rRules = new MemoriRules();
         // Example initialization
 //        RenderingEngine fUI = new FXRenderingEngine();
 //        uInterface = fUI;

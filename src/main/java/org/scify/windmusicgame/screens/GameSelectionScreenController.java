@@ -8,9 +8,8 @@ import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.windmusicgame.games_options.FindTheNoteOptions;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.games_options.InstrumentFamiliesOptions;
+import org.scify.windmusicgame.games_options.FindInstrumentFamilyOptions;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
-import org.scify.windmusicgame.interfaces.GameOptions;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -102,7 +101,7 @@ public class GameSelectionScreenController {
             audioEngine.pauseCurrentlyPlayingAudios();
             GameWithLevelsOptions gameOptions = null;
             if (keyEvent.getSource() == findInstrumentFamiliesGame) {
-                gameOptions = new InstrumentFamiliesOptions();
+                gameOptions = new FindInstrumentFamilyOptions();
             } else if (keyEvent.getSource() == findInstrumentGame) {
                 gameOptions = new FindTheInstrumentOptions();
             } else if (keyEvent.getSource() == findNoteGame) {

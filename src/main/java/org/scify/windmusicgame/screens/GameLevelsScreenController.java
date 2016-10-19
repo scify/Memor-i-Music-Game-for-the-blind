@@ -158,6 +158,19 @@ public class GameLevelsScreenController {
 
     }
 
+    @FXML
+    private void startTutorial(KeyEvent evt) {
+        if (evt.getCode() == SPACE) {
+            MainOptions.gameLevel = gameOptions.getGameLevels().get(0).getLevelCode();
+            MainOptions.NUMBER_OF_ROWS = (int) gameOptions.getGameLevels().get(0).getDimensions().getX();
+            MainOptions.NUMBER_OF_COLUMNS = (int) gameOptions.getGameLevels().get(0).getDimensions().getY();
+            MainOptions.gameScoresFile = this.gameOptions.scoresFile;
+            MainOptions.TUTORIAL_MODE = true;
+            Thread thread = new Thread(() -> startNormalGame());
+            thread.start();
+        }
+    }
+
 
     private void loadNextLevelForNormalGame() {
 
