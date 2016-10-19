@@ -97,7 +97,7 @@ public class MemoriRules implements Rules {
      * When a level starts the rules should add the relevant game events
      * @param gsCurrentState the current game state
      */
-    private void handleLevelStartingGameEvents(MemoriGameState gsCurrentState) {
+    protected void handleLevelStartingGameEvents(MemoriGameState gsCurrentState) {
         if(MainOptions.TUTORIAL_MODE) {
             if(!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INTRO")) {
                 gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INTRO"));
@@ -126,7 +126,7 @@ public class MemoriRules implements Rules {
      * @param gsCurrentState the current state
      * @return true if the events queue contains a blocking event
      */
-    private boolean eventQueueContainsBlockingEvent(MemoriGameState gsCurrentState) {
+    protected boolean eventQueueContainsBlockingEvent(MemoriGameState gsCurrentState) {
         //Iterate through game events. If there is a blocking event, return.
         ListIterator<GameEvent> listIterator = gsCurrentState.getEventQueue().listIterator();
         while (listIterator.hasNext()) {
@@ -144,7 +144,7 @@ public class MemoriRules implements Rules {
      * @param uaAction the user action (flip, move, help)
      * @param gsCurrentState the current game state
      */
-    private void handleLevelFinishGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
+    protected void handleLevelFinishGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
         if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "READY_TO_FINISH")) {
             if(uaAction != null) {
                 //listen for user action indicating game over
@@ -186,7 +186,7 @@ public class MemoriRules implements Rules {
      * @param uaAction the user action (flip, move, help)
      * @param gsCurrentState the current game state
      */
-    private void handleUserActionGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
+    protected void handleUserActionGameEvents(UserAction uaAction, MemoriGameState gsCurrentState) {
         if(movementValid(uaAction.getKeyEvent(), gsCurrentState)) {
             gsCurrentState.updateRowIndex(uaAction.getKeyEvent());
             gsCurrentState.updateColumnIndex(uaAction.getKeyEvent());
@@ -236,7 +236,7 @@ public class MemoriRules implements Rules {
      * @param uaAction the user action
      * @param gsCurrentState the current game state
      */
-    private void createHelpGameEvent(UserAction uaAction, MemoriGameState gsCurrentState) {
+    protected void createHelpGameEvent(UserAction uaAction, MemoriGameState gsCurrentState) {
         Point2D coords = uaAction.getCoords();
         System.out.println("x: " + coords.getX() + " y: " + coords.getY());
         gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
@@ -256,7 +256,7 @@ public class MemoriRules implements Rules {
      * @param watch The watch object that contains the timer
      * @param gsCurrentState the current game state
      */
-    private void addTimeGameEvent(TimeWatch watch, MemoriGameState gsCurrentState) {
+    protected void addTimeGameEvent(TimeWatch watch, MemoriGameState gsCurrentState) {
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
         String timestampStr = String.valueOf(ConvertSecondToHHMMSSString((int) passedTimeInSeconds));
         String[] tokens = timestampStr.split(":");
@@ -290,7 +290,7 @@ public class MemoriRules implements Rules {
      * @param uaAction the user action object
      * @param memoriTerrain the terrain holding all the tiles
      */
-    private void performFlip(Tile currTile, MemoriGameState gsCurrentState, UserAction uaAction, MemoriTerrain memoriTerrain) {
+    protected void performFlip(Tile currTile, MemoriGameState gsCurrentState, UserAction uaAction, MemoriTerrain memoriTerrain) {
         // Rule 6: flip
         // If target card flipped
         if(isTileFlipped(currTile)) {
@@ -383,7 +383,7 @@ public class MemoriRules implements Rules {
      * @param gsCurrentState the current game state
      * @param uaAction the user action object
      */
-    private void tutorialRulesSet(MemoriGameState gsCurrentState, UserAction uaAction) {
+    protected void tutorialRulesSet(MemoriGameState gsCurrentState, UserAction uaAction) {
 
         // if tutorial_0 event does not exist
         //If user clicked space
@@ -486,7 +486,7 @@ public class MemoriRules implements Rules {
      * @param eventType the type of the event
      * @return true if the event exists in the events list
      */
-    private boolean eventsQueueContainsEvent(Queue<GameEvent> eventQueue, String eventType) {
+    protected boolean eventsQueueContainsEvent(Queue<GameEvent> eventQueue, String eventType) {
         Iterator<GameEvent> iter = eventQueue.iterator();
         GameEvent currentGameEvent;
         while (iter.hasNext()) {
@@ -502,7 +502,7 @@ public class MemoriRules implements Rules {
      * @param gsCurrent the current game state
      * @return true if the current round is the last one
      */
-    private boolean isLastRound(GameState gsCurrent) {
+    protected boolean isLastRound(GameState gsCurrent) {
         return ((MemoriGameState)gsCurrent).areAllTilesWon();
     }
 
@@ -510,7 +510,7 @@ public class MemoriRules implements Rules {
      * Sets the tuple as won
      * @param memoriTerrain the terrain containing the open tiles tuple
      */
-    private void setAllOpenTilesWon(MemoriTerrain memoriTerrain) {
+    protected void setAllOpenTilesWon(MemoriTerrain memoriTerrain) {
         for (Tile openTile : memoriTerrain.getOpenTiles()) {
             openTile.setWon();
         }
@@ -522,7 +522,7 @@ public class MemoriRules implements Rules {
      * @param currTile the current tile
      * @return true if one of the open tiles is different from the current tile
      */
-    private boolean atLeastOneOtherTileIsDifferent(MemoriTerrain memoriTerrain, Tile currTile) {
+    protected boolean atLeastOneOtherTileIsDifferent(MemoriTerrain memoriTerrain, Tile currTile) {
         CategorizedCard tileToCard = (CategorizedCard)currTile;
         boolean answer = false;
         for (Iterator<Tile> iter = memoriTerrain.getOpenTiles().iterator(); iter.hasNext(); ) {
@@ -541,7 +541,7 @@ public class MemoriRules implements Rules {
      * @param card2 the second {@link CategorizedCard}
      * @return true if the 2 given cards are equal
      */
-    private boolean cardsAreEqual(CategorizedCard card1, CategorizedCard card2) {
+    protected boolean cardsAreEqual(CategorizedCard card1, CategorizedCard card2) {
         System.out.println("category1: " + card1.getCategory());
         System.out.println("category2: " + card2.getCategory());
         System.out.println("hash1: " + card1.getEquivalenceCardSetHashCode());
@@ -555,7 +555,7 @@ public class MemoriRules implements Rules {
      * @param currTile the current tile
      * @return true if the current tile is the last of the n-tuple
      */
-    private boolean tileIsLastOfTuple(MemoriTerrain memoriTerrain, Tile currTile) {
+    protected boolean tileIsLastOfTuple(MemoriTerrain memoriTerrain, Tile currTile) {
         boolean answer = false;
         // if all cards in the open cards tuple are equal and we have reached the end of the tuple (2-cards, 3-cards etc)
         if(!atLeastOneOtherTileIsDifferent(memoriTerrain, currTile) && (memoriTerrain.getOpenTiles().size() == MainOptions.NUMBER_OF_OPEN_CARDS - 1))
@@ -563,7 +563,7 @@ public class MemoriRules implements Rules {
         return answer;
     }
 
-    private void flipTile(Tile currTile) {
+    protected void flipTile(Tile currTile) {
         currTile.flip();
     }
 
@@ -587,7 +587,7 @@ public class MemoriRules implements Rules {
      * @param memoriTerrain the terrain holding all the tiles
      * @return a list containing the coordinates of the open tiles
      */
-    public List<Point2D> resetAllOpenTiles(MemoriTerrain memoriTerrain) {
+    protected List<Point2D> resetAllOpenTiles(MemoriTerrain memoriTerrain) {
         List<Point2D> openTilesPoints = new ArrayList<>();
         memoriTerrain.getOpenTiles().forEach(Tile::flip);
         for (Iterator<Tile> iter = memoriTerrain.getOpenTiles().iterator(); iter.hasNext(); ) {
@@ -611,7 +611,7 @@ public class MemoriRules implements Rules {
      * @param memoriGameState the current game state
      * @return true if the user move was valid
      */
-    public boolean movementValid(KeyEvent evt, MemoriGameState memoriGameState) {
+    protected boolean movementValid(KeyEvent evt, MemoriGameState memoriGameState) {
         switch(evt.getCode()) {
             case LEFT:
                 if(memoriGameState.getColumnIndex() == 0) {
@@ -637,7 +637,7 @@ public class MemoriRules implements Rules {
         return true;
     }
 
-    private String ConvertSecondToHHMMSSString(int nSecondTime) {
+    protected String ConvertSecondToHHMMSSString(int nSecondTime) {
         return LocalTime.MIN.plusSeconds(nSecondTime).toString();
     }
 
