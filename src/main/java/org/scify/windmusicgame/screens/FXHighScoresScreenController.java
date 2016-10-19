@@ -87,31 +87,25 @@ public class FXHighScoresScreenController {
 
     private void addGameLevelButtons(VBox buttonsContainer, GameWithLevelsOptions gameOpts) {
         List<MemoriGameLevel> allLevels = gameOpts.getGameLevels();
-        Map<Integer, Point2D> gameLevelsToDimensions = new HashMap<>();
+
         for(MemoriGameLevel gameLevel: allLevels) {
-            gameLevelsToDimensions.put(gameLevel.getLevelCode(), gameLevel.getDimensions());
-        }
-        for (Map.Entry<Integer, Point2D> gameLevelToDimensions : gameLevelsToDimensions.entrySet()) {
-            System.out.println(gameLevelToDimensions.getKey() + "/" + gameLevelToDimensions.getValue());
-            Point2D levelDimensions = gameLevelToDimensions.getValue();
+            Point2D levelDimensions = gameLevel.getDimensions();
 
             Button gameLevelBtn = new Button();
             gameLevelBtn.setText((int) levelDimensions.getX() + "x" + (int) levelDimensions.getY());
             gameLevelBtn.getStyleClass().add("optionButton");
-            gameLevelBtn.setId(gameLevelToDimensions.getKey().toString());
+            gameLevelBtn.setId(gameLevel.getDimensions().toString());
 
             gameLevelBtn.setOnKeyPressed(event -> {
                 if (event.getCode() == SPACE) {
-                    System.err.println(gameLevelToDimensions.getKey());
                     MainOptions.gameScoresFile = this.gameOptions.scoresFile;
-                    parseHighScore(gameLevelToDimensions.getKey());
+                    parseHighScore(gameLevel.getLevelCode());
                 }
             });
 
             gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
-                MemoriGameLevel currLevel = this.gameOptions.getGameLevels().get(gameLevelToDimensions.getKey());
                 if (newPropertyValue) {
-                    audioEngine.pauseAndPlaySound(currLevel.getIntroScreenSound(), false);
+                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false);
                 }
             });
 

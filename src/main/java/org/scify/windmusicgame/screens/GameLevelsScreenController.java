@@ -160,8 +160,9 @@ public class GameLevelsScreenController {
 
 
     private void loadNextLevelForNormalGame() {
-        MainOptions.gameLevel++;
+
         MemoriGameLevel nextLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
+        MainOptions.gameLevel++;
         Point2D nextLevelDimensions = nextLevel.getDimensions();
         System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
         if(nextLevelDimensions != null) {
