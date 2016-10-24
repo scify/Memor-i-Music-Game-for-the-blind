@@ -386,13 +386,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
-                    case "failure":
-                        //check if the event should happen after some time
-                        if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playFailureSound();
-                            listIterator.remove();
-                        }
-                        break;
                     case "STORYLINE_AUDIO_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {

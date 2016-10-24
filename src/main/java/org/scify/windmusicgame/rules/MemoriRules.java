@@ -350,8 +350,6 @@ public class MemoriRules implements Rules {
                         Point2D position = iter.next();
                         gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 5000, false));
                     }
-                    // Push failure feedback event
-                    //gsCurrentState.getEventQueue().add(new GameEvent("failure", uaAction.getCoords(), new Date().getTime() + 1500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 5100, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 5200, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 5500, false));

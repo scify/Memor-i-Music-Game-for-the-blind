@@ -31,10 +31,9 @@ public class FXAudioEngine implements AudioEngine{
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
     private String soundBasePath = "/audios/";
-    private String movementSound = "beep.wav";
+    private String movementSound = "movement_sound.wav";
     private String successSound = "success.wav";
     private String invalidMovementSound = "bump.wav";
-    private String failureSound = "error.wav";
     private String emptySound = "game_effects/door-knock.wav";
     private String numBasePath = "numbers/";
     private String letterBasePath = "letters/";
@@ -111,12 +110,6 @@ public class FXAudioEngine implements AudioEngine{
         playSound(invalidMovementSound);
     }
 
-    /**
-     * Plays an appropriate sound associated with a failure Game Event
-     */
-    public void playFailureSound() {
-        pauseAndPlaySound(failureSound, false);
-    }
 
     /**
      * Plays an appropriate sound associated with an "empty" Game Event (if the user clicks on an already won Card)
