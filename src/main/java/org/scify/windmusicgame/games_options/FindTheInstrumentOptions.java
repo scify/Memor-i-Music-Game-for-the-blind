@@ -32,34 +32,34 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
     @Override
     public void initializeGameLevels() {
         gameLevels = new ArrayList<>();
-        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "game1/level1IntroSound.wav", "game_levels_screen_sounds/2x3.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "game1/level2IntroSound.wav", "game_levels_screen_sounds/2x4.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "game1/level3IntroSound.wav", "game_levels_screen_sounds/3x4.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "game1/level4IntroSound.wav", "game_levels_screen_sounds/4x4.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "game1/level5IntroSound.wav", "game_levels_screen_sounds/4x5.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "game1/level6IntroSound.wav", "game_levels_screen_sounds/4x6.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "game1/level7IntroSound.wav", "game_levels_screen_sounds/5x6.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(8, new Point2D.Double(5,8), "game1/level8IntroSound.wav", "game_levels_screen_sounds/5x8.wav", "json_DB/find_the_instrument.json"));
-        gameLevels.add(new MemoriGameLevel(9, new Point2D.Double(6,6), "game1/level9IntroSound.wav", "game_levels_screen_sounds/6x6.wav", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "game1/level1IntroSound.mp3", "game_levels_screen_sounds/2x3.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "game1/level2IntroSound.mp3", "game_levels_screen_sounds/2x4.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "game1/level3IntroSound.mp3", "game_levels_screen_sounds/3x4.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "game1/level4IntroSound.mp3", "game_levels_screen_sounds/4x4.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "game1/level5IntroSound.mp3", "game_levels_screen_sounds/4x5.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "game1/level6IntroSound.mp3", "game_levels_screen_sounds/4x6.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "game1/level7IntroSound.mp3", "game_levels_screen_sounds/5x6.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(8, new Point2D.Double(5,8), "game1/level8IntroSound.mp3", "game_levels_screen_sounds/5x8.mp3", "json_DB/find_the_instrument.json"));
+        gameLevels.add(new MemoriGameLevel(9, new Point2D.Double(6,6), "game1/level9IntroSound.mp3", "game_levels_screen_sounds/6x6.mp3", "json_DB/find_the_instrument.json"));
     }
 
     @Override
     public void initializeGameStoryLineSounds() {
-        storyLineSounds.put(1, "game2/storyLine1.wav");
-        storyLineSounds.put(2, "game2/storyLine2.wav");
-        storyLineSounds.put(3, "game2/storyLine3.wav");
-        storyLineSounds.put(4, "game2/storyLine4.wav");
-        storyLineSounds.put(5, "game2/storyLine5.wav");
-        storyLineSounds.put(6, "game2/storyLine6.wav");
-        storyLineSounds.put(7, "game2/storyLine7.wav");
-        storyLineSounds.put(8, "game2/storyLine8.wav");
-        storyLineSounds.put(9, "game2/storyLine9.wav");
+        storyLineSounds.put(1, "game2/storyLine1.mp3");
+        storyLineSounds.put(2, "game2/storyLine2.mp3");
+        storyLineSounds.put(3, "game2/storyLine3.mp3");
+        storyLineSounds.put(4, "game2/storyLine4.mp3");
+        storyLineSounds.put(5, "game2/storyLine5.mp3");
+        storyLineSounds.put(6, "game2/storyLine6.mp3");
+        storyLineSounds.put(7, "game2/storyLine7.mp3");
+        storyLineSounds.put(8, "game2/storyLine8.mp3");
+        storyLineSounds.put(9, "game2/storyLine9.mp3");
     }
 
     public FindTheInstrumentOptions() {
         scoresFile = ".find_instrument_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΟΡΓΑΝΟ";
-        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_description.wav";
+        gameDescriptionSound = "game_levels_screen_sounds/find_instrument_description.mp3";
         initializeGameLevels();
         initializeGameStoryLineSounds();
     }
