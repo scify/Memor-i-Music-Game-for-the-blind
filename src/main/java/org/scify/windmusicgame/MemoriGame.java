@@ -17,6 +17,7 @@
 
 package org.scify.windmusicgame;
 
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.interfaces.*;
 import org.scify.windmusicgame.rules.MemoriRules;
 import org.scify.windmusicgame.rules.TutorialRules;
@@ -94,12 +95,15 @@ public abstract class MemoriGame implements Game<Integer> {
         // b) play the same level again
         // c) go to the next level
         MemoriGameState memoriGameState = (MemoriGameState) gsCurrentState;
-
+        GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) this.gameOptions;
         reRenderer.cancelCurrentRendering();
         if(memoriGameState.loadNextLevel) {
-            if(!MainOptions.TUTORIAL_MODE)
+            if(!MainOptions.TUTORIAL_MODE && MainOptions.gameLevel < gameWithLevelsOptions.getGameLevels().size()) {
                 MainOptions.storyLineLevel++;
-            return NEXT_LEVEL;
+                return NEXT_LEVEL;
+            }
+            else
+                return GAME_FINISHED;
         }
         else if(memoriGameState.replayLevel) {
             if(!MainOptions.TUTORIAL_MODE)
@@ -108,6 +112,7 @@ public abstract class MemoriGame implements Game<Integer> {
         }
         else
             return GAME_FINISHED;
+
     }
 
     @Override

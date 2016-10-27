@@ -74,7 +74,8 @@
         ],
         "nameSound": "instrument_names/piano.mp3",
         "images": [
-          "instrument_sounds/piano1.jpg"
+          "instrument_sounds/piano1.png",
+          "instrument_sounds/piano2.png"
         ],
         "descriptiveSounds": [
         ],
@@ -89,8 +90,8 @@
         ],
         "nameSound": "instrument_names/double-bass.mp3",
         "images": [
-          "instrument_sounds/double-bass1.png",
-          "instrument_sounds/double-bass2.png"
+          "instrument_sounds/contrbass1.png",
+          "instrument_sounds/contrbass2.png"
         ],
         "descriptiveSounds": [
         ],

@@ -96,6 +96,7 @@ public class GameLevelsScreenController {
 
             gameLevelBtn.setOnKeyPressed(event -> {
                 if(event.getCode() == SPACE){
+
                     MainOptions.gameLevel = gameLevel.getLevelCode();
                     MainOptions.NUMBER_OF_ROWS = (int)levelDimensions.getX();
                     MainOptions.NUMBER_OF_COLUMNS = (int)levelDimensions.getY();
@@ -174,16 +175,18 @@ public class GameLevelsScreenController {
 
     private void loadNextLevelForNormalGame() {
 
-        MemoriGameLevel nextLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
-        MainOptions.gameLevel++;
-        Point2D nextLevelDimensions = nextLevel.getDimensions();
-        System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
-        if(nextLevelDimensions != null) {
-            MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();
-            MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
-            startNormalGame();
-        } else {
-            sceneHandler.popScene();
+        if(MainOptions.gameLevel < gameOptions.getGameLevels().size()) {
+            MemoriGameLevel nextLevel = gameOptions.getGameLevels().get(MainOptions.gameLevel);
+            MainOptions.gameLevel++;
+            Point2D nextLevelDimensions = nextLevel.getDimensions();
+            System.err.println("next level: " + nextLevelDimensions.getX() + ", " + nextLevelDimensions.getY());
+            if (nextLevelDimensions != null) {
+                MainOptions.NUMBER_OF_ROWS = (int) nextLevelDimensions.getX();
+                MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
+                startNormalGame();
+            } else {
+                sceneHandler.popScene();
+            }
         }
     }
 

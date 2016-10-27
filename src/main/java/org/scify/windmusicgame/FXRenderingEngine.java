@@ -369,12 +369,23 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         }
                         break;
                     case "LEVEL_END_UNIVERSAL":
-                        //check if the event should happen after some time
-                        if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/level_ending_universal.mp3", currentGameEvent.blocking);
-                            listIterator.remove();
+                        // if last level, play appropriate sound
+                        if(gameWithLevelsOptions.getGameLevels().size() == MainOptions.gameLevel) {
+                            // else if not last level, play universally ending sound
+                            if (new Date().getTime() > currentGameEvent.delay) {
+                                fxAudioEngine.pauseAndPlaySound("game_instructions/all_levels_ending.mp3", currentGameEvent.blocking);
+                                listIterator.remove();
+                            }
+                            break;
+                        } else {
+                            // else if not last level, play universally ending sound
+                            if (new Date().getTime() > currentGameEvent.delay) {
+                                fxAudioEngine.pauseAndPlaySound("game_instructions/level_ending_universal.mp3", currentGameEvent.blocking);
+                                listIterator.remove();
+                            }
+                            break;
                         }
-                        break;
+
                     case "MINUTE":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {

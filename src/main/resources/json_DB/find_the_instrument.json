@@ -672,8 +672,8 @@
         ],
         "nameSound": "",
         "images": [
-          "instrument_sounds/french-horn1.png",
-          "instrument_sounds/french-horn2.png"
+          "instrument_sounds/horn1.png",
+          "instrument_sounds/horn2.png"
         ],
         "descriptiveSounds": [
         ],
