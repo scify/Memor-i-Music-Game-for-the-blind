@@ -108,7 +108,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             List<MemoriGameLevel> allLevels = this.gameWithLevelsOptions.getGameLevels();
 
             for(MemoriGameLevel gameLevel: allLevels) {
-                introductorySounds.put(gameLevel.getLevelCode(), gameLevel.getIntroSound());
+                this.introductorySounds.put(gameLevel.getLevelCode(), gameLevel.getIntroSound());
             }
 
         } catch (IOException e) {

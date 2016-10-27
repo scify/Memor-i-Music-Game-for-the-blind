@@ -32,13 +32,13 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
     public void initializeGameLevels() {
 
         gameLevels = new ArrayList<>();
-        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "game1/level1IntroSound.mp3", "game_levels_screen_sounds/2x3.mp3", "json_DB/find_the_note_easy.json"));
-        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "game1/level2IntroSound.mp3", "game_levels_screen_sounds/2x4.mp3", "json_DB/find_the_note_easy.json"));
-        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "game1/level3IntroSound.mp3", "game_levels_screen_sounds/3x4.mp3", "json_DB/find_the_note_medium.json"));
-        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "game1/level4IntroSound.mp3", "game_levels_screen_sounds/4x4.mp3", "json_DB/find_the_note_medium.json"));
-        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "game1/level5IntroSound.mp3", "game_levels_screen_sounds/4x5.mp3", "json_DB/find_the_note_hard.json"));
-        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "game1/level6IntroSound.mp3", "game_levels_screen_sounds/4x6.mp3", "json_DB/find_the_note_extreme.json"));
-        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "game1/level7IntroSound.mp3", "game_levels_screen_sounds/5x6.mp3", "json_DB/find_the_note_extreme.json"));
+        gameLevels.add(new MemoriGameLevel(1, new Point2D.Double(2,3), "find_note/level_intro_sounds/level1IntroSound.mp3", "game_levels_screen_sounds/2x3.mp3", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "find_note/level_intro_sounds/level2IntroSound.mp3", "game_levels_screen_sounds/2x4.mp3", "json_DB/find_the_note_easy.json"));
+        gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "find_note/level_intro_sounds/level3IntroSound.mp3", "game_levels_screen_sounds/3x4.mp3", "json_DB/find_the_note_medium.json"));
+        gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "find_note/level_intro_sounds/level4IntroSound.mp3", "game_levels_screen_sounds/4x4.mp3", "json_DB/find_the_note_medium.json"));
+        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "find_note/level_intro_sounds/level5IntroSound.mp3", "game_levels_screen_sounds/4x5.mp3", "json_DB/find_the_note_hard.json"));
+        gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "find_note/level_intro_sounds/level6IntroSound.mp3", "game_levels_screen_sounds/4x6.mp3", "json_DB/find_the_note_extreme.json"));
+        gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "find_note/level_intro_sounds/level7IntroSound.mp3", "game_levels_screen_sounds/5x6.mp3", "json_DB/find_the_note_extreme.json"));
 
     }
 
@@ -52,18 +52,18 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         storyLineSounds.put(6, "game2/storyLine6.mp3");
         storyLineSounds.put(7, "game2/storyLine7.mp3");
 
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound1.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound2.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound3.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound4.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound5.mp3");
+        endLevelStartingSounds.add("find_note/end_level_starting_sounds/sound1.mp3");
+        endLevelStartingSounds.add("find_note/end_level_starting_sounds/sound2.mp3");
+        endLevelStartingSounds.add("find_note/end_level_starting_sounds/sound3.mp3");
+        endLevelStartingSounds.add("find_note/end_level_starting_sounds/sound4.mp3");
+        endLevelStartingSounds.add("find_note/end_level_starting_sounds/sound5.mp3");
 
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound1.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound2.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound3.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound4.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound5.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound6.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound1.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound2.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound3.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound4.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound5.mp3");
+        endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound6.mp3");
     }
 
     public FindTheNoteOptions() {
