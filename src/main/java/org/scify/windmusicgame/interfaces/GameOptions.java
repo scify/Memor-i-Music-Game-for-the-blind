@@ -7,5 +7,5 @@ package org.scify.windmusicgame.interfaces;
 public interface GameOptions {
 
     void initializeGameLevels();
-    void initializeGameStoryLineSounds();
+    void initializeGameSounds();
 }

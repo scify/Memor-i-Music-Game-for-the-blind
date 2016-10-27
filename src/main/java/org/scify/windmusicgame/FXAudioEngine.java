@@ -39,19 +39,8 @@ public class FXAudioEngine implements AudioEngine{
     private String letterBasePath = "letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
-    private HashMap<Integer, String> rowHelpSounds = new HashMap<>();
-    private HashMap<Integer, String> columnHelpSounds = new HashMap<>();
 
     public FXAudioEngine() {
-        columnHelpSounds.put(0, "one.wav");
-        columnHelpSounds.put(1, "two.wav");
-        columnHelpSounds.put(2, "three.wav");
-        columnHelpSounds.put(3, "four.wav");
-
-        rowHelpSounds.put(0, "A.wav");
-        rowHelpSounds.put(1, "B.wav");
-        rowHelpSounds.put(2, "C.wav");
-        rowHelpSounds.put(3, "D.wav");
 
     }
 
@@ -181,7 +170,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(numBasePath + String.valueOf(number) + ".wav", true);
+        playSound(numBasePath + String.valueOf(number) + ".mp3", true);
     }
 
     /**
@@ -189,9 +178,8 @@ public class FXAudioEngine implements AudioEngine{
      * @param number the number associated with the letter (e.g. 1 for A, 2 for B, etc. We do not care for capital letters or not).
      */
     public void playLetterSound(int number) {
-        System.out.println(letterBasePath + number + ".wav");
         pauseCurrentlyPlayingAudios();
-        playSound(letterBasePath + number + ".wav", true);
+        playSound(letterBasePath + number + ".mp3", true);
     }
 
     /**

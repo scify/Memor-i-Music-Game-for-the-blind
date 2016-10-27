@@ -19,6 +19,7 @@ package org.scify.windmusicgame.games_options;
 import org.scify.windmusicgame.MemoriGameLevel;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,24 @@ public class GameWithLevelsOptions {
      * Every time we play a game we follow the story line
      */
     protected Map<Integer, String> storyLineSounds = new HashMap<>();
+
+    /**
+     * Every time we play a game we follow the story line
+     */
+    protected List<String> endLevelStartingSounds = new ArrayList<>();
+
+    public List<String> getEndLevelStartingSounds() {
+        return endLevelStartingSounds;
+    }
+
+    public List<String> getEndLevelEndingSounds() {
+        return endLevelEndingSounds;
+    }
+
+    /**
+     * Every time we play a game we follow the story line
+     */
+    protected List<String> endLevelEndingSounds = new ArrayList<>();
 
     public String scoresFile;
 

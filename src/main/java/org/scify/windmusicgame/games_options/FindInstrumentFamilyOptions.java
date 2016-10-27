@@ -67,13 +67,26 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
     }
 
     @Override
-    public void initializeGameStoryLineSounds() {
+    public void initializeGameSounds() {
         storyLineSounds.put(1, "game1/storyLine1.mp3");
         storyLineSounds.put(2, "game1/storyLine2.mp3");
         storyLineSounds.put(3, "game1/storyLine3.mp3");
         storyLineSounds.put(4, "game1/storyLine4.mp3");
         storyLineSounds.put(5, "game1/storyLine5.mp3");
         storyLineSounds.put(6, "game1/storyLine6.mp3");
+
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound1.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound2.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound3.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound4.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound5.mp3");
+
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound1.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound2.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound3.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound4.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound5.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound6.mp3");
     }
 
 
@@ -82,6 +95,6 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΟΡΓΑΝΟΥ";
         gameDescriptionSound = "game_levels_screen_sounds/find_instrument_families_description.mp3";
         initializeGameLevels();
-        initializeGameStoryLineSounds();
+        initializeGameSounds();
     }
 }

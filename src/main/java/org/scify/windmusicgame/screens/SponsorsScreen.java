@@ -48,7 +48,7 @@ public class SponsorsScreen{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        audioEngine.pauseAndPlaySound("sponsor_screen/sponsor_message.wav", false);
+        audioEngine.pauseAndPlaySound("sponsor_screen/sponsor_message.mp3", false);
         Scene sponsorsScene = new Scene(root, mWidth, mHeight);
         sceneHandler.pushScene(sponsorsScene);
 

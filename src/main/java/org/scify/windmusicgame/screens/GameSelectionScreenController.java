@@ -32,37 +32,37 @@ public class GameSelectionScreenController {
 
         gameSelectionScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/welcome.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/welcome.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/back.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/back.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#findInstrumentFamiliesGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/find_instrument_family.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/find_instrument_family.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#findInstrumentGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/find_instrument.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/find_instrument.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#findNoteGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/find_note.wav", false);
+                audioEngine.pauseAndPlaySound("game_selection_screen/find_note.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/sponsor.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/sponsor.mp3", false);
             }
         });
     }

@@ -37,7 +37,7 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/welcome.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/welcome.mp3", false);
             }
         });
 
@@ -45,25 +45,25 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#headphonesAdjustment").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/headphones_adjustment.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/headphones_adjustment.mp3", false);
             }
         });
 
         primaryScene.lookup("#gameSelection").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/game_selection.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/game_selection.mp3", false);
             }
         });
 
         primaryScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/sponsor.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/sponsor.mp3", false);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("main_screen/exit.wav", false);
+                audioEngine.pauseAndPlaySound("main_screen/exit.mp3", false);
             }
         });
     }
@@ -82,8 +82,8 @@ public class WelcomeScreenController {
     protected void headphonesAdjustment(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
             audioEngine.pauseCurrentlyPlayingAudios();
-            audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.wav");
-            audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.wav");
+            audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.mp3");
+            audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.mp3");
         } else if (evt.getCode() == ESCAPE) {
             System.exit(0);
         }

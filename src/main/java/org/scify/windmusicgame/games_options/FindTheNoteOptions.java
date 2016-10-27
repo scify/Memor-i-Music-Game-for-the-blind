@@ -43,7 +43,7 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
     }
 
     @Override
-    public void initializeGameStoryLineSounds() {
+    public void initializeGameSounds() {
         storyLineSounds.put(1, "game2/storyLine1.mp3");
         storyLineSounds.put(2, "game2/storyLine2.mp3");
         storyLineSounds.put(3, "game2/storyLine3.mp3");
@@ -51,6 +51,19 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         storyLineSounds.put(5, "game2/storyLine5.mp3");
         storyLineSounds.put(6, "game2/storyLine6.mp3");
         storyLineSounds.put(7, "game2/storyLine7.mp3");
+
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound1.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound2.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound3.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound4.mp3");
+        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound5.mp3");
+
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound1.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound2.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound3.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound4.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound5.mp3");
+        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound6.mp3");
     }
 
     public FindTheNoteOptions() {
@@ -58,6 +71,6 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         gameDescription = "ΒΡΕΙΤΕ ΤΗ ΝΟΤΑ";
         gameDescriptionSound = "game_levels_screen_sounds/find_note_description.mp3";
         initializeGameLevels();
-        initializeGameStoryLineSounds();
+        initializeGameSounds();
     }
 }
