@@ -61,6 +61,16 @@ public class GameWithLevelsOptions {
      */
     protected List<String> endLevelStartingSounds = new ArrayList<>();
 
+    public String getTutorialSoundBase() {
+        return tutorialSoundBase;
+    }
+
+    /**
+     * Each game tutorial has it's sound clips in a separate directory
+
+     */
+    protected String tutorialSoundBase;
+
     public List<String> getEndLevelStartingSounds() {
         return endLevelStartingSounds;
     }

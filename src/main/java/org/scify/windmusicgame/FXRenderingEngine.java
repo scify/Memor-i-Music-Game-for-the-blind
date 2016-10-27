@@ -350,7 +350,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "TUTORIAL_INTRO_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/tutorial_intro.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "tutorial_intro.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -423,7 +423,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_0_UI":
                         //TODO: These sound effects should be combined into 1
-                        fxAudioEngine.pauseAndPlaySound("game_instructions/count_on_you.mp3", currentGameEvent.blocking);
+                        fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "count_on_you.mp3", currentGameEvent.blocking);
 //                        fxAudioEngine.playSound("game_effects/walking.mp3", currentGameEvent.blocking);
 //                        fxAudioEngine.playSound("game_instructions/we_are_here.mp3", currentGameEvent.blocking);
 //                        fxAudioEngine.playSound("game_instructions/please_press_right.mp3", currentGameEvent.blocking);
@@ -431,65 +431,65 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "GO_RIGHT_AGAIN":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/press_right_until_end.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "press_right_until_end.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "TUTORIAL_2_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             //TODO: These sound effects should be combined into 1
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/please_press_down.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "please_press_down.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "DOORS_EXPLANATION_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             //TODO: These sound effects should be combined into 1
-                            fxAudioEngine.playSound("game_instructions/doors_explanation.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "doors_explanation.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "FLIP_EXPLANATION_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/flip_explanation.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "flip_explanation.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "TUTORIAL_INVALID_MOVEMENT_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/tutorial_invalid_movement.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "tutorial_invalid_movement.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "NOT_RIGHT_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             System.err.println("PLEASE CLICK RIGHT!");
-                            fxAudioEngine.playSound("game_instructions/not_right.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "not_right.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "NOT_LEFT_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             System.err.println("TUTORIAL_1_UI PLEASE CLICK LEFT");
-                            fxAudioEngine.playSound("game_instructions/not_left.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "not_left.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "TUTORIAL_WRONG_PAIR_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/wrong_pair.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "wrong_pair.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "TUTORIAL_DOORS_CLOSED_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/doors_closing_explanation.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "doors_closing_explanation.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "TUTORIAL_CORRECT_PAIR_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/correct_pair_explanation.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "correct_pair_explanation.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
@@ -501,7 +501,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_END_GAME_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_instructions/tutorial_ending.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "tutorial_ending.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
