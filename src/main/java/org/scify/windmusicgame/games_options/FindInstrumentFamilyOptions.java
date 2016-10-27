@@ -36,32 +36,32 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
         gameLevels = new ArrayList<>();
         gameLevels.add(new MemoriGameLevel(1,
                 new Point2D.Double(2,3),
-                "find_instrument/level_intro_sounds/level1IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level1IntroSound.mp3",
                 "game_levels_screen_sounds/2x3.mp3",
                 "json_DB/find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(2,
                 new Point2D.Double(2,4),
-                "find_instrument/level_intro_sounds/level2IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level2IntroSound.mp3",
                 "game_levels_screen_sounds/2x4.mp3",
                 "json_DB/find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(3,
                 new Point2D.Double(3,4),
-                "find_instrument/level_intro_sounds/level3IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level3IntroSound.mp3",
                 "game_levels_screen_sounds/3x4.mp3",
                 "json_DB/find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(4,
                 new Point2D.Double(4,4),
-                "find_instrument/level_intro_sounds/level4IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level4IntroSound.mp3",
                 "game_levels_screen_sounds/4x4.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "json_DB/find_the_instrument_families.json", "find_instrument_family/introHelperSound4x4.mp3"));
         gameLevels.add(new MemoriGameLevel(5,
                 new Point2D.Double(4,5),
-                "find_instrument/level_intro_sounds/level5IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level5IntroSound.mp3",
                 "game_levels_screen_sounds/4x5.mp3",
                 "json_DB/find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(6,
                 new Point2D.Double(4,6),
-                "find_instrument/level_intro_sounds/level6IntroSound.mp3",
+                "find_instrument_family/level_intro_sounds/level6IntroSound.mp3",
                 "game_levels_screen_sounds/4x6.mp3",
                 "json_DB/find_the_instrument_families.json"));
     }
@@ -75,18 +75,18 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
         storyLineSounds.put(5, "game1/storyLine5.mp3");
         storyLineSounds.put(6, "game1/storyLine6.mp3");
 
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound1.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound2.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound3.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound4.mp3");
-        endLevelStartingSounds.add("find_instrument/end_level_starting_sounds/sound5.mp3");
+        endLevelStartingSounds.add("find_instrument_family/end_level_starting_sounds/sound1.mp3");
+        endLevelStartingSounds.add("find_instrument_family/end_level_starting_sounds/sound2.mp3");
+        endLevelStartingSounds.add("find_instrument_family/end_level_starting_sounds/sound3.mp3");
+        endLevelStartingSounds.add("find_instrument_family/end_level_starting_sounds/sound4.mp3");
+        endLevelStartingSounds.add("find_instrument_family/end_level_starting_sounds/sound5.mp3");
 
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound1.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound2.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound3.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound4.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound5.mp3");
-        endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound6.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound1.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound2.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound3.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound4.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound5.mp3");
+        endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound6.mp3");
     }
 
 

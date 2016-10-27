@@ -21,6 +21,7 @@ package org.scify.windmusicgame.rules;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.scify.windmusicgame.*;
+import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.helperClasses.TimeWatch;
 import org.scify.windmusicgame.interfaces.*;
 
@@ -104,14 +105,18 @@ public class MemoriRules implements Rules {
 //                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO"));
 //                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, true));
 //            }
-                if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "LEVEL_INTRO_AUDIO")) {
-                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO"));
-                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, false));
-                }
-            if(MainOptions.gameLevel == 4) {
+            if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "LEVEL_INTRO_AUDIO")) {
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO"));
+                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, false));
+            }
+
+            GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) gsCurrentState.getGameOptions();
+
+            MemoriGameLevel currLevel = gameWithLevelsOptions.getGameLevels().get(MainOptions.gameLevel - 1);
+            if(!(currLevel.getIntroHelperSound() == null)) {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS")) {
                     gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS"));
-                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, true));
+                    gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_UI", null, 0, false));
                 }
             }
         }

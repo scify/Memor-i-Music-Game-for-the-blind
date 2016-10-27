@@ -311,7 +311,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "HELP_INSTRUCTIONS_UI":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.pauseAndPlaySound("game_instructions/help_instructions.mp3", currentGameEvent.blocking);
+                            fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getGameLevels().get(MainOptions.gameLevel - 1).getIntroHelperSound(), currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

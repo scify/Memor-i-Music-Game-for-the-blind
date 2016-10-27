@@ -23,6 +23,10 @@ public class MemoriGameLevel implements GameLevel {
      */
     protected String introSound;
     /**
+     * Each game lavel can have a helpe sounds associated with it (plays at the beginning)
+     */
+    protected String introHelperSound;
+    /**
      * Each game level has a discriptive sound playing upon user interaction with the level button
      * (in order for a blind person to know which level is there)
      */
@@ -39,6 +43,20 @@ public class MemoriGameLevel implements GameLevel {
         this.introSound = introSound;
         this.introScreenSound = introScreenSound;
         this.JSONDBFileForLevel = JSONDBFileForLevel;
+    }
+
+    public String getIntroHelperSound() {
+        return introHelperSound;
+    }
+
+    public MemoriGameLevel(int levelCode, Point2D dimensions, String introSound, String introScreenSound, String JSONDBFileForLevel, String introHelperSound) {
+        this.levelCode = levelCode;
+        this.dimensions = dimensions;
+        this.introSound = introSound;
+        this.introScreenSound = introScreenSound;
+        this.JSONDBFileForLevel = JSONDBFileForLevel;
+        this.introHelperSound = introHelperSound;
+
     }
 
     public String getJSONDBFileForLevel() {

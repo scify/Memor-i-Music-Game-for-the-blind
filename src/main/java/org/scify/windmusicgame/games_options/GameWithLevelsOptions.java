@@ -56,7 +56,6 @@ public class GameWithLevelsOptions {
      * Every time we play a game we follow the story line
      */
     protected Map<Integer, String> storyLineSounds = new HashMap<>();
-
     /**
      * Every time we play a game we follow the story line
      */

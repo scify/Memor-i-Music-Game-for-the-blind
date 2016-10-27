@@ -36,7 +36,7 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         gameLevels.add(new MemoriGameLevel(2, new Point2D.Double(2,4), "find_note/level_intro_sounds/level2IntroSound.mp3", "game_levels_screen_sounds/2x4.mp3", "json_DB/find_the_note_easy.json"));
         gameLevels.add(new MemoriGameLevel(3, new Point2D.Double(3,4), "find_note/level_intro_sounds/level3IntroSound.mp3", "game_levels_screen_sounds/3x4.mp3", "json_DB/find_the_note_medium.json"));
         gameLevels.add(new MemoriGameLevel(4, new Point2D.Double(4,4), "find_note/level_intro_sounds/level4IntroSound.mp3", "game_levels_screen_sounds/4x4.mp3", "json_DB/find_the_note_medium.json"));
-        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "find_note/level_intro_sounds/level5IntroSound.mp3", "game_levels_screen_sounds/4x5.mp3", "json_DB/find_the_note_hard.json"));
+        gameLevels.add(new MemoriGameLevel(5, new Point2D.Double(4,5), "find_note/level_intro_sounds/level5IntroSound.mp3", "game_levels_screen_sounds/4x5.mp3", "json_DB/find_the_note_hard.json", "find_note/introHelperSound4x5.mp3"));
         gameLevels.add(new MemoriGameLevel(6, new Point2D.Double(4,6), "find_note/level_intro_sounds/level6IntroSound.mp3", "game_levels_screen_sounds/4x6.mp3", "json_DB/find_the_note_extreme.json"));
         gameLevels.add(new MemoriGameLevel(7, new Point2D.Double(5,6), "find_note/level_intro_sounds/level7IntroSound.mp3", "game_levels_screen_sounds/5x6.mp3", "json_DB/find_the_note_extreme.json"));
 
