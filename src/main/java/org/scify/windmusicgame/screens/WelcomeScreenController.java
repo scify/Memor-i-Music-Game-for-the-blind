@@ -52,7 +52,7 @@ public class WelcomeScreenController {
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
 
-        primaryStage.getIcons().add(new Image("/img/musicgame_large.png"));
+        primaryStage.getIcons().add(new Image("/img/windmusicgame_large.png"));
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
