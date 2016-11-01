@@ -523,7 +523,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "DOOR_OPEN":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_effects/open_door.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getCardsOpeningSound(), currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;

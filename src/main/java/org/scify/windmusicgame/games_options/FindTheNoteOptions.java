@@ -64,6 +64,8 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound4.mp3");
         endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound5.mp3");
         endLevelEndingSounds.add("find_note/end_level_ending_sounds/sound6.mp3");
+
+        cardsOpeningSound = "game_effects/open_door.wav";
     }
 
     public FindTheNoteOptions() {

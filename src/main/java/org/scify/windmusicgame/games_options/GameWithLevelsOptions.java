@@ -61,6 +61,12 @@ public class GameWithLevelsOptions {
      */
     protected List<String> endLevelStartingSounds = new ArrayList<>();
 
+    public String getCardsOpeningSound() {
+        return cardsOpeningSound;
+    }
+
+    protected String cardsOpeningSound;
+
     public String getTutorialSoundBase() {
         return tutorialSoundBase;
     }
