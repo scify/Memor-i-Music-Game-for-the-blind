@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import org.scify.windmusicgame.FXAudioEngine;
+import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.windmusicgame.games_options.FindTheNoteOptions;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
@@ -102,10 +103,13 @@ public class GameSelectionScreenController {
             GameWithLevelsOptions gameOptions = null;
             if (keyEvent.getSource() == findInstrumentFamiliesGame) {
                 gameOptions = new FindInstrumentFamilyOptions();
+                MainOptions.gameClassName = "FIND_INSTRUMENT_FAMILY";
             } else if (keyEvent.getSource() == findInstrumentGame) {
                 gameOptions = new FindTheInstrumentOptions();
+                MainOptions.gameClassName = "FIND_INSTRUMENT";
             } else if (keyEvent.getSource() == findNoteGame) {
                 gameOptions = new FindTheNoteOptions();
+                MainOptions.gameClassName = "FIND_NOTE";
             }
             System.err.println(gameOptions);
 

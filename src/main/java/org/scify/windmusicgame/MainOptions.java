@@ -33,4 +33,5 @@ public class MainOptions {
     public static double mWidth;
     public static int storyLineLevel = 1;
     public static String gameScoresFile;
+    public static String gameClassName;
 }

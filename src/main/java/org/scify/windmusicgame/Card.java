@@ -107,6 +107,7 @@ public class Card implements Tile{
         this.label = label;
         this.isWon = false;
         this.isFlipped = false;
+        flipBackUI();
     }
 
     public String getLabel() {
@@ -136,7 +137,15 @@ public class Card implements Tile{
      * function to set the UI of the flipped back card (change icons)
      */
     public void flipBackUI () {
+        //TODO: change logic here (game options should include door card for each game)
         String imgFile = "/img/door.jpg";
+        if(MainOptions.gameClassName.equals("FIND_INSTRUMENT_FAMILY")) {
+            imgFile = "/img/cardcategorie.png";
+        } else if(MainOptions.gameClassName.equals("FIND_INSTRUMENT")) {
+            imgFile = "/img/cardinstrument.png";
+        } else if(MainOptions.gameClassName.equals("FIND_NOTE")) {
+            imgFile = "/img/cardnote.png";
+        }
         button.setStyle("-fx-background-image: url(" + imgFile +")");
     }
 
