@@ -20,8 +20,6 @@ public class TutorialRules extends MemoriRules {
     }
 
     public GameState getInitialState(GameOptions gameOptions) {
-        // TODO: based on game options class name, identify which game is currently playing
-        // and update a private string variable with the corresponding tutorial dir
         GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) gameOptions;
         System.err.println(gameWithLevelsOptions.getClass());
         return super.getInitialState(gameOptions);

@@ -429,7 +429,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         }
                         break;
                     case "TUTORIAL_0_UI":
-                        //TODO: These sound effects should be combined into 1
                         fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "count_on_you.mp3", currentGameEvent.blocking);
                         listIterator.remove();
                         break;
@@ -441,14 +440,12 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         break;
                     case "TUTORIAL_2_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            //TODO: These sound effects should be combined into 1
                             fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "please_press_down.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
                         break;
                     case "DOORS_EXPLANATION_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            //TODO: These sound effects should be combined into 1
                             fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "doors_explanation.mp3", currentGameEvent.blocking);
                             listIterator.remove();
                         }
