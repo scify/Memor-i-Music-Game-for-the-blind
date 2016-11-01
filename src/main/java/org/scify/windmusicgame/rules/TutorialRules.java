@@ -74,7 +74,7 @@ public class TutorialRules extends MemoriRules {
                 // add tutorial_0 event to queue
                 gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0"));
                 // add tutorial_0 UI event to queue
-                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0_UI", null, 0, false));
+                gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_0_UI", null, 0, true));
             }
             // else if tutorial_0 event exists
         } else {
@@ -85,7 +85,7 @@ public class TutorialRules extends MemoriRules {
                     //add tutorial_1 event to queue
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_1_STEP_1"));
                     //add tutorial_1 UI event to queue
-                    gsCurrentState.getEventQueue().add(new GameEvent("GO_RIGHT_AGAIN", null, new Date().getTime() + 200, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("GO_RIGHT_AGAIN", null, new Date().getTime() + 200, true));
                 } //else  if user did not click RIGHT
                 else {
                     gsCurrentState.getEventQueue().add(new GameEvent("NOT_RIGHT_UI", null, new Date().getTime() + 200, false));
@@ -111,7 +111,7 @@ public class TutorialRules extends MemoriRules {
                                 //if user clicked LEFT
                                 if (uaAction.getDirection() == KeyCode.LEFT) {
                                     // add tutorial_2 UI event to queue
-                                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, false));
+                                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2_UI", null, new Date().getTime() + 500, true));
                                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_2"));
 
                                 } else {
@@ -126,7 +126,7 @@ public class TutorialRules extends MemoriRules {
                                         //add tutorial_3 event to queue
                                         gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION"));
                                         // add tutorial_3 UI event to queue
-                                        gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", null, new Date().getTime() + 200, false));
+                                        gsCurrentState.getEventQueue().add(new GameEvent("DOORS_EXPLANATION_UI", null, new Date().getTime() + 200, true));
                                     }
                                 }
                             }

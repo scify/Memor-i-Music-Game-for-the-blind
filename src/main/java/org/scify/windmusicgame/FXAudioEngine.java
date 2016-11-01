@@ -31,9 +31,9 @@ public class FXAudioEngine implements AudioEngine{
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
     private String soundBasePath = "/audios/";
-    private String movementSound = "movement_sound.wav";
+    private String movementSound = "movement_sound.mp3";
     private String successSound = "success.wav";
-    private String invalidMovementSound = "bump.wav";
+    private String invalidMovementSound = "bump.mp3";
     private String emptySound = "game_effects/door-knock.wav";
     private String numBasePath = "numbers/";
     private String letterBasePath = "letters/";
@@ -62,6 +62,7 @@ public class FXAudioEngine implements AudioEngine{
     public void playMovementSound(double balance, double rate) {
         pauseSound();
         if(movementSoundMedia == null) {
+            System.err.println("construct new movement sound player");
             movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }

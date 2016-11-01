@@ -1,9 +1,11 @@
 package org.scify.windmusicgame.screens;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.scify.windmusicgame.FXAudioEngine;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
 
@@ -32,6 +34,12 @@ public class WelcomeScreenController {
         primaryStage.show();
         primaryStage.requestFocus();
         primaryStage.setFullScreen(true);
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                System.out.println("Stage is closing");
+                System.exit(0);
+            }
+        });
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
