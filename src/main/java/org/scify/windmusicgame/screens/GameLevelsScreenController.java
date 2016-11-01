@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
 
 /**
@@ -103,6 +104,8 @@ public class GameLevelsScreenController {
                     MainOptions.gameScoresFile = this.gameOptions.scoresFile;
                     Thread thread = new Thread(() -> startNormalGame());
                     thread.start();
+                } else if(event.getCode() == ESCAPE) {
+                    exitScreen();
                 }
             });
 
@@ -169,6 +172,8 @@ public class GameLevelsScreenController {
             MainOptions.TUTORIAL_MODE = true;
             Thread thread = new Thread(() -> startNormalGame());
             thread.start();
+        } else if(evt.getCode() == ESCAPE) {
+            exitScreen();
         }
     }
 
@@ -185,7 +190,7 @@ public class GameLevelsScreenController {
                 MainOptions.NUMBER_OF_COLUMNS = (int) nextLevelDimensions.getY();
                 startNormalGame();
             } else {
-                sceneHandler.popScene();
+                exitScreen();
             }
         }
     }
@@ -208,8 +213,7 @@ public class GameLevelsScreenController {
     @FXML
     protected void backToMainScreen(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
-            audioEngine.pauseCurrentlyPlayingAudios();
-            sceneHandler.popScene();
+            exitScreen();
         }
     }
 
@@ -217,6 +221,13 @@ public class GameLevelsScreenController {
         audioEngine.pauseCurrentlyPlayingAudios();
         if (keyEvent.getCode() == SPACE) {
             new FXHighScoresScreen(sceneHandler, (GameOptions) this.gameOptions);
+        } else if(keyEvent.getCode() == ESCAPE) {
+            exitScreen();
         }
+    }
+
+    protected void exitScreen() {
+        audioEngine.pauseCurrentlyPlayingAudios();
+        sceneHandler.popScene();
     }
 }

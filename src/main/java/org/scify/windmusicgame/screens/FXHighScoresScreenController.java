@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
 
 public class FXHighScoresScreenController {
@@ -71,7 +72,7 @@ public class FXHighScoresScreenController {
         scoresScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ESCAPE:
-                    sceneHandler.popScene();
+                    exitScreen();
                     break;
             }
         });
@@ -100,6 +101,8 @@ public class FXHighScoresScreenController {
                 if (event.getCode() == SPACE) {
                     MainOptions.gameScoresFile = this.gameOptions.scoresFile;
                     parseHighScore(gameLevel.getLevelCode());
+                } else if (event.getCode() == ESCAPE) {
+                    exitScreen();
                 }
             });
 
@@ -159,7 +162,12 @@ public class FXHighScoresScreenController {
     @FXML
     protected void backToMainScreen(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
-            sceneHandler.popScene();
+            exitScreen();
         }
+    }
+
+    protected void exitScreen() {
+        audioEngine.pauseCurrentlyPlayingAudios();
+        sceneHandler.popScene();
     }
 }

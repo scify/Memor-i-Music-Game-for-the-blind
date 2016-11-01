@@ -78,7 +78,7 @@ public class GameSelectionScreenController {
             audioEngine.pauseCurrentlyPlayingAudios();
             new SponsorsScreen(sceneHandler, sceneHandler.getMainWindow());
         } else if (keyEvent.getCode() == ESCAPE) {
-            System.exit(0);
+            exitScreen();
         }
     }
 
@@ -93,7 +93,7 @@ public class GameSelectionScreenController {
             audioEngine.pauseCurrentlyPlayingAudios();
             sceneHandler.popScene();
         } else if (evt.getCode() == ESCAPE) {
-            System.exit(0);
+            exitScreen();
         }
     }
 
@@ -115,8 +115,13 @@ public class GameSelectionScreenController {
 
             new GameLevelsScreen(sceneHandler, gameOptions);
         } else if (keyEvent.getCode() == ESCAPE) {
-            System.exit(0);
+            exitScreen();
         }
 
+    }
+
+    protected void exitScreen() {
+        audioEngine.pauseCurrentlyPlayingAudios();
+        sceneHandler.popScene();
     }
 }
