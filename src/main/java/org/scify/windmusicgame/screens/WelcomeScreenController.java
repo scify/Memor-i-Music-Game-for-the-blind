@@ -2,8 +2,10 @@ package org.scify.windmusicgame.screens;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.scify.windmusicgame.FXAudioEngine;
@@ -40,6 +42,15 @@ public class WelcomeScreenController {
                 System.exit(0);
             }
         });
+
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        primaryStage.setX(bounds.getMinX());
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setWidth(bounds.getWidth());
+        primaryStage.setHeight(bounds.getHeight());
+
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
