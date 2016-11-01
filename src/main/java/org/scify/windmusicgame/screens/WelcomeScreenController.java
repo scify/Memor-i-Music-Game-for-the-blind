@@ -90,8 +90,8 @@ public class WelcomeScreenController {
     protected void headphonesAdjustment(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
             audioEngine.pauseCurrentlyPlayingAudios();
-            audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.mp3");
-            audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.mp3");
+            audioEngine.playBalancedSound(-1.0, "main_screen/left_headphone.mp3", true);
+            audioEngine.playBalancedSound(1.0, "main_screen/right_headphone.mp3", true);
         } else if (evt.getCode() == ESCAPE) {
             System.exit(0);
         }

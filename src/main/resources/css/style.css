@@ -34,6 +34,8 @@
     -fx-padding: 8%;
     -fx-background-insets: 8%;
     -fx-background-position: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 5;
 }
 
 .closedCard {
@@ -43,6 +45,7 @@
 
 .focusedCard {
     -fx-background-color: #DDDD00;
+    -fx-rotate: 7px;
 }
 
 .cardButton:focused {

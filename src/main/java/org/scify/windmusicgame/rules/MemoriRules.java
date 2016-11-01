@@ -165,13 +165,17 @@ public class MemoriRules implements Rules {
                 //add appropriate event
                 gsCurrentState.getEventQueue().add(new GameEvent("READY_TO_FINISH"));
                 //add UI events
-                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", null, new Date().getTime() + 5000, true));
-                addTimeGameEvent(watch, gsCurrentState);
-
-                gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
-
                 if (MainOptions.TUTORIAL_MODE) {
-                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 6500, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_SUCCESS_UI", null, new Date().getTime() + 5000, true));
+                    addTimeGameEvent(watch, gsCurrentState);
+                } else {
+                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_1", null, new Date().getTime() + 5000, true));
+                    addTimeGameEvent(watch, gsCurrentState);
+
+                    gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_SUCCESS_STEP_2", null, new Date().getTime() + 7200, true));
+                }
+                if (MainOptions.TUTORIAL_MODE) {
+                    gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 8500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 } else {
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8600, false));
@@ -218,7 +222,7 @@ public class MemoriRules implements Rules {
             }
         } else {
             // if invalid movement, return only an invalid game event
-            gsCurrentState.getEventQueue().add(new GameEvent("invalidMovement", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex())));
+            gsCurrentState.getEventQueue().add(new GameEvent("invalidMovement", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex()), 0 , false));
             if(MainOptions.TUTORIAL_MODE) {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT")) {
                     //the invalid movement tutorial event should be emitted only if the tutorial has reached a certain point (step 2 which is go right second time)
@@ -245,10 +249,11 @@ public class MemoriRules implements Rules {
         //If in help instructions mode, add appropriate explanation
         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "HELP_INSTRUCTIONS_EXPLANATION")) {
             gsCurrentState.getEventQueue().add(new GameEvent("HELP_INSTRUCTIONS_EXPLANATION"));
-            gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_ROW", null, 0, true));
-            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", MainOptions.NUMBER_OF_ROWS - ((int)coords.getX()), 0, true));
             gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_COLUMN", null, 0, true));
             gsCurrentState.getEventQueue().add(new GameEvent("LETTER", (int)coords.getY() + 1, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("HELP_EXPLANATION_ROW", null, 0, true));
+            gsCurrentState.getEventQueue().add(new GameEvent("NUMERIC", MainOptions.NUMBER_OF_ROWS - ((int)coords.getX()), 0, true));
+
         }
     }
 
@@ -355,15 +360,15 @@ public class MemoriRules implements Rules {
                         Point2D position = iter.next();
                         gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 5000, false));
                     }
-                    gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 5100, false));
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 5200, false));
-                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_CLOSED", null, new Date().getTime() + 5500, false));
+                    gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 5100, true));
+
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR"));
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 6200, true));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 5300, true));
                         }
                     }
+                    gsCurrentState.getEventQueue().add(new GameEvent("DOORS_SHUTTING", null, new Date().getTime() + 6000, true));
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_DOORS_CLOSED")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_DOORS_CLOSED"));

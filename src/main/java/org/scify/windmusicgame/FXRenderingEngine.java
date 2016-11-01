@@ -223,7 +223,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                         listIterator.remove();
                         break;
                     case "invalidMovement":
-                        fxAudioEngine.playInvalidMovementSound();
+                        coords = (Point2D) currentGameEvent.parameters;
+                        invalidMovementSound((int) coords.getX(), (int) coords.getY(), currentGameEvent.blocking);
                         listIterator.remove();
 
                         break;
@@ -424,9 +425,6 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "TUTORIAL_0_UI":
                         //TODO: These sound effects should be combined into 1
                         fxAudioEngine.pauseAndPlaySound(gameWithLevelsOptions.getTutorialSoundBase() + "count_on_you.mp3", currentGameEvent.blocking);
-//                        fxAudioEngine.playSound("game_effects/walking.mp3", currentGameEvent.blocking);
-//                        fxAudioEngine.playSound("game_instructions/we_are_here.mp3", currentGameEvent.blocking);
-//                        fxAudioEngine.playSound("game_instructions/please_press_right.mp3", currentGameEvent.blocking);
                         listIterator.remove();
                         break;
                     case "GO_RIGHT_AGAIN":
@@ -481,6 +479,12 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
+                    case "TUTORIAL_SUCCESS_UI":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "tutorial_success.mp3", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
                     case "TUTORIAL_DOORS_CLOSED_UI":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.playSound(gameWithLevelsOptions.getTutorialSoundBase() + "doors_closing_explanation.mp3", currentGameEvent.blocking);
@@ -493,9 +497,15 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
-                    case "DOORS_CLOSED":
+                    case "DOORS_SHUTTING":
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            fxAudioEngine.playSound("game_effects/door_shutting.wav", currentGameEvent.blocking);
+                            fxAudioEngine.playSound("game_effects/doors_shutting.mp3", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "STOP_AUDIOS":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseCurrentlyPlayingAudios();
                             listIterator.remove();
                         }
                         break;
@@ -562,6 +572,18 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
         double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS, -1.0, 2.0);
         double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS, 1.5, 1.0);
         fxAudioEngine.playMovementSound(soundBalance, rate);
+    }
+
+    /**
+     * Computes the sound balance (left-right panning) and rate and plays the movement sound
+     * @param rowIndex the Node x position
+     * @param columnIndex the Node y position
+     * @param isBlocking if the event should block the ui thread
+     */
+    private void invalidMovementSound(int rowIndex, int columnIndex, boolean isBlocking) {
+        double soundBalance = map(columnIndex, 0.0, (double) MainOptions.NUMBER_OF_COLUMNS, -1.0, 2.0);
+        double rate = map(rowIndex, 0.0, (double) MainOptions.NUMBER_OF_ROWS, 1.5, 1.0);
+        fxAudioEngine.playInvalidMovementSound(soundBalance, isBlocking);
     }
 
     private Node getNodeByRowColumnIndex(final int row,final int column, GridPane gridPane) {

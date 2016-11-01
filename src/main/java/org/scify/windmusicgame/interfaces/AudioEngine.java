@@ -21,5 +21,5 @@ package org.scify.windmusicgame.interfaces;
 public interface AudioEngine {
     void playSound(String sSoundType);
 
-    void playBalancedSound(double balance, String soundFile);
+    void playBalancedSound(double balance, String soundFile, boolean isBlocking);
 }
