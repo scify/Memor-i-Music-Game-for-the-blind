@@ -165,6 +165,7 @@ public class FXAudioEngine implements AudioEngine{
      * @param isBlocking whether the sound should block the {@link Thread} while playing
      */
     public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
+        System.err.println(soundFile);
         pauseCurrentlyPlayingAudios();
         playSound(soundFile, isBlocking);
     }

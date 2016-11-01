@@ -255,6 +255,12 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
                         }
                         break;
+                    case "CARD_NAME":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.pauseAndPlaySound("instrument_names/" + currentGameEvent.parameters + ".mp3", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
                     case "flip":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {

@@ -331,9 +331,15 @@ public class MemoriRules implements Rules {
             if(tileIsLastOfTuple(memoriTerrain, currTile)) {
                 // If last of n-tuple flipped (i.e. if we have enough cards flipped to form a tuple)
                 gsCurrentState.getEventQueue().add(new GameEvent("success", uaAction.getCoords(), new Date().getTime() + 5000, true));
-                // TODO: card description should only occur in a 20% chance.
+                // TODO: card random facts should only occur in a 20% chance.
                 // Also we should implement a search (maybe only one card in the winning tuple has a description
                 gsCurrentState.getEventQueue().add(new GameEvent("CARD_DESCRIPTION", uaAction.getCoords(), new Date().getTime() + 5500, true));
+//                if(gsCurrentState.getGameOptions().getClass() == "")
+                if(gsCurrentState.getGameOptions().getClass().getName().equals("org.scify.windmusicgame.games_options.FindInstrumentFamilyOptions")) {
+                    //TODO: change logic here
+                    gsCurrentState.getEventQueue().add(new GameEvent("CARD_NAME", cardNameSound((MemoriTerrain) gsCurrentState.getTerrain(), currTile), new Date().getTime() + 6500, true));
+                }
+                System.err.println(gsCurrentState.getGameOptions().getClass().getName());
                 //if in tutorial mode, push explaining events
                 if(MainOptions.TUTORIAL_MODE) {
                     if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_CORRECT_PAIR")) {
@@ -383,6 +389,21 @@ public class MemoriRules implements Rules {
     }
 
 
+    protected String cardNameSound(MemoriTerrain memoriTerrain, Tile currTile) {
+        CategorizedCard tileToCard = (CategorizedCard)currTile;
+        if(tileToCard.getCategory().equals("item")) {
+            return tileToCard.getLabel();
+        }
+        for (Iterator<Tile> iter = memoriTerrain.getOpenTiles().iterator(); iter.hasNext(); ) {
+            Tile element = iter.next();
+            CategorizedCard elementToCard = (CategorizedCard)element;
+            // if the current card is not equal with the given card
+            if(elementToCard.getCategory().equals("item")) {
+                return elementToCard.getLabel();
+            }
+        }
+        return null;
+    }
 
     /**
      * Checks if a given event exists in the events list
