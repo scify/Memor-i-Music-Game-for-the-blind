@@ -54,11 +54,11 @@ public class GameSelectionScreenController {
             }
         });
 
-        gameSelectionScene.lookup("#findNoteGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
-            if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_selection_screen/find_note.mp3", false);
-            }
-        });
+//        gameSelectionScene.lookup("#findNoteGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+//            if (newPropertyValue) {
+//                audioEngine.pauseAndPlaySound("game_selection_screen/find_note.mp3", false);
+//            }
+//        });
 
         gameSelectionScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {

@@ -98,7 +98,7 @@ public abstract class MemoriGame implements Game<Integer> {
         GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) this.gameOptions;
         reRenderer.cancelCurrentRendering();
         if(memoriGameState.loadNextLevel) {
-            if(!MainOptions.TUTORIAL_MODE && MainOptions.gameLevel < gameWithLevelsOptions.getGameLevels().size()) {
+            if(MainOptions.gameLevel < gameWithLevelsOptions.getGameLevels().size()) {
                 MainOptions.storyLineLevel++;
                 return NEXT_LEVEL;
             }
