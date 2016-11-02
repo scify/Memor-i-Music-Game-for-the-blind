@@ -367,9 +367,9 @@ public class MemoriRules implements Rules {
                     memoriTerrain.resetOpenTiles();
                     for (Iterator<Point2D> iter = openTilesPoints.iterator(); iter.hasNext(); ) {
                         Point2D position = iter.next();
-                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 5000, false));
+                        gsCurrentState.getEventQueue().add(new GameEvent("flipBack", position, new Date().getTime() + 4800, false));
                     }
-                    gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 5100, true));
+                    gsCurrentState.getEventQueue().add(new GameEvent("STOP_AUDIOS", null, new Date().getTime() + 5000, true));
 
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
@@ -377,6 +377,7 @@ public class MemoriRules implements Rules {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 5300, true));
                         }
                     }
+                    gsCurrentState.getEventQueue().add(new GameEvent("FAIL_SOUND", null, new Date().getTime() + 5100, true));
                     gsCurrentState.getEventQueue().add(new GameEvent("DOORS_SHUTTING", null, new Date().getTime() + 6000, true));
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_DOORS_CLOSED")) {

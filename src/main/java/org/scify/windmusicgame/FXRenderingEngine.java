@@ -514,6 +514,12 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                             listIterator.remove();
                         }
                         break;
+                    case "FAIL_SOUND":
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            fxAudioEngine.playSound("game_effects/fail.mp3", currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
                     case "STOP_AUDIOS":
                         if (new Date().getTime() > currentGameEvent.delay) {
                             fxAudioEngine.pauseCurrentlyPlayingAudios();
