@@ -93,7 +93,8 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
 
 
     public FindInstrumentFamilyOptions() {
-        scoresFile = ".find_instrument_families_scores.properties";
+        super();
+        scoresFile += "find_instrument_families_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΜΟΥΣΙΚΟΥ ΟΡΓΑΝΟΥ";
         gameDescriptionSound = "game_levels_screen_sounds/find_instrument_families_description.mp3";
         tutorialSoundBase = "find_instrument_family/tutorial/";

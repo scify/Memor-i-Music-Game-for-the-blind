@@ -69,7 +69,8 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
     }
 
     public FindTheNoteOptions() {
-        scoresFile = ".find_note_scores.properties";
+        super();
+        scoresFile += "find_note_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΗ ΝΟΤΑ";
         gameDescriptionSound = "game_levels_screen_sounds/find_note_description.mp3";
         tutorialSoundBase = "find_note/tutorial/";

@@ -92,6 +92,16 @@ public class GameWithLevelsOptions {
 
     public String scoresFile;
 
+    public GameWithLevelsOptions() {
+        String userDir;
+        if ((System.getProperty("os.name")).toUpperCase().contains("WINDOWS")) {
+            userDir = System.getenv("AppData");
+        } else {
+            userDir = System.getProperty("user.dir");
+        }
+        this.scoresFile = userDir;
+    }
+
     public String getGameDescription() {
         return gameDescription;
     }

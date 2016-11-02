@@ -72,7 +72,8 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
     }
 
     public FindTheInstrumentOptions() {
-        scoresFile = ".find_instrument_scores.properties";
+        super();
+        scoresFile += "find_instrument_scores.properties";
         gameDescription = "ΒΡΕΙΤΕ ΤΟ ΜΟΥΣΙΚΟ ΟΡΓΑΝΟ";
         gameDescriptionSound = "game_levels_screen_sounds/find_instrument_description.mp3";
         tutorialSoundBase = "find_instrument/tutorial/";
