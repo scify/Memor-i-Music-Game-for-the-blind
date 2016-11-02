@@ -374,7 +374,7 @@ public class MemoriRules implements Rules {
                     if(MainOptions.TUTORIAL_MODE) {
                         if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_WRONG_PAIR")) {
                             gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR"));
-                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 5300, true));
+                            gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_WRONG_PAIR_UI", null, new Date().getTime() + 5200, true));
                         }
                     }
                     gsCurrentState.getEventQueue().add(new GameEvent("FAIL_SOUND", null, new Date().getTime() + 5100, true));
