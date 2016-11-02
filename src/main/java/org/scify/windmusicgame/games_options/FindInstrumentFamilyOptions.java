@@ -89,6 +89,8 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
         endLevelEndingSounds.add("find_instrument_family/end_level_ending_sounds/sound6.mp3");
 
         cardsOpeningSound = "game_effects/Chair1.wav";
+
+        endGameSound = "find_instrument_family/storyline_audios/end_game_sound.mp3";
     }
 
 

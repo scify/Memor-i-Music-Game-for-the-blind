@@ -91,6 +91,12 @@ public class GameWithLevelsOptions {
      */
     protected List<String> endLevelEndingSounds = new ArrayList<>();
 
+    protected String endGameSound;
+
+    public String getEndGameSound() {
+        return endGameSound;
+    }
+
     public String scoresFile;
 
     public GameWithLevelsOptions() {

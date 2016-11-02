@@ -69,6 +69,8 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         endLevelEndingSounds.add("find_instrument/end_level_ending_sounds/sound6.mp3");
 
         cardsOpeningSound = "game_effects/open_door.wav";
+
+        endGameSound = "find_instrument/storyline_audios/end_game_sound.mp3";
     }
 
     public FindTheInstrumentOptions() {

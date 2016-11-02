@@ -178,6 +178,9 @@ public class MemoriRules implements Rules {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME_UI", null, new Date().getTime() + 8500, false));
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 } else {
+                    GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) gsCurrentState.getGameOptions();
+                    if(MainOptions.gameLevel == gameWithLevelsOptions.getGameLevels().size())
+                        gsCurrentState.getEventQueue().add(new GameEvent("GAME_END", null, new Date().getTime() + 8000, true));
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8600, false));
                 }
                 //update high score
@@ -227,7 +230,7 @@ public class MemoriRules implements Rules {
                 if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_INVALID_MOVEMENT")) {
                     //the invalid movement tutorial event should be emitted only if the tutorial has reached a certain point (step 2 which is go right second time)
                     if(eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "TUTORIAL_1_STEP_2")) {
-                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT_UI", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex()), new Date().getTime() + 1000, true));
+                        gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT_UI", new Point2D.Double(gsCurrentState.getRowIndex(), gsCurrentState.getColumnIndex()), new Date().getTime() + 500, true));
                         gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_INVALID_MOVEMENT"));
                     }
                 }
