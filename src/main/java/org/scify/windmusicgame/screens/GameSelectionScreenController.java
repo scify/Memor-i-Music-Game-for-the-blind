@@ -72,14 +72,14 @@ public class GameSelectionScreenController {
      * Constructs an instance and redirects to the sponsors screen
      * @param keyEvent the keyboard event
      */
-    public void goToSponsorsScreen(KeyEvent keyEvent) {
-        System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
-        if (keyEvent.getCode() == SPACE) {
-            audioEngine.pauseCurrentlyPlayingAudios();
-            new SponsorsScreen(sceneHandler, sceneHandler.getMainWindow());
-        } else if (keyEvent.getCode() == ESCAPE) {
+    public void playSponsorMessage(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == SPACE) {
+            audioEngine.pauseAndPlaySound("sponsor_screen/sponsor_message.mp3", false);
+        }
+        else if(keyEvent.getCode() == ESCAPE) {
             exitScreen();
         }
+
     }
 
     /**
@@ -90,8 +90,7 @@ public class GameSelectionScreenController {
     protected void backToMainScreen(KeyEvent evt) {
         System.err.println("SELF:" + this.toString() + " from " + Thread.currentThread().toString());
         if (evt.getCode() == SPACE) {
-            audioEngine.pauseCurrentlyPlayingAudios();
-            sceneHandler.popScene();
+            exitScreen();
         } else if (evt.getCode() == ESCAPE) {
             exitScreen();
         }
