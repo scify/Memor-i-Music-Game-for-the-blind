@@ -19,6 +19,7 @@ package org.scify.windmusicgame.games_options;
 import org.scify.windmusicgame.MemoriGameLevel;
 
 import java.awt.geom.Point2D;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -99,7 +100,8 @@ public class GameWithLevelsOptions {
         } else {
             userDir = System.getProperty("user.dir");
         }
-        this.scoresFile = userDir;
+        this.scoresFile = userDir + File.separator;
+        System.err.println(userDir);
     }
 
     public String getGameDescription() {
