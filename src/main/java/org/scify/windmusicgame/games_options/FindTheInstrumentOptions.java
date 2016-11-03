@@ -71,6 +71,16 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         cardsOpeningSound = "game_effects/open_door.wav";
 
         endGameSound = "find_instrument/storyline_audios/end_game_sound.mp3";
+
+        funFactorSounds.add("find_instrument/fun_factor_sounds/1.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/2.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/3.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/4.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/5.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/7.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/8.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/9.mp3");
+        funFactorSounds.add("find_instrument/fun_factor_sounds/10.mp3");
     }
 
     public FindTheInstrumentOptions() {

@@ -94,6 +94,10 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     private List<String> endLevelStartingSounds = new ArrayList<>();
     private List<String> endLevelEndingSounds = new ArrayList<>();
 
+    /**
+     * Fun factor sounds occur every 3 levels
+     */
+    protected List<String> funFactorSounds = new ArrayList<>();
     private GameWithLevelsOptions gameWithLevelsOptions;
 
     public FXRenderingEngine(GameOptions gameOptions) {
@@ -104,6 +108,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
             endLevelStartingSounds = this.gameWithLevelsOptions.getEndLevelStartingSounds();
 
             endLevelEndingSounds = this.gameWithLevelsOptions.getEndLevelEndingSounds();
+            funFactorSounds = this.gameWithLevelsOptions.getFunFactorSounds();
 
             List<MemoriGameLevel> allLevels = this.gameWithLevelsOptions.getGameLevels();
 
@@ -339,8 +344,8 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "LEVEL_SUCCESS_STEP_1":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            int idx = new Random().nextInt(endLevelStartingSounds.size());
-                            String randomSound = (endLevelStartingSounds.get(idx));
+                            int randInt = new Random().nextInt(endLevelStartingSounds.size());
+                            String randomSound = (endLevelStartingSounds.get(randInt));
                             fxAudioEngine.pauseAndPlaySound(randomSound, currentGameEvent.blocking);
                             listIterator.remove();
                         }
@@ -348,8 +353,17 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
                     case "LEVEL_SUCCESS_STEP_2":
                         //check if the event should happen after some time
                         if (new Date().getTime() > currentGameEvent.delay) {
-                            int idx = new Random().nextInt(endLevelStartingSounds.size());
-                            String randomSound = (endLevelEndingSounds.get(idx));
+                            int randInt = new Random().nextInt(endLevelEndingSounds.size());
+                            String randomSound = (endLevelEndingSounds.get(randInt));
+                            fxAudioEngine.pauseAndPlaySound(randomSound, currentGameEvent.blocking);
+                            listIterator.remove();
+                        }
+                        break;
+                    case "FUN_FACTOR_UI":
+                        //check if the event should happen after some time
+                        if (new Date().getTime() > currentGameEvent.delay) {
+                            int randInt = new Random().nextInt(funFactorSounds.size());
+                            String randomSound = (funFactorSounds.get(randInt));
                             fxAudioEngine.pauseAndPlaySound(randomSound, currentGameEvent.blocking);
                             listIterator.remove();
                         }

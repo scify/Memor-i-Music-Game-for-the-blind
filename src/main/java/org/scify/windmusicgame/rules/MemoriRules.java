@@ -105,6 +105,12 @@ public class MemoriRules implements Rules {
 //                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO"));
 //                gsCurrentState.getEventQueue().add(new GameEvent("STORYLINE_AUDIO_UI", null, 0, true));
 //            }
+            if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "FUN_FACTOR")) {
+                gsCurrentState.getEventQueue().add(new GameEvent("FUN_FACTOR"));
+                if(MainOptions.storyLineLevel % 3 == 0 || MainOptions.storyLineLevel == 1) {
+                    gsCurrentState.getEventQueue().add(new GameEvent("FUN_FACTOR_UI", null, 0, true));
+                }
+            }
             if (!eventsQueueContainsEvent(gsCurrentState.getEventQueue(), "LEVEL_INTRO_AUDIO")) {
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO"));
                 gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_INTRO_AUDIO_UI", null, 0, false));
@@ -179,6 +185,8 @@ public class MemoriRules implements Rules {
                     gsCurrentState.getEventQueue().add(new GameEvent("TUTORIAL_END_GAME"));
                 } else {
                     GameWithLevelsOptions gameWithLevelsOptions = (GameWithLevelsOptions) gsCurrentState.getGameOptions();
+                    System.out.println(MainOptions.gameLevel);
+                    System.out.println(gameWithLevelsOptions.getGameLevels().size());
                     if(MainOptions.gameLevel == gameWithLevelsOptions.getGameLevels().size())
                         gsCurrentState.getEventQueue().add(new GameEvent("GAME_END", null, new Date().getTime() + 8000, true));
                     gsCurrentState.getEventQueue().add(new GameEvent("LEVEL_END_UNIVERSAL", null, new Date().getTime() + 8600, false));

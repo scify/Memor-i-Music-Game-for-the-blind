@@ -68,6 +68,13 @@ public class FindTheNoteOptions extends GameWithLevelsOptions implements GameOpt
         cardsOpeningSound = "game_effects/open_door.wav";
 
         endGameSound = "find_note/storyline_audios/end_game_sound.mp3";
+
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/2.mp3");
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/4.mp3");
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/5.mp3");
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/7.mp3");
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/10.mp3");
+        funFactorSounds.add("find_instrument_family/fun_factor_sounds/11.mp3");
     }
 
     public FindTheNoteOptions() {

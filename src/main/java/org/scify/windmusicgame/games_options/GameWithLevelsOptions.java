@@ -91,6 +91,15 @@ public class GameWithLevelsOptions {
      */
     protected List<String> endLevelEndingSounds = new ArrayList<>();
 
+    public List<String> getFunFactorSounds() {
+        return funFactorSounds;
+    }
+
+    /**
+     * Fun factor sounds occur every 3 levels
+     */
+    protected List<String> funFactorSounds = new ArrayList<>();
+
     protected String endGameSound;
 
     public String getEndGameSound() {
