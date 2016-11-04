@@ -347,7 +347,6 @@ public class MemoriRules implements Rules {
                 gsCurrentState.getEventQueue().add(new GameEvent("CARD_DESCRIPTION", uaAction.getCoords(), new Date().getTime() + 5500, true));
 //                if(gsCurrentState.getGameOptions().getClass() == "")
                 if(gsCurrentState.getGameOptions().getClass().getName().equals("org.scify.windmusicgame.games_options.FindInstrumentFamilyOptions")) {
-                    //TODO: change logic here
                     gsCurrentState.getEventQueue().add(new GameEvent("CARD_NAME", cardNameSound((MemoriTerrain) gsCurrentState.getTerrain(), currTile), new Date().getTime() + 6500, true));
                 }
                 System.err.println(gsCurrentState.getGameOptions().getClass().getName());
