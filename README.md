@@ -79,7 +79,7 @@ limitations under the License.
 
 ## Sponsor
 
-* ![Sponsor logo](https://raw.githubusercontent.com/scify/Wind-Music-Game-for-the-blind/master/src/main/resources/img/WIND_logo_blue.png)
+![Sponsor logo](https://raw.githubusercontent.com/scify/Wind-Music-Game-for-the-blind/master/src/main/resources/img/WIND_logo_blue.png)
 
 ## Acknowledgments
 
