@@ -77,9 +77,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-## Sponsors
+## Sponsor
 
-* [Crowdfunding campaign](http://www.giveandfund.com/giveandfund/project/games-for-the-blind)
+* ![Sponsor logo](https://raw.githubusercontent.com/scify/Wind-Music-Game-for-the-blind/master/src/main/resources/img/WIND_logo_blue.png)
 
 ## Acknowledgments
 
