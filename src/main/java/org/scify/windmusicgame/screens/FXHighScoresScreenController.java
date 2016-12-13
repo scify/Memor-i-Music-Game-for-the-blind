@@ -79,7 +79,7 @@ public class FXHighScoresScreenController {
 
         scoresScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("back.mp3", false);
+                audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/back.mp3", false);
             }
         });
 
@@ -136,21 +136,21 @@ public class FXHighScoresScreenController {
                 audioEngine.playNumSound(minutes);
                 System.out.println("minutes: " + minutes);
                 if (minutes > 1)
-                    audioEngine.pauseAndPlaySound("game_effects/minutes.mp3", true);
+                    audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/minutes.mp3", true);
                 else
-                    audioEngine.pauseAndPlaySound("game_effects/minute.mp3", true);
+                    audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/minute.mp3", true);
             }
             if (minutes != 0 && seconds != 0)
-                audioEngine.pauseAndPlaySound("game_effects/and.mp3", true);
+                audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/and.mp3", true);
             if (seconds != 0) {
                 audioEngine.playNumSound(seconds);
                 if (seconds > 1)
-                    audioEngine.pauseAndPlaySound("game_effects/seconds.mp3", true);
+                    audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/seconds.mp3", true);
                 else
-                    audioEngine.pauseAndPlaySound("game_effects/second.mp3", true);
+                    audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/second.mp3", true);
             }
         } else {
-            audioEngine.pauseAndPlaySound("no_score.mp3", false);
+            audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/no_score.mp3", false);
         }
 
     }

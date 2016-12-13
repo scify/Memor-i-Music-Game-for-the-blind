@@ -56,25 +56,25 @@ public class GameLevelsScreenController {
 
         gameSelectionScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/tutorial.mp3", false);
+                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/tutorial.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#scores").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/my_scores.mp3", false);
+                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/my_scores.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("game_levels_screen_sounds/back.mp3", false);
+                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/back.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("exit.mp3", false);
+                audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/exit.mp3", false);
             }
         });
 

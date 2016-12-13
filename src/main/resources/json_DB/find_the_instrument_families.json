@@ -8,7 +8,7 @@
         "sounds": [
           "instrument_sounds/violin1.mp3"
         ],
-        "nameSound": "instrument_names/violin.mp3",
+        "nameSound": "lang_dependent/instrument_names/violin.mp3",
         "images": [
           "instrument_sounds/violin1.png",
           "instrument_sounds/violin2.png"
@@ -24,7 +24,7 @@
         "sounds": [
           "instrument_sounds/cello1.mp3"
         ],
-        "nameSound": "instrument_names/cello.mp3",
+        "nameSound": "lang_dependent/instrument_names/cello.mp3",
         "images": [
           "instrument_sounds/cello1.png",
           "instrument_sounds/cello2.png"
@@ -40,7 +40,7 @@
         "sounds": [
           "instrument_sounds/harp1.mp3"
         ],
-        "nameSound": "instrument_names/harp.mp3",
+        "nameSound": "lang_dependent/instrument_names/harp.mp3",
         "images": [
           "instrument_sounds/harp1.png",
           "instrument_sounds/harp2.png"
@@ -55,7 +55,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "instrument_families/strings.mp3"
+          "lang_dependent/instrument_families/strings.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -92,7 +92,7 @@
         "sounds": [
           "instrument_sounds/cymbal1.mp3"
         ],
-        "nameSound": "instrument_names/cymbal.mp3",
+        "nameSound": "lang_dependent/instrument_names/cymbal.mp3",
         "images": [
           "instrument_sounds/cymbal1.png",
           "instrument_sounds/cymbal2.png"
@@ -127,7 +127,7 @@
         "sounds": [
           "instrument_sounds/trumpet1.mp3"
         ],
-        "nameSound": "instrument_names/trumpet.mp3",
+        "nameSound": "lang_dependent/instrument_names/trumpet.mp3",
         "images": [
           "instrument_sounds/trumpet1.png",
           "instrument_sounds/trumpet2.png"
@@ -143,7 +143,7 @@
         "sounds": [
           "instrument_sounds/trombone1.mp3"
         ],
-        "nameSound": "instrument_names/trombone.mp3",
+        "nameSound": "lang_dependent/instrument_names/trombone.mp3",
         "images": [
           "instrument_sounds/trombone1.png",
           "instrument_sounds/trombone2.png"
@@ -157,7 +157,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "instrument_families/inflatable_copper.mp3"
+          "lang_dependent/instrument_families/inflatable_copper.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -178,7 +178,7 @@
         "sounds": [
           "instrument_sounds/oboe1.mp3"
         ],
-        "nameSound": "instrument_names/oboe.mp3",
+        "nameSound": "lang_dependent/instrument_names/oboe.mp3",
         "images": [
           "instrument_sounds/oboe1.png",
           "instrument_sounds/oboe2.png"
@@ -194,7 +194,7 @@
         "sounds": [
           "instrument_sounds/flute1.mp3"
         ],
-        "nameSound": "instrument_names/flute.mp3",
+        "nameSound": "lang_dependent/instrument_names/flute.mp3",
         "images": [
           "instrument_sounds/flute1.png",
           "instrument_sounds/flute2.png"
@@ -210,7 +210,7 @@
         "sounds": [
           "instrument_sounds/clarinet1.mp3"
         ],
-        "nameSound": "instrument_names/clarinet.mp3",
+        "nameSound": "lang_dependent/instrument_names/clarinet.mp3",
         "images": [
           "instrument_sounds/clarinet1.png",
           "instrument_sounds/clarinet2.png"
@@ -224,7 +224,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "instrument_families/inflatable_wooden.mp3"
+          "lang_dependent/instrument_families/inflatable_wooden.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -245,7 +245,7 @@
         "sounds": [
           "instrument_sounds/snare1.mp3"
         ],
-        "nameSound": "instrument_names/snare.mp3",
+        "nameSound": "lang_dependent/instrument_names/snare.mp3",
         "images": [
           "instrument_sounds/snare1.png",
           "instrument_sounds/snare2.png"
@@ -261,7 +261,7 @@
         "sounds": [
           "instrument_sounds/timpani1.mp3"
         ],
-        "nameSound": "instrument_names/timpani.mp3",
+        "nameSound": "lang_dependent/instrument_names/timpani.mp3",
         "images": [
           "instrument_sounds/timpani1.png",
           "instrument_sounds/timpani2.png"
@@ -275,7 +275,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "instrument_families/percussion_membrane.mp3"
+          "lang_dependent/instrument_families/percussion_membrane.mp3"
         ],
         "images": [
           "instrument_families/percussion_membrane1.png",

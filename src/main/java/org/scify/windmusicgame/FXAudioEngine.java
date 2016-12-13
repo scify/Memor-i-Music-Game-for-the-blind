@@ -23,7 +23,6 @@ import javafx.scene.media.MediaPlayer;
 import org.scify.windmusicgame.interfaces.AudioEngine;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class FXAudioEngine implements AudioEngine{
 
@@ -31,12 +30,12 @@ public class FXAudioEngine implements AudioEngine{
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
     private String soundBasePath = "/audios/";
-    private String movementSound = "movement_sound.mp3";
-    private String successSound = "success.wav";
-    private String invalidMovementSound = "bump.mp3";
-    private String emptySound = "game_effects/door-knock.wav";
-    private String numBasePath = "numbers/";
-    private String letterBasePath = "letters/";
+    private String movementSound = "miscellaneous/movement_sound.mp3";
+    private String successSound = "miscellaneous/success.wav";
+    private String invalidMovementSound = "miscellaneous/bump.mp3";
+    private String emptySound = "miscellaneous//door-knock.wav";
+    private String numBasePath = "lang_dependent/numbers/";
+    private String letterBasePath = "lang_dependent/letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
 
@@ -68,11 +67,7 @@ public class FXAudioEngine implements AudioEngine{
         }
         movementSoundPlayer.setBalance(balance);
         movementSoundPlayer.setRate(rate);
-        movementSoundPlayer.setOnEndOfMedia(new Runnable() {
-            public void run() {
-                movementSoundPlayer.stop();
-            }
-        });
+        movementSoundPlayer.setOnEndOfMedia(() -> movementSoundPlayer.stop());
         movementSoundPlayer.play();
     }
 
