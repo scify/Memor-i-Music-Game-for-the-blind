@@ -54,7 +54,7 @@
         "label": "strings",
         "category": "instrument_family",
         "unique": false,
-        "isLangDependent": true,
+
         "sounds": [
           "instrument_families/stringed.mp3"
         ],
@@ -106,7 +106,7 @@
         "label": "percussion",
         "category": "instrument_family",
         "unique": false,
-        "isLangDependent": true,
+
         "sounds": [
           "instrument_families/percussion_idiophone.mp3"
         ],
@@ -158,7 +158,7 @@
         "label": "inflatables_copper",
         "category": "instrument_family",
         "unique": false,
-        "isLangDependent": true,
+
         "sounds": [
           "instrument_families/brass_wind.mp3"
         ],
@@ -226,7 +226,7 @@
         "label": "inflatables_wooden",
         "category": "instrument_family",
         "unique": false,
-        "isLangDependent": true,
+
         "sounds": [
           "instrument_families/woodwind.mp3"
         ],
@@ -278,7 +278,7 @@
         "label": "percussion_membrane",
         "category": "instrument_family",
         "unique": false,
-        "isLangDependent": true,
+
         "sounds": [
           "instrument_families/percussion_membrane.mp3"
         ],

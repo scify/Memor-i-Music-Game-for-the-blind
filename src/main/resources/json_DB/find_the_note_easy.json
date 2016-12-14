@@ -25,7 +25,7 @@
         "label": "A_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/A.mp3"
         ],
@@ -63,7 +63,7 @@
         "label": "B_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/B.mp3"
         ],
@@ -101,7 +101,7 @@
         "label": "C_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/C.mp3"
         ],
@@ -139,7 +139,7 @@
         "label": "D_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/D.mp3"
         ],
@@ -177,7 +177,7 @@
         "label": "E_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/E.mp3"
         ],
@@ -215,7 +215,7 @@
         "label": "F_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/F.mp3"
         ],
@@ -253,7 +253,7 @@
         "label": "G_name",
         "category": "item_name",
         "unique": true,
-        "isLangDependent": true,
+
         "sounds": [
           "single_notes_names/G.mp3"
         ],

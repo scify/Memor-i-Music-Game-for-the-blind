@@ -79,7 +79,7 @@ public class FXHighScoresScreenController {
 
         scoresScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("miscellaneous/back.mp3", false, true);
+                audioEngine.pauseAndPlaySound("miscellaneous/back.mp3", false);
             }
         });
 
@@ -108,7 +108,7 @@ public class FXHighScoresScreenController {
 
             gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue) {
-                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false, true);
+                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false);
                 }
             });
 
@@ -136,21 +136,21 @@ public class FXHighScoresScreenController {
                 audioEngine.playNumSound(minutes);
                 System.out.println("minutes: " + minutes);
                 if (minutes > 1)
-                    audioEngine.pauseAndPlaySound("miscellaneous/minutes.mp3", true, true);
+                    audioEngine.pauseAndPlaySound("miscellaneous/minutes.mp3", true);
                 else
-                    audioEngine.pauseAndPlaySound("miscellaneous/minute.mp3", true, true);
+                    audioEngine.pauseAndPlaySound("miscellaneous/minute.mp3", true);
             }
             if (minutes != 0 && seconds != 0)
-                audioEngine.pauseAndPlaySound("miscellaneous/and.mp3", true, true);
+                audioEngine.pauseAndPlaySound("miscellaneous/and.mp3", true);
             if (seconds != 0) {
                 audioEngine.playNumSound(seconds);
                 if (seconds > 1)
-                    audioEngine.pauseAndPlaySound("miscellaneous/seconds.mp3", true, true);
+                    audioEngine.pauseAndPlaySound("miscellaneous/seconds.mp3", true);
                 else
-                    audioEngine.pauseAndPlaySound("miscellaneous/second.mp3", true, true);
+                    audioEngine.pauseAndPlaySound("miscellaneous/second.mp3", true);
             }
         } else {
-            audioEngine.pauseAndPlaySound("miscellaneous/no_score.mp3", false, true);
+            audioEngine.pauseAndPlaySound("miscellaneous/no_score.mp3", false);
         }
 
     }

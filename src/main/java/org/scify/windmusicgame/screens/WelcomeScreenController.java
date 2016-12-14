@@ -58,7 +58,7 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/welcome.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/welcome.mp3", false);
             }
         });
 
@@ -66,25 +66,25 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#headphonesAdjustment").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/headphones_adjustment.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/headphones_adjustment.mp3", false);
             }
         });
 
         primaryScene.lookup("#gameSelection").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/game_selection.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/game_selection.mp3", false);
             }
         });
 
         primaryScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/sponsor.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/sponsor.mp3", false);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/exit.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/exit.mp3", false);
             }
         });
     }

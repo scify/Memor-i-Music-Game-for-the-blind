@@ -93,8 +93,7 @@ public class MemoriTerrain implements Terrain {
                     getStringArray((JSONArray) currObj.get("descriptiveSounds")),
                     (String)currObj.get("category"),
                     (String)currObj.get("equivalenceCardSetHashCode"),
-                    (String)currObj.get("nameSound"),
-                    currObj.has("isLangDependent")
+                    (String)currObj.get("nameSound")
             );
             unShuffledCards.add(newCard);
         }

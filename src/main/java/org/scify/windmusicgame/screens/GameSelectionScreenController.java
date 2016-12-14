@@ -33,25 +33,25 @@ public class GameSelectionScreenController {
 
         gameSelectionScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/game_selection_screen/welcome.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/game_selection_screen/welcome.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/game_selection_screen/back.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/game_selection_screen/back.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#findInstrumentFamiliesGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/game_selection_screen/find_instrument_family.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/game_selection_screen/find_instrument_family.mp3", false);
             }
         });
 
         gameSelectionScene.lookup("#findInstrumentGame").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/game_selection_screen/find_instrument.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/game_selection_screen/find_instrument.mp3", false);
             }
         });
 
@@ -63,7 +63,7 @@ public class GameSelectionScreenController {
 
         gameSelectionScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("screens/main_screen/sponsor.mp3", false, true);
+                audioEngine.pauseAndPlaySound("screens/main_screen/sponsor.mp3", false);
             }
         });
     }
@@ -74,7 +74,7 @@ public class GameSelectionScreenController {
      */
     public void playSponsorMessage(KeyEvent keyEvent) {
         if(keyEvent.getCode() == SPACE) {
-            audioEngine.pauseAndPlaySound("screens/sponsor_screen/sponsor_message.mp3", false, true);
+            audioEngine.pauseAndPlaySound("screens/sponsor_screen/sponsor_message.mp3", false);
         }
         else if(keyEvent.getCode() == ESCAPE) {
             exitScreen();

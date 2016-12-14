@@ -188,21 +188,7 @@ public class FileHandler {
      * @return the high score (can be null if no high score)
      */
     public String readHighScoreForLevel(String level) {
-        String highScore = "";
-        Properties prop = new Properties();
-
-        File scoresFile = new File(MainOptions.gameScoresFile);
-        try {
-            if(!scoresFile.exists())
-                scoresFile.createNewFile();
-            FileInputStream in = new FileInputStream(scoresFile);
-            prop.load(in);
-            highScore = prop.getProperty(String.valueOf(level));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return highScore;
+        return getPropertyByName(MainOptions.gameScoresFile, level);
     }
 
     /**
@@ -210,21 +196,63 @@ public class FileHandler {
      * @param highScore the high score to be set.
      */
     public void setHighScoreForLevel (String highScore) {
+        setPropertyByName(MainOptions.gameScoresFile, String.valueOf(MainOptions.gameLevel), highScore);
+    }
 
+    /**
+     * Get a variable from project.properties file
+     * @param propertyName the name of the property
+     * @return the value of the given property
+     */
+    public String getPropertyByName(String propertyFile, String propertyName) {
+        Properties props = new Properties();
+        File propertiesFile = new File(propertyFile);
+        try {
+            if (!propertiesFile.exists())
+                propertiesFile.createNewFile();
+            FileInputStream in = new FileInputStream(propertiesFile);
+            props.load(in);
+            return props.getProperty(String.valueOf(propertyName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Sets a property identified by it's name, to a given value
+     * @param propertyFile the properties file
+     * @param propertyName the name of the property
+     * @param propertyValue the value that the property will be set to.
+     */
+    public void setPropertyByName(String propertyFile, String propertyName, String propertyValue) {
         Properties props = new Properties();
 
-        File scoresFile = new File(MainOptions.gameScoresFile);
+        File outputFile = new File(propertyFile);
         try {
-            if(!scoresFile.exists())
-                scoresFile.createNewFile();
-            FileOutputStream out = new FileOutputStream(scoresFile, true);
-            props.put(String.valueOf(MainOptions.gameLevel), highScore);
+            if(!outputFile.exists())
+                outputFile.createNewFile();
+            FileOutputStream out = new FileOutputStream(outputFile, true);
+            props.put(propertyName, propertyValue);
             props.store(out, null);
             out.flush();
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Gets the default user directory for the current architecture
+     */
+    public String getUserDir() {
+        String userDir;
+        if ((System.getProperty("os.name")).toUpperCase().contains("WINDOWS")) {
+            userDir = System.getenv("AppData");
+        } else {
+            userDir = System.getProperty("user.dir");
+        }
+        return userDir + File.separator;
     }
 
     /**

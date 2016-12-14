@@ -20,8 +20,13 @@ package org.scify.windmusicgame;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import org.scify.windmusicgame.helperClasses.FileHandler;
 import org.scify.windmusicgame.interfaces.AudioEngine;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FXAudioEngine implements AudioEngine{
@@ -39,10 +44,14 @@ public class FXAudioEngine implements AudioEngine{
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     private String langDirectory;
+    private String defaultLangDirectory;
 
 
     public FXAudioEngine() {
-        this.langDirectory = "lang_dependent/gr/";
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.setPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG_DEFAULT", "gr");
+        this.defaultLangDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG_DEFAULT") + File.separator;
+        this.langDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG") + File.separator;
     }
 
     /**
@@ -78,8 +87,8 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file name (path) of the audio clip
      * @param isBlocking whether the player should block the calling Thread while the sound is playing
      */
-    public void playCardSound(String soundFile, boolean isBlocking, boolean langDependent) {
-        playSound(soundFile, isBlocking, langDependent);
+    public void playCardSound(String soundFile, boolean isBlocking) {
+        playSound(soundFile, isBlocking);
     }
 
 
@@ -87,7 +96,7 @@ public class FXAudioEngine implements AudioEngine{
      * Plays an appropriate sound associated with a successful Game Event
      */
     public void playSuccessSound() {
-        pauseAndPlaySound(successSound, true, false);
+        pauseAndPlaySound(successSound, true);
     }
 
     /**
@@ -109,7 +118,7 @@ public class FXAudioEngine implements AudioEngine{
 
     @Override
     public void playSound(String soundFile) {
-        playSound(soundFile, false, false);
+        playSound(soundFile, false);
     }
 
     /**
@@ -136,15 +145,25 @@ public class FXAudioEngine implements AudioEngine{
 
     /**
      * Plays a sound given a sound file path
-     * @param soundFile the file name (path) of the audio clip
+     * @param soundFilePath the file name (path) of the audio clip
      * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
-    public void playSound(String soundFile, boolean isBlocking, boolean isLangDependent) {
-        String soundPath = "";
-        if(isLangDependent)
-            soundPath = soundBasePath + this.langDirectory + soundFile;
-        else
-            soundPath = soundBasePath + soundFile;
+    public void playSound(String soundFilePath, boolean isBlocking) {
+        String soundPath;
+        // default sound path is as if the file is language-dependent. Searching for current language
+        soundPath = soundBasePath + this.langDirectory + soundFilePath;
+
+        File soundFile = new File(FXAudioEngine.class.getResource(soundPath).toExternalForm());
+        // if no file exists, try to load default language
+        if(!soundFile.exists()) {
+            soundPath = soundBasePath + this. defaultLangDirectory + soundFilePath;
+            soundFile = new File(FXAudioEngine.class.getResource(soundPath).toExternalForm());
+            // if no file exists, it means that the file is language-independent
+            if(!soundFile.exists()) {
+                soundPath = soundBasePath + soundFilePath;
+            }
+        }
+
         audioClip = new AudioClip(FXAudioEngine.class.getResource(soundPath).toExternalForm());
         audioClip.play();
         playingAudios.add(audioClip);
@@ -166,9 +185,9 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file of the sound we want to play
      * @param isBlocking whether the sound should block the {@link Thread} while playing
      */
-    public void pauseAndPlaySound(String soundFile, boolean isBlocking, boolean isLangDependent) {
+    public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
         pauseCurrentlyPlayingAudios();
-        playSound(soundFile, isBlocking, isLangDependent);
+        playSound(soundFile, isBlocking);
     }
 
     /**
@@ -177,7 +196,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(numBasePath + String.valueOf(number) + ".mp3", true, true);
+        playSound(numBasePath + String.valueOf(number) + ".mp3", true);
     }
 
     /**
@@ -186,7 +205,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playLetterSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(letterBasePath + number + ".mp3", true, true);
+        playSound(letterBasePath + number + ".mp3", true);
     }
 
     /**

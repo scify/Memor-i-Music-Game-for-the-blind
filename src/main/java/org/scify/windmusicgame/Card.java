@@ -67,11 +67,6 @@ public class Card implements Tile{
     }
 
     /**
-     * Acard sound may be language dependent or not.
-
-     */
-    private boolean isLangDependent;
-    /**
      * Checks if the card is won
      * @return true if the card is won
      */
@@ -97,13 +92,12 @@ public class Card implements Tile{
         return isFlipped;
     }
 
-    public Card(String label, String[] images, String[] sounds, String[] descriptiveSounds, String cardNameSound, boolean isLangDependent) {
+    public Card(String label, String[] images, String[] sounds, String[] descriptiveSounds, String cardNameSound) {
         this.images = images;
         this.button = new Button();
         this.sounds = sounds;
         this.descriptiveSounds = descriptiveSounds;
         this.cardNameSound = cardNameSound;
-        this.isLangDependent = isLangDependent;
         this.button.setId(label);
         // each card takes a dynamic height and width, based on the height and with of the screen
         double width = MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS - ((MainOptions.mWidth/MainOptions.NUMBER_OF_COLUMNS) * 0.1);
@@ -164,10 +158,6 @@ public class Card implements Tile{
         if(sounds.length != 0)
             return sounds[random_int(0, sounds.length)];
         return null;
-    }
-
-    public boolean isLangDependent() {
-        return isLangDependent;
     }
 
     public String getDescriptionSound() {
