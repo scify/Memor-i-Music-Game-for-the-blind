@@ -58,13 +58,13 @@ public class FXAudioEngine implements AudioEngine{
                 "APP_LANG_DEFAULT", "gr"
         );
 
-        this.defaultLangDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(
+        this.defaultLangDirectory = fileHandler.getPropertyByName(
                 fileHandler.getUserDir() + "project.properties",
                 "APP_LANG_DEFAULT"
         ) + File.separator;
 
         // APP_LANG property will change upon language change
-        this.langDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(
+        this.langDirectory = fileHandler.getPropertyByName(
                 fileHandler.getUserDir() + "project.properties",
                 "APP_LANG"
         ) + File.separator;
@@ -89,7 +89,7 @@ public class FXAudioEngine implements AudioEngine{
         pauseSound();
         if(movementSoundMedia == null) {
             System.err.println("construct new movement sound player");
-            movementSoundMedia = new Media(FXAudioEngine.class.getResource(soundBasePath + movementSound).toExternalForm());
+            movementSoundMedia = new Media(FXAudioEngine.class.getResource(getCorrectPathForFile(movementSound)).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }
         movementSoundPlayer.setBalance(balance);
@@ -144,7 +144,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playBalancedSound(double balance, String soundFile, boolean isBlocking) {
         pauseCurrentlyPlayingAudios();
-        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFile)).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
         playingAudios.add(audioClip);
         if(isBlocking)
@@ -173,8 +173,8 @@ public class FXAudioEngine implements AudioEngine{
         URL soundFile = FXAudioEngine.class.getResource(soundPath);
         // if no file exists, check if the file is language-independent
         if(soundFile == null) {
-            soundPath = soundBasePath + soundFilePath;
-            soundFile = FXAudioEngine.class.getResource(soundPath);
+//            soundPath = soundBasePath + soundFilePath;
+//            soundFile = FXAudioEngine.class.getResource(soundPath);
             // if no file exists, try to load default language
             if(soundFile == null) {
                 System.err.println("Loading default language for: " + soundFilePath);
@@ -223,7 +223,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(numBasePath + String.valueOf(number) + ".mp3", true);
+        playSound(getCorrectPathForFile(numBasePath + String.valueOf(number) + ".mp3"), true);
     }
 
     /**
@@ -232,7 +232,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playLetterSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(letterBasePath + number + ".mp3", true);
+        playSound(getCorrectPathForFile(letterBasePath + number + ".mp3"), true);
     }
 
     /**
