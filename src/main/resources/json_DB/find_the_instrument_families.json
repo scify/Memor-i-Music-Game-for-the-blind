@@ -55,7 +55,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "lang_dependent/instrument_families/strings.mp3"
+          "lang_dependent/instrument_families/stringed.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -106,7 +106,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "instrument_families/percussion.mp3"
+          "lang_dependent/instrument_families/percussion_idiophone.mp3"
         ],
         "images": [
           "instrument_families/percussion1.png",
@@ -157,7 +157,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "lang_dependent/instrument_families/inflatable_copper.mp3"
+          "lang_dependent/instrument_families/brass_wind.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -224,7 +224,7 @@
         "category": "instrument_family",
         "unique": false,
         "sounds": [
-          "lang_dependent/instrument_families/inflatable_wooden.mp3"
+          "lang_dependent/instrument_families/woodwind.mp3"
         ],
         "nameSound": "",
         "images": [

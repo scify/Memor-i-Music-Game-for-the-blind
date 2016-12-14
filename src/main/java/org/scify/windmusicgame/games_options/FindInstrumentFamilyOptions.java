@@ -53,7 +53,7 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
                 new Point2D.Double(4,4),
                 "lang_dependent/find_instrument_family/level_intro_sounds/level4IntroSound.mp3",
                 "lang_dependent/screens/game_levels_screen/4x4.mp3",
-                "json_DB/find_the_instrument_families.json", "find_instrument_family/introHelperSound4x4.mp3"));
+                "json_DB/find_the_instrument_families.json", "find_instrument_family/tutorial/introHelperSound4x4.mp3"));
         gameLevels.add(new MemoriGameLevel(5,
                 new Point2D.Double(4,5),
                 "lang_dependent/find_instrument_family/level_intro_sounds/level5IntroSound.mp3",

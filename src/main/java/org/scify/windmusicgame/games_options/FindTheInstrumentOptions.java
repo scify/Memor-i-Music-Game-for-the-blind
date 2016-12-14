@@ -39,7 +39,7 @@ public class FindTheInstrumentOptions extends GameWithLevelsOptions implements G
         gameLevels.add(
                 new MemoriGameLevel(3, new Point2D.Double(3,4), "lang_dependent/find_instrument/level_intro_sounds/level3IntroSound.mp3", "lang_dependent/screens/game_levels_screen/3x4.mp3", "json_DB/find_the_instrument.json"));
         gameLevels.add(
-                new MemoriGameLevel(4, new Point2D.Double(4,4), "lang_dependent/find_instrument/level_intro_sounds/level4IntroSound.mp3", "lang_dependent/screens/game_levels_screen/4x4.mp3", "json_DB/find_the_instrument.json", "lang_dependent/find_instrument/introHelperSound4x4.mp3"));
+                new MemoriGameLevel(4, new Point2D.Double(4,4), "lang_dependent/find_instrument/level_intro_sounds/level4IntroSound.mp3", "lang_dependent/screens/game_levels_screen/4x4.mp3", "json_DB/find_the_instrument.json", "lang_dependent/find_instrument/tutorial/introHelperSound4x4.mp3"));
         gameLevels.add(
                 new MemoriGameLevel(5, new Point2D.Double(4,5), "lang_dependent/find_instrument/level_intro_sounds/level5IntroSound.mp3", "lang_dependent/screens/game_levels_screen/4x5.mp3", "json_DB/find_the_instrument.json"));
         gameLevels.add(
