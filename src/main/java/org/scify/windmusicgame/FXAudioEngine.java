@@ -33,14 +33,16 @@ public class FXAudioEngine implements AudioEngine{
     private String movementSound = "miscellaneous/movement_sound.mp3";
     private String successSound = "miscellaneous/success.wav";
     private String invalidMovementSound = "miscellaneous/bump.mp3";
-    private String emptySound = "miscellaneous//door-knock.wav";
-    private String numBasePath = "lang_dependent/numbers/";
-    private String letterBasePath = "lang_dependent/letters/";
+    private String emptySound = "miscellaneous/door-knock.wav";
+    private String numBasePath = "numbers/";
+    private String letterBasePath = "letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
+
+    private String langDirectory;
 
 
     public FXAudioEngine() {
-
+        this.langDirectory = "lang_dependent/gr/";
     }
 
     /**
@@ -76,8 +78,8 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file name (path) of the audio clip
      * @param isBlocking whether the player should block the calling Thread while the sound is playing
      */
-    public void playCardSound(String soundFile, boolean isBlocking) {
-        playSound(soundFile, isBlocking);
+    public void playCardSound(String soundFile, boolean isBlocking, boolean langDependent) {
+        playSound(soundFile, isBlocking, langDependent);
     }
 
 
@@ -85,7 +87,7 @@ public class FXAudioEngine implements AudioEngine{
      * Plays an appropriate sound associated with a successful Game Event
      */
     public void playSuccessSound() {
-        pauseAndPlaySound(successSound, true);
+        pauseAndPlaySound(successSound, true, false);
     }
 
     /**
@@ -107,7 +109,7 @@ public class FXAudioEngine implements AudioEngine{
 
     @Override
     public void playSound(String soundFile) {
-        playSound(soundFile, false);
+        playSound(soundFile, false, false);
     }
 
     /**
@@ -131,13 +133,19 @@ public class FXAudioEngine implements AudioEngine{
             }
     }
 
+
     /**
      * Plays a sound given a sound file path
      * @param soundFile the file name (path) of the audio clip
      * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
-    public void playSound(String soundFile, boolean isBlocking) {
-        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundBasePath + soundFile).toExternalForm());
+    public void playSound(String soundFile, boolean isBlocking, boolean isLangDependent) {
+        String soundPath = "";
+        if(isLangDependent)
+            soundPath = soundBasePath + this.langDirectory + soundFile;
+        else
+            soundPath = soundBasePath + soundFile;
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundPath).toExternalForm());
         audioClip.play();
         playingAudios.add(audioClip);
         if (isBlocking) {
@@ -158,9 +166,9 @@ public class FXAudioEngine implements AudioEngine{
      * @param soundFile the file of the sound we want to play
      * @param isBlocking whether the sound should block the {@link Thread} while playing
      */
-    public void pauseAndPlaySound(String soundFile, boolean isBlocking) {
+    public void pauseAndPlaySound(String soundFile, boolean isBlocking, boolean isLangDependent) {
         pauseCurrentlyPlayingAudios();
-        playSound(soundFile, isBlocking);
+        playSound(soundFile, isBlocking, isLangDependent);
     }
 
     /**
@@ -169,7 +177,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(numBasePath + String.valueOf(number) + ".mp3", true);
+        playSound(numBasePath + String.valueOf(number) + ".mp3", true, true);
     }
 
     /**
@@ -178,7 +186,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playLetterSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(letterBasePath + number + ".mp3", true);
+        playSound(letterBasePath + number + ".mp3", true, true);
     }
 
     /**

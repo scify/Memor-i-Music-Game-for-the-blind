@@ -58,7 +58,7 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/main_screen/welcome.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/main_screen/welcome.mp3", false, true);
             }
         });
 
@@ -66,25 +66,25 @@ public class WelcomeScreenController {
 
         primaryScene.lookup("#headphonesAdjustment").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/main_screen/headphones_adjustment.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/main_screen/headphones_adjustment.mp3", false, true);
             }
         });
 
         primaryScene.lookup("#gameSelection").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/main_screen/game_selection.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/main_screen/game_selection.mp3", false, true);
             }
         });
 
         primaryScene.lookup("#sponsors").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/main_screen/sponsor.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/main_screen/sponsor.mp3", false, true);
             }
         });
 
         primaryScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/main_screen/exit.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/main_screen/exit.mp3", false, true);
             }
         });
     }
@@ -103,8 +103,8 @@ public class WelcomeScreenController {
     protected void headphonesAdjustment(KeyEvent evt) {
         if (evt.getCode() == SPACE) {
             audioEngine.pauseCurrentlyPlayingAudios();
-            audioEngine.playBalancedSound(-1.0, "lang_dependent/screens/main_screen/left_headphone.mp3", true);
-            audioEngine.playBalancedSound(1.0, "lang_dependent/screens/main_screen/right_headphone.mp3", true);
+            audioEngine.playBalancedSound(-1.0, "screens/main_screen/left_headphone.mp3", true);
+            audioEngine.playBalancedSound(1.0, "screens/main_screen/right_headphone.mp3", true);
         } else if (evt.getCode() == ESCAPE) {
             System.exit(0);
         }

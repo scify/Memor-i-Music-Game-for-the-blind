@@ -45,8 +45,9 @@
         "label": "A_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/C.mp3"
+          "single_notes_names/C.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -102,8 +103,9 @@
         "label": "B_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/B.mp3"
+          "single_notes_names/B.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -159,8 +161,9 @@
         "label": "C_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/C.mp3"
+          "single_notes_names/C.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -216,8 +219,9 @@
         "label": "D_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/D.mp3"
+          "single_notes_names/D.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -273,8 +277,9 @@
         "label": "E_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/E.mp3"
+          "single_notes_names/E.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -330,8 +335,9 @@
         "label": "F_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/F.mp3"
+          "single_notes_names/F.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -387,8 +393,9 @@
         "label": "G_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/G.mp3"
+          "single_notes_names/G.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -443,8 +450,9 @@
         "label": "Ab_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/Ab.mp3"
+          "single_notes_names/Ab.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -499,8 +507,9 @@
         "label": "Bb_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/Bb.mp3"
+          "single_notes_names/Bb.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -555,8 +564,9 @@
         "label": "C#_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/C#.mp3"
+          "single_notes_names/C#.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -611,8 +621,9 @@
         "label": "D#_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/D#.mp3"
+          "single_notes_names/D#.mp3"
         ],
         "nameSound": "",
         "images": [
@@ -667,8 +678,9 @@
         "label": "F#_name",
         "category": "item_name",
         "unique": false,
+        "isLangDependent": true,
         "sounds": [
-          "lang_dependent/single_notes_names/F#.mp3"
+          "single_notes_names/F#.mp3"
         ],
         "nameSound": "",
         "images": [

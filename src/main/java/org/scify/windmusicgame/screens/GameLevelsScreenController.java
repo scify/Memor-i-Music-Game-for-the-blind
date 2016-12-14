@@ -50,31 +50,31 @@ public class GameLevelsScreenController {
 
         gameSelectionScene.lookup("#gameDescription").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound(gameOptions.getGameDescriptionSound(), false);
+                audioEngine.pauseAndPlaySound(gameOptions.getGameDescriptionSound(), false, true);
             }
         });
 
         gameSelectionScene.lookup("#tutorial").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/tutorial.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/game_levels_screen/tutorial.mp3", false, true);
             }
         });
 
         gameSelectionScene.lookup("#scores").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/my_scores.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/game_levels_screen/my_scores.mp3", false, true);
             }
         });
 
         gameSelectionScene.lookup("#back").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/screens/game_levels_screen/back.mp3", false);
+                audioEngine.pauseAndPlaySound("screens/game_levels_screen/back.mp3", false, true);
             }
         });
 
         gameSelectionScene.lookup("#exit").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (newPropertyValue) {
-                audioEngine.pauseAndPlaySound("lang_dependent/miscellaneous/exit.mp3", false);
+                audioEngine.pauseAndPlaySound("miscellaneous/exit.mp3", false, true);
             }
         });
 
@@ -111,7 +111,7 @@ public class GameLevelsScreenController {
 
             gameLevelBtn.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue) {
-                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false);
+                    audioEngine.pauseAndPlaySound(gameLevel.getIntroScreenSound(), false, true);
                 }
             });
 
