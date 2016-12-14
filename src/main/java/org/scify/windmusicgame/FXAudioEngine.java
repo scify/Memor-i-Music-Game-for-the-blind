@@ -24,6 +24,7 @@ import org.scify.windmusicgame.helperClasses.FileHandler;
 import org.scify.windmusicgame.interfaces.AudioEngine;
 
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -43,15 +44,34 @@ public class FXAudioEngine implements AudioEngine{
     private String letterBasePath = "letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
+    /**
+     * the directory of the current language
+     */
     private String langDirectory;
+    /**
+     * the directory of the default language
+     */
     private String defaultLangDirectory;
 
 
     public FXAudioEngine() {
         FileHandler fileHandler = new FileHandler();
-        fileHandler.setPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG_DEFAULT", "gr");
-        this.defaultLangDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG_DEFAULT") + File.separator;
-        this.langDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(fileHandler.getUserDir() + "project.properties", "APP_LANG") + File.separator;
+        // if the game loads for the first time, we need to set the default language
+        fileHandler.setPropertyByName(
+                fileHandler.getUserDir() + "project.properties",
+                "APP_LANG_DEFAULT", "gr"
+        );
+
+        this.defaultLangDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(
+                fileHandler.getUserDir() + "project.properties",
+                "APP_LANG_DEFAULT"
+        ) + File.separator;
+
+        // APP_LANG property will change upon language change
+        this.langDirectory = "lang_dependent" + File.separator + fileHandler.getPropertyByName(
+                fileHandler.getUserDir() + "project.properties",
+                "APP_LANG"
+        ) + File.separator;
     }
 
     /**
@@ -142,6 +162,31 @@ public class FXAudioEngine implements AudioEngine{
             }
     }
 
+    /**
+     * This function looks for the given file in the current language
+     * If not found, loads the default language
+     * If not found, then it is a language-independent file
+     * @param soundFilePath the resource-relative path of the file
+     * @return the correct file path
+     */
+    private String getCorrectPathForFile(String soundFilePath) {
+        String soundPath;
+        // default sound path is as if the file is language-dependent. Searching for current language
+        soundPath = soundBasePath + this.langDirectory + soundFilePath;
+
+        URL soundFile = FXAudioEngine.class.getResource(soundPath);
+        // if no file exists, check if the file is language-independent
+        if(soundFile == null) {
+            soundPath = soundBasePath + soundFilePath;
+            soundFile = FXAudioEngine.class.getResource(soundPath);
+            // if no file exists, try to load default language
+            if(soundFile == null) {
+                System.err.println("Loading default language for: " + soundFilePath);
+                soundPath = soundBasePath + this.defaultLangDirectory + soundFilePath;
+            }
+        }
+        return soundPath;
+    }
 
     /**
      * Plays a sound given a sound file path
@@ -149,22 +194,8 @@ public class FXAudioEngine implements AudioEngine{
      * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
     public void playSound(String soundFilePath, boolean isBlocking) {
-        String soundPath;
-        // default sound path is as if the file is language-dependent. Searching for current language
-        soundPath = soundBasePath + this.langDirectory + soundFilePath;
 
-        File soundFile = new File(FXAudioEngine.class.getResource(soundPath).toExternalForm());
-        // if no file exists, try to load default language
-        if(!soundFile.exists()) {
-            soundPath = soundBasePath + this. defaultLangDirectory + soundFilePath;
-            soundFile = new File(FXAudioEngine.class.getResource(soundPath).toExternalForm());
-            // if no file exists, it means that the file is language-independent
-            if(!soundFile.exists()) {
-                soundPath = soundBasePath + soundFilePath;
-            }
-        }
-
-        audioClip = new AudioClip(FXAudioEngine.class.getResource(soundPath).toExternalForm());
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFilePath)).toExternalForm());
         audioClip.play();
         playingAudios.add(audioClip);
         if (isBlocking) {
