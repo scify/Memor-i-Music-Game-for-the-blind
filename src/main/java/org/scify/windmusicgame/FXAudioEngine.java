@@ -31,13 +31,13 @@ public class FXAudioEngine implements AudioEngine{
     private AudioClip audioClip;
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
-    private String soundBasePath = File.separator + "audios" + File.separator;
-    private String movementSound = "miscellaneous" + File.separator + "movement_sound.mp3";
-    private String successSound = "miscellaneous" + File.separator + "success.wav";
-    private String invalidMovementSound = "miscellaneous" + File.separator + "bump.mp3";
-    private String emptySound = "miscellaneous" + File.separator + "door-knock.wav";
-    private String numBasePath = "numbers" + File.separator;
-    private String letterBasePath = "letters" + File.separator;
+    private String soundBasePath = "/audios/";
+    private String movementSound = "miscellaneous/movement_sound.mp3";
+    private String successSound = "miscellaneous/success.wav";
+    private String invalidMovementSound = "miscellaneous/bump.mp3";
+    private String emptySound = "miscellaneous/door-knock.wav";
+    private String numBasePath = "numbers/";
+    private String letterBasePath = "letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     /**
@@ -161,7 +161,7 @@ public class FXAudioEngine implements AudioEngine{
         if(soundFile == null) {
             // if no file exists, try to load default language
 
-            soundPath = soundBasePath + this.defaultLangDirectory + File.separator + soundFilePath;
+            soundPath = soundBasePath + this.defaultLangDirectory + "/" + soundFilePath;
             System.err.println("Loading default language for: " + soundPath);
         }
         return soundPath;
