@@ -26,7 +26,7 @@
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
         <Button contentDisplay="CENTER" styleClass="welcomeButton" fx:id="gameDescription"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="%mainscreen.tutorial" fx:id="tutorial"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%tutorial" fx:id="tutorial"
                 onKeyPressed="#startTutorial"/>
         <VBox alignment="center" fx:id="gameLevels">
 
@@ -35,7 +35,7 @@
                 onKeyPressed="#myScores"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="%go_back" fx:id="back"
                 onKeyPressed="#backToMainScreen"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="%mainscreen.exit" fx:id="exit"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%exit" fx:id="exit"
                 onKeyPressed="#exitGame"/>
     </VBox>
 
