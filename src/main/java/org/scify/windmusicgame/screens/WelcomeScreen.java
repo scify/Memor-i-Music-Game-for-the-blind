@@ -43,7 +43,7 @@ public class WelcomeScreen extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FileHandler fileHandler = new FileHandler();
-        Locale locale = new Locale(fileHandler.getProjectProperty("APP_LANG_DEFAULT"));
+        Locale locale = new Locale(fileHandler.getProjectProperty("APP_LANG"));
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/first_screen.fxml"),
                 ResourceBundle.getBundle("languages.strings", locale, new UTF8Control()));

@@ -21,10 +21,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
+import org.scify.windmusicgame.helperClasses.FileHandler;
 import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.helperClasses.UTF8Control;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static org.scify.windmusicgame.MainOptions.mHeight;
 import static org.scify.windmusicgame.MainOptions.mWidth;
@@ -41,18 +45,21 @@ public class FXHighScoresScreen implements org.scify.windmusicgame.interfaces.Hi
     public FXHighScoresScreen(SceneHandler shSceneHandler, GameOptions gameOptions) {
         this.sceneHandler = shSceneHandler;
         this.gameOptions = gameOptions;
+        FileHandler fileHandler = new FileHandler();
+        Locale locale = new Locale(fileHandler.getProjectProperty("APP_LANG"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/scores.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/scores.fxml"),
+                ResourceBundle.getBundle("languages.strings", locale, new UTF8Control()));
         Parent root = null;
         try {
-            root = fxmlLoader.load();
+            root = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Scene scoresScene = new Scene(root, mWidth, mHeight);
 
-        FXHighScoresScreenController controller = fxmlLoader.getController();
+        FXHighScoresScreenController controller = loader.getController();
         controller.setParameters(sceneHandler, scoresScene, (GameWithLevelsOptions) this.gameOptions);
     }
 
