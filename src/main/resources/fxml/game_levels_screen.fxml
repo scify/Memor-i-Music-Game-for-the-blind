@@ -26,16 +26,16 @@
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
         <Button contentDisplay="CENTER" styleClass="welcomeButton" fx:id="gameDescription"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="ΟΔΗΓΟΣ" fx:id="tutorial"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%mainscreen.tutorial" fx:id="tutorial"
                 onKeyPressed="#startTutorial"/>
         <VBox alignment="center" fx:id="gameLevels">
 
         </VBox>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Το σκορ μου σε κάθε επίπεδο" fx:id="scores"
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%my_scores" fx:id="scores"
                 onKeyPressed="#myScores"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Επιστροφή" fx:id="back"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%go_back" fx:id="back"
                 onKeyPressed="#backToMainScreen"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Έξοδος" fx:id="exit"
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%mainscreen.exit" fx:id="exit"
                 onKeyPressed="#exitGame"/>
     </VBox>
 

@@ -22,8 +22,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.scify.windmusicgame.MainOptions;
+import org.scify.windmusicgame.helperClasses.FileHandler;
+import org.scify.windmusicgame.helperClasses.UTF8Control;
 
 import java.awt.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * First Screen of the game
@@ -38,10 +42,14 @@ public class WelcomeScreen extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/welcome_screen.fxml"));
-        Parent root = fxmlLoader.load();
+        FileHandler fileHandler = new FileHandler();
+        Locale locale = new Locale(fileHandler.getProjectProperty("APP_LANG_DEFAULT"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/first_screen.fxml"),
+                ResourceBundle.getBundle("languages.strings", locale, new UTF8Control()));
+        Parent root = loader.load();
         primaryStage.setTitle("Memor-i");
-        WelcomeScreenController controller = fxmlLoader.getController();
+        WelcomeScreenController controller = loader.getController();
         // set as width and height the screen width and height
         MainOptions.mWidth = graphicsEnvironment.getWidth() - 10;
         MainOptions.mHeight = graphicsEnvironment.getHeight() - 10;

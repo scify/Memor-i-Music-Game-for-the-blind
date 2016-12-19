@@ -23,11 +23,11 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer" spacing="5">
-        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="Καλώς ήλθες στο μουσικό παιχνίδι Memor-i της WIND" fx:id="welcome" onKeyPressed="#exitGame"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="ΡΥΘΜΙΣΗ ΑΚΟΥΣΤΙΚΩΝ" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="ΕΠΙΛΟΓΗ ΠΑΙΧΝΙΔΙΟΥ" fx:id="gameSelection" onKeyPressed="#selectGame"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="ΕΞΟΔΟΣ" fx:id="exit" onKeyPressed="#exitGame"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="ΧΟΡΗΓΟΣ" fx:id="sponsors" onKeyPressed="#goToSponsorsScreen"/>
+        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="%mainscreen.welcome" fx:id="welcome" onKeyPressed="#exitGame"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%mainscreen.headphones.adjustment" fx:id="headphonesAdjustment" onKeyPressed="#headphonesAdjustment"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%mainscreen.gameselection" fx:id="gameSelection" onKeyPressed="#selectGame"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%mainscreen.exit" fx:id="exit" onKeyPressed="#exitGame"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%mainscreen.sponsor" fx:id="sponsors" onKeyPressed="#goToSponsorsScreen"/>
     </VBox>
 
     <stylesheets>

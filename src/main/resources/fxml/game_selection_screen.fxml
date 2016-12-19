@@ -23,12 +23,12 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
-        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="Επιλέξτε ένα από τα επόμενα παιχνίδια" fx:id="welcome"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Βρείτε το είδος του μουσικού οργάνου" fx:id="findInstrumentFamiliesGame" onKeyPressed="#initializeGame"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Βρείτε το μουσικό όργανο" fx:id="findInstrumentGame" onKeyPressed="#initializeGame"/>
+        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="%gameselection.welcome" fx:id="welcome"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%find_instrument_family" fx:id="findInstrumentFamiliesGame" onKeyPressed="#initializeGame"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="%find_instrument" fx:id="findInstrumentGame" onKeyPressed="#initializeGame"/>
         <!--<Button contentDisplay="CENTER" styleClass="optionButton, largeButton" text="Βρείτε τη νότα" fx:id="findNoteGame" onKeyPressed="#initializeGame"/>-->
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Επιστροφή" fx:id="back" onKeyPressed="#backToMainScreen"/>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Χορηγός" fx:id="sponsors" onKeyPressed="#playSponsorMessage"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%go_back" fx:id="back" onKeyPressed="#backToMainScreen"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%mainscreen.sponsor" fx:id="sponsors" onKeyPressed="#playSponsorMessage"/>
     </VBox>
 
     <stylesheets>

@@ -221,25 +221,41 @@ public class FileHandler {
 
     /**
      * Sets a property identified by it's name, to a given value
-     * @param propertyFile the properties file
+     * @param propertyFilePath the properties file
      * @param propertyName the name of the property
      * @param propertyValue the value that the property will be set to.
      */
-    public void setPropertyByName(String propertyFile, String propertyName, String propertyValue) {
+    public void setPropertyByName(String propertyFilePath, String propertyName, String propertyValue) {
         Properties props = new Properties();
+        FileInputStream in = null;
 
-        File outputFile = new File(propertyFile);
+        File propertyFile = new File(propertyFilePath);
         try {
-            if(!outputFile.exists())
-                outputFile.createNewFile();
-            FileOutputStream out = new FileOutputStream(outputFile, true);
-            props.put(propertyName, propertyValue);
+
+            if(!propertyFile.exists())
+                propertyFile.createNewFile();
+            in = new FileInputStream(propertyFile);
+            props.load(in);
+            in.close();
+            FileOutputStream out = new FileOutputStream(propertyFile);
+
+            props.setProperty(propertyName, propertyValue);
             props.store(out, null);
-            out.flush();
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Given a property key, gets a value from resources/project.properties file
+     * @param propertyKey the property key
+     * @return the property value
+     */
+    public String getProjectProperty(String propertyKey) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        classLoader.getResource("project.properties").getPath();
+        return this.getPropertyByName(classLoader.getResource("project.properties").getPath(), propertyKey);
     }
 
     /**

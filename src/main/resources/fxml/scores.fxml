@@ -26,7 +26,7 @@
         <VBox alignment="center" fx:id="gameLevels">
 
         </VBox>
-        <Button contentDisplay="CENTER" styleClass="optionButton" text="Πίσω" fx:id="back" onKeyPressed="#backToMainScreen"/>
+        <Button contentDisplay="CENTER" styleClass="optionButton" text="%back" fx:id="back" onKeyPressed="#backToMainScreen"/>
     </VBox>
 
     <stylesheets>

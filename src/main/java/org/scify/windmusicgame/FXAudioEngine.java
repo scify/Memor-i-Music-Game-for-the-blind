@@ -31,13 +31,13 @@ public class FXAudioEngine implements AudioEngine{
     private AudioClip audioClip;
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
-    private String soundBasePath = "/audios/";
-    private String movementSound = "miscellaneous/movement_sound.mp3";
-    private String successSound = "miscellaneous/success.wav";
-    private String invalidMovementSound = "miscellaneous/bump.mp3";
-    private String emptySound = "miscellaneous/door-knock.wav";
-    private String numBasePath = "numbers/";
-    private String letterBasePath = "letters/";
+    private String soundBasePath = File.separator + "audios" + File.separator;
+    private String movementSound = "miscellaneous" + File.separator + "movement_sound.mp3";
+    private String successSound = "miscellaneous" + File.separator + "success.wav";
+    private String invalidMovementSound = "miscellaneous" + File.separator + "bump.mp3";
+    private String emptySound = "miscellaneous" + File.separator + "door-knock.wav";
+    private String numBasePath = "numbers" + File.separator;
+    private String letterBasePath = "letters" + File.separator;
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     /**
@@ -53,21 +53,8 @@ public class FXAudioEngine implements AudioEngine{
     public FXAudioEngine() {
         FileHandler fileHandler = new FileHandler();
         // if the game loads for the first time, we need to set the default language
-        fileHandler.setPropertyByName(
-                fileHandler.getUserDir() + "project.properties",
-                "APP_LANG_DEFAULT", "gr"
-        );
-
-        this.defaultLangDirectory = fileHandler.getPropertyByName(
-                fileHandler.getUserDir() + "project.properties",
-                "APP_LANG_DEFAULT"
-        ) + File.separator;
-
-        // APP_LANG property will change upon language change
-        this.langDirectory = fileHandler.getPropertyByName(
-                fileHandler.getUserDir() + "project.properties",
-                "APP_LANG"
-        ) + File.separator;
+        this.defaultLangDirectory = fileHandler.getProjectProperty("APP_LANG_DEFAULT");
+        this.langDirectory = fileHandler.getProjectProperty("APP_LANG");
     }
 
     /**
@@ -173,8 +160,9 @@ public class FXAudioEngine implements AudioEngine{
         URL soundFile = FXAudioEngine.class.getResource(soundPath);
         if(soundFile == null) {
             // if no file exists, try to load default language
-            System.err.println("Loading default language for: " + soundFilePath);
-            soundPath = soundBasePath + this.defaultLangDirectory + soundFilePath;
+
+            soundPath = soundBasePath + this.defaultLangDirectory + File.separator + soundFilePath;
+            System.err.println("Loading default language for: " + soundPath);
         }
         return soundPath;
     }
@@ -185,9 +173,13 @@ public class FXAudioEngine implements AudioEngine{
      * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
     public void playSound(String soundFilePath, boolean isBlocking) {
-
-        audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFilePath)).toExternalForm());
-        audioClip.play();
+        try {
+            audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFilePath)).toExternalForm());
+            audioClip.play();
+        } catch (Exception e) {
+            System.err.println("error loading sound for: " + soundFilePath);
+            return;
+        }
         playingAudios.add(audioClip);
         if (isBlocking) {
             // Wait until completion
