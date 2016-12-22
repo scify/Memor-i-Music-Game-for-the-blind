@@ -2,7 +2,7 @@
   <artifact type="jar" build-on-make="true" name="memori:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/memori_jar</output-path>
     <root id="archive" name="memori.jar">
-      <element id="module-output" name="windmusicgame" />
+      <element id="module-output" name="memorimusicgame" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20160810/json-20160810.jar" path-in-jar="/" />
     </root>
   </artifact>

@@ -7,7 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
-<StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.windmusicgame.screens.SponsorScreenController">
+<StackPane alignment="center" styleClass="rootPane" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.scify.memorimusicgame.screens.SponsorScreenController">
 
     <VBox alignment="center" spacing="50">
 
