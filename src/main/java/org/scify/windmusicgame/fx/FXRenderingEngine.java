@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.fx;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -28,6 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
+import org.scify.windmusicgame.*;
+import org.scify.windmusicgame.card.Card;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.interfaces.*;
 

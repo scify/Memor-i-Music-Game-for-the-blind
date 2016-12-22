@@ -1,5 +1,6 @@
 package org.scify.windmusicgame;
 
+import org.scify.windmusicgame.card.Card;
 import org.scify.windmusicgame.interfaces.GameLevel;
 
 import java.awt.geom.Point2D;

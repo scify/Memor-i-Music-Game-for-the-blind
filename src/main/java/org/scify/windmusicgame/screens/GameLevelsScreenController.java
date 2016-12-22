@@ -1,25 +1,20 @@
 package org.scify.windmusicgame.screens;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
-import org.scify.windmusicgame.FXAudioEngine;
-import org.scify.windmusicgame.FXMemoriGame;
+import org.scify.windmusicgame.fx.FXAudioEngine;
+import org.scify.windmusicgame.fx.FXMemoriGame;
 import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.MemoriGameLevel;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

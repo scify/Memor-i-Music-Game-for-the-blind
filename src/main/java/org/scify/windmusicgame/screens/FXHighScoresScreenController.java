@@ -21,18 +21,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
-import org.scify.windmusicgame.FXAudioEngine;
-import org.scify.windmusicgame.HighScoreHandler;
+import org.scify.windmusicgame.HighScoresHandlerImpl;
+import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXAudioEngine;
 import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.MemoriGameLevel;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.helperClasses.SceneHandler;
-import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -42,7 +39,7 @@ public class FXHighScoresScreenController {
     /**
      * An Audio Engine object, able to play sounds
      */
-    private HighScoreHandler highScoreHandler;
+    private HighScoresHandlerImpl highScoreHandler;
     private FXAudioEngine audioEngine;
     protected SceneHandler sceneHandler;
     protected GameWithLevelsOptions gameOptions;
@@ -66,7 +63,7 @@ public class FXHighScoresScreenController {
         //initialize the audio engine object
         audioEngine = new FXAudioEngine();
         this.gameOptions = gameOptions;
-        highScoreHandler = new HighScoreHandler();
+        highScoreHandler = new HighScoresHandlerImpl();
         sceneHandler = sHandler;
         sceneHandler.pushScene(scoresScene);
         scoresScene.setOnKeyReleased(event -> {

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame.helperClasses;
+package org.scify.windmusicgame.helper;
 
 import java.util.concurrent.TimeUnit;
 

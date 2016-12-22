@@ -4,13 +4,13 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
-import org.scify.windmusicgame.FXAudioEngine;
+import org.scify.windmusicgame.fx.FXAudioEngine;
 import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.windmusicgame.games_options.FindTheNoteOptions;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.games_options.FindInstrumentFamilyOptions;
-import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.SceneHandler;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;

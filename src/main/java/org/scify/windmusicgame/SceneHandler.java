@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame.helperClasses;
+package org.scify.windmusicgame;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;

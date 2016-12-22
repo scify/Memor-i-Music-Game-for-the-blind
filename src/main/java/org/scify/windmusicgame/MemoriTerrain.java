@@ -17,10 +17,9 @@
 
 package org.scify.windmusicgame;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.scify.windmusicgame.card.Card;
+import org.scify.windmusicgame.card.MemoriCardDelegator;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.helperClasses.FileHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 import org.scify.windmusicgame.interfaces.Terrain;
 import org.scify.windmusicgame.interfaces.Tile;
@@ -57,7 +56,7 @@ public class MemoriTerrain implements Terrain {
         this.gameOptions = gameOptions;
         tiles = new HashMap<>();
         openTiles = new ArrayList<>();
-        List<Card> unshuffledCards = produceDeckOfCards(gameOptions);
+        List<Card> unshuffledCards = produceDeckOfCards((GameWithLevelsOptions) gameOptions);
         List<Card> shuffledCards = shuffleDeck(unshuffledCards);
 
         int cardIndex = 0;
@@ -70,52 +69,19 @@ public class MemoriTerrain implements Terrain {
     }
 
     /**
-     * Read Cards from DB
+     *
+     * @param gameWithLevelsOptions
      * @return A {@link List} of {@link Card}s that will participate in the game
      */
-    private List<Card> produceDeckOfCards(GameOptions gameOptions) {
-
-        List<Card> unShuffledCards = new ArrayList<>();
-
-        //cardsList will contain the values of the json object as key-value pairs
-        ArrayList<JSONObject> cardsList;
+    private List<Card> produceDeckOfCards(GameWithLevelsOptions gameWithLevelsOptions) {
+        //cardsMap will contain the values of the json object as key-value pairs
+        List<Card> cardsList;
         //Preparing the JSON parser class
-        FileHandler parser = new FileHandler();
+        MemoriCardDelegator cardDelegator = new MemoriCardDelegator(gameWithLevelsOptions);
         //read the cards from the JSON file
-        cardsList = parser.getCardsFromJSONFile((GameWithLevelsOptions) gameOptions);
-        Iterator it = cardsList.iterator();
-        while(it.hasNext()) {
-            JSONObject currObj = (JSONObject) it.next();
-            Card newCard = new CategorizedCard(
-                    (String) currObj.get("label"),
-                    getStringArray((JSONArray) currObj.get("images")),
-                    getStringArray((JSONArray) currObj.get("sounds")),
-                    getStringArray((JSONArray) currObj.get("descriptiveSounds")),
-                    (String)currObj.get("category"),
-                    (String)currObj.get("equivalenceCardSetHashCode"),
-                    (String)currObj.get("nameSound")
-            );
-            unShuffledCards.add(newCard);
-        }
+        cardsList = cardDelegator.getMemoriCards();
 
-        return unShuffledCards;
-    }
-
-    /**
-     * Parses a {@link JSONArray} elements to a String array
-     * @param jsonArray the JSON formatted array ( eg ["1", "2"] )
-     * @return a String array containing the elements of the JSON array
-     */
-    public static String[] getStringArray(JSONArray jsonArray){
-        String[] stringArray = null;
-        int length = jsonArray.length();
-        if(jsonArray!=null){
-            stringArray = new String[length];
-            for(int i=0;i<length;i++){
-                stringArray[i]= jsonArray.optString(i);
-            }
-        }
-        return stringArray;
+        return cardsList;
     }
 
     /**

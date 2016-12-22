@@ -40,11 +40,11 @@ public abstract class MemoriGame implements Game<Integer> {
     /**
      * Object responsible for UI events (User actions)
      */
-    UI uInterface;
+    public UI uInterface;
     /**
      * Object rensponsible for UI rendering events (sounds, graphics etc)
      */
-    RenderingEngine reRenderer;
+    public RenderingEngine reRenderer;
 
     GameOptions gameOptions;
 

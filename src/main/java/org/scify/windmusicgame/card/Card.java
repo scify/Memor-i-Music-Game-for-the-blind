@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.card;
 
 import javafx.scene.control.Button;
+import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.interfaces.Tile;
 
 /**

@@ -9,8 +9,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import org.scify.windmusicgame.FXAudioEngine;
-import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.fx.FXAudioEngine;
+import org.scify.windmusicgame.SceneHandler;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;

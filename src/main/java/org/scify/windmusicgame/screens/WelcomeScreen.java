@@ -22,8 +22,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.scify.windmusicgame.MainOptions;
-import org.scify.windmusicgame.helperClasses.FileHandler;
-import org.scify.windmusicgame.helperClasses.UTF8Control;
+import org.scify.windmusicgame.helper.MemoriConfiguration;
+import org.scify.windmusicgame.helper.UTF8Control;
 
 import java.awt.*;
 import java.util.Locale;
@@ -42,8 +42,8 @@ public class WelcomeScreen extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FileHandler fileHandler = new FileHandler();
-        Locale locale = new Locale(fileHandler.getProjectProperty("APP_LANG"));
+        MemoriConfiguration configuration = new MemoriConfiguration();
+        Locale locale = new Locale(configuration.getProjectProperty("APP_LANG"));
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/first_screen.fxml"),
                 ResourceBundle.getBundle("languages.strings", locale, new UTF8Control()));

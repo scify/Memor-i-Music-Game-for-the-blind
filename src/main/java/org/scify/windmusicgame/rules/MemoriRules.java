@@ -18,11 +18,11 @@
 
 package org.scify.windmusicgame.rules;
 
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.scify.windmusicgame.*;
+import org.scify.windmusicgame.card.CategorizedCard;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.helperClasses.TimeWatch;
+import org.scify.windmusicgame.helper.TimeWatch;
 import org.scify.windmusicgame.interfaces.*;
 
 import java.awt.geom.Point2D;
@@ -36,9 +36,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class MemoriRules implements Rules {
     /**
-     * a {@link HighScoreHandler} instance to handle the high score as soon as the game has finished
+     * a {@link HighScoresHandlerImpl} instance to handle the high score as soon as the game has finished
      */
-    private HighScoreHandler highScore;
+    private HighScoresHandlerImpl highScore;
     /**
      * When the user makes the first move, start the watch
      * This variable is used to identify if the watch has been already started or not
@@ -50,7 +50,7 @@ public class MemoriRules implements Rules {
     TimeWatch watch;
 
     public MemoriRules() {
-        highScore = new HighScoreHandler();
+        highScore = new HighScoresHandlerImpl();
     }
 
     @Override

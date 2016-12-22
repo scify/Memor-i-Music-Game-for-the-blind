@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.fx;
 
-import org.scify.windmusicgame.helperClasses.SceneHandler;
+import org.scify.windmusicgame.MemoriGame;
+import org.scify.windmusicgame.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 public class FXMemoriGame extends MemoriGame {

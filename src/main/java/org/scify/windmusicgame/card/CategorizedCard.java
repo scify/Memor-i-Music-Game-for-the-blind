@@ -1,11 +1,12 @@
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.card;
+
 
 /**
  * CategorizedCard is a class that represents a Card with a category.
  * This card belongs to an equivalence card set
  * Created by pisaris on 10/10/2016.
  */
-public class CategorizedCard extends Card{
+public class CategorizedCard extends Card {
 
     /**
      * the category that the cards belongs to

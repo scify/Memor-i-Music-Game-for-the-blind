@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.fx;
 
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import org.scify.windmusicgame.helperClasses.FileHandler;
+import org.scify.windmusicgame.helper.MemoriConfiguration;
 import org.scify.windmusicgame.interfaces.AudioEngine;
-import java.io.File;
+
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -36,8 +36,8 @@ public class FXAudioEngine implements AudioEngine{
     private String successSound = "miscellaneous/success.wav";
     private String invalidMovementSound = "miscellaneous/bump.mp3";
     private String emptySound = "miscellaneous/door-knock.wav";
-    private String numBasePath = "numbers/";
-    private String letterBasePath = "letters/";
+    private String numBasePath = "/numbers/";
+    private String letterBasePath = "/letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
 
     /**
@@ -51,10 +51,10 @@ public class FXAudioEngine implements AudioEngine{
 
 
     public FXAudioEngine() {
-        FileHandler fileHandler = new FileHandler();
+        MemoriConfiguration configuration = new MemoriConfiguration();
         // if the game loads for the first time, we need to set the default language
-        this.defaultLangDirectory = fileHandler.getProjectProperty("APP_LANG_DEFAULT");
-        this.langDirectory = fileHandler.getProjectProperty("APP_LANG");
+        this.defaultLangDirectory = configuration.getProjectProperty("APP_LANG_DEFAULT");
+        this.langDirectory = configuration.getProjectProperty("APP_LANG");
     }
 
     /**
@@ -210,7 +210,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playNumSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(getCorrectPathForFile(numBasePath + String.valueOf(number) + ".mp3"), true);
+        playSound(numBasePath + String.valueOf(number) + ".mp3", true);
     }
 
     /**
@@ -219,7 +219,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playLetterSound(int number) {
         pauseCurrentlyPlayingAudios();
-        playSound(getCorrectPathForFile(letterBasePath + number + ".mp3"), true);
+        playSound(letterBasePath + number + ".mp3", true);
     }
 
     /**

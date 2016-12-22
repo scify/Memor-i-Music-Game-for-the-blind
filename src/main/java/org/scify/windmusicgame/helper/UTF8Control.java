@@ -1,4 +1,4 @@
-package org.scify.windmusicgame.helperClasses;
+package org.scify.windmusicgame.helper;
 
 import java.io.IOException;
 import java.io.InputStream;

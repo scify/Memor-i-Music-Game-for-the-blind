@@ -17,10 +17,8 @@
 package org.scify.windmusicgame.games_options;
 
 import org.scify.windmusicgame.MemoriGameLevel;
-import org.scify.windmusicgame.helperClasses.FileHandler;
+import org.scify.windmusicgame.helper.MemoriConfiguration;
 
-import java.awt.geom.Point2D;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -110,8 +108,8 @@ public class GameWithLevelsOptions {
     public String scoresFile;
 
     public GameWithLevelsOptions() {
-        FileHandler fileHandler = new FileHandler();
-        this.scoresFile = fileHandler.getUserDir();
+        MemoriConfiguration configuration = new MemoriConfiguration();
+        this.scoresFile = configuration.getUserDir();
     }
 
     public String getGameDescription() {
