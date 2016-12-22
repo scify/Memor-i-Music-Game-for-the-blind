@@ -35,6 +35,10 @@ these plugins will be automativcally downloaded and installed upon compilation.
 After compiling, in order for the standalone .jar file to be built, run these 2 commands:
 
 ```
+mvn clean
+
+mvn package
+
 mvn assembly:single 
 
 mvn dependency:copy-dependencies
