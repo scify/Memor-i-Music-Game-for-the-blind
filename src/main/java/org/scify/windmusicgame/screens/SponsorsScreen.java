@@ -22,7 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.scify.windmusicgame.fx.FXAudioEngine;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.helper.MemoriConfiguration;
 import org.scify.windmusicgame.helper.UTF8Control;
 
@@ -39,10 +39,10 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
  */
 public class SponsorsScreen{
 
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
     Timer timer = new Timer();
     FXAudioEngine audioEngine = new FXAudioEngine();
-    public SponsorsScreen(SceneHandler shSceneHandler, Stage mainWindow) {
+    public SponsorsScreen(FXSceneHandler shSceneHandler, Stage mainWindow) {
         this.sceneHandler = shSceneHandler;
         sceneHandler.setMainWindow(mainWindow);
         MemoriConfiguration configuration = new MemoriConfiguration();

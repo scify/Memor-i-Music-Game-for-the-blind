@@ -10,7 +10,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.scify.windmusicgame.fx.FXAudioEngine;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -22,7 +22,7 @@ import static javafx.scene.input.KeyCode.SPACE;
 public class WelcomeScreenController {
     protected Stage primaryStage;
     protected Scene primaryScene;
-    protected SceneHandler sceneHandler = new SceneHandler();
+    protected FXSceneHandler sceneHandler = new FXSceneHandler();
     protected FXAudioEngine audioEngine = new FXAudioEngine();
 
     public WelcomeScreenController() {

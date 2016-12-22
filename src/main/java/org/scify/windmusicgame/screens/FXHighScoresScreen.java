@@ -21,7 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.helper.MemoriConfiguration;
 import org.scify.windmusicgame.helper.UTF8Control;
 import org.scify.windmusicgame.interfaces.GameOptions;
@@ -38,11 +38,11 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
  */
 public class FXHighScoresScreen implements org.scify.windmusicgame.interfaces.HighScoresScreen {
 
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
     protected GameOptions gameOptions;
 
-    public FXHighScoresScreen(SceneHandler shSceneHandler, GameOptions gameOptions) {
+    public FXHighScoresScreen(FXSceneHandler shSceneHandler, GameOptions gameOptions) {
         this.sceneHandler = shSceneHandler;
         this.gameOptions = gameOptions;
         MemoriConfiguration configuration = new MemoriConfiguration();

@@ -18,13 +18,12 @@
 package org.scify.windmusicgame.fx;
 
 import org.scify.windmusicgame.MemoriGame;
-import org.scify.windmusicgame.SceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 public class FXMemoriGame extends MemoriGame {
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
-    public FXMemoriGame(SceneHandler shSceneHandler) {
+    public FXMemoriGame(FXSceneHandler shSceneHandler) {
         this.sceneHandler = shSceneHandler;
     }
 

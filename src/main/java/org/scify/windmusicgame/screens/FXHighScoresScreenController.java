@@ -22,7 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import org.scify.windmusicgame.HighScoresHandlerImpl;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.fx.FXAudioEngine;
 import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.MemoriGameLevel;
@@ -41,7 +41,7 @@ public class FXHighScoresScreenController {
      */
     private HighScoresHandlerImpl highScoreHandler;
     private FXAudioEngine audioEngine;
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
     protected GameWithLevelsOptions gameOptions;
 
     @FXML
@@ -59,7 +59,7 @@ public class FXHighScoresScreenController {
     @FXML
     private Button level7;
 
-    public void setParameters(SceneHandler sHandler, Scene scoresScene, GameWithLevelsOptions gameOptions) {
+    public void setParameters(FXSceneHandler sHandler, Scene scoresScene, GameWithLevelsOptions gameOptions) {
         //initialize the audio engine object
         audioEngine = new FXAudioEngine();
         this.gameOptions = gameOptions;

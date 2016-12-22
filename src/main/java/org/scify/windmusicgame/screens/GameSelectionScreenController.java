@@ -10,7 +10,7 @@ import org.scify.windmusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.windmusicgame.games_options.FindTheNoteOptions;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
 import org.scify.windmusicgame.games_options.FindInstrumentFamilyOptions;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -22,11 +22,11 @@ public class GameSelectionScreenController {
     public Button findInstrumentFamiliesGame;
     public Button findInstrumentGame;
     public Button findNoteGame;
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
     protected FXAudioEngine audioEngine;
 
-    public void setParameters(SceneHandler sceneHandler, Scene gameSelectionScene) {
+    public void setParameters(FXSceneHandler sceneHandler, Scene gameSelectionScene) {
         audioEngine = new FXAudioEngine();
         this.sceneHandler = sceneHandler;
         sceneHandler.pushScene(gameSelectionScene);

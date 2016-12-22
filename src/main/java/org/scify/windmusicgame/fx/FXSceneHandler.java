@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.scify.windmusicgame;
+package org.scify.windmusicgame.fx;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -27,8 +27,8 @@ import java.util.List;
 /**
  * Handles the scenes changing across the application.
  */
-public class SceneHandler {
-    public SceneHandler() {
+public class FXSceneHandler {
+    public FXSceneHandler() {
         System.out.println("Initializing scene handler...");
     }
 

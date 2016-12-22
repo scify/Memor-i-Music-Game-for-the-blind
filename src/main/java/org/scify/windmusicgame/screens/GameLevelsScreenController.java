@@ -10,7 +10,7 @@ import org.scify.windmusicgame.fx.FXMemoriGame;
 import org.scify.windmusicgame.MainOptions;
 import org.scify.windmusicgame.MemoriGameLevel;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
@@ -31,13 +31,13 @@ public class GameLevelsScreenController {
     public VBox gameLevelsContainer;
     public Button gameDescription;
 
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
     protected FXAudioEngine audioEngine;
 
     protected GameWithLevelsOptions gameOptions;
 
-    public void setParameters(SceneHandler sceneHandler, Scene gameSelectionScene, GameWithLevelsOptions gameOptions) {
+    public void setParameters(FXSceneHandler sceneHandler, Scene gameSelectionScene, GameWithLevelsOptions gameOptions) {
         audioEngine = new FXAudioEngine();
         this.sceneHandler = sceneHandler;
         this.gameOptions = gameOptions;

@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.scify.windmusicgame.helper.MemoriConfiguration;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.helper.UTF8Control;
 
 import java.io.IOException;
@@ -16,9 +16,9 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
 
 public class GameSelectionScreen {
 
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
-    public GameSelectionScreen(SceneHandler shSceneHandler) {
+    public GameSelectionScreen(FXSceneHandler shSceneHandler) {
         sceneHandler = shSceneHandler;
         MemoriConfiguration configuration = new MemoriConfiguration();
         Locale locale = new Locale(configuration.getProjectProperty("APP_LANG"));

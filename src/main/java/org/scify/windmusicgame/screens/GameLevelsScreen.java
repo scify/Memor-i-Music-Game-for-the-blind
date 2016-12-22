@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.scify.windmusicgame.games_options.GameWithLevelsOptions;
-import org.scify.windmusicgame.SceneHandler;
+import org.scify.windmusicgame.fx.FXSceneHandler;
 import org.scify.windmusicgame.helper.MemoriConfiguration;
 import org.scify.windmusicgame.helper.UTF8Control;
 
@@ -17,9 +17,9 @@ import static org.scify.windmusicgame.MainOptions.mWidth;
 
 public class GameLevelsScreen {
 
-    protected SceneHandler sceneHandler;
+    protected FXSceneHandler sceneHandler;
 
-    public GameLevelsScreen(SceneHandler shSceneHandler, GameWithLevelsOptions gameOptions) {
+    public GameLevelsScreen(FXSceneHandler shSceneHandler, GameWithLevelsOptions gameOptions) {
         sceneHandler = shSceneHandler;
         MemoriConfiguration configuration = new MemoriConfiguration();
         Locale locale = new Locale(configuration.getProjectProperty("APP_LANG"));
