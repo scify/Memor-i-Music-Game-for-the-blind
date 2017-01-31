@@ -16,7 +16,7 @@ public class MemoriGameLevel implements GameLevel {
      */
     protected int levelCode;
     /**
-     * I memor-i, each level is associated with dimesions for the level's terrain
+     * In memor-i, each level is associated with dimesions for the level's terrain
      */
     protected Point2D dimensions;
     /**

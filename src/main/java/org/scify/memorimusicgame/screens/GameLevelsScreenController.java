@@ -28,7 +28,7 @@ import static javafx.scene.input.KeyCode.SPACE;
  */
 public class GameLevelsScreenController {
 
-    public VBox gameLevelsContainer;
+    private VBox gameLevelsContainer;
     public Button gameDescription;
 
     protected FXSceneHandler sceneHandler;
