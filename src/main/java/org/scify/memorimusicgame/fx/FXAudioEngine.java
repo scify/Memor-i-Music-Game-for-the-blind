@@ -155,12 +155,12 @@ public class FXAudioEngine implements AudioEngine{
     private String getCorrectPathForFile(String soundFilePath) {
         String soundPath;
         // default sound path is as if the file is language-dependent. Searching for current language
-        soundPath = soundBasePath + this.langDirectory + soundFilePath;
+        soundPath = soundBasePath + this.langDirectory + "/" + soundFilePath;
 
         URL soundFile = FXAudioEngine.class.getResource(soundPath);
         if(soundFile == null) {
             // if no file exists, try to load default language
-
+            System.err.println("Tried to load: " + soundPath);
             soundPath = soundBasePath + this.defaultLangDirectory + "/" + soundFilePath;
             System.err.println("Loading default language for: " + soundPath);
         }
