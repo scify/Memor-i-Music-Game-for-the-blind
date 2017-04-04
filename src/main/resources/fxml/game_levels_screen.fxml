@@ -25,7 +25,7 @@
         </ImageView>
     </HBox>
     <VBox alignment="center" styleClass="optionButtonContainer">
-        <Button contentDisplay="CENTER" styleClass="welcomeButton" fx:id="gameDescription"/>
+        <Button contentDisplay="CENTER" styleClass="welcomeButton" text="%find_instrument" fx:id="gameDescription"/>
         <Button contentDisplay="CENTER" styleClass="optionButton" text="%tutorial" fx:id="tutorial"
                 onKeyPressed="#startTutorial"/>
         <VBox alignment="center" fx:id="gameLevels">

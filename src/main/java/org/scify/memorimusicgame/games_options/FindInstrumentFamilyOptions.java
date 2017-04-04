@@ -17,10 +17,13 @@
 package org.scify.memorimusicgame.games_options;
 
 import org.scify.memorimusicgame.MemoriGameLevel;
+import org.scify.memorimusicgame.helper.MemoriConfiguration;
 import org.scify.memorimusicgame.interfaces.GameOptions;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Game Options class for the First game (associate all instruments with their families)
@@ -108,7 +111,9 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
     public FindInstrumentFamilyOptions() {
         super();
         scoresFile += "find_instrument_families_scores.properties";
-        gameDescription = "ΒΡΕΙΤΕ ΤΟ ΕΙΔΟΣ ΤΟΥ ΜΟΥΣΙΚΟΥ ΟΡΓΑΝΟΥ";
+        MemoriConfiguration configuration = new MemoriConfiguration();
+        ResourceBundle labels = ResourceBundle.getBundle("languages.strings", new Locale(configuration.getProjectProperty("APP_LANG"), configuration.getProjectProperty("APP_LANG_LOCALE_CAPITAL")));
+        gameDescription = labels.getString("find_instrument_family");
         gameDescriptionSound = "screens/game_levels_screen/find_instrument_families_description.mp3";
         tutorialSoundBase = "find_instrument_family/tutorial/";
         initializeGameLevels();
