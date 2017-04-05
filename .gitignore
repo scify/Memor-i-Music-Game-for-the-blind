@@ -3,3 +3,4 @@ target/
 out
 src/test/
 push_to_testing.sh
+high_scores.properties
