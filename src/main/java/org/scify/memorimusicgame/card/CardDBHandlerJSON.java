@@ -8,6 +8,7 @@ import org.scify.memorimusicgame.games_options.GameWithLevelsOptions;
 import org.scify.memorimusicgame.helper.JSONFileHandler;
 import org.scify.memorimusicgame.helper.MemoriConfiguration;
 import org.scify.memorimusicgame.interfaces.CardDBHandler;
+import org.scify.memorimusicgame.utils.ResourceLocator;
 
 import java.io.InputStreamReader;
 import java.math.BigInteger;
@@ -24,9 +25,13 @@ public class CardDBHandlerJSON implements CardDBHandler {
 
     public CardDBHandlerJSON(GameWithLevelsOptions gameWithLevelsOptions) {
         jsonFileHandler = new JSONFileHandler();
-        MemoriConfiguration configuration = new MemoriConfiguration();
         MemoriGameLevel gameLevel = gameWithLevelsOptions.getGameLevels().get(MainOptions.gameLevel - 1);
-        dbFile = gameLevel.getJSONDBFileForLevel();
+        ResourceLocator resourceLocator = new ResourceLocator();
+        dbFile = resourceLocator.getCorrectPathForFile("json_DB/", gameLevel.getJSONDBFileForLevel());
+        //because we want to perform getResourceAsStream on the dbFile, we need to eliminate the slash "/" that the string starts with:
+        if (dbFile.charAt(0) == '/') {
+            dbFile = dbFile.substring(1, dbFile.length());
+        }
     }
 
     @Override

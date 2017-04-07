@@ -9,6 +9,7 @@ import org.scify.memorimusicgame.fx.FXAudioEngine;
 import org.scify.memorimusicgame.fx.FXMemoriGame;
 import org.scify.memorimusicgame.MainOptions;
 import org.scify.memorimusicgame.MemoriGameLevel;
+import org.scify.memorimusicgame.fx.FXRenderingEngine;
 import org.scify.memorimusicgame.games_options.GameWithLevelsOptions;
 import org.scify.memorimusicgame.fx.FXSceneHandler;
 import org.scify.memorimusicgame.interfaces.GameOptions;
@@ -41,6 +42,7 @@ public class GameLevelsScreenController {
         audioEngine = new FXAudioEngine();
         this.sceneHandler = sceneHandler;
         this.gameOptions = gameOptions;
+        FXRenderingEngine.setGamecoverIcon(gameSelectionScene, "gameCoverImgContainer");
         sceneHandler.pushScene(gameSelectionScene);
 
         gameSelectionScene.lookup("#gameDescription").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {

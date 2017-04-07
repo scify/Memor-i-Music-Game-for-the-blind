@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.scify.memorimusicgame.fx.FXAudioEngine;
+import org.scify.memorimusicgame.fx.FXRenderingEngine;
 import org.scify.memorimusicgame.fx.FXSceneHandler;
 import org.scify.memorimusicgame.helper.MemoriConfiguration;
 import org.scify.memorimusicgame.helper.UTF8Control;
@@ -58,6 +59,7 @@ public class SponsorsScreen{
         }
         audioEngine.pauseAndPlaySound("sponsor_screen/sponsor_message.mp3", false);
         Scene sponsorsScene = new Scene(root, mWidth, mHeight);
+        FXRenderingEngine.setSponsorcoverIcon(sponsorsScene, "gameCoverImgContainer");
         sceneHandler.pushScene(sponsorsScene);
 
         sponsorsScene.setOnKeyReleased(event -> {

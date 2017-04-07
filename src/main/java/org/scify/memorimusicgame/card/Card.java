@@ -20,6 +20,7 @@ package org.scify.memorimusicgame.card;
 import javafx.scene.control.Button;
 import org.scify.memorimusicgame.MainOptions;
 import org.scify.memorimusicgame.interfaces.Tile;
+import org.scify.memorimusicgame.utils.ResourceLocator;
 
 /**
  * Implements the {@link Tile} representation in the game.
@@ -59,6 +60,8 @@ public class Card implements Tile{
      * file name of the card name sound
      */
     private String[] descriptiveSounds;
+
+    protected static ResourceLocator resourceLocator = new ResourceLocator();
     /**
      *
      * @return the Node (Button) that is laid on the layout
@@ -129,7 +132,7 @@ public class Card implements Tile{
     public void flipUI(int imgIndex) {
         // only if this image exists
         if(imgIndex < images.length) {
-            String imgFile = "/img/" + images[imgIndex];
+            String imgFile = resourceLocator.getCorrectPathForFile("img/", images[imgIndex]);
             button.setStyle("-fx-background-image: url(" + imgFile + ")");
         }
     }
@@ -140,15 +143,17 @@ public class Card implements Tile{
      */
     public void flipBackUI () {
         //TODO: change logic here (game options should include door card for each game)
-        String imgFile = "/img/door.jpg";
+        String imgFile = "door.jpg";
         if(MainOptions.gameClassName.equals("FIND_INSTRUMENT_FAMILY")) {
-            imgFile = "/img/cardcategorie.png";
+            imgFile = "cardcategorie.png";
         } else if(MainOptions.gameClassName.equals("FIND_INSTRUMENT")) {
-            imgFile = "/img/cardinstrument.png";
+            imgFile = "cardinstrument.png";
         } else if(MainOptions.gameClassName.equals("FIND_NOTE")) {
-            imgFile = "/img/cardnote.png";
+            imgFile = "cardnote.png";
         }
-        button.setStyle("-fx-background-image: url(" + imgFile +")");
+        String imgFilePath = resourceLocator.getCorrectPathForFile("img/", imgFile);
+        button.setStyle("-fx-background-image: url(" + imgFilePath + ")");
+        button.setStyle("-fx-background-image: url(" + imgFilePath + ")");
     }
 
     /**

@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import org.scify.memorimusicgame.fx.FXAudioEngine;
 import org.scify.memorimusicgame.MainOptions;
+import org.scify.memorimusicgame.fx.FXRenderingEngine;
 import org.scify.memorimusicgame.games_options.FindTheInstrumentOptions;
 import org.scify.memorimusicgame.games_options.FindTheNoteOptions;
 import org.scify.memorimusicgame.games_options.GameWithLevelsOptions;
@@ -29,6 +30,7 @@ public class GameSelectionScreenController {
     public void setParameters(FXSceneHandler sceneHandler, Scene gameSelectionScene) {
         audioEngine = new FXAudioEngine();
         this.sceneHandler = sceneHandler;
+        FXRenderingEngine.setGamecoverIcon(gameSelectionScene, "gameCoverImgContainer");
         sceneHandler.pushScene(gameSelectionScene);
 
         gameSelectionScene.lookup("#welcome").focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {

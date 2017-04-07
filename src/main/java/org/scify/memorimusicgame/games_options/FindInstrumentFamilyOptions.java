@@ -40,32 +40,32 @@ public class FindInstrumentFamilyOptions extends GameWithLevelsOptions implement
                 new Point2D.Double(2,3),
                 "find_instrument_family/level_intro_sounds/level1IntroSound.mp3",
                 "screens/game_levels_screen/2x3.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(2,
                 new Point2D.Double(2,4),
                 "find_instrument_family/level_intro_sounds/level2IntroSound.mp3",
                 "screens/game_levels_screen/2x4.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(3,
                 new Point2D.Double(3,4),
                 "find_instrument_family/level_intro_sounds/level3IntroSound.mp3",
                 "screens/game_levels_screen/3x4.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(4,
                 new Point2D.Double(4,4),
                 "find_instrument_family/level_intro_sounds/level4IntroSound.mp3",
                 "screens/game_levels_screen/4x4.mp3",
-                "json_DB/find_the_instrument_families.json", "find_instrument_family/tutorial/introHelperSound4x4.mp3"));
+                "find_the_instrument_families.json", "find_instrument_family/tutorial/introHelperSound4x4.mp3"));
         gameLevels.add(new MemoriGameLevel(5,
                 new Point2D.Double(4,5),
                 "find_instrument_family/level_intro_sounds/level5IntroSound.mp3",
                 "screens/game_levels_screen/4x5.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "find_the_instrument_families.json"));
         gameLevels.add(new MemoriGameLevel(6,
                 new Point2D.Double(4,6),
                 "find_instrument_family/level_intro_sounds/level6IntroSound.mp3",
                 "screens/game_levels_screen/4x6.mp3",
-                "json_DB/find_the_instrument_families.json"));
+                "find_the_instrument_families.json"));
     }
 
     @Override

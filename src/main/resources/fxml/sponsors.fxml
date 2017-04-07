@@ -15,9 +15,9 @@
             Το μουσικό παιχνίδι Memor-i υλοποιήθηκε με την ευγενική υποστήριξη της εταιρείας τηλεπικοινωνιών WIND.
         </Text>
         <padding><Insets top="0" right="0" bottom="25" left="25"/></padding>
-        <ImageView styleClass="logoImage" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView styleClass="logoImage" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" fx:id="gameCoverImgContainer">
             <image>
-                <Image url="@../img/WIND_logo_blue.png" />
+                <!--<Image url="@../img/WIND_logo_blue.png" />-->
             </image>
         </ImageView>
         <Text wrappingWidth="700" textAlignment="CENTER" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sponsorTextBig, linkText" onMouseClicked="#openSponsorLink">

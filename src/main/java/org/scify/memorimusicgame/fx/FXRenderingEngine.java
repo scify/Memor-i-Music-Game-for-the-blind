@@ -25,13 +25,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import org.scify.memorimusicgame.*;
 import org.scify.memorimusicgame.card.Card;
 import org.scify.memorimusicgame.games_options.GameWithLevelsOptions;
+import org.scify.memorimusicgame.helper.MemoriConfiguration;
 import org.scify.memorimusicgame.interfaces.*;
+import org.scify.memorimusicgame.utils.ResourceLocator;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -40,6 +44,7 @@ import java.util.*;
 import static javafx.scene.input.KeyCode.*;
 import static javafx.scene.input.KeyCode.LEFT;
 import static javafx.scene.input.KeyCode.RIGHT;
+import static org.scify.memorimusicgame.fx.FXAudioEngine.resourceLocator;
 
 /**
  * The Rendering Engine is responsible for handling Game Events (drawing, playing audios etc) as well as implementing the UI events listener
@@ -687,5 +692,23 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
     //maps a value to a new set
     private double map(double x, double in_min, double in_max, double out_min, double out_max) {
         return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
+
+    public static void setGamecoverIcon(Scene scene, String imgContainer) {
+        ImageView gameCoverImgContainer = (ImageView) scene.lookup("#" + imgContainer);
+        setIconOnPage("windmusicgame_large.png", gameCoverImgContainer);
+    }
+
+    public static void setSponsorcoverIcon(Scene scene, String imgContainer) {
+        ImageView gameCoverImgContainer = (ImageView) scene.lookup("#" + imgContainer);
+        setIconOnPage("WIND_logo_blue.png", gameCoverImgContainer);
+    }
+
+    private static void setIconOnPage(String iconPath, ImageView gameCoverImgContainer) {
+        String gameCoverImgPath = resourceLocator.getCorrectPathForFile("img/", iconPath);
+        gameCoverImgContainer.setImage(new Image(gameCoverImgPath));
+        gameCoverImgContainer.setFitHeight(250);
+        gameCoverImgContainer.setFitWidth(250);
+        gameCoverImgContainer.setPreserveRatio(true);
     }
 }

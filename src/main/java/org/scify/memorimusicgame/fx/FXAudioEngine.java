@@ -22,6 +22,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.scify.memorimusicgame.helper.MemoriConfiguration;
 import org.scify.memorimusicgame.interfaces.AudioEngine;
+import org.scify.memorimusicgame.utils.ResourceLocator;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,31 +32,16 @@ public class FXAudioEngine implements AudioEngine{
     private AudioClip audioClip;
     private MediaPlayer movementSoundPlayer;
     private Media movementSoundMedia;
-    private String soundBasePath = "/audios/";
+    private String soundBasePath = "audios/";
     private String movementSound = "miscellaneous/movement_sound.mp3";
     private String successSound = "miscellaneous/success.wav";
     private String invalidMovementSound = "miscellaneous/bump.mp3";
     private String emptySound = "miscellaneous/door-knock.wav";
-    private String numBasePath = "/numbers/";
-    private String letterBasePath = "/letters/";
+    private String numBasePath = "numbers/";
+    private String letterBasePath = "letters/";
     private ArrayList<AudioClip> playingAudios = new ArrayList<>();
-
-    /**
-     * the directory of the current language
-     */
-    private String langDirectory;
-    /**
-     * the directory of the default language
-     */
-    private String defaultLangDirectory;
-
-
-    public FXAudioEngine() {
-        MemoriConfiguration configuration = new MemoriConfiguration();
-        // if the game loads for the first time, we need to set the default language
-        this.defaultLangDirectory = configuration.getProjectProperty("APP_LANG_DEFAULT");
-        this.langDirectory = configuration.getProjectProperty("APP_LANG");
-    }
+    private boolean playing;
+    protected static ResourceLocator resourceLocator = new ResourceLocator();
 
     /**
      * Pauses the currently playing audio, if there is one
@@ -76,7 +62,7 @@ public class FXAudioEngine implements AudioEngine{
         pauseSound();
         if(movementSoundMedia == null) {
             System.err.println("construct new movement sound player");
-            movementSoundMedia = new Media(FXAudioEngine.class.getResource(getCorrectPathForFile(movementSound)).toExternalForm());
+            movementSoundMedia = new Media(FXAudioEngine.class.getResource(resourceLocator.getCorrectPathForFile(this.soundBasePath, "miscellaneous/movement_sound.mp3")).toExternalForm());
             movementSoundPlayer = new MediaPlayer(movementSoundMedia);
         }
         movementSoundPlayer.setBalance(balance);
@@ -131,7 +117,7 @@ public class FXAudioEngine implements AudioEngine{
      */
     public void playBalancedSound(double balance, String soundFile, boolean isBlocking) {
         pauseCurrentlyPlayingAudios();
-        audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFile)).toExternalForm());
+        audioClip = new AudioClip(FXAudioEngine.class.getResource(resourceLocator.getCorrectPathForFile(this.soundBasePath, soundFile)).toExternalForm());
         audioClip.play(1, balance, 1, balance, 1);
         playingAudios.add(audioClip);
         if(isBlocking)
@@ -146,52 +132,41 @@ public class FXAudioEngine implements AudioEngine{
     }
 
     /**
-     * This function looks for the given file in the current language
-     * If not found, loads the default language
-     * If not found, then it is a language-independent file
-     * @param soundFilePath the resource-relative path of the file
-     * @return the correct file path
-     */
-    private String getCorrectPathForFile(String soundFilePath) {
-        String soundPath;
-        // default sound path is as if the file is language-dependent. Searching for current language
-        soundPath = soundBasePath + this.langDirectory + "/" + soundFilePath;
-
-        URL soundFile = FXAudioEngine.class.getResource(soundPath);
-        if(soundFile == null) {
-            // if no file exists, try to load default language
-            System.err.println("Tried to load: " + soundPath);
-            soundPath = soundBasePath + this.defaultLangDirectory + "/" + soundFilePath;
-            System.err.println("Loading default language for: " + soundPath);
-        }
-        return soundPath;
-    }
-
-    /**
      * Plays a sound given a sound file path
      * @param soundFilePath the file name (path) of the audio clip
      * @param isBlocking whether the player should block the calling {@link Thread} while the sound is playing
      */
     public void playSound(String soundFilePath, boolean isBlocking) {
+
+        String fileResourcePath = resourceLocator.getCorrectPathForFile(this.soundBasePath, soundFilePath);
+        System.out.println("Playing: " + fileResourcePath);
         try {
-            audioClip = new AudioClip(FXAudioEngine.class.getResource(getCorrectPathForFile(soundFilePath)).toExternalForm());
+            audioClip = new AudioClip(FXAudioEngine.class.getResource(fileResourcePath).toExternalForm());
             audioClip.play();
         } catch (Exception e) {
-            System.err.println("error loading sound for: " + soundFilePath);
+
+            System.err.println("error loading sound for: " + soundFilePath + ". Queried path was: " + fileResourcePath);
             return;
         }
         playingAudios.add(audioClip);
+        playing = true;
         if (isBlocking) {
-            // Wait until completion
-            while (audioClip.isPlaying()) {
-                try {
-                    Thread.sleep(100L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-            }
+            blockUIThread(audioClip);
         }
+    }
+
+    private void blockUIThread(AudioClip audioClip) {
+        //System.out.println("Waiting for blocking sound to complete");
+        // Wait until completion
+        while (audioClip.isPlaying()) {
+            try {
+                Thread.sleep(100L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //System.out.println("Sound still playing");
+        }
+        System.out.println("Sound completed");
     }
 
     /**

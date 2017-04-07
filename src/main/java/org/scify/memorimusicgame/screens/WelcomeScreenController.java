@@ -5,12 +5,16 @@ import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.scify.memorimusicgame.fx.FXAudioEngine;
+import org.scify.memorimusicgame.fx.FXRenderingEngine;
 import org.scify.memorimusicgame.fx.FXSceneHandler;
+import org.scify.memorimusicgame.helper.MemoriConfiguration;
+import org.scify.memorimusicgame.utils.ResourceLocator;
 
 import static javafx.scene.input.KeyCode.ESCAPE;
 import static javafx.scene.input.KeyCode.SPACE;
@@ -37,11 +41,9 @@ public class WelcomeScreenController {
         primaryStage.show();
         primaryStage.requestFocus();
         primaryStage.setFullScreen(true);
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent we) {
-                System.out.println("Stage is closing");
-                System.exit(0);
-            }
+        primaryStage.setOnCloseRequest(windowEvent -> {
+            System.out.println("Stage is closing");
+            System.exit(0);
         });
 
         Screen screen = Screen.getPrimary();
@@ -51,8 +53,9 @@ public class WelcomeScreenController {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
-
-        primaryStage.getIcons().add(new Image("/img/windmusicgame_large.png"));
+        ResourceLocator resourceLocator = new ResourceLocator();
+        primaryStage.getIcons().add(new Image(resourceLocator.getCorrectPathForFile("img/", "windmusicgame_large.png")));
+        FXRenderingEngine.setGamecoverIcon(primaryScene, "gameCoverImgContainer");
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);
 
