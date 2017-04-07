@@ -1,0 +1,1054 @@
+{
+  "equivalence_card_sets": [
+    [
+      {
+        "label": "guitar",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/guitar1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "guitar_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/guitar.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/guitar1.png",
+          "instrument_sounds/guitar2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "violin",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/violin1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "violin_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/violin.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/violin1.png",
+          "instrument_sounds/violin2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "harp",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/harp1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "harp_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "instrument_names/harp.mp3"
+        ],
+
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/harp1.png",
+          "instrument_sounds/harp2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "cello",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/cello1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "cello_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "instrument_names/cello.mp3"
+        ],
+
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/cello1.png",
+          "instrument_sounds/cello2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "flute",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/flute1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "flute_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/flute.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/flute1.png",
+          "instrument_sounds/flute2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "clarinet",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/clarinet1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "clarinet_name",
+        "category": "item_name",
+        "unique": true,
+        "sounds": [
+          "instrument_names/clarinet.mp3"
+        ],
+
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/clarinet1.png",
+          "instrument_sounds/clarinet2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "oboe",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/oboe1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "oboe_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/oboe.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/oboe1.png",
+          "instrument_sounds/oboe2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "trumpet",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/trumpet1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "trumpet_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/trumpet.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/trumpet1.png",
+          "instrument_sounds/trumpet2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "trombone",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/trombone1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "trombone_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/trombone.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/trombone1.png",
+          "instrument_sounds/trombone2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "timpani",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/timpani1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "timpani_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/timpani.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/timpani1.png",
+          "instrument_sounds/timpani2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "snare",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/snare1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "snare_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/snare.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/snare1.png",
+          "instrument_sounds/snare2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "xylophone",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/xylophone1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "xylophone_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/xylophone.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/xylophone1.png",
+          "instrument_sounds/xylophone2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "cymbal",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/cymbal1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "cymbal_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/cymbal.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/cymbal1.png",
+          "instrument_sounds/cymbal2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "piano",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/piano1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "piano_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/piano.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/piano1.png",
+          "instrument_sounds/piano2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "cembalo",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/cembalo1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "cembalo_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/cembalo.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/cembalo1.png",
+          "instrument_sounds/cembalo2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "organ",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/organ1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "organ_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/organ.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/organ1.png",
+          "instrument_sounds/organ2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "double-bass",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/double-bass1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "double-bass_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/double-bass.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/contrbass1.png",
+          "instrument_sounds/contrbass2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "fagotto",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/fagotto1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "fagotto_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/fagotto.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/fagotto1.png",
+          "instrument_sounds/fagotto2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "saxophone",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/saxophone1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "saxophone_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/saxophone.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/saxophone1.png",
+          "instrument_sounds/saxophone2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "french-horn",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/french-horn1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "french-horn_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/french-horn.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/horn1.png",
+          "instrument_sounds/horn2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "tuba",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/tuba1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "tuba_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/tuba.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/tuba1.png",
+          "instrument_sounds/tuba2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "glockenspiel",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/glockenspiel1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "glockenspiel_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/glockenspiel.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/glockenspiel1.png",
+          "instrument_sounds/glockenspiel2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "elguitar",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/elguitar1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "elguitar_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/elguitar.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/elguitar1.png",
+          "instrument_sounds/elguitar2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "harmonium",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/harmonium1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "harmonium_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/harmonium.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/harmonium1.png",
+          "instrument_sounds/harmonium2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "marimba",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/marimba1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "marimba_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/marimba.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/marimba1.png",
+          "instrument_sounds/marimba2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "accordion",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/accordion1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "accordion_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/accordion.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/accordion1.png",
+          "instrument_sounds/accordion2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "drums",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/drums1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "drums_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/drums.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/drums1.png",
+          "instrument_sounds/drums2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "oud",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/oud1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "oud_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/oud.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/oud1.png",
+          "instrument_sounds/oud2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "triangle",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/triangle1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "triangle_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/triangle.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/triangle1.png",
+          "instrument_sounds/triangle2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "flogera",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/flogera1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/instrument_questionmark1.png",
+          "instrument_sounds/instrument_questionmark2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "flogera_name",
+        "category": "item_name",
+        "unique": true,
+
+        "sounds": [
+          "instrument_names/flogera.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/flogera1.png",
+          "instrument_sounds/flogera2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      }
+    ]
+  ]
+}

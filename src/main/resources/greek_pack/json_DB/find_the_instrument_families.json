@@ -1,0 +1,297 @@
+{
+  "equivalence_card_sets": [
+    [
+      {
+        "label": "violin",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/violin1.mp3"
+        ],
+        "nameSound": "instrument_names/violin.mp3",
+        "images": [
+          "instrument_sounds/violin1.png",
+          "instrument_sounds/violin2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "cello",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/cello1.mp3"
+        ],
+        "nameSound": "instrument_names/cello.mp3",
+        "images": [
+          "instrument_sounds/cello1.png",
+          "instrument_sounds/cello2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "harp",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/harp1.mp3"
+        ],
+        "nameSound": "instrument_names/harp.mp3",
+        "images": [
+          "instrument_sounds/harp1.png",
+          "instrument_sounds/harp2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+
+      {
+        "label": "strings",
+        "category": "instrument_family",
+        "unique": false,
+
+        "sounds": [
+          "instrument_families/stringed.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_families/strings1.png",
+          "instrument_families/strings2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "arity": 3,
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "xylophone",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/xylophone1.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_sounds/xylophone1.png",
+          "instrument_sounds/xylophone2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "cymbal",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/cymbal1.mp3"
+        ],
+        "nameSound": "instrument_names/cymbal.mp3",
+        "images": [
+          "instrument_sounds/cymbal1.png",
+          "instrument_sounds/cymbal2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "percussion",
+        "category": "instrument_family",
+        "unique": false,
+
+        "sounds": [
+          "instrument_families/percussion_idiophone.mp3"
+        ],
+        "images": [
+          "instrument_families/percussion1.png",
+          "instrument_families/percussion2.png"
+        ],
+        "nameSound": "",
+        "descriptiveSounds": [
+        ],
+        "arity": 4,
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "trumpet",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/trumpet1.mp3"
+        ],
+        "nameSound": "instrument_names/trumpet.mp3",
+        "images": [
+          "instrument_sounds/trumpet1.png",
+          "instrument_sounds/trumpet2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "trombone",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/trombone1.mp3"
+        ],
+        "nameSound": "instrument_names/trombone.mp3",
+        "images": [
+          "instrument_sounds/trombone1.png",
+          "instrument_sounds/trombone2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "inflatables_copper",
+        "category": "instrument_family",
+        "unique": false,
+
+        "sounds": [
+          "instrument_families/brass_wind.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_families/inflatables_copper1.png",
+          "instrument_families/inflatables_copper2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "arity": 8,
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "oboe",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/oboe1.mp3"
+        ],
+        "nameSound": "instrument_names/oboe.mp3",
+        "images": [
+          "instrument_sounds/oboe1.png",
+          "instrument_sounds/oboe2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "flute",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/flute1.mp3"
+        ],
+        "nameSound": "instrument_names/flute.mp3",
+        "images": [
+          "instrument_sounds/flute1.png",
+          "instrument_sounds/flute2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "clarinet",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/clarinet1.mp3"
+        ],
+        "nameSound": "instrument_names/clarinet.mp3",
+        "images": [
+          "instrument_sounds/clarinet1.png",
+          "instrument_sounds/clarinet2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "inflatables_wooden",
+        "category": "instrument_family",
+        "unique": false,
+
+        "sounds": [
+          "instrument_families/woodwind.mp3"
+        ],
+        "nameSound": "",
+        "images": [
+          "instrument_families/inflatables_wooden1.png",
+          "instrument_families/inflatables_wooden2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "arity": 2,
+        "equivalenceCardSetHashCode":""
+      }
+    ],
+    [
+      {
+        "label": "snare",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/snare1.mp3"
+        ],
+        "nameSound": "instrument_names/snare.mp3",
+        "images": [
+          "instrument_sounds/snare1.png",
+          "instrument_sounds/snare2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "timpani",
+        "category": "item",
+        "unique": true,
+        "sounds": [
+          "instrument_sounds/timpani1.mp3"
+        ],
+        "nameSound": "instrument_names/timpani.mp3",
+        "images": [
+          "instrument_sounds/timpani1.png",
+          "instrument_sounds/timpani2.png"
+        ],
+        "descriptiveSounds": [
+        ],
+        "equivalenceCardSetHashCode":""
+      },
+      {
+        "label": "percussion_membrane",
+        "category": "instrument_family",
+        "unique": false,
+
+        "sounds": [
+          "instrument_families/percussion_membrane.mp3"
+        ],
+        "images": [
+          "instrument_families/percussion_membrane1.png",
+          "instrument_families/percussion_membrane2.png"
+        ],
+        "nameSound": "",
+        "descriptiveSounds": [
+        ],
+        "arity": 4,
+        "equivalenceCardSetHashCode":""
+      }
+    ]
+  ]
+}
