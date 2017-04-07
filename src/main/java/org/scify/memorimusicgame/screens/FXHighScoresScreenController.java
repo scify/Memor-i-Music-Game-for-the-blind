@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import org.scify.memorimusicgame.HighScoresHandlerImpl;
+import org.scify.memorimusicgame.fx.FXRenderingEngine;
 import org.scify.memorimusicgame.fx.FXSceneHandler;
 import org.scify.memorimusicgame.fx.FXAudioEngine;
 import org.scify.memorimusicgame.MainOptions;
@@ -65,6 +66,7 @@ public class FXHighScoresScreenController {
         this.gameOptions = gameOptions;
         highScoreHandler = new HighScoresHandlerImpl();
         sceneHandler = sHandler;
+        FXRenderingEngine.setGamecoverIcon(scoresScene, "gameCoverImgContainer");
         sceneHandler.pushScene(scoresScene);
         scoresScene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
