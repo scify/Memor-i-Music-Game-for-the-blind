@@ -77,7 +77,7 @@
         "sounds": [
           "instrument_sounds/xylophone1.mp3"
         ],
-        "nameSound": "",
+        "nameSound": "instrument_names/xylophone.mp3",
         "images": [
           "instrument_sounds/xylophone1.png",
           "instrument_sounds/xylophone2.png"
