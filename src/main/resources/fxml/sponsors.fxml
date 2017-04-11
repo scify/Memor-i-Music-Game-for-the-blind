@@ -19,7 +19,7 @@
             <image>
             </image>
         </ImageView>
-        <Text wrappingWidth="700" textAlignment="CENTER" strokeType="OUTSIDE"
+        <Text wrappingWidth="700" textAlignment="LEFT" strokeType="OUTSIDE"
               strokeWidth="0.0" styleClass="sponsorTextBig, linkText"
               onMouseClicked="#openSponsorLink" text="%sposnor_text_2">
 
