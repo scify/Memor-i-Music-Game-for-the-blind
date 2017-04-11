@@ -696,7 +696,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
     public static void setGamecoverIcon(Scene scene, String imgContainer) {
         ImageView gameCoverImgContainer = (ImageView) scene.lookup("#" + imgContainer);
-        setIconOnPage("windmusicgame_large.png", gameCoverImgContainer);
+        setIconOnPage("music_game_logo.png", gameCoverImgContainer);
     }
 
     public static void setSponsorcoverIcon(Scene scene, String imgContainer) {

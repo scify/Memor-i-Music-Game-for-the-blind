@@ -54,7 +54,7 @@ public class WelcomeScreenController {
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
         ResourceLocator resourceLocator = new ResourceLocator();
-        primaryStage.getIcons().add(new Image(resourceLocator.getCorrectPathForFile("img/", "windmusicgame_large.png")));
+        primaryStage.getIcons().add(new Image(resourceLocator.getCorrectPathForFile("img/", "music_game_logo.png")));
         FXRenderingEngine.setGamecoverIcon(primaryScene, "gameCoverImgContainer");
         sceneHandler.setMainWindow(primaryStage);
         sceneHandler.pushScene(primaryScene);

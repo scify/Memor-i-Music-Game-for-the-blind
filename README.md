@@ -1,7 +1,7 @@
 
 # Memor-i Wind Music Game for the blind
 
-![Memor-i logo](https://raw.githubusercontent.com/scify/Wind-Music-Game-for-the-blind/master/src/main/resources/img/windmusicgame_large.png)
+![Memor-i logo](https://raw.githubusercontent.com/scify/Wind-Music-Game-for-the-blind/master/src/main/resources/norwegian_pack/img/music_game_logo.png)
 
 A Set of "Memory" card games especially tailored to meet the needs of blind music students.
 Check out our [YouTube video](https://www.youtube.com/watch?v=M2DqT5e975w)
