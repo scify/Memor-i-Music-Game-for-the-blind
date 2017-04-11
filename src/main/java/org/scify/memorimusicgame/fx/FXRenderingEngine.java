@@ -701,7 +701,7 @@ public class FXRenderingEngine implements RenderingEngine<MemoriGameState>, UI, 
 
     public static void setSponsorcoverIcon(Scene scene, String imgContainer) {
         ImageView gameCoverImgContainer = (ImageView) scene.lookup("#" + imgContainer);
-        setIconOnPage("WIND_logo_blue.png", gameCoverImgContainer);
+        setIconOnPage("sponsor_logo.png", gameCoverImgContainer);
     }
 
     private static void setIconOnPage(String iconPath, ImageView gameCoverImgContainer) {
